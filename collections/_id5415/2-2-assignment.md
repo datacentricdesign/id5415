@@ -14,8 +14,8 @@ computational_concepts:
 
 ---
 
-* Do not remove this line (it will not be displayed)
-{:toc}
+- Do not remove this line (it will not be displayed)
+  {:toc}
 
 ---
 
@@ -308,14 +308,64 @@ In our example, you can recognise the key 'on_off', an `integer` with value `1`:
 
 # Step 4 Control flow
 
-# Step 4.1 Objects
+TODO For loop, if-else and other loops (focused on to control the lights bulb)
 
-## Task 4.2 Condition
+In programming, if you want to control the flow of your code execution(Foe example keep the light bulb blinking when the it is not connected to the wifi"), you can use control flow statement. There are different kind of Control Statement which you can use according your code logic. We will discuss some of these statements in the sections below to with our smart-bulb.
 
-## Task 4.3 Loops
+# Step 4.1 Condition
+
+As the name suggests, conditions is the checkpoint in your code to make sure it won't execute the particular block of code until the condition is fulfilled. The most commonly conditions are `if..else` and `while` condition.
+
+The syntax for if..else in python is:
+
+```python
+    if CONDTION TRUE:
+      EXECUTE STATEMENT1
+      EXECUTE STATEMENT2
+      EXECUTE STATEMENT3
+```
+
+TODO Lets explore the `if..else` condition with our light-bulb example: We will try to blink the light bulb twice with every 30 seconds.
+
+```python
+# Import libraries
+import asyncio
+from kasa import SmartBulb
+# 'async' transform our main() into an asynchronous function
+async def main():
+    # Call the definition of a light bulb, replace the IP address with the one found with kasa discover
+    bulb = SmartBulb("10.0.1.3") #Make sure to replace your smart-bulb IP Address here
+    # 'await' tells the program to wait till getting a result from the light bulb
+    result = await bulb.turn_on()
+    # Once we receive it, we call print() to show the result in the Terminal
+    print(result)
+
+# We call main() in the asynchronous environment
+asyncio.run(main())
+```
+
+Copy paste the above code in your python script and run the script in terminal by
+
+```bash
+python your_script_name.py
+```
+
+## Task 4.2 Loops
+
+In python, when you want to run certain piece of code in a continuous manner over time (e.g keep blinking the light bulb for 30 seconds), you can use certain control flow which is called `Loops`.
+
+There two common loop statement in python. One is `For Loop` and the another is `While loop`
+
+TODO example of for loop and while loop
+
+## Task 4.3 Object / Iterator
 
 **Commit and Push!** You've wrote a new piece of code, let's make sure that Git keeps a version of it. To do so, repeat [Task 1.3](#task-13-stage-and-commit-changes) and [Task 1.4](#task-14-stage-and-commit-changes). Your commit message could be 'shaping the light bulb behaviour'
 
 **Updating the CHANGELOG file** In this assignment you have made significant additions to your prototype. Edit the file `CHANGELOG.md`
 
 **Filing an Issue**
+
+```
+
+```
