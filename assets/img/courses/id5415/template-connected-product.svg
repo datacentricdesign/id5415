@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1366 768" style="enable-background:new 0 0 1366 768;" xml:space="preserve">
+<style type="text/css">
+	.st0{font-family:'Roboto-Regular';}
+	.st1{font-size:48px;}
+	.st2{fill:none;stroke:#B3B3B3;stroke-width:2;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#B3B3B3;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:11.7317,11.7317;}
+	.st4{fill:none;stroke:#B3B3B3;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:11.8966,11.8966;}
+	.st5{fill:#B3B3B3;}
+	.st6{font-size:18px;}
+	.st7{fill:none;stroke:#B3B3B3;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:12.04,12.04;}
+	.st8{fill:none;stroke:#B3B3B3;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:12.2381,12.2381;}
+	.st9{fill:none;}
+	.st10{font-size:14px;}
+	.st11{font-family:'Roboto-Bold';}
+	.st12{fill:none;stroke:#B3B3B3;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:12.2258,12.2258;}
+	.st13{font-size:12px;}
+</style>
+<text transform="matrix(1 0 0 1 31.8203 73.5898)" class="st0 st1">[Insert Connected Product Name]</text>
+<g>
+	<g>
+		<polyline class="st2" points="1341,388 1341,394 1335,394 		"/>
+		<line class="st3" x1="1323.3" y1="394" x2="859.9" y2="394"/>
+		<polyline class="st2" points="854,394 848,394 848,388 		"/>
+		<line class="st4" x1="848" y1="376.1" x2="848" y2="48.9"/>
+		<polyline class="st2" points="848,43 848,37 854,37 		"/>
+		<line class="st3" x1="865.7" y1="37" x2="1329.1" y2="37"/>
+		<polyline class="st2" points="1335,37 1341,37 1341,43 		"/>
+		<line class="st4" x1="1341" y1="54.9" x2="1341" y2="382.1"/>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 868.3335 73.4614)" class="st5 st0 st6">Image connected product</text>
+<text transform="matrix(1 0 0 1 31.8203 321.5555)" class="st0 st6">This is a good example of connected product because</text>
+<text transform="matrix(1 0 0 1 31.8201 161.5553)" class="st0 st6">Elements of the IoT stack:</text>
+<text transform="matrix(1 0 0 1 31.8203 456.3445)" class="st0 st6">This is how I look like in team work:</text>
+<g>
+	<g>
+		<polyline class="st2" points="344.8,738 344.8,744 338.8,744 		"/>
+		<line class="st7" x1="326.8" y1="744" x2="43.8" y2="744"/>
+		<polyline class="st2" points="37.8,744 31.8,744 31.8,738 		"/>
+		<line class="st8" x1="31.8" y1="725.8" x2="31.8" y2="487.1"/>
+		<polyline class="st2" points="31.8,481 31.8,475 37.8,475 		"/>
+		<line class="st7" x1="49.9" y1="475" x2="332.8" y2="475"/>
+		<polyline class="st2" points="338.8,475 344.8,475 344.8,481 		"/>
+		<line class="st8" x1="344.8" y1="493.2" x2="344.8" y2="731.9"/>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 31.8204 116.5553)" class="st0 st6">by [Insert you name]</text>
+<text transform="matrix(1 0 0 1 391.3575 456.5553)" class="st0 st6">Myself in 3 bullets points</text>
+<circle class="st2" cx="391.5" cy="501.5" r="6.5"/>
+<rect x="411.2" y="518.6" class="st9" width="511.8" height="47.4"/>
+<text transform="matrix(1 0 0 1 411.25 529.0674)" class="st0 st10">[First trait in 140 characters]</text>
+<text transform="matrix(1 0 0 1 411.2498 505.3745)" class="st11 st6">[First trait]</text>
+<circle class="st2" cx="391.5" cy="588.5" r="6.5"/>
+<rect x="411.2" y="605.6" class="st9" width="511.8" height="47.4"/>
+<text transform="matrix(1 0 0 1 411.25 616.0674)" class="st0 st10">[Second trait in 140 characters]</text>
+<text transform="matrix(1 0 0 1 411.2498 592.3745)" class="st11 st6">[Second trait]</text>
+<circle class="st2" cx="391.5" cy="683.5" r="6.5"/>
+<rect x="411.2" y="700.6" class="st9" width="511.8" height="47.4"/>
+<text transform="matrix(1 0 0 1 411.25 711.0674)" class="st0 st10">[First trait in 140 characters]</text>
+<text transform="matrix(1 0 0 1 411.2498 687.3745)" class="st11 st6">[Third trait]</text>
+<g>
+	<g>
+		<polyline class="st2" points="1341,738 1341,744 1335,744 		"/>
+		<line class="st12" x1="1322.8" y1="744" x2="962.1" y2="744"/>
+		<polyline class="st2" points="956,744 950,744 950,738 		"/>
+		<line class="st8" x1="950" y1="725.8" x2="950" y2="487.1"/>
+		<polyline class="st2" points="950,481 950,475 956,475 		"/>
+		<line class="st12" x1="968.2" y1="475" x2="1328.9" y2="475"/>
+		<polyline class="st2" points="1335,475 1341,475 1341,481 		"/>
+		<line class="st8" x1="1341" y1="493.2" x2="1341" y2="731.9"/>
+	</g>
+</g>
+<rect x="31.8" y="174.2" class="st9" width="511.8" height="47.4"/>
+<text transform="matrix(1 0 0 1 31.8205 184.7069)" class="st0 st10">[The IoT stack of this product in 140 characters]</text>
+<text transform="matrix(1 0 0 1 977.9362 512.2177)"><tspan x="0" y="0" class="st5 st0 st6">Screenshot of my Role Team Test</tspan><tspan x="0" y="14.4" class="st5 st0 st13">https://www.idrlabs.com/team-role/test.php</tspan></text>
+<text transform="matrix(1 0 0 1 47.5432 508.2177)"><tspan x="0" y="0" class="st5 st0 st6">[Image illustrating how</tspan><tspan x="0" y="21.6" class="st5 st0 st6">I look like in team work]</tspan></text>
+</svg>
