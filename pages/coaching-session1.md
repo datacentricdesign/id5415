@@ -1,13 +1,15 @@
 ---
 layout: minimal
 title: "Making teams"
-permalink: /teams.html
+permalink: /module1/coaching-session
 description: "First coaching session"
 ---
 
 <span class="mdi mdi-map-marker-outline"></span>Online / On-Campus
 
 <span class="mdi mdi-timelapse"></span>Sept 14, 18:00-20:00
+
+The aim of this session is to help you form teams of 3 students in which you feel comfortable for the remaining of the course.
 
 # Before Coming to the Session
 
@@ -17,7 +19,7 @@ description: "First coaching session"
 * Take a screenshot and keep it to digitally bring it to class
 * Make sure you have a laptop available in class
 
-# During the Session:
+# During the Session
 
 ## Task 1 Connected Product Card
 
