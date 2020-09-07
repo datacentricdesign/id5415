@@ -1,7 +1,7 @@
 ---
 layout: course-page
 title: "Products, Analytics and Privacy"
-permalink: /module5/self-study
+permalink: /module6/self-study
 description: "Prototyping Connected Product - Self-Study 6"
 self-study-id: 6
 self-study-of: id5415-6
