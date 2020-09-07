@@ -13,7 +13,7 @@ description: "First coaching session"
 
 ## Task 0 Team Role Test
 
-* Do a team role test online (will online take a few minutes): https://www.idrlabs.com/team-role/test.php
+* Do a team role test online. This test is online and takes only a few minutes: [Take the test](https://www.idrlabs.com/team-role/test.php)
 * Take a screenshot and keep it to digitally bring it to class
 * Make sure you have a laptop available in class
 
