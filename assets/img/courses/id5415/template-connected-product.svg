@@ -34,7 +34,7 @@
 <text transform="matrix(1 0 0 1 868.3335 73.4614)" class="st5 st0 st6">Image connected product</text>
 <text transform="matrix(1 0 0 1 31.8203 321.5555)" class="st0 st6">This is a good example of connected product because</text>
 <text transform="matrix(1 0 0 1 31.8201 161.5553)" class="st0 st6">Elements of the IoT stack:</text>
-<text transform="matrix(1 0 0 1 31.8203 456.3445)" class="st0 st6">This is how I look like in team work:</text>
+<text transform="matrix(1 0 0 1 31.8203 456.3445)" class="st0 st6">This is how I look like in team work</text>
 <g>
 	<g>
 		<polyline class="st2" points="344.8,738 344.8,744 338.8,744 		"/>
@@ -53,14 +53,14 @@
 <rect x="411.2" y="518.6" class="st9" width="511.8" height="47.4"/>
 <text transform="matrix(1 0 0 1 411.25 529.0674)" class="st0 st10">[First trait in 140 characters]</text>
 <text transform="matrix(1 0 0 1 411.2498 505.3745)" class="st11 st6">[First trait]</text>
-<circle class="st2" cx="391.5" cy="588.5" r="6.5"/>
-<rect x="411.2" y="605.6" class="st9" width="511.8" height="47.4"/>
-<text transform="matrix(1 0 0 1 411.25 616.0674)" class="st0 st10">[Second trait in 140 characters]</text>
-<text transform="matrix(1 0 0 1 411.2498 592.3745)" class="st11 st6">[Second trait]</text>
-<circle class="st2" cx="391.5" cy="683.5" r="6.5"/>
-<rect x="411.2" y="700.6" class="st9" width="511.8" height="47.4"/>
-<text transform="matrix(1 0 0 1 411.25 711.0674)" class="st0 st10">[First trait in 140 characters]</text>
-<text transform="matrix(1 0 0 1 411.2498 687.3745)" class="st11 st6">[Third trait]</text>
+<circle class="st2" cx="391.5" cy="566.5" r="6.5"/>
+<rect x="411.2" y="583.6" class="st9" width="511.8" height="47.4"/>
+<text transform="matrix(1 0 0 1 411.25 594.0674)" class="st0 st10">[Second trait in 140 characters]</text>
+<text transform="matrix(1 0 0 1 411.2498 570.3745)" class="st11 st6">[Second trait]</text>
+<circle class="st2" cx="390.5" cy="631.5" r="6.5"/>
+<rect x="410.2" y="648.6" class="st9" width="511.8" height="47.4"/>
+<text transform="matrix(1 0 0 1 410.25 659.0674)" class="st0 st10">[First trait in 140 characters]</text>
+<text transform="matrix(1 0 0 1 410.2498 635.3745)" class="st11 st6">[Third trait]</text>
 <g>
 	<g>
 		<polyline class="st2" points="1341,738 1341,744 1335,744 		"/>
@@ -77,4 +77,15 @@
 <text transform="matrix(1 0 0 1 31.8205 184.7069)" class="st0 st10">[The IoT stack of this product in 140 characters]</text>
 <text transform="matrix(1 0 0 1 977.9362 512.2177)"><tspan x="0" y="0" class="st5 st0 st6">Screenshot of my Role Team Test</tspan><tspan x="0" y="14.4" class="st5 st0 st13">https://www.idrlabs.com/team-role/test.php</tspan></text>
 <text transform="matrix(1 0 0 1 47.5432 508.2177)"><tspan x="0" y="0" class="st5 st0 st6">[Image illustrating how</tspan><tspan x="0" y="21.6" class="st5 st0 st6">I look like in team work]</tspan></text>
+<circle class="st2" cx="72.5" cy="215.5" r="6.5"/>
+<text transform="matrix(1 0 0 1 92.2498 222.3745)" class="st11 st6">[IoT stack element]</text>
+<circle class="st2" cx="72.5" cy="275.5" r="6.5"/>
+<text transform="matrix(1 0 0 1 92.2498 282.3745)" class="st11 st6">[IoT stack element]</text>
+<circle class="st2" cx="72.5" cy="245.5" r="6.5"/>
+<text transform="matrix(1 0 0 1 92.2498 252.3745)" class="st11 st6">[IoT stack element]</text>
+<text transform="matrix(1 0 0 1 397.4683 746.2402)" class="st11 st6">[Condition 1]</text>
+<text transform="matrix(1 0 0 1 949.7509 456.6192)" class="st0 st6">My Role Team Test</text>
+<text transform="matrix(1 0 0 1 383.7509 709.6193)" class="st0 st6">My boundary conditions for team work</text>
+<text transform="matrix(1 0 0 1 591.5766 746.2404)" class="st11 st6">[Condition 2]</text>
+<text transform="matrix(1 0 0 1 785.685 746.2404)" class="st11 st6">[Condition 3]</text>
 </svg>
