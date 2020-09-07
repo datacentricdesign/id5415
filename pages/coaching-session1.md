@@ -1,7 +1,7 @@
 ---
 layout: minimal
 title: "Making teams"
-permalink: /teams.html
+permalink: /module1/coaching-session
 description: "First coaching session"
 ---
 
@@ -9,15 +9,17 @@ description: "First coaching session"
 
 <span class="mdi mdi-timelapse"></span>Sept 14, 18:00-20:00
 
+The aim of this session is to help you form teams of 3 students in which you feel comfortable for the remaining of the course.
+
 # Before Coming to the Session
 
 ## Task 0 Team Role Test
 
-* Do a team role test online (will online take a few minutes): https://www.idrlabs.com/team-role/test.php
+* Do a team role test online. This test is online and takes only a few minutes: [Take the test](https://www.idrlabs.com/team-role/test.php)
 * Take a screenshot and keep it to digitally bring it to class
 * Make sure you have a laptop available in class
 
-# During the Session:
+# During the Session
 
 ## Task 1 Connected Product Card
 

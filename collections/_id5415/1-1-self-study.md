@@ -47,7 +47,7 @@ continuous engineering
 
 * Data: the Internet of Thing is all about generating data 
 
-* Intelligence: establishing connection between devices makes them more aware, more capable, and by extension more intelligent. Thus, the common phrasing of 'Smart'. However, it all comes down to the ability to connect and share information, so that each part of the system can gain and leverage knowledge.
+* Intelligence: establishing a connection between devices makes them more aware, more capable, and by extension more intelligent. Thus, the common phrasing of 'Smart'. However, it all comes down to the ability to connect and share information, so that each part of the system can gain and leverage knowledge.
 
 However, these opportunities naturally leads to three key challenges:
 
