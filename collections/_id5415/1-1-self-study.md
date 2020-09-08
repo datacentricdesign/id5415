@@ -26,16 +26,18 @@ introduction: What are connected products and how do their prototypes differ fro
 
 <span class="mdi mdi-text-box-outline"></span> Reading (15 minutes)
 
-In this course, we refer to connected products as any physical entity with the ability to share or receive information through the Internet. It is an interface between the physical and the digital world. Let's define the 2 pillars of connected products: `Things` and `Networks`
+In this course, we refer to connected products as any physical entity with the ability to share or receive information through the Internet. It is an interface between the physical and the digital world. Let's define the two pillars of connected products: `Things` and `Networks`
 
-The term `Thing` is commonly used in reference to the technology enabling physical entities to have a digital manifestation. We can distinguish 4 types of Things:
+The term `Thing` is commonly used in reference to the technology enabling physical entities to have a digital manifestation. We can distinguish four types of Things:
+
+![Four types of Things](/assets/img/courses/id5415/module1/four-types-of-things.svg)
 
 * **Multipurpose computers** are computers with powerful resources such as Personal Computers, laptops or smartphones. They have capabilities to process a significant amount of information while handling multiple applications in parallel. These devices are complex digital entities on there own and often not considered as Things. They have their dedicated Industry with design and engineering.
 * **Specialised embedded devices** are small computers, still with the ability to work on their own for a specific set of functionalities. They have processing capabilities to handle several tasks. They can connect to the Internet on their own or require a connection with a multipurpose computer. Typical examples are smart thermostats which connect to the home WiFi network or smart watches which interact with a smartphone in order to access the Internet. Challenges 
 * **Connected sensors and controls** focus on a specific sensing or control functionality such as collecting the ambient temperature or turning ON/OFF the light in the room. They deal with limited resources (e.g. energy, processing, memory). Design challenges lies at the frontier of software and hardware, often achieve with Arduino-like platform.
 * **Passively trackable object** are pieces of metal (e.g. RFID tags) or visuals (e.g. QR code for 'Quick Response' code) which are attached to hardware, connecting them with their digital representation. They require an external device to establish this connection. A typical example is delivery parcels with QR Codes. Throughout the delivery process, parcels are scanned so that customer can trace their location online (digital representation).
 
- In this course, the [Raspberry Pi](/tags/#raspberry-pi) represents such a Specialised embedded device. It is a small multipurpose computer which makes it a good candidate for rapid prototyping of connected products. The light bulb is best representing this type of Things. 
+In this course, the [Raspberry Pi](/tags/#raspberry-pi) represents such a Specialised embedded device. It is a small multipurpose computer which makes it a good candidate for rapid prototyping of connected products. The light bulb is best representing this type of Things. 
 
 The common point of all these Things is their purpose of digitising and communicating information. Thus, the `network`, establishing the communication between these Things, is the second pillar of connected products. How this communication is established, what constraints does it imply? How fast, reliable, secure is this communication? As communication is at the core of a connected product, it becomes critical to take it into consideration throughout the design process. We will dedicate the [fourth module](/module4) to Network technologies
 
