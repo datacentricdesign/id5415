@@ -44,18 +44,13 @@ The common point of all these `Things` is their purpose of digitising and commun
 The field of connected products is growing fast as it enables three major opportunities:
 
 * **Data** -- the Internet of Things is all about generating data. In this context, we often refer to the 5Vs as depicted in by the [IBM infographic](https://www.ibmbigdatahub.com/infographic/extracting-business-value-4-vs-big-data): Volume, Velocity, Veracity, Variety and more recently Value.
-
 * **Intelligence** -- establishing a connection between devices makes them more aware, more capable, and by extension more intelligent. Thus, the common phrasing of 'Smart'. However, it all comes down to the ability to connect and share information, so that each part of the system can gain and leverage knowledge.
-
-
 * **Continuous Interactions** -- A connected `Thing` cannot only interact with the nearby environment. It keeps the link to the supply chain open. It changes the relationship between designers and their products. Designers can apply [continuous engineering](https://www.ibmbigdatahub.com/blog/what-continuous-engineering) methods to learn about the performance and usage of their product to continuously redesign and improve them.
 
 However, these opportunities naturally lead to three key challenges:
 
 * **Complexity** -- in contrast with a traditional product made of a single device, a connected product potentially involve several devices including some devices which are not under your control. It forms a system in which pieces of codes are running on many different devices, which makes the maintenance more difficult, but also raise new questions regarding privacy, security and ownership;
-
 * **Dynamic** -- this network of Things is highly dynamic. The Things available on the network at a given time might not be available later on, or in a different form: the location changed, the electrical power is gone, the machine learning algorithm gathered more data and thus behave differently.
-
 * **Inter-dependence** -- without its connection to a network, a Thing is often no longer able to deliver its functionalities. The data it receives is often the main driver of its behaviour. Thus the data quality shape the final What should the thermostat do when no temperature data is coming?
 
 With these opportunities and challenges in mind, what is different about prototypes of connected products?
