@@ -29,7 +29,7 @@ We have prepared 5 steps for this assignment (each again divided into specific t
 ---
 
 * Do not remove this line (it will not be displayed)
-  {:toc}
+{:toc}
 
 ---
 
