@@ -28,7 +28,7 @@ We have prepared 5 steps for this assignment (each again divided into specific t
 
 ---
 
-- Do not remove this line (it will not be displayed)
+* Do not remove this line (it will not be displayed)
   {:toc}
 
 ---
@@ -97,7 +97,7 @@ In software engineering a number of varieties exists: 'Unix shell', 'Console', '
 
 On Windows, the installation of Git should have install bash, **you must select bash instead of Power Shell.**
 
-![Introduction to VSCode Terminal](/assets/img/courses/id5415/module1/assignment/2_3_1.png)
+![Introduction to VSCode Terminal](/assets/img/courses/id5415/module1/assignment/2_3_0.png)
 
 Each command line start with your username @ your machine name. Then, the current folder is shown
 
@@ -115,7 +115,7 @@ ls
 
 Your test folder should appear as a result of this command as shown below.
 
-![](/assets/img/courses/id5415/module1/assignment/2_3_2_1.png)
+![](/assets/img/courses/id5415/module1/assignment/2_3_1.png)
 
 Most commands come with a manual, available with the command `man`. Let's explore the option of the `ls` command.
 
@@ -123,7 +123,7 @@ Most commands come with a manual, available with the command `man`. Let's explor
 man ls
 ```
 
-![](/assets/img/courses/id5415/module1/assignment/2_3_2_2.png)
+![](/assets/img/courses/id5415/module1/assignment/2_3_2.png)
 
 You can see a long list of option, starting with a dash `-`. These options can be combined together. For instance you will note `-G` for colouring the result and `-l` for the long and detailed result. To quit the manual, press `q`. Now we can try:
 
@@ -131,7 +131,7 @@ You can see a long list of option, starting with a dash `-`. These options can b
 ls -Gl
 ```
 
-![](/assets/img/courses/id5415/module1/assignment/2_3_2_3.png)
+![](/assets/img/courses/id5415/module1/assignment/2_3_3.png)
 
 In the terminal, everything relates to where you are in the file tree, i.e. in which folder you are in. With the command `cd` you can 'change directory' to navigate this tree. The 'path' is the chain of directories to reach your targeted file or directory.
 
@@ -139,7 +139,7 @@ In the terminal, everything relates to where you are in the file tree, i.e. in w
 cd test
 ```
 
-![](/assets/img/courses/id5415/module1/assignment/2_3_2_4.png)
+![](/assets/img/courses/id5415/module1/assignment/2_3_4.png)
 
 You entered 'test' folder, you can notice the command line is now showing 'test' as the current folder. There are three important path markers: dot `.` for the current directory, dot dot `..` for the parent directory, and tilde `~` for the home directory.
 
@@ -149,7 +149,7 @@ Going back to the parent directory:
 cd ..
 ```
 
-![](/assets/img/courses/id5415/module1/assignment/2_3_2_5.png)
+![](/assets/img/courses/id5415/module1/assignment/2_3_5.png)
 
 Finally, the tilde `~` leads you to your home directory:
 
@@ -157,7 +157,7 @@ Finally, the tilde `~` leads you to your home directory:
 cd ~
 ```
 
-![](/assets/img/courses/id5415/module1/assignment/2_3_2_6.png)
+![](/assets/img/courses/id5415/module1/assignment/2_3_6.png)
 
 To avoid typing the same command again and again,you can press the Arrow-Up key to bring back you previous commands.
 
@@ -275,11 +275,17 @@ kasa --help
 
 ![IP Address of the light bulb after connected to local WiFi](/assets/img/courses/id5415/module1/assignment/3_4_1.png)
 
-kasa --host `<HOST>` brightness
+```bash
+kasa --host <HOST> brightness
+```
 
-kasa --host `<HOST>` off
+```bash
+kasa --host <HOST> off
+```
 
-kasa --host `<HOST>` on
+```bash
+kasa --host <HOST> on
+```
 
 ![Kasa commands to control the light-bulb from machine](/assets/img/courses/id5415/module1/assignment/3_4_2.png)
 
@@ -378,11 +384,17 @@ This will show the name of our smart bulb, its IP address, some hardware details
 
 Now that we have the IP address of the bulb (HOST), we will try to interact with light bulb by running some simple commands from kasa library.
 
-kasa --host `<HOST>` brightness
+```bash
+kasa --host <HOST> brightness
+```
 
-kasa --host `<HOST>` off
+```bash
+kasa --host <HOST> off
+```
 
-kasa --host `<HOST>` on
+```bash
+kasa --host <HOST> on
+```
 
 ![Kasa commands to control the light-bulb from Pi](/assets/img/courses/id5415/module1/assignment/4_3_4.png)
 
