@@ -8,7 +8,7 @@ assignment-of: id5415-1
 introduction: Assignments are where the prototyping happens. In this first assignment, you will set up a Raspberry Pi as a connected home hub to control connected light bulbs. We will walk you through the steps while exploring the purpose of each component, incrementally drawing a product architecture.
 prog_environment: Raspberry Pi
 design: Architecture
-code_management: Logs
+code_management:
 computational_concepts: Data
 tags:
 - microprocessor
@@ -17,7 +17,11 @@ tags:
 - CLI
 - SSH
 - Bucket
-- Setup
+- setup
+- data
+- logs
+- architecture
+- Raspberry Pi
 ---
 
 We have prepared 5 steps for this assignment (each again divided into specific tasks you have to perform).
@@ -272,7 +276,7 @@ TODO a few command examples (Pending)
 
 - we are able to control the connected light bulb from our computer
 
-# Step 4: Set yp a Raspberry Pi as Home Hub
+# Step 4: Set up a Raspberry Pi as Home Hub
 
 What is a Raspberry Pi, in contrast with an Arduino-like device? Here is a comparison, opposing a ['Microprocessor' and a 'microcontroller'](https://www.youtube.com/watch?v=7vhvnaWUZjE). Why do we use another computer rather than our own machine? Throughout the course, you will also test your code on your machine. However, when prototyping connected products, you want them to be connected over time, especially for a home hub, and not depending on your laptop activity (e.g. closing the lead, moving out of the house). The Raspberry Pi can be permanently connected and serve its purpose. Besides, it also makes a device on which we can set up network access, enabling your laptop, your phone and other devices to interact with it.
 

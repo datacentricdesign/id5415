@@ -8,6 +8,14 @@ introduction: Lab experiment is the term we use in this course for making use of
 technique: Data Exploration, Reverse Engineering
 metrics:
 report: System Architecture, System Data Visualisation
+tags:
+- logs
+- flow chart
+- data
+- reverse engineering
+- SSH
+- CLI
+- 
 ---
 
 ---
