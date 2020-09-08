@@ -1,6 +1,6 @@
 ---
 layout: course-page
-title: 'Setting Up Prototyping Tools'
+title: 'Setting Up Tools'
 permalink: /module1/assignment
 description: 'Prototyping Connected Product - Assignment 1'
 assignment-id: 1
