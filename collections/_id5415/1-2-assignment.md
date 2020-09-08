@@ -87,7 +87,7 @@ Create a folder on your computer (i.e Desktop) to store the files for this cours
 
 ![Tour to VS Code](/assets/img/courses/id5415/module1/assignment/2_2.png)
 
-![Getting Started with VS Code](https://youtu.be/Sdg0ef2PpBw)
+<iframe width="560" height="400" src="https://youtube.com/embed/Sdg0ef2PpBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Task 2.3: Get familiar with the Command-line Interpreter (CLI)
 
