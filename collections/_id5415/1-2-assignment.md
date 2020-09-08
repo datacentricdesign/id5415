@@ -8,16 +8,20 @@ assignment-of: id5415-1
 introduction: Assignments are where the prototyping happens. In this first assignment, you will set up a Raspberry Pi as a connected home hub to control connected light bulbs. We will walk you through the steps while exploring the purpose of each component, incrementally drawing a product architecture.
 prog_environment: Raspberry Pi
 design: Architecture
-code_management: Logs
+code_management:
 computational_concepts: Data
 tags:
-  - microprocessor
-  - microcontroller
-  - IDE
-  - CLI
-  - SSH
-  - Bucket
-  - Setup
+- microprocessor
+- microcontroller
+- IDE
+- CLI
+- SSH
+- Bucket
+- setup
+- data
+- logs
+- architecture
+- Raspberry Pi
 ---
 
 We have prepared 5 steps for this assignment (each again divided into specific tasks you have to perform).
@@ -241,12 +245,10 @@ When the light bulb is found, at the top of the result you will note 'Host:' fol
 kasa --host <YOUR_HOST_IP> wifi
 ```
 
-TODO screenshot result (Pending)
 ![Scan discoverable WiFi](/assets/img/courses/id5415/module1/assignment/3_3_2.png)
 
 - Finally, we send a message to the light bulb with the WiFi network information. In the following command, the `<HOST>` is the IP address of the light bulb identified in step 3, 'wifi join' are the command and subcommand, `<YOUR_WIFI_SSID>` is the SSID of the network to connect to (i.e. name of the network/Wifi), the password option provision the network/wifi password and `keytype` is the category of the network.
 
-TODO
 ```bash
 kasa --host <HOST> wifi join <YOUR_WIFI_SSID> --password <YOUR_WIFI_PASSWORD> --keytype="3"
 ```
@@ -285,7 +287,7 @@ kasa --host `<HOST>` on
 
 - we are able to control the connected light bulb from our computer
 
-# Step 4: Set yp a Raspberry Pi as Home Hub
+# Step 4: Set up a Raspberry Pi as Home Hub
 
 What is a Raspberry Pi, in contrast with an Arduino-like device? Here is a comparison, opposing a ['Microprocessor' and a 'microcontroller'](https://www.youtube.com/watch?v=7vhvnaWUZjE). Why do we use another computer rather than our own machine? Throughout the course, you will also test your code on your machine. However, when prototyping connected products, you want them to be connected over time, especially for a home hub, and not depending on your laptop activity (e.g. closing the lead, moving out of the house). The Raspberry Pi can be permanently connected and serve its purpose. Besides, it also makes a device on which we can set up network access, enabling your laptop, your phone and other devices to interact with it.
 
