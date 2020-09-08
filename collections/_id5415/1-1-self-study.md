@@ -41,36 +41,33 @@ In this course, we will use a [Raspberry Pi](/tags/#raspberry-pi) to represent a
 
 The common point of all these `Things` is their purpose of digitising and communicating information. Thus, the `Network`, establishing the communication between these `Things`, is the second pillar of connected products. How this communication is established, what constraints does it imply? How fast, reliable, secure is this communication? As communication is at the core of a connected product, it becomes critical to take it into consideration throughout the design process. We will dedicate the [fourth module](/module4) to Network technologies
 
-The field of connected products is growing fast as it enables three major opportunities.
-
-* Interactions:
-
-continuous engineering
+The field of connected products is growing fast as it enables three major opportunities:
 
 * Data: the Internet of Things is all about generating data. In this context, we often refer to the 5Vs as depicted in by the [IBM infographic](https://www.ibmbigdatahub.com/infographic/extracting-business-value-4-vs-big-data): Volume, Velocity, Veracity, Variety and more recently Value.
 
 * Intelligence: establishing a connection between devices makes them more aware, more capable, and by extension more intelligent. Thus, the common phrasing of 'Smart'. However, it all comes down to the ability to connect and share information, so that each part of the system can gain and leverage knowledge.
 
+
+* Continuous Interactions: A connected `Thing` cannot only interact with the nearby environment. It keeps the link to the supply chain open. It changes the relationship between designers and their products. Designers can apply [continuous engineering](https://www.ibmbigdatahub.com/blog/what-continuous-engineering) methods to learn about the performance and usage of their product to continuously redesign and improve them.
+
 However, these opportunities naturally lead to three key challenges:
 
 * Complexity: in contrast with a traditional product made of a single device, a connected product potentially involve several devices including some devices which are not under your control. It forms a system in which pieces of codes are running on many different devices, which makes the maintenance more difficult, but also raise new questions regarding privacy, security and ownership;
-* Dynamic: this network of Things is highly dynamic. The Things available on the network at a given time might not be available later on, or in a different form: the location changed, the electrical power is gone, the machine learning algorithm gathered more data and thus behave differently. Connected to a network, Things also gain the ability to upgrade themselves, fetching the lastest software available like a smartphone or personal computer.
+
+* Dynamic: this network of Things is highly dynamic. The Things available on the network at a given time might not be available later on, or in a different form: the location changed, the electrical power is gone, the machine learning algorithm gathered more data and thus behave differently.
+
 * Inter-dependence: without its connection to a network, a Thing is often no longer able to deliver its functionalities. The data it receives is often the main driver of its behaviour. Thus the data quality shape the final What should the thermostat do when no temperature data is coming?
 
 With these opportunities and challenges in mind, what is different about prototypes of connected products?
 
 It is difficult to leverage these opportunities or measure the impact of these challenges without experiencing them. While implementing a functional prototype is a common practice in the later stages of design processes, it is also becoming necessary in the earlier stages.
 
-This involves:
+Here are four examples:
+
 * Feasibility prototypes
 * User Prototypes
 * Live-Data Prototypes
 * Hybrid Prototypes
-
-## References
-
-1. [Designing Connected Products](https://www.oreilly.com/library/view/designing-connected-products/9781449372682/) UX for the Consumer Internet of Things. By Clair Rowland, Elizabeth Goodman, Martin Charlier, Ann Light and Alfred Lui.
-2. [Inspired](https://www.goodreads.com/book/show/35249663-inspired) How to create tech products customers love
 
 # Internet of Things' Technology Stack
 
@@ -82,18 +79,6 @@ In the following series of seven small videos, we shed light on this digital tec
 
 [Video Series on the Internet of Things' Technology Stack](https://www.youtube.com/playlist?list=PL3sV9hKiYEP-MVdxCXYfl7vei77xdbJo6)
 
-## References
-
-* [Daniel Elizalde’s IoT Technology Stack](https://danielelizalde.com)
-* [Google Nest Learning Thermostat](https://store.google.com/us/product/nest_learning_thermostat_3rd_gen)
-* [Pentoz Connectivity and Network Technologies](https://pentoztechnology.wordpress.com/2018/04/04/connectivity-and-network-technologies-of-iot/)
-* [Google Cloud Dataflow in the Smart Home Data Pipeline](https://nest.tech/google-cloud-dataflow-in-the-smart-home-data-pipeline-5ae71781b856) by Matt & Riju (Medium)
-* [Atech ISO Model](http://aurumme.com/atech/osi-model/3/)
-* [3 Types of Software Architecture for Connected Devices.](https://medium.com/stanfy-engineering-practices/3-types-of-software-architecture-for-connected-devices-a-smart-light-bulb-case-54dc7727136f) A Smart Light Bulb Case by Pablo Bashmakov (Medium) 
-* [IoT data Silos](https://www.slideshare.net/rajrsingh/iot-meets-geo)
-* [EVRYTHNG Cloud integration](https://www.slideshare.net/rajrsingh/iot-meets-geo)
-* [Design Thing, Nilsen Norman Group](https://www.nngroup.com/articles/design-thinking/)
-
 # Check your Understanding
 
 <span class="mdi mdi-head-question"></span> Quiz (15 minutes)
@@ -101,3 +86,17 @@ In the following series of seven small videos, we shed light on this digital tec
 Check your understanding with the following quiz! It is anonymous and you can try as many times as you want!
 
 <iframe width="640px" height= "600px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=TVJuCSlpMECM04q0LeCIe-EN8Fz6eUZIqbayPT_HeNhUNUFFMUxIMkxGN1Q5NFhSTDBSUTY4V0pNVS4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+
+# References
+
+1. [Designing Connected Products](https://www.oreilly.com/library/view/designing-connected-products/9781449372682/) UX for the Consumer Internet of Things. By Clair Rowland, Elizabeth Goodman, Martin Charlier, Ann Light and Alfred Lui.
+2. [Inspired](https://www.goodreads.com/book/show/35249663-inspired) How to create tech products customers love
+3. [Daniel Elizalde’s IoT Technology Stack](https://danielelizalde.com)
+ [Google Nest Learning Thermostat](https://store.google.com/us/product/nest_learning_thermostat_3rd_gen)
+4. [Pentoz Connectivity and Network Technologies](https://pentoztechnology.wordpress.com/2018/04/04/connectivity-and-network-technologies-of-iot/)
+5. [Google Cloud Dataflow in the Smart Home Data Pipeline](https://nest.tech/google-cloud-dataflow-in-the-smart-home-data-pipeline-5ae71781b856) by Matt & Riju (Medium)
+6. [Atech ISO Model](http://aurumme.com/atech/osi-model/3/)
+7. [3 Types of Software Architecture for Connected Devices.](https://medium.com/stanfy-engineering-practices/3-types-of-software-architecture-for-connected-devices-a-smart-light-bulb-case-54dc7727136f) A Smart Light Bulb Case by Pablo Bashmakov (Medium) 
+8. [IoT data Silos](https://www.slideshare.net/rajrsingh/iot-meets-geo)
+9. [EVRYTHNG Cloud integration](https://www.slideshare.net/rajrsingh/iot-meets-geo)
+10. [Design Thing, Nilsen Norman Group](https://www.nngroup.com/articles/design-thinking/)
