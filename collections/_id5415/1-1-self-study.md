@@ -24,7 +24,7 @@ introduction: What are connected products and how do their prototypes differ fro
 
 # Prototyping Connected Products
 
-<span class="mdi mdi-text-box-outline"></span> Reading (15 minutes)
+<span class="mdi mdi-text-box-outline"></span> Reading (30 minutes)
 
 In this course, we refer to connected products as any physical entity with the ability to share or receive information through the Internet. It is an interface between the physical and the digital world. Let's define the two pillars of connected products: `Things` and `Networks`
 
