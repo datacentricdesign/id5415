@@ -29,10 +29,9 @@ We have prepared 5 steps for this assignment (each again divided into specific t
 ---
 
 * Do not remove this line (it will not be displayed)
-{:toc}
+  {:toc}
 
 ---
-
 
 # Step 1: Set up your cloud and prepare a configuration for your Raspberry Pi
 
@@ -92,13 +91,13 @@ Create a folder on your computer (i.e Desktop) to store the files for this cours
 
 ## Task 2.3: Get familiar with the Command-line Interpreter (CLI)
 
-A CLI interprets the text you have entered into a command (e.g. create a directory, open an application, ...) - that's it! "What is the point?" you may wonder, as today we have many Graphical User Interfaces (GUI's) available that allow you to achieve many things as well, but without the cumbersome process of typing. Well, when prototyping you are developing technologies and playing with cutting edge ones, many of which simply do not have GUIs. Skill in a Command-Line Interpreter (CLI) is therefore not something you acquire just for one project but rather for your entire digital prototyping life! 
+A CLI interprets the text you have entered into a command (e.g. create a directory, open an application, ...) - that's it! "What is the point?" you may wonder, as today we have many Graphical User Interfaces (GUI's) available that allow you to achieve many things as well, but without the cumbersome process of typing. Well, when prototyping you are developing technologies and playing with cutting edge ones, many of which simply do not have GUIs. Skill in a Command-Line Interpreter (CLI) is therefore not something you acquire just for one project but rather for your entire digital prototyping life!
 
 In software engineering a number of varieties exists: 'Unix shell', 'Console', 'Terminal' or 'Command Prompt'. All of them refer to this black window full lines of text. Find it in VS Code: go to View > Terminal. It opens a tab in the bottom panel. In this course, we will use Unix shell as a command-line language, which comes in different flavours, the most common being `bash` and `zsh`. On the top right corner of the Terminal, a drop-down menu give you several options.
 
 On Windows, the installation of Git should have install bash, **you must select bash instead of Power Shell.**
 
-![Introduction to VSCode Terminal](/assets/img/courses/id5415/module1/assignment/2_3_1.png)
+![Introduction to VSCode Terminal](/assets/img/courses/id5415/module1/assignment/2_3_0.png)
 
 Each command line start with your username @ your machine name. Then, the current folder is shown
 
@@ -116,7 +115,7 @@ ls
 
 Your test folder should appear as a result of this command as shown below.
 
-![](/assets/img/courses/id5415/module1/assignment/2_3_2_1.png)
+![](/assets/img/courses/id5415/module1/assignment/2_3_1.png)
 
 Most commands come with a manual, available with the command `man`. Let's explore the option of the `ls` command.
 
@@ -124,7 +123,7 @@ Most commands come with a manual, available with the command `man`. Let's explor
 man ls
 ```
 
-![](/assets/img/courses/id5415/module1/assignment/2_3_2_2.png)
+![](/assets/img/courses/id5415/module1/assignment/2_3_2.png)
 
 You can see a long list of option, starting with a dash `-`. These options can be combined together. For instance you will note `-G` for colouring the result and `-l` for the long and detailed result. To quit the manual, press `q`. Now we can try:
 
@@ -132,7 +131,7 @@ You can see a long list of option, starting with a dash `-`. These options can b
 ls -Gl
 ```
 
-![](/assets/img/courses/id5415/module1/assignment/2_3_2_3.png)
+![](/assets/img/courses/id5415/module1/assignment/2_3_3.png)
 
 In the terminal, everything relates to where you are in the file tree, i.e. in which folder you are in. With the command `cd` you can 'change directory' to navigate this tree. The 'path' is the chain of directories to reach your targeted file or directory.
 
@@ -140,7 +139,7 @@ In the terminal, everything relates to where you are in the file tree, i.e. in w
 cd test
 ```
 
-![](/assets/img/courses/id5415/module1/assignment/2_3_2_4.png)
+![](/assets/img/courses/id5415/module1/assignment/2_3_4.png)
 
 You entered 'test' folder, you can notice the command line is now showing 'test' as the current folder. There are three important path markers: dot `.` for the current directory, dot dot `..` for the parent directory, and tilde `~` for the home directory.
 
@@ -150,7 +149,7 @@ Going back to the parent directory:
 cd ..
 ```
 
-![](/assets/img/courses/id5415/module1/assignment/2_3_2_5.png)
+![](/assets/img/courses/id5415/module1/assignment/2_3_5.png)
 
 Finally, the tilde `~` leads you to your home directory:
 
@@ -158,7 +157,7 @@ Finally, the tilde `~` leads you to your home directory:
 cd ~
 ```
 
-![](/assets/img/courses/id5415/module1/assignment/2_3_2_6.png)
+![](/assets/img/courses/id5415/module1/assignment/2_3_6.png)
 
 To avoid typing the same command again and again,you can press the Arrow-Up key to bring back you previous commands.
 
@@ -175,19 +174,21 @@ On Mac OS, download and install from [here](https://www.python.org/downloads/mac
 Restart VS Code. open your course folder and open a Terminal. Check your Python installation with:
 
 ```bash
-python --version
+python3 --version
 ```
 
-This command should return a version number of Python 3.x.x.
+This command should return a version number of Python 3.x.x. From now, whenever we want to use python from terminal, we can start the command with `python3`
 
 ## Task 2.5: Setting up Virtual Environment to work
 
 A virtual environment is a self-contained directory tree that contains a Python installation for a particular version of Python. It also includes additional packages (modules/libraries) to meet the requirements of each python application we are developing. Different python application can use different virtual environments.
 
-To create a virtual environment, Go to VSCode and open the terminal. Type below command to create a virtual environment called `venv`.
+To create a virtual environment, Go to VSCode and open the terminal. Type below two command to first install the `virtualenv` and then create a virtual environment called `venv`.
 
 ```bash
-virtualenv venv
+pip3 install virtualenv
+
+python3 -m virtualenv venv
 ```
 
 VS Code recognises the creation of this new environment and ask you if you want to switch(Bottom right corner of the screen), click 'Yes'.
@@ -219,46 +220,50 @@ To install this library, go back to VS Code in your course directory and open a 
 We will use pip to install a Python library. Thanks to the [virtualenv setup](#task-25-setting-up-virtual-environment-to-work), we can install this library inside the course folder only, avoiding any disruption of other Python program on your machine. In the following command,the --pre option signal that we want to install the most recent version of the library, including pre-release.
 
 ```bash
-pip install python-kasa --pre
+pip3 install python-kasa --pre
 ```
 
-## Task 3.3 Connecting to the Network
+kasa## Task 3.3 Connecting to the Network
 
 To connect the light bulb to the network, we need to provision it with the WiFi network information. Taken out of [the documentation](https://python-kasa.readthedocs.io/en/latest/cli.html#provisioning), here are the steps:
 
 1. You need to turn on and of the light bulb 3 times in a row. The light bulb blinks a couple of times. This is the way to let it disconnect from any network and start emitting its own WiFi network;
-2. Connect your computer to the light bulb network (it should appear as TP-LINK*Smart Bulb*...). Make sure that your machine is not connected to a wired network at the same time.
+2. Connect your personal computer / laptop to the light bulb network (it should appear as TP-LINK*Smart Bulb*...). Make sure that your machine is not connected to a wired network at the same time.
 3. Execute the command `kasa discover` to locate the IP address of the device (likely 192.168.0.1)
 
 ```bash
 kasa discover
 ```
 
-![IP Address of the light bulb](/assets/img/courses/id5415/module1/assignment/3_1_1.png)
+![IP Address of the light bulb](/assets/img/courses/id5415/module1/assignment/3_3_1.png)
 
 When the light bulb is found, at the top of the result you will note 'Host:' followed by 4 digits separated by dots. This is the IP address of the light bulb on the network, i.e. the address to send messages to it.
 
 - You can scan for the WiFi networks, in case you do not know which one to connect the light bulb to.
 
 ```bash
-kasa wifi scan
+kasa --host <YOUR_HOST_IP> wifi
 ```
 
-TODO screenshot result (Pending)
+![Scan discoverable WiFi](/assets/img/courses/id5415/module1/assignment/3_3_2.png)
 
-- Finally, we send a message to the light bulb with the WiFi network information. In the following command, the host is the IP address of the light bulb identified in step 3, 'wifi join' are the command and subcommand, `ioSense-net` is the SSID of the network to connect to (i.e. name of the network), the password option provision the network password and `keytype` is the category of the network.
+- Finally, we send a message to the light bulb with the WiFi network information. In the following command, the `<HOST>` is the IP address of the light bulb identified in step 3, 'wifi join' are the command and subcommand, `<YOUR_WIFI_SSID>` is the SSID of the network to connect to (i.e. name of the network/Wifi), the password option provision the network/wifi password and `keytype` is the category of the network.
 
 ```bash
-kasa --host "192.168.0.1" wifi join "ioSense-net" --password myStrongPassword --keytype="3"
+kasa --host <HOST> wifi join <YOUR_WIFI_SSID> --password <YOUR_WIFI_PASSWORD> --keytype="3"
 ```
 
-If the process works, the light bulbs blinks a couple of time, then connect to the provisioned network. Connect your machine to the same network and run the discover command. Make sure that your machine is not connected to a wired network at the same time, otherwise the discover function might look on the wrong network and find no device.
+If the process works, the light bulbs blinks a two of time, then connect to the provisioned network.
+
+![Connect Smart-bulb to the home/office wifi](/assets/img/courses/id5415/module1/assignment/3_3_3.png)
+
+NOw, connect your machine back to your home network/wifi and run the discover command. Make sure that your machine is not connected to a wired network at the same time, otherwise the discover function might look on the wrong network and find no device.
 
 ```bash
 kasa discover
 ```
 
-![IP Address of the light bulb after connected to local WiFi](/assets/img/courses/id5415/module1/assignment/3_1_2.png)
+![IP Address of the light bulb after connected to local WiFi](/assets/img/courses/id5415/module1/assignment/3_3_4.png)
 
 ## Task 3.4 Interacting with the Light Bulb
 
@@ -268,9 +273,21 @@ It is now the time to explore what are the capabilities, using the [documentatio
 kasa --help
 ```
 
-![IP Address of the light bulb after connected to local WiFi](/assets/img/courses/id5415/module1/assignment/3_1_3.png)
+![IP Address of the light bulb after connected to local WiFi](/assets/img/courses/id5415/module1/assignment/3_4_1.png)
 
-TODO a few command examples (Pending)
+```bash
+kasa --host <HOST> brightness
+```
+
+```bash
+kasa --host <HOST> off
+```
+
+```bash
+kasa --host <HOST> on
+```
+
+![Kasa commands to control the light-bulb from machine](/assets/img/courses/id5415/module1/assignment/3_4_2.png)
 
 **What did we achieved?**
 
@@ -294,7 +311,7 @@ Slide in the SD card into the Raspberry Pi and power it with the USB micro charg
 
 If you properly entered the details of your home network, your Raspberry Pi should automatically connect to this network. After a couple of minutes, refresh your Thing page on the Bucket web app. You should see the IP address of your Raspberry Pi at the top of the page. We will use the local IP address.
 
-![Connected Thing](/assets/img/courses/id5415/module1/assignment/4_1.png)
+![Connected Thing](/assets/img/courses/id5415/module1/assignment/4_1_0.png)
 
 ## Task 4.2: Connecting to the Raspberry Pi
 
@@ -306,21 +323,21 @@ Throughout this course, we will thus access the Raspberry Pi remotely. For this 
 ssh [username]@[hostname]
 ```
 
-![](/assets/img/courses/id5415/module1/assignment/4_2_0.png)
-
 Another way to connect to your Raspberry Pi, less convenient but often more reliable, is via its local IP Address (displayed on the Bucket web app). It is composed of 4 numbers separated by dots.
 
 ```bash
 ssh [username]@[your.local.IP.address]
 ```
 
+![SSH Pi using Username & Hostname](/assets/img/courses/id5415/module1/assignment/4_2_0.png)
+
 ## Task 4.3: Controlling the Light Bulb from Raspberry-Pi
 
-As a final task for this assignment, let's replicate what you achieved on your laptop controlling the light-bulb.
+As a final task for this assignment, let's replicate what you achieved on your laptop controlling the light-bulb. e.g Controlling the smartpyth-bulb from Pi
 
 On the Raspberry Pi, open the terminal and create a test directory with the command `mkdir` and navigate inside it with the command `cd`.
 
-```bash
+```bashc
 mkdir test
 cd test
 ```
@@ -332,7 +349,7 @@ Now first we will create the virtual env using the same command as we did on our
 To create a virtual environment, in the terminal type below command to create a virtual environment called `venv`.
 
 ```bash
-virtualenv venv
+python3 -m virtualenv venv
 ```
 
 And then activate this virtual environment by:
@@ -346,12 +363,12 @@ source venv/bin/activate
 Now install the kasa-python library to control our light bulb using Raspberry Pi. Type below command in the terminal with while our newly created virtual environment venv is activated.
 
 ```bash
-pip install python-kasa --pre
+pip3 install python-kasa --pre
 ```
 
-TODO image install kasa-python (pending)
+![Installing kasa library](/assets/img/courses/id5415/module1/assignment/4_3_2.png)
 
-As we already connected the light bulb to the network, we can skip the network provisioning step.
+As we already connected the light bulb to our home/office network, we can skip the network provisioning step this time. However, make sure that the pi is connected to same network/wifi as smart-bulb
 
 Lets use some of the commands from kasa library to control the light bulb:
 
@@ -363,23 +380,23 @@ kasa discover
 
 This will show the name of our smart bulb, its IP address, some hardware details and its current status with device-specific information.
 
-TODO Pi Terminal image with this command
+![Running kasa discover command in Pi terminal](/assets/img/courses/id5415/module1/assignment/4_3_3.png)
 
-Now that we have the IP address of the bulb, we will create and run a python script that gradually increase/decrease the brightness of the bulb in every 500 milli seconds.
-
-First we will create the python scripts called `light_pi.py` in our test directory using the following command. (make sure your are still in your test directory)
+Now that we have the IP address of the bulb (HOST), we will try to interact with light bulb by running some simple commands from kasa library.
 
 ```bash
-touch light_pi.py
+kasa --host <HOST> brightness
 ```
-
-Now we will open this file is command-line editor called `nano`. Type below command in the terminal
 
 ```bash
-sudo nano light_pi.py
+kasa --host <HOST> off
 ```
 
-TODO example commands
+```bash
+kasa --host <HOST> on
+```
+
+![Kasa commands to control the light-bulb from Pi](/assets/img/courses/id5415/module1/assignment/4_3_4.png)
 
 **What did we achieve?**
 

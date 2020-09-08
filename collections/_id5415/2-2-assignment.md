@@ -146,7 +146,7 @@ print("The light is on!")
 In the terminal, use the python command followed by the path to your file to execute your Python script:
 
 ```bash
-python src/light.py
+python3 src/light.py
 ```
 
 The sentence `Turn on the light!` appear in the terminal.
@@ -159,36 +159,27 @@ The second line is a function call. The function `print()` displays a message in
 
 In programming, a variable is a storage location paired with an associated symbolic name. Each of the variables holds a value that either static or varies over time when the program runs.
 
-The value stored in this variable can have different types. e.g. numerical value, a "string" value, boolean, or a list that holds multiple values in one variable.
+The value stored in this variable can have different types. e.g. numerical value (integer / float), a "string" value (word, character), boolean(True-1 / False-0), or a list that holds multiple values in one variable. `int number[0,1,2,3,four, five]`
 
 Let's look at the two simple example code below for numerical value and string value!
 
 ```bash
-python
+python3
 
-one = 1
-two = 2
+turn_ON = "The bulb is ON "
+turn_OFF = "The bulb is OFF"
 
-total=one + two
+brightness = 60
 
-print(total)
-```
+print(turn_ON + "with brightness: ", brightness)
 
-```bash
-python
-
-first_name ="Nirav"
-last_name= "Malsattar"
-full_name= first_name +" "+last_name
-
-print (full_name)
 ```
 
 **Do you want to see if it works? Paste each of the above code in VSCode Terminal and press enter until you print the final result**
 
 In the previous(assignment 1) we wrote the minimal code enabling the control of the light bulb from Python.
 
-In the next step, you will see the names `bulb` and `result` in one the line in python script. These are the names of 2 variables.
+In the next step, you will see the names `bulb` and `result` in one line in python script. These are the names of 2 variables.
 
 ## Task
 
