@@ -193,7 +193,7 @@ The main element of a Python program is its `main()` function. As we saw with `p
 
 In the code below we added `def main():`. This is the syntax to **define** the behaviour of a **function**. Notice that what is 'inside' this function is indented, i.e. moved to the right by one tab. This is how Python recognise that these lines are part of the function.
 
-```bash
+```python
 def main():
     # This function 'print' the message 'The light is on!' in the Terminal
     print("The light is on!")
@@ -203,7 +203,7 @@ In the terminal, execute your code again (`python src/light.py`)
 
 What happened? Nothing! The text is no longer showing up, what is going on? Well, we defined a function `main()`, but we are not calling it. Like `print()`, to call our function we can write `main()` at the bottom of the file.
 
-```bash
+```python
 def main():
     # This function 'print' the message 'The light is on!' in the Terminal
     print("The light is on!")
