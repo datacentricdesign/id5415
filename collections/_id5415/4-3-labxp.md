@@ -1,6 +1,6 @@
 ---
 layout: course-page
-title: "Lab XP 4"
+title: "Performance"
 permalink: /module4/labxp
 description: "Prototyping Connected Products - Lab Experiment 4"
 labxp-of: id5415-4

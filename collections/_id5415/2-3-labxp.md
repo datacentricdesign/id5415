@@ -1,6 +1,6 @@
 ---
 layout: course-page
-title: "Lab XP 2"
+title: "Live-Data Prototype"
 permalink: /module2/labxp
 description: "Prototyping Connected Products - Lab Experiment 2"
 labxp-of: id5415-2

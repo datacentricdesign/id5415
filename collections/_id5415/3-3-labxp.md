@@ -1,6 +1,6 @@
 ---
 layout: course-page
-title: "Lab XP 3"
+title: "Sensor Data Collection"
 permalink: /module3/labxp
 description: "Prototyping Connected Products - Lab Experiment 3"
 labxp-of: id5415-3
