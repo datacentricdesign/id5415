@@ -152,7 +152,7 @@ Now we can replace the print statements in task 1.4 with actual functions that w
 
 So we need to create 3 new functions, say `update_temperature()`, `update_humidity()`, and `update_light()`
 
-We will also use another control flow structure, - the try-catch statement, so we can handle, cases when the reasing data fails (yes, it can happen!). We will use update temperature as an example: 
+We will also use another control flow structure, - the try-catch statement, so we can handle cases when the reading data fails (yes, it can happen!). We will use update temperature as an example: 
 
 ```python
 def update_temperature():
