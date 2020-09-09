@@ -5,7 +5,7 @@ permalink: /module3/assignment
 description: "Prototyping Connected Product - Assignment 3"
 assignment-id: 3
 assignment-of: id5415-3
-introduction: In this assignment, you will wire three sensors to your Raspberry Pi, to sense light, motion and temperature. You will write a code to collect this data, visualise it and trigger actions based on basic data processing.
+introduction: In this assignment, you will wire three sensors to your Raspberry Pi, to sense light, motion and temperature. You will write code to collect this data, visualise it and trigger actions based on basic data processing.
 prog_environment: 
 design: 
 code_management: GPIO library
@@ -152,7 +152,7 @@ Now we can replace the print statements in task 1.4 with actual functions that w
 
 So we need to create 3 new functions, say `update_temperature()`, `update_humidity()`, and `update_light()`
 
-We will also use another control flow structure, - the try-catch statement, so we can handle, cases when the reasing data fails (yes, it can happen!). We will use update temperature as an example: 
+We will also use another control flow structure, - the try-catch statement, so we can handle cases when the reading data fails (yes, it can happen!). We will use update temperature as an example: 
 
 ```python
 def update_temperature():
@@ -238,9 +238,9 @@ For example in the LDR update function we can have:
 
 ```python
 def update_light():
-	try:
-		lux = LDR_sensor.value # between 0 (dark) and 1 (light)
-  	lux = lux*100 # dummy calibration processing, we do not get actual lux values here
+  try:
+    lux = LDR_sensor.value # between 0 (dark) and 1 (light)
+    lux = lux*100 # dummy calibration processing, we do not get actual lux values here
     my_property_ldr.update_values((lux,))	
   except RuntimeError as error:
 	  print(error.args[0])
@@ -296,7 +296,7 @@ def is_light_on(new_value,threshold = 10):
 
 Note that you can call is_light_on like so: `is_light_on(lux)`, because the threshold by default is 10. if you want to specify it, you can do so as well: `is_light_on(lux, new_threshold)`. 
 
-From this,  can you create a function to trigger when its off?  Can you merge these two functions in one?  
+From this, can you create a function to trigger when it's off?  Can you then merge these two functions in one?  
 
 With this, you're free to explore more/different events (detect when a cupboard is open, change bulb brightness according to temperature, etc), and different trigger actions! 
 
