@@ -238,9 +238,9 @@ For example in the LDR update function we can have:
 
 ```python
 def update_light():
-	try:
-		lux = LDR_sensor.value # between 0 (dark) and 1 (light)
-  	lux = lux*100 # dummy calibration processing, we do not get actual lux values here
+  try:
+    lux = LDR_sensor.value # between 0 (dark) and 1 (light)
+    lux = lux*100 # dummy calibration processing, we do not get actual lux values here
     my_property_ldr.update_values((lux,))	
   except RuntimeError as error:
 	  print(error.args[0])
