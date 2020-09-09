@@ -21,9 +21,9 @@ computational_concepts:
 
 In the previous module we setup a prototyping environment and we explored the behaviour of a default Python modules (kasa) running on the Raspberry Pi. It is time to start coding and define ourself this behaviour.
 
-# Step 1: Git Flow
+# Step 1: Github
 
-You got acquainted to
+TODO You got acquainted how to create files and directory in your machine / Pi using terminal. Now in this step, we will learn how to use version control system (e.g. git) to work remotely on your project with other teammates collaboratively.
 
 ## Task 1.1: Getting the Shared Repository on your Machine
 
@@ -159,15 +159,15 @@ The second line is a function call. The function `print()` displays a message in
 
 In programming, a variable is a storage location paired with an associated symbolic name. Each of the variables holds a value that either static or varies over time when the program runs.
 
-The value stored in this variable can have different types. e.g. numerical value (integer / float), a "string" value (word, character), boolean(True-1 / False-0), or a list that holds multiple values in one variable. `int number[0,1,2,3,four, five]`
+The value stored in this variable can have different types. e.g. numerical value (integer / float), a "string" value (word, character), boolean(True-1 / False-0), or a list that holds multiple values in one variable ([0,1,2,three,four]).
 
 Let's look at the two simple example code below for numerical value and string value!
 
 ```bash
 python3
 
-turn_ON = "The bulb is ON "
-turn_OFF = "The bulb is OFF"
+turn_ON = "The light is ON "
+turn_OFF = "The light is OFF"
 
 brightness = 60
 
@@ -177,9 +177,9 @@ print(turn_ON + "with brightness: ", brightness)
 
 **Do you want to see if it works? Paste each of the above code in VSCode Terminal and press enter until you print the final result**
 
-In the previous(assignment 1) we wrote the minimal code enabling the control of the light bulb from Python.
+In the previous(assignment 1) we wrote the minimal code enabling the control of the light bulb from Python in VSCode terminal.
 
-In the next step, you will see the names `bulb` and `result` in one line in python script. These are the names of 2 variables.
+In the next step, you will see the names `bulb` and `result` in one line in python script. These are the names of 2 variables and holds bulb IP Address and result action that coded respectively.
 
 ## Task
 
@@ -189,7 +189,7 @@ Finally some action. Here we will add a structure to our Python script and impor
 
 ## Task 3.1 Main Function
 
-The main element of a Python program is its 'main' function. As we saw with print(), a function takes care of a task, such as showing a message on the Terminal. Let's introduce the `main()` function, which is a function you define as the starting point of you Python program.
+The main element of a Python program is its `main()` function. As we saw with `print()`, a function takes care of a task, such as showing a message on the Terminal. Let's introduce the `main()` function, which is a function you define as the starting point of you Python program.
 
 In the code below we added `def main():`. This is the syntax to **define** the behaviour of a **function**. Notice that what is 'inside' this function is indented, i.e. moved to the right by one tab. This is how Python recognise that these lines are part of the function.
 
@@ -211,7 +211,7 @@ def main():
 main()
 ```
 
-Execute your code again. We now have our message back. First, we define `main()`, then we call it ().
+Execute your code again. We now have our message back. First, we define `def main()`, then we call it at the end by `main()`.
 
 ## Task 3.2 Libraries
 
@@ -226,7 +226,9 @@ This illustrates two ways of importing libraries into your program. The first st
 
 - 'asyncio' is part of Python (no need to install it). By default, statements of our Python scripts are interpreted one after the other, waiting the previous one to be completed. This is a **synchronous** sequence of statements. However, to control the light bulb we need to send a message over the network, and wait for it to answer back. With synchronous statements, you would block the Python program till you receive this response. Asyncio gives us the ability to execute statements in an **asynchronous** way, meaning that we can send our message to the light bulb, do something else, then come back where we left when we receive a response from the light bulb.
 
-- 'kasa' is the library that we used in the previous module to control the light bulb. To ensure that we install this library for our project without disturbing any other Python settings, we setup a virtual environment that we call 'venv'. To do so, enter the following command in the terminal.
+- 'kasa' is the library that we used in the previous module to control the light bulb.
+
+To ensure that we install this library for our project without disturbing any other Python settings, we setup a virtual environment that we call 'venv'. To do so, enter the following command in the terminal.
 
 ```bash
 virtualenv venv
@@ -236,7 +238,7 @@ VS Code recognise the creation of this new environment and ask you if you want t
 
 ![Prompt to switch to virtual environment](../../assets/img/courses/id5415/module2/assignment/3_2_0.png)
 
-Kill the Terminal (little trashcan icon) and open a new Terminal to load this new environment. Notice the difference, the Terminal statement start with `(venv)` and the Python environment is selected in the bottom panel.
+Kill the Terminal (little trashcan icon on right) and open a new Terminal to load this new environment. Notice the difference, the Terminal statement start with `(venv)` and the Python environment is selected in the bottom panel.
 
 ![Virtualenv](/assets/img/courses/id5415/module2/virtualenv.png)
 
@@ -260,8 +262,8 @@ import asyncio
 from kasa import SmartBulb
 # 'async' transform our main() into an asynchronous function
 async def main():
-    # Call the definition of a light bulb, replace the IP address with the one found with kasa discover
-    bulb = SmartBulb("10.0.1.3")
+    # Call the definition of a light bulb, Note: replace the IP address with the one you found using kasa discover command in terminal
+    bulb = SmartBulb("192.168.1.110")
     # 'await' tells the program to wait till getting a result from the light bulb
     result = await bulb.turn_on()
     # Once we receive it, we call print() to show the result in the Terminal
@@ -281,7 +283,7 @@ Let's run this code! The light should turn on and the Terminal should look like 
 
 ## Task 3.4 Analysing the Result
 
-What do we see? A `JSON` structure which is a typical way to exchange data on the Internet of Things. It starts and ends with curly brackets `{}`. It is composed of `"key": "value"` sets separated by a comma `,`. A value can be any of the primitive types `string`, `float`, `integer` or `boolean` covered in the previous [Step](#task-23-variables-and-Types). It can also be a JSON structure itself with curly brackets `{}` or an array of any of those types, delimited with square brackets `[]`.
+What do we see in terminal? A `JSON` structure which is a typical way to exchange data on the Internet of Things. It starts and ends with curly brackets `{}`. It is composed of `"key": "value"` sets separated by a comma `,`. A value can be any of the primitive types `string`, `float`, `integer` or `boolean` covered in the previous [Step](#task-23-variables-and-Types). It can also be a JSON structure itself with curly brackets `{}` or an array of any of those types, delimited with square brackets `[]`.
 
 ```json
 {
@@ -301,56 +303,113 @@ In our example, you can recognise the key 'on_off', an `integer` with value `1`:
 
 TODO For loop, if-else and other loops (focused on to control the lights bulb)
 
-In programming, if you want to control the flow of your code execution(Foe example keep the light bulb blinking when the it is not connected to the wifi"), you can use control flow statement. There are different kind of Control Statement which you can use according your code logic. We will discuss some of these statements in the sections below to with our smart-bulb.
+In programming, if you want to control the flow of your code execution(For example keep the light bulb blinking for 30 seconds"), you can achieve that using control flow statements. There are different kind of Control Statements which you can use according your code logic. We will discuss some of these statements in the sections below to with our smart-bulb.
 
 # Step 4.1 Condition
 
 As the name suggests, conditions is the checkpoint in your code to make sure it won't execute the particular block of code until the condition is fulfilled. The most commonly conditions are `if..else` and `while` condition.
 
-The syntax for if..else in python is:
+Lets explore the `if..else` condition with our light-bulb example:
+
+Here we will first extract the current stat of the light. Then using `if` condition we will check if the light is ON, if it is than we will turn it OFF. Otherwise using `else` we will turn the light ON. After updating the light stats, we will print it's current status as well.
+
+Copy & Paste the below code in you `light.py` file (erase the code we typed before) and run the script from terminal (you know how to run the script from terminal, we did it in last step):
 
 ```python
-    if CONDTION TRUE:
-      EXECUTE STATEMENT1
-      EXECUTE STATEMENT2
-      EXECUTE STATEMENT3
-```
-
-TODO Lets explore the `if..else` condition with our light-bulb example: We will try to blink the light bulb twice with every 30 seconds.
-
-```python
-# Import libraries
 import asyncio
 from kasa import SmartBulb
+
 # 'async' transform our main() into an asynchronous function
 async def main():
     # Call the definition of a light bulb, replace the IP address with the one found with kasa discover
-    bulb = SmartBulb("10.0.1.3") #Make sure to replace your smart-bulb IP Address here
+    bulb = SmartBulb("192.168.1.110") #Make sure to replace your smart-bulb IP Address here
+
     # 'await' tells the program to wait till getting a result from the light bulb
-    result = await bulb.turn_on()
-    # Once we receive it, we call print() to show the result in the Terminal
-    print(result)
+    result = await bulb.get_light_state()
+    print (result)
+
+    #Example if condition
+    if result['on_off'] == 1: #If the light bulb is ON
+        print("Light was ON, I turned it OFF")
+        await bulb.turn_off() #Turn_Off the bulb
+    else:
+        print("Light was OFF, I turned it ON")
+        await bulb.turn_on() #Turn_On the bulb if it is OFF
+
+    #Getting the current stat of light bulb after updating it previous stat above.
+    result = await bulb.get_light_state()
+    print (result)
 
 # We call main() in the asynchronous environment
 asyncio.run(main())
 ```
 
-Copy paste the above code in your python script and run the script in terminal by
+After running the scripts, you will see that your light bulb will either TURN_ON or TURN_OFF according to it's current stat. You will also see it's current status in terminal window.
 
-```bash
-python your_script_name.py
-```
+![Example of if_else condition with smart-bulb](/assets/img/courses/id5415/module2/assignment/4_2_0.png)
+
+To learn / practice more about python condition, please refere the ![python guide here:] (https://www.learnpython.org/en/Conditions)
 
 ## Task 4.2 Loops
 
-In python, when you want to run certain piece of code in a continuous manner over time (e.g keep blinking the light bulb for 30 seconds), you can use certain control flow which is called `Loops`.
+In contrast, if you want to run certain piece of code in a continuous manner over time (e.g keep blinking the light bulb for every 10 seconds), you can use certain control flow which is called `Loops`.
 
 There two common loop statement in python. One is `For Loop` and the another is `While loop`
 
-TODO example of for loop and while loop
+Let's update our `light.py` file. You don't need to delete anything, just add the below line of code.
+
+First import the time library in top of the file before `async def main():`:
+
+```python
+import time
+```
+
+Then put the below code, after last `print(result)`
+
+```python
+  ## Example of for loop
+ for x in range(10): # Here we are asking to loop the below code for 10 times
+    await bulb.turn_on() #Turn on the light
+    print("Loop: ",x) #print current loop number
+    time.sleep(1.0) #sleep for 1 seconds
+    await bulb.turn_off() #turn off the light
+    print("Loop: ",x) #print current loop number
+    time.sleep(1.0)#sleep for 1 seconds
+```
+
+![Example of for loop](/assets/img/courses/id5415/module2/assignment/4_2_1.png)
+
+What happened here? We have created a for loop which will keep execute the code inside it's block for 10 times and then finis. Inside this loop, we wrote a code tht turning the Light bulb ON & OFF. We are also using `time` library in this example to hold the execution of code for 1 seconds, in between turning ON/OFF the bulb.
 
 ## Task 4.3 Object / Iterator
+Similar to `for_loop` in python, iterator is type of an object that can be iterated, meaning traverse through all the values. For example, in above code, when we print a result using `print(result)`, we will get the JSON array in return in terminal.
 
+![Printing JSON array as it is](/assets/img/courses/id5415/module2/assignment/4_3_0.png)
+
+However, if you notice, this command will print entire json array as it is. What if you want to go through individual value in this json array and print that value only?
+
+For this, we can use Iterator. look at the example below: Add below code after the for loop and run the script.
+
+```python
+
+myIterator = iter(result)
+    print(next(myIterator))
+    print(next(myIterator))
+    print(next(myIterator))
+
+```
+![Example of Iterator](/assets/img/courses/id5415/module2/assignment/4_3_1.png)
+
+You can do the same thing with for loop as well, however it will print all the value and not just three! copy the for loop code mentioned below in the `light.py`, at the end of `async def main()` and run the script. Observe the results in terminal.
+
+```python
+    for x in result:
+        print(x)
+```
+
+![Example of Iterator with for loop](/assets/img/courses/id5415/module2/assignment/4_3_2.png)
+
+TODO
 **Commit and Push!** You've wrote a new piece of code, let's make sure that Git keeps a version of it. To do so, repeat [Task 1.3](#task-13-stage-and-commit-changes) and [Task 1.4](#task-14-stage-and-commit-changes). Your commit message could be 'shaping the light bulb behaviour'
 
 **Updating the CHANGELOG file** In this assignment you have made significant additions to your prototype. Edit the file `CHANGELOG.md`
