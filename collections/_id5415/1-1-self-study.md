@@ -28,7 +28,7 @@ introduction: What are connected products and how do their prototypes differ fro
 
 In this course, we refer to connected products as any physical entity with the ability to share or receive information through the Internet. It is an interface between the physical and the digital world. Let's define the two pillars of connected products: `Things` and `Networks`
 
-The term `Thing` is commonly used in reference to the technology enabling physical entities to have a digital manifestation. We can distinguish four types of Things:
+The term `Thing` is commonly used in reference to the technology enabling physical entities to have a digital manifestation. We commonly distinguish four types of Things (1):
 
 ![Four types of Things](/assets/img/courses/id5415/module1/four-types-of-things.svg)
 
@@ -57,12 +57,14 @@ With these opportunities and challenges in mind, what is different about prototy
 
 It is difficult to leverage these opportunities or measure the impact of these challenges without experiencing them. While implementing a functional prototype is a common practice in the later stages of design processes, it is also becoming necessary in the earlier stages.
 
+> The overarching purpose of any form of prototype is to learn something at a much lower cost in terms of time and effort than building out a product. Marty Cagan. Inspired (2)
+
 Here are four examples:
 
-* Feasibility prototypes
-* User Prototypes
-* Live-Data Prototypes
-* Hybrid Prototypes
+* Feasibility prototypes -- Can we really make it? How accurate and reactive would it be? Alone or together with engineers, it is critical to test the feasibility of your concepts as it will impact the outcome. Algorithm, performance, scalability, fault tolerance, new technology, third-party components, all are potential technical risk your team must address.
+* User Prototypes -- You are probably familiar with wireframe prototype. Augmenting this wireframe with code enables you to test your user interaction further, by simulating how your product would react and how this reaction impacts your users.
+* Live-Data Prototypes -- When dealing with data in a new context, we often have misconceptions regarding how the data will look like, or no idea at all. As data is often the main driver of your connected product, being able to experience live data is critical to give it the appropriate role in your concept. The live-data prototype also helps you collect evidence.
+* Hybrid Prototypes -- You might find yourself combining several of the three types of prototypes above. An example would be a Wizard-of-Oz prototype which enables you to better understand the user interaction as well as collecting live data. 
 
 # Internet of Things' Technology Stack
 
