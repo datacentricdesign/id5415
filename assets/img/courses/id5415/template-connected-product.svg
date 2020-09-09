@@ -3,7 +3,7 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1366 768" style="enable-background:new 0 0 1366 768;" xml:space="preserve">
 <style type="text/css">
-	.st0{font-family:'Roboto-Regular';}
+	.st0{font-family:'Roboto', sans-serif;}
 	.st1{font-size:48px;}
 	.st2{fill:none;stroke:#B3B3B3;stroke-width:2;stroke-miterlimit:10;}
 	.st3{fill:none;stroke:#B3B3B3;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:11.7317,11.7317;}
@@ -14,7 +14,7 @@
 	.st8{fill:none;stroke:#B3B3B3;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:12.2381,12.2381;}
 	.st9{fill:none;}
 	.st10{font-size:14px;}
-	.st11{font-family:'Roboto-Bold';}
+	.st11{font-family:'Roboto', sans-serif; font-weight: bold;}
 	.st12{fill:none;stroke:#B3B3B3;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:12.2258,12.2258;}
 	.st13{font-size:12px;}
 </style>
@@ -75,8 +75,10 @@
 </g>
 <rect x="31.8" y="174.2" class="st9" width="511.8" height="47.4"/>
 <text transform="matrix(1 0 0 1 31.8205 184.7069)" class="st0 st10">[The IoT stack of this product in 140 characters]</text>
-<text transform="matrix(1 0 0 1 977.9362 512.2177)"><tspan x="0" y="0" class="st5 st0 st6">Screenshot of my Role Team Test</tspan><tspan x="0" y="14.4" class="st5 st0 st13">https://www.idrlabs.com/team-role/test.php</tspan></text>
-<text transform="matrix(1 0 0 1 47.5432 508.2177)"><tspan x="0" y="0" class="st5 st0 st6">[Image illustrating how</tspan><tspan x="0" y="21.6" class="st5 st0 st6">I look like in team work]</tspan></text>
+<text transform="matrix(1 0 0 1 977.9362 512.2177)" class="st5 st0 st6">Screenshot of my Role Team Test</text>
+<text transform="matrix(1 0 0 1 977.9362 526.6177)" class="st5 st0 st13">https://www.idrlabs.com/team-role/test.php</text>
+<text transform="matrix(1 0 0 1 47.5432 508.2177)" class="st5 st0 st6">[Image illustrating how</text>
+<text transform="matrix(1 0 0 1 47.5432 529.8177)" class="st5 st0 st6">I look like in team work]</text>
 <circle class="st2" cx="72.5" cy="215.5" r="6.5"/>
 <text transform="matrix(1 0 0 1 92.2498 222.3745)" class="st11 st6">[IoT stack element]</text>
 <circle class="st2" cx="72.5" cy="275.5" r="6.5"/>
