@@ -23,7 +23,7 @@ The aim of this session is to help you form teams of 3 students in which you fee
 
 ## Task 1 Connected Product Card
 
-* Download and open the template of Connected Product card (with illustrator, Inkscape or your prefered SVG editor): [Template](/assets/img/courses/id5415/template-connected-product.svg)
+* Download and open the template of Connected Product card (with illustrator, Inkscape or your prefered SVG editor): [Template](/assets/img/courses/id5415/module1/template-connected-product.pdf)
 * Briefly example a simple connected product/service that is very common (to you) - not your laptop or phone: Name it (template title).
 * Place an image of this connected product (template top-right box). Leave the image space empty if you cannot find anything appropriate.
 * Elaborate on why this is a good example to you of IoT.
