@@ -16,7 +16,7 @@ The aim of this session is to help you form teams of 3 students in which you fee
 ## Task 0 Team Role Test
 
 * Do a team role test online. This test is online and takes only a few minutes: [Take the test](https://www.idrlabs.com/team-role/test.php)
-* Take a screenshot and keep it to digitally bring it to class
+* Take a screenshot and keep it to digitally bring it to class (you will need it!)
 * Make sure you have a laptop available in class
 
 # During the Session
@@ -27,7 +27,7 @@ The aim of this session is to help you form teams of 3 students in which you fee
 * Briefly example a simple connected product/service that is very common (to you) - not your laptop or phone: Name it (template title).
 * Place an image of this connected product (template top-right box). Leave the image space empty if you cannot find anything appropriate.
 * Elaborate on why this is a good example to you of IoT.
-    * Include at least one data stream, cloud service, sensor or another element from the IoT technology stack in your elaboration (up to 3 elements, a couple of key words).
+    * Include at least one data stream, cloud service, sensor or another element from the IoT technology stack in your elaboration (up to 3 elements, a couple of keywords).
     * Complete the sentence **This is a good example of connected product because** in no more than 140 characters.
 
 If you cannot come up with anything at all, ask what your neighbour exampled (or call for the coach) and then explain in your own words why it is a good example.
@@ -36,8 +36,8 @@ If you cannot come up with anything at all, ask what your neighbour exampled (or
 
 * Place an image that defines you in teamwork (template bottom-left box). This can be anything from a personal photograph to an image of abstract contemporary art.
 * Mention three character traits that define you, each first of all by using one word, and then elaborate on them by using no more than 140 characters for each trait. It is up to you whether you address strengths, specific skills, pitfalls, anecdotes, project examples, or anything you see fit.
-* Mention three boundary conditions for teamwork. Optionally, elaborate on these using no more than 140 characters in total. It is not important to address who is responsible for creating these conditions.
-* Finally, include the screenshot of your team role test (if you forgot (about) it, leave it empty) in the bottom-right box.
+* Mention three boundary conditions for teamwork. Examples of boundary condition could be 'be on time', 'have transparent goals' or 'focus on the grade'. Optionally, elaborate on these using no more than 140 characters in total. It is not important to address who is responsible for creating these conditions.
+* Finally, include the screenshot of your team role test from [Task 0](#task-0-team-role-test) (if you forgot about it please do it again) in the bottom-right box.
 
 ## Task 3 Engage conversations with your peers
 
