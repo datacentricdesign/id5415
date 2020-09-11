@@ -23,7 +23,7 @@ In the previous module we setup a prototyping environment and we explored the be
 
 # Step 1: Github
 
-TODO You got acquainted how to create files and directory in your machine / Pi using terminal. Now in this step, we will learn how to use version control system (e.g. git) to work remotely on your project with other teammates collaboratively.
+TODO Till now you got acquainted on how to create files and directory in your machine / Pi using terminal. Now in this step, we will learn how to use version control system (e.g. git) to work remotely on your project with other teammates collaboratively.
 
 ## Task 1.1: Getting the Shared Repository on your Machine
 
@@ -35,7 +35,7 @@ In VS Code you can click on the Source Control button (3rd icon in the left pane
 
 ![Clone Git Repository](/assets/img/courses/id5415/module2/assignment/1_1_1.png)
 
-In the text field that open at the top, paste the URL of your repository and press ENTER.
+In the text field that open at the top, paste the URL of your repository and press ENTER. A prompt will ask you to choose the location in your machine to save the Repository. For now, choose Desktop.
 
 ![Text Field appear on top to paste repo link](/assets/img/courses/id5415/module2/assignment/1_1_2.png)
 
@@ -231,7 +231,7 @@ This illustrates two ways of importing libraries into your program. The first st
 To ensure that we install this library for our project without disturbing any other Python settings, we setup a virtual environment that we call 'venv'. To do so, enter the following command in the terminal.
 
 ```bash
-virtualenv venv
+python3 -m virtualenv venv
 ```
 
 VS Code recognise the creation of this new environment and ask you if you want to switch, click 'Yes'.
@@ -301,8 +301,6 @@ In our example, you can recognise the key 'on_off', an `integer` with value `1`:
 
 # Step 4 Control flow
 
-TODO For loop, if-else and other loops (focused on to control the lights bulb)
-
 In programming, if you want to control the flow of your code execution(For example keep the light bulb blinking for 30 seconds"), you can achieve that using control flow statements. There are different kind of Control Statements which you can use according your code logic. We will discuss some of these statements in the sections below to with our smart-bulb.
 
 # Step 4.1 Condition
@@ -313,7 +311,7 @@ Lets explore the `if..else` condition with our light-bulb example:
 
 Here we will first extract the current stat of the light. Then using `if` condition we will check if the light is ON, if it is than we will turn it OFF. Otherwise using `else` we will turn the light ON. After updating the light stats, we will print it's current status as well.
 
-Copy & Paste the below code in you `light.py` file (erase the code we typed before) and run the script from terminal (you know how to run the script from terminal, we did it in last step):
+Copy & Paste the below code in your `light.py` file (erase the code we typed before) and run the script from terminal (you know how to run the script from terminal, we did it in last step):
 
 ```python
 import asyncio

@@ -220,7 +220,7 @@ To install this library, go back to VS Code in your course directory and open a 
 We will use pip to install a Python library. Thanks to the [virtualenv setup](#task-25-setting-up-virtual-environment-to-work), we can install this library inside the course folder only, avoiding any disruption of other Python program on your machine. In the following command,the --pre option signal that we want to install the most recent version of the library, including pre-release.
 
 ```bash
-pip3 install python-kasa --pre
+pip install python-kasa --pre
 ```
 
 kasa## Task 3.3 Connecting to the Network
@@ -363,7 +363,7 @@ source venv/bin/activate
 Now install the kasa-python library to control our light bulb using Raspberry Pi. Type below command in the terminal with while our newly created virtual environment venv is activated.
 
 ```bash
-pip3 install python-kasa --pre
+pip install python-kasa --pre
 ```
 
 ![Installing kasa library](/assets/img/courses/id5415/module1/assignment/4_3_2.png)
