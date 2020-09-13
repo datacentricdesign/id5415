@@ -9,7 +9,7 @@ introduction: In this assignment, you will experience the basics of Python progr
 prog_environment: VS Code
 design:
 code_management: Git, GitHub
-computational_concepts:
+computational_concepts: JSON, if-statement, for-statement
 ---
 
 ---
@@ -23,7 +23,7 @@ In the previous module we setup a prototyping environment and we explored the be
 
 # Step 1: Github
 
-TODO Till now you got acquainted on how to create files and directory in your machine / Pi using terminal. Now in this step, we will learn how to use version control system (e.g. git) to work remotely on your project with other teammates collaboratively.
+Till now you got acquainted on how to create files and directory in your machine / Pi using the Terminal. In this step, we will learn how to use a version control system (e.g. git) to work remotely on your project with other teammates collaboratively.
 
 ## Task 1.1: Getting the Shared Repository on your Machine
 
@@ -132,9 +132,9 @@ Now each team member can explore Python in there own branch, committing new vers
 
 We write Python code into files with `.py` extension. Let's create a new file `light.py` in the src directory.To create a new file, right-click on the `src` folder and select the fist option said `New File`. you will see that in file explorer a new text field will ask you to give a name to this new file. Write `light.py` there.
 
-![Create a new python script file](/assets/img/courses/id5415/module2/assignment/2_1_0.png)
+![Create a new Python script file](/assets/img/courses/id5415/module2/assignment/2_1_0.png)
 
-Paste the following lines in the newly created python script file `light.py`
+Paste the following lines in the newly created Python script file `light.py`
 
 ```python
 # This function 'print' the message 'The light is on!' in the Terminal
@@ -143,7 +143,7 @@ print("The light is on!")
 
 ## Task 2.2: Executing a Python script from the Terminal
 
-In the terminal, use the python command followed by the path to your file to execute your Python script:
+In the terminal, use the Python command followed by the path to your file to execute your Python script:
 
 ```bash
 python3 src/light.py
@@ -163,16 +163,13 @@ The value stored in this variable can have different types. e.g. numerical value
 
 Let's look at the two simple example code below for numerical value and string value!
 
-```bash
-python3
-
+```python
 turn_ON = "The light is ON "
 turn_OFF = "The light is OFF"
 
 brightness = 60
 
 print(turn_ON + "with brightness: ", brightness)
-
 ```
 
 **Do you want to see if it works? Paste each of the above code in VSCode Terminal and press enter until you print the final result**
@@ -305,11 +302,11 @@ So far we explored variables and states to store information throughout our code
 
 As the name suggests, conditions are checkpoints in your code to make sure it won't execute the particular block of code until the condition is fulfilled.
 
-Lets explore the `if..else` condition with our light-bulb example:
+Let's explore the `if/else` statement with our light example:
 
-Here we will first extract the current stat of the light. Then using `if` condition we will check if the light is ON, if it is than we will turn it OFF. Otherwise using `else` we will turn the light ON. After updating the light stats, we will print it's current status as well.
+Here we will first extract the current state of the light. Then, using the `if` statement we will check the state of the light. If it is `ON`, then we will turn it `OFF`. Otherwise, using the `else` statement we will turn the light `ON`. After updating the light states, we will print its current status as well.
 
-Copy & Paste the below code in your `light.py` file (erase the code we typed before) and run the script from Terminal (you know how to run the script from the Terminal, we did it in last step):
+Copy & Paste the below code in your `light.py` file (erase the code we typed before) and run the script from Terminal (you know how to run the script from the Terminal, we did it in the previous step):
 
 ```python
 import asyncio
@@ -318,7 +315,7 @@ from kasa import SmartBulb
 # 'async' transform our main() into an asynchronous function
 async def main():
     # Call the definition of a light bulb, replace the IP address with the one found with kasa discover
-    bulb = SmartBulb("192.168.1.110") #Make sure to replace your smart-bulb IP Address here
+    bulb = SmartBulb("192.168.1.110") # Make sure to replace your smart-bulb IP Address here
 
     # 'await' tells the program to wait till getting a result from the light bulb
     result = await bulb.get_light_state()
@@ -340,44 +337,43 @@ async def main():
 asyncio.run(main())
 ```
 
-After running the scripts, you will see that your light bulb will either TURN_ON or TURN_OFF according to it's current stat. You will also see it's current status in terminal window.
+After running the scripts, you will see that your light bulb will either turn `ON` or turn `OFF` according to its current state. You will also see its current status in the Terminal window.
 
 ![Example of if_else condition with smart-bulb](/assets/img/courses/id5415/module2/assignment/4_2_0.png)
 
-To learn / practice more about python condition, please refer the [Python_guide_conditions] (https://www.learnpython.org/en/Conditions)
+To learn more about python condition, have a look at the [Python guide on Conditions] (https://www.learnpython.org/en/Conditions)
 
 ## Task 4.2 Loops
 
-In contrast, if you want to run certain piece of code in a continuous manner over time (e.g keep blinking the light bulb for every 10 seconds), you can use certain control flow which is called `Loops`.
+In contrast, if you want to run a piece of code in a continuous manner over time (e.g keep blinking the light bulb for every 10 seconds), you can use certain control flow which is called `Loops`.
 
-There two common loop statement in python. One is `For Loop` and the another is `While loop`
+There are two common loop statement in python: `for` and `while`.
 
 Let's update our `light.py` file. You don't need to delete anything, just add the below line of code.
 
 First import the time library in top of the file before `async def main():`:
 
 ```python
-import time
+from time import sleep
 ```
 
-Then put the below code, after last `print(result)`
+Then, insert the following code after the last `print(result)`.
 
 ```python
-  ## Example of for loop
- for x in range(10): # Here we are asking to loop the below code for 10 times
-    await bulb.turn_on() #Turn on the light
-    print("Loop: ",x) #print current loop number
-    time.sleep(1.0) #sleep for 1 seconds
-    await bulb.turn_off() #turn off the light
-    print("Loop: ",x) #print current loop number
-    time.sleep(1.0)#sleep for 1 seconds
+ for x in range(10):        # Here we are asking to loop the indented code for 10 times
+    await bulb.turn_on()    # Turn on the light
+    print("Loop: ", x)      # Print current loop number
+    sleep(1)                # Sleep for 1 seconds
+    await bulb.turn_off()   # Turn off the light
+    print("Loop: ", x)      # Print current loop number
+    sleep(1)                # Sleep for 1 seconds
 ```
 
 ![Example of for loop](/assets/img/courses/id5415/module2/assignment/4_2_1.png)
 
-What happened here? We have created a for loop which will keep execute the code inside it's block for 10 times and then finis. Inside this loop, we wrote a code tht turning the Light bulb ON & OFF. We are also using `time` library in this example to hold the execution of code for 1 seconds, in between turning ON/OFF the bulb.
+What happened here? We have created a `for` loop which will keep executing the code inside its block for 10 times and then terminates. Inside this loop, we wrote a code that turns the light bulb `ON` and `OFF`. We are also using `time` library in this example to hold the execution of code for a second, in between turning ON/OFF the bulb.
 
-To learn / practice more about python condition, please refer the[Python_Guide_For_Loops](https://www.learnpython.org/en/Loops)
+To learn more about Python `for` statements, have a look at the [Python Guide on For Loops](https://www.learnpython.org/en/Loops)
 
 **Commit and Push!** You've wrote a new piece of code, let's make sure that Git keeps a version of it. To do so, repeat [Task 1.3](#task-13-stage-and-commit-changes) and [Task 1.4](#task-14-stage-and-commit-changes). Your commit message could be 'shaping the light bulb behaviour'
 
