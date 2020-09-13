@@ -177,13 +177,13 @@ Restart VS Code. open your course folder and open a Terminal. Check your Python 
 python3 --version
 ```
 
-This command should return a version number of Python 3.x.x. From now, whenever we want to use python from terminal, we can start the command with `python3`
+This command should return a version number of Python 3.x.x. From now, whenever we want to use Python from the Terminal, we can start the command with `python3`
 
 ## Task 2.5: Setting up Virtual Environment to work
 
 A virtual environment is a self-contained directory tree that contains a Python installation for a particular version of Python. It also includes additional packages (modules/libraries) to meet the requirements of each python application we are developing. Different python application can use different virtual environments.
 
-To create a virtual environment, Go to VSCode and open the terminal. Type below two command to first install the `virtualenv` and then create a virtual environment called `venv`.
+To create a virtual environment, open the Terminal inside VS Code. Type below two commands to first install the `virtualenv` and then create a virtual environment called `venv`.
 
 ```bash
 pip3 install virtualenv
@@ -287,7 +287,7 @@ kasa --host <HOST> off
 kasa --host <HOST> on
 ```
 
-![Kasa commands to control the light-bulb from machine](/assets/img/courses/id5415/module1/assignment/3_4_2.png)
+![Kasa commands to control the light-bulb from a personal computer](/assets/img/courses/id5415/module1/assignment/3_4_2.png)
 
 **What did we achieve?**
 
@@ -317,10 +317,10 @@ If you properly entered the details of your home network, your Raspberry Pi shou
 
 You can connect your Raspberry Pi to a screen, a keyboard and a mouse to use it as you would use your own computer. However, while prototyping your Raspberry Pi is often embedded in your setting and knowing how to handle it remotely is an important skill to have.
 
-Throughout this course, we will thus access the Raspberry Pi remotely. For this we will use the ssh command as follows. Replace the square brackets with the username and hostname that you provisioned on Bucket. Pressing enter, you will be prompt for your password.
+Throughout this course, we will thus access the Raspberry Pi remotely. For this, we will use the `ssh` command as follows. Replace the square brackets with the username and hostname that you provisioned on Bucket. Pressing enter, you will be prompt for your password. Notice the `.local` after your hostname: it means that we look for the name of a machine on the local network.
 
 ```bash
-ssh [username]@[hostname]
+ssh [username]@[hostname].local
 ```
 
 Another way to connect to your Raspberry Pi, less convenient but often more reliable, is via its local IP Address (displayed on the Bucket web app). It is composed of 4 numbers separated by dots.
@@ -335,7 +335,7 @@ ssh [username]@[your.local.IP.address]
 
 As a final task for this assignment, let's replicate what you achieved on your laptop controlling the light-bulb.
 
-On the Raspberry Pi, open the terminal and create a test directory with the command `mkdir` and navigate inside it with the command `cd`.
+On the Raspberry Pi, open the Terminal and create a directory named `test` with the command `mkdir`. Then, navigate inside it with the command `cd`.
 
 ```bashc
 mkdir test
@@ -344,15 +344,13 @@ cd test
 
 ![Command Line tool in Pi](/assets/img/courses/id5415/module1/assignment/4_3_0.png)
 
-Now first we will create the virtual env using the same command as we did on our personal machine.
-
-To create a virtual environment, in the terminal type below command to create a virtual environment called `venv`.
+Like on our laptop, we want to create a Python environment that we can fully control, without disturbing any other Python setting already on the Raspberry Pi. Thus, we create a virtual environment using the same command as we did on our personal computer: `virtualenv`. In the Terminal type the following command to create a virtual environment called `venv`.
 
 ```bash
 python3 -m virtualenv venv
 ```
 
-And then activate this virtual environment by:
+Then, activate this virtual environment by:
 
 ```bash
 source venv/bin/activate
@@ -360,7 +358,7 @@ source venv/bin/activate
 
 ![Creating and Activation Virtual Environment](/assets/img/courses/id5415/module1/assignment/4_3_1.png)
 
-Now install the kasa-python library to control our light bulb using Raspberry Pi. Type below command in the terminal with while our newly created virtual environment venv is activated.
+Notice the `venv` prefix on the left side of the line in the Terminal: we are inside the `venv` Python environment that we have just created. We can now install the `kasa-python` library to control the light bulb from the Raspberry Pi. In the terminal, type in the following command. Remember `pip` is the library manager of Python, we want to `install` the `python-kasa` library. The option `--pre` means that we want a pre-release (e.g. the very most recent version of this library).
 
 ```bash
 pip install python-kasa --pre
@@ -368,11 +366,9 @@ pip install python-kasa --pre
 
 ![Installing kasa library](/assets/img/courses/id5415/module1/assignment/4_3_2.png)
 
-As we already connected the light bulb to our home/office network, we can skip the network provisioning step this time. However, make sure that the pi is connected to same network/wifi as smart-bulb
+As we already connected the light bulb to our home/office network, we can skip the network provisioning step this time. However, make sure that the pi is connected to the same WiFi network as smart-bulb.
 
-Lets use some of the commands from kasa library to control the light bulb:
-
-First to check if the bulb is configured connected to the WiFi network, Turn ON the bulb and type
+Let's use some of the commands from the `python-kasa` library to control the light bulb. First, we can check if the bulb is connected to the WiFi network with the `discover` command:
 
 ```bash
 kasa discover
@@ -382,10 +378,10 @@ This will show the name of our smart bulb, its IP address, some hardware details
 
 ![Running kasa discover command in Pi terminal](/assets/img/courses/id5415/module1/assignment/4_3_3.png)
 
-Now that we have the IP address of the bulb (HOST), we will try to interact with light bulb by running some simple commands from kasa library.
+Now that we have the IP address of the bulb (HOST), we will try to interact with it by running some simple commands. For each of the following command, replace `[host]` by the IP address found with the `discover` command.
 
 ```bash
-kasa --host <HOST> brightness
+kasa --host [HOST] brightness
 ```
 
 ```bash
