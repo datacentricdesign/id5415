@@ -28,7 +28,7 @@ report:
 
 ## Task 1.1: Create an "environment" dashboard
 
-1. Create a new temperature property, for storing temperatures in fahrenheit 
+1. Create a new temperature property, for storing temperatures in Fahrenheit 
 2. From raw celsius temperature data, convert to Fahrenheit and send this value to this new property
 3. Create a temperature dashboard with temperature in Celsius, Fahrenheit, and humidity. 
 

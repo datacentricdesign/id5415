@@ -181,8 +181,6 @@ In the previous(assignment 1) we wrote the minimal code enabling the control of 
 
 In the next step, you will see the names `bulb` and `result` in one line in python script. These are the names of 2 variables and holds bulb IP Address and result action that coded respectively.
 
-## Task
-
 # Step 3 Turn on the light! I mean for real!
 
 Finally some action. Here we will add a structure to our Python script and import the necessary libraries to control the light bulb.
@@ -281,9 +279,9 @@ Let's run this code! The light should turn on and the Terminal should look like 
 
 ![Turn On](/assets/img/courses/id5415/module2/turn-on.png)
 
-## Task 3.4 Analysing the Result
+## Task 3.3 Analysing the Result
 
-What do we see in terminal? A `JSON` structure which is a typical way to exchange data on the Internet of Things. It starts and ends with curly brackets `{}`. It is composed of `"key": "value"` sets separated by a comma `,`. A value can be any of the primitive types `string`, `float`, `integer` or `boolean` covered in the previous [Step](#task-23-variables-and-Types). It can also be a JSON structure itself with curly brackets `{}` or an array of any of those types, delimited with square brackets `[]`.
+What do we see in the Terminal? A `JSON` structure which is a typical way to exchange data on the Internet of Things. It starts and ends with curly brackets `{}`. It is composed of `"key": "value"` sets separated by a comma `,`. A value can be any of the primitive types `string`, `float`, `integer` or `boolean` covered in the previous [Step](#task-23-variables-and-Types). It can also be a JSON structure itself with curly brackets `{}` or an array of any of those types, delimited with square brackets `[]`.
 
 ```json
 {
@@ -297,23 +295,21 @@ What do we see in terminal? A `JSON` structure which is a typical way to exchang
 
 In our example, you can recognise the key 'on_off', an `integer` with value `1`: The light is on.
 
-**Commit and Push!** You've wrote a new piece of code, let's make sure that Git keeps a version of it. To do so, repeat [Task 1.3](#task-13-stage-and-commit-changes) and [Task 1.4](#task-14-stage-and-commit-changes). Your commit message could be 'controlling the light bulb'
+**Commit and Push!** You've written a new piece of code, let's make sure that Git keeps a version of it. To do so, repeat [Task 1.3](#task-13-stage-and-commit-changes) and [Task 1.4](#task-14-stage-and-commit-changes). Your commit message could be 'controlling the light bulb'
 
-# Step 4 Control flow
+# Step 4  Shaping the Lamp's Behaviour
 
-TODO For loop, if-else and other loops (focused on to control the lights bulb)
+So far we have explored variables and states to store information throughout our code, and we can use use the `kasa` library to control a connected light bulb. In this step, we want to shape the behaviour of the light to make it blinks for 5 seconds. We achieve this with conditions and repetitions: we call these elements `control flow statements`.
 
-In programming, if you want to control the flow of your code execution(For example keep the light bulb blinking for 30 seconds"), you can achieve that using control flow statements. There are different kind of Control Statements which you can use according your code logic. We will discuss some of these statements in the sections below to with our smart-bulb.
+# Step 4.1 Toggle switch
 
-# Step 4.1 Condition
-
-As the name suggests, conditions is the checkpoint in your code to make sure it won't execute the particular block of code until the condition is fulfilled. The most commonly conditions are `if..else` and `while` condition.
+As the name suggests, conditions are checkpoints in your code to make sure it won't execute the particular block of code until the condition is fulfilled.
 
 Lets explore the `if..else` condition with our light-bulb example:
 
 Here we will first extract the current stat of the light. Then using `if` condition we will check if the light is ON, if it is than we will turn it OFF. Otherwise using `else` we will turn the light ON. After updating the light stats, we will print it's current status as well.
 
-Copy & Paste the below code in you `light.py` file (erase the code we typed before) and run the script from terminal (you know how to run the script from terminal, we did it in last step):
+Copy & Paste the below code in you `light.py` file (erase the code we typed before) and run the script from Terminal (you know how to run the script from Terminal, we did it in last step):
 
 ```python
 import asyncio

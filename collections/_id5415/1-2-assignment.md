@@ -289,7 +289,7 @@ kasa --host <HOST> on
 
 ![Kasa commands to control the light-bulb from machine](/assets/img/courses/id5415/module1/assignment/3_4_2.png)
 
-**What did we achieved?**
+**What did we achieve?**
 
 - we are able to control the connected light bulb from our computer
 
@@ -333,7 +333,7 @@ ssh [username]@[your.local.IP.address]
 
 ## Task 4.3: Controlling the Light Bulb from Raspberry-Pi
 
-As a final task for this assignment, let's replicate what you achieved on your laptop controlling the light-bulb. e.g Controlling the smartpyth-bulb from Pi
+As a final task for this assignment, let's replicate what you achieved on your laptop controlling the light-bulb.
 
 On the Raspberry Pi, open the terminal and create a test directory with the command `mkdir` and navigate inside it with the command `cd`.
 
