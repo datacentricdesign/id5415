@@ -23,7 +23,7 @@ In the previous module we setup a prototyping environment and we explored the be
 
 # Step 1: Github
 
-TODO You got acquainted how to create files and directory in your machine / Pi using terminal. Now in this step, we will learn how to use version control system (e.g. git) to work remotely on your project with other teammates collaboratively.
+TODO Till now you got acquainted on how to create files and directory in your machine / Pi using terminal. Now in this step, we will learn how to use version control system (e.g. git) to work remotely on your project with other teammates collaboratively.
 
 ## Task 1.1: Getting the Shared Repository on your Machine
 
@@ -35,7 +35,7 @@ In VS Code you can click on the Source Control button (3rd icon in the left pane
 
 ![Clone Git Repository](/assets/img/courses/id5415/module2/assignment/1_1_1.png)
 
-In the text field that open at the top, paste the URL of your repository and press ENTER.
+In the text field that open at the top, paste the URL of your repository and press ENTER. A prompt will ask you to choose the location in your machine to save the Repository. For now, choose Desktop.
 
 ![Text Field appear on top to paste repo link](/assets/img/courses/id5415/module2/assignment/1_1_2.png)
 
@@ -112,15 +112,15 @@ Let's try to understand this by first creating a branch from the master branch.
 
 By default, you are on the `master` branch. In VS Code you can create a branch by clicking on the bottom left corner on 'master' (the name of your current branch). A menu pops up, click `Create a new branch from`. In the text field, provide the name of your new feature, e.g. 'feature/john-python-exploration'. Then select the branch 'master' (your branch will copied from the current master branch).
 
-![Creating new git branch](/assets/img/courses/id5415/module2/assignment/1_9.png)
+![Creating new git branch](/assets/img/courses/id5415/module2/assignment/1_5_0.png)
 
 Once you have successfully created the new branch, you will see that you are now working from your newly created branch and not master branch.
 
-![Working from new branch](/assets/img/courses/id5415/module2/assignment/1_10.png)
+![Working from new branch](/assets/img/courses/id5415/module2/assignment/1_5_1.png)
 
 You can always switch back to another branch (e.g master) to look for reference or edit some code. **NOTE make sure you have commit all the changes from the current branch before switching to the new one.**
 
-![Switch working branch](/assets/img/courses/id5415/module2/assignment/1_11.png)
+![Switch working branch](/assets/img/courses/id5415/module2/assignment/1_5_2.png)
 
 A more complete tutorial on branches is available by [Atlassian](https://www.atlassian.com/git/tutorials/using-branches).
 
@@ -132,7 +132,7 @@ Now each team member can explore Python in there own branch, committing new vers
 
 We write Python code into files with `.py` extension. Let's create a new file `light.py` in the src directory.To create a new file, right-click on the `src` folder and select the fist option said `New File`. you will see that in file explorer a new text field will ask you to give a name to this new file. Write `light.py` there.
 
-![Create a new python script file](/assets/img/courses/id5415/module2/assignment/1_12.png)
+![Create a new python script file](/assets/img/courses/id5415/module2/assignment/2_1_0.png)
 
 Paste the following lines in the newly created python script file `light.py`
 
@@ -191,7 +191,7 @@ The main element of a Python program is its `main()` function. As we saw with `p
 
 In the code below we added `def main():`. This is the syntax to **define** the behaviour of a **function**. Notice that what is 'inside' this function is indented, i.e. moved to the right by one tab. This is how Python recognise that these lines are part of the function.
 
-```bash
+```python
 def main():
     # This function 'print' the message 'The light is on!' in the Terminal
     print("The light is on!")
@@ -201,7 +201,7 @@ In the terminal, execute your code again (`python src/light.py`)
 
 What happened? Nothing! The text is no longer showing up, what is going on? Well, we defined a function `main()`, but we are not calling it. Like `print()`, to call our function we can write `main()` at the bottom of the file.
 
-```bash
+```python
 def main():
     # This function 'print' the message 'The light is on!' in the Terminal
     print("The light is on!")
@@ -229,7 +229,7 @@ This illustrates two ways of importing libraries into your program. The first st
 To ensure that we install this library for our project without disturbing any other Python settings, we setup a virtual environment that we call 'venv'. To do so, enter the following command in the terminal.
 
 ```bash
-virtualenv venv
+python3 -m virtualenv venv
 ```
 
 VS Code recognise the creation of this new environment and ask you if you want to switch, click 'Yes'.
@@ -299,7 +299,7 @@ In our example, you can recognise the key 'on_off', an `integer` with value `1`:
 
 # Step 4  Shaping the Lamp's Behaviour
 
-So far we have explored variables and states to store information throughout our code, and we can use use the `kasa` library to control a connected light bulb. In this step, we want to shape the behaviour of the light to make it blinks for 5 seconds. We achieve this with conditions and repetitions: we call these elements `control flow statements`.
+So far we explored variables and states to store information throughout our code, and we can use use the `kasa` library to control a connected light bulb. In this step, we want to shape the behaviour of the light to make it blinks for 5 seconds. We achieve this with conditions and repetitions: we call these elements `control flow statements`.
 
 # Step 4.1 Toggle switch
 
@@ -309,7 +309,7 @@ Lets explore the `if..else` condition with our light-bulb example:
 
 Here we will first extract the current stat of the light. Then using `if` condition we will check if the light is ON, if it is than we will turn it OFF. Otherwise using `else` we will turn the light ON. After updating the light stats, we will print it's current status as well.
 
-Copy & Paste the below code in you `light.py` file (erase the code we typed before) and run the script from Terminal (you know how to run the script from Terminal, we did it in last step):
+Copy & Paste the below code in your `light.py` file (erase the code we typed before) and run the script from Terminal (you know how to run the script from the Terminal, we did it in last step):
 
 ```python
 import asyncio
@@ -344,7 +344,7 @@ After running the scripts, you will see that your light bulb will either TURN_ON
 
 ![Example of if_else condition with smart-bulb](/assets/img/courses/id5415/module2/assignment/4_2_0.png)
 
-To learn / practice more about python condition, please refere the ![python guide here:] (https://www.learnpython.org/en/Conditions)
+To learn / practice more about python condition, please refer the [Python_guide_conditions] (https://www.learnpython.org/en/Conditions)
 
 ## Task 4.2 Loops
 
@@ -377,41 +377,8 @@ Then put the below code, after last `print(result)`
 
 What happened here? We have created a for loop which will keep execute the code inside it's block for 10 times and then finis. Inside this loop, we wrote a code tht turning the Light bulb ON & OFF. We are also using `time` library in this example to hold the execution of code for 1 seconds, in between turning ON/OFF the bulb.
 
-## Task 4.3 Object / Iterator
-Similar to `for_loop` in python, iterator is type of an object that can be iterated, meaning traverse through all the values. For example, in above code, when we print a result using `print(result)`, we will get the JSON array in return in terminal.
+To learn / practice more about python condition, please refer the[Python_Guide_For_Loops](https://www.learnpython.org/en/Loops)
 
-![Printing JSON array as it is](/assets/img/courses/id5415/module2/assignment/4_3_0.png)
-
-However, if you notice, this command will print entire json array as it is. What if you want to go through individual value in this json array and print that value only?
-
-For this, we can use Iterator. look at the example below: Add below code after the for loop and run the script.
-
-```python
-
-myIterator = iter(result)
-    print(next(myIterator))
-    print(next(myIterator))
-    print(next(myIterator))
-
-```
-![Example of Iterator](/assets/img/courses/id5415/module2/assignment/4_3_1.png)
-
-You can do the same thing with for loop as well, however it will print all the value and not just three! copy the for loop code mentioned below in the `light.py`, at the end of `async def main()` and run the script. Observe the results in terminal.
-
-```python
-    for x in result:
-        print(x)
-```
-
-![Example of Iterator with for loop](/assets/img/courses/id5415/module2/assignment/4_3_2.png)
-
-TODO
 **Commit and Push!** You've wrote a new piece of code, let's make sure that Git keeps a version of it. To do so, repeat [Task 1.3](#task-13-stage-and-commit-changes) and [Task 1.4](#task-14-stage-and-commit-changes). Your commit message could be 'shaping the light bulb behaviour'
 
-**Updating the CHANGELOG file** In this assignment you have made significant additions to your prototype. Edit the file `CHANGELOG.md`
-
-**Filing an Issue**
-
-```
-
-```
+**Updating the CHANGELOG file** In this assignment you have made significant additions to your prototype. Edit the file `CHANGELOG.md` and what you have learnt in this assignment today.
