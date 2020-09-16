@@ -331,6 +331,8 @@ ssh [username]@[your.local.IP.address]
 
 ![SSH Pi using Username & Hostname](/assets/img/courses/id5415/module1/assignment/4_2_0.png)
 
+**Note:** When you enter your password, nothing appears? It is the normal behaviour, we do not want to leave traces of our password in the command line. Type your password (blindly) and press enter.
+
 ## Task 4.3: Controlling the Light Bulb from Raspberry-Pi
 
 As a final task for this assignment, let's replicate what you achieved on your laptop controlling the light-bulb.
