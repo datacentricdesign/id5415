@@ -1,7 +1,7 @@
 ---
 layout: course-page
 title: "Network as Sensor"
-permalink: /module4/assignment
+permalink: /draft/module4/assignment
 description: "Prototyping Connected Product - Assignment 4"
 assignment-id: 4
 assignment-of: id5415-4
@@ -22,3 +22,17 @@ Assignment 4 focuses on
 {:toc}
 
 ---
+
+TODO full assignment
+
+# Step 1: Scanning the WiFi Network
+
+detection of phone
+
+detection of lightbulb
+
+
+# Step 2: Preprocessing data
+
+
+# Step 3: Generating events

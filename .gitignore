@@ -1,7 +1,6 @@
 .DS_Store
 _site
 node_modules
-_drafts
 .idea
 *.iml
 .vscode

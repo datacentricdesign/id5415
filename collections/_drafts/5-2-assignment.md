@@ -1,7 +1,7 @@
 ---
 layout: course-page
 title: "Enriching and Sharing"
-permalink: /module5/assignment
+permalink: /draft/module5/assignment
 description: "Prototyping Connected Product - Assignment 5"
 assignment-id: 5
 assignment-of: id5415-5
@@ -22,3 +22,14 @@ Assignment 5 focuses on
 {:toc}
 
 ---
+
+TODO full assignment
+
+# Step 1: Trigger a REST API
+
+
+# Step 2: Code a REST API
+Share sensor data, control light bulb
+
+# Step
+Subscribe to MQTT

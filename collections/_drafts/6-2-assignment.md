@@ -1,7 +1,7 @@
 ---
 layout: course-page
 title: "Assignment 6"
-permalink: /module6/assignment
+permalink: /draft/module6/assignment
 description: "Prototyping Connected Product - Assignment 6"
 assignment-id: 6
 assignment-of: id5415-6
@@ -22,3 +22,5 @@ Assignment 6 focuses on
 {:toc}
 
 ---
+
+TODO full assignment

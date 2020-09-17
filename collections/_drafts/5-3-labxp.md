@@ -1,7 +1,7 @@
 ---
 layout: course-page
 title: "User Interaction"
-permalink: /module5/labxp
+permalink: /draft/module5/labxp
 description: "Prototyping Connected Products - Lab Experiment 5"
 labxp-of: id5415-5
 introduction: In this Lab Experiment,
@@ -18,3 +18,5 @@ Some intro
 {:toc}
 
 ---
+
+TODO full Lab XP

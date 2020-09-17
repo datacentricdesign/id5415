@@ -1,9 +1,9 @@
 ---
 layout: course-page
-title: "User Interaction"
-permalink: /module5/labxp
-description: "Prototyping Connected Products - Lab Experiment 5"
-labxp-of: id5415-5
+title: "Data Analytics"
+permalink: /draft/module6/labxp
+description: "Prototyping Connected Products - Lab Experiment 6"
+labxp-of: id5415-6
 introduction: In this Lab Experiment,
 technique:
 metrics:
@@ -18,3 +18,5 @@ Some intro
 {:toc}
 
 ---
+
+TODO full Lab XP

@@ -38,6 +38,8 @@ collections_dir: collections
 collections:
   id5415:
     output: true
+  drafts:
+    output: true
   staff_members:
     output: true
     people: true
