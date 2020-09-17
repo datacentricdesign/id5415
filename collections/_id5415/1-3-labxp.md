@@ -139,7 +139,7 @@ Here is a starting point for information:
 
 At this stage we do not need a very detailed diagram, following the IoT technology stack introduced in the self study material is the right level: [Daniel Elizalde](https://www.iotforall.com/iot-product-managers-guide-iot-technology-stack/)
 
-**Report** In your lab experiment report, describe this IoT stack with text and a diagram.
+>**Report** In your lab experiment report, describe this IoT stack with text and a diagram.
 
 # Step 3: Logs
 
@@ -213,7 +213,7 @@ This command means that we copy from the remote directory of the Raspberry Pi co
 - Identify repeating patterns, these are most likely pieces of code running in loops
 - Look for decision 'The thing is connected to the Internet.'
 
-**Report** On GitHub, in your lab experiment report, insert a snapshot of logs and write your interpretation of it. You might want to draw a simple [flow chart](https://en.wikipedia.org/wiki/Flowchart) to illustrate your understanding.
+>**Report** On GitHub, in your lab experiment report, insert a snapshot of logs and write your interpretation of it. You might want to draw a simple [flow chart](https://en.wikipedia.org/wiki/Flowchart) to illustrate your understanding.
 
 # Step 4: Data Visualisation
 
@@ -235,7 +235,7 @@ When pressing 'Sign in' for the first time, you will get prompted for the consen
 
 ## Task 4.3 Visualise your Thing Properties on Grafana
 
-Once you established a first login with Grafana, go back to Bucket. At the top of your Thing you should see a button 'Visualise with Grafana'.
+Once you have established a first login with Grafana, go back to Bucket. At the top of your Thing you should see a button 'Visualise with Grafana'.
 
 ![Visualize with Grafana](/assets/img/courses/id5415/module1/labxp/4_2_3.png)
 
@@ -243,4 +243,4 @@ Clicking on this button, Bucket will automatically create a Grafana dashboard wi
 
 ![Grafana Dashboard](/assets/img/courses/id5415/module1/labxp/4_2_4.png)
 
-**Report** On GitHub, in your lab experiment report, describe your prototype dashboard with text and screenshots. What can we see and what these metrics means?
+>**Report** On GitHub, in your lab experiment report, describe your prototype dashboard with text and screenshots. What can we see and what these metrics means?
