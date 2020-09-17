@@ -1,6 +1,6 @@
 ---
 layout: course-page
-title: 'Shaping behaviour with code'
+title: 'Shaping with code'
 permalink: /draft/module2/assignment
 description: 'Prototyping Connected Product - Assignment 2'
 assignment-id: 2
