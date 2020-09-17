@@ -9,22 +9,21 @@ technique: Data Exploration, Reverse Engineering
 metrics:
 report: System Architecture, System Data Visualisation
 tags:
-- logs
-- flow chart
-- data
-- reverse engineering
-- SSH
-- CLI
-- 
+  - logs
+  - flow chart
+  - data
+  - reverse engineering
+  - SSH
+  - CLI
+  -
 ---
 
 ---
 
-* Do not remove this line (it will not be displayed)
-{:toc}
+- Do not remove this line (it will not be displayed)
+  {:toc}
 
 ---
-
 
 # Step 1 Teamwork
 
@@ -49,9 +48,9 @@ Once you accept your GitHub assignment, this is how it looks like:
 ![GitHub](/assets/img/courses/id5415/module1/labxp/1_1_1.png)
 
 - docs: this directory will contain the documentation of your prototype and the report of your lab experiments
-- .gitignore: a list of files you do not want to share on GitHub (settings specific to your machine, passwords, data, logs) 
+- .gitignore: a list of files you do not want to share on GitHub (settings specific to your machine, passwords, data, logs)
 - CHANGELOG.md: significant changes you have made to your repository, for each version. At the end of each assignment, we will prompt you to fill in this file.
--  LICENSE: all content on the web should have a license, otherwise no one can do anything with it (legally). Here we share the initial repository under MIT License.
+- LICENSE: all content on the web should have a license, otherwise no one can do anything with it (legally). Here we share the initial repository under MIT License.
 - README.md: Explanation about the repository and links to the documentation and further information.
 
 ## Task 1.2 Markdown
@@ -163,6 +162,7 @@ What is in this directory? We list its content with `ls` (list):
 ```bash
 ls
 ```
+
 ![List log directory](/assets/img/courses/id5415/module1/labxp/3_2_1.png)
 
 You should see one directory named after your Thing id (dcd:things:...). We now enter this directory with `cd`, replacing the square brackets with your Thing id as listed in the directory. As we do not want to spend time typing this long directory name, simply press the `TAB` key to auto-complete.
@@ -187,7 +187,6 @@ cat 2020-08-24.log
 
 ## Task 3.3: Downloading Logs
 
-
 Depending on how long your Raspberry Pi has been running, this might print a very long number of line. It is not always practicle to browse through them in the Terminal. It is often convenient to have the ability to explore log files (or any data file) on your laptop. We achieve this with the `scp` command (`s` standing for `ssh` and `cp` standing for copying): we want to remotely copy.
 
 Let's leave your Raspberry Pi and come back to your computer. To leave the Raspberry Pi, type in exit and press enter.
@@ -204,7 +203,6 @@ scp -r [username]@[hostname.local]:/var/log/[your thing id] ./backup_log
 
 This command means that we copy from the remote Raspberry Pi the directory containing the log of your thing into the local directory `backup_log` (in your current folder, on your computer). If the command succeed, you should see a directory `backup_log` in the left panel of VS Code, containing your the log files.
 
-
 ## Task 3.4 Analyse the Logs
 
 - Look at the first log file in time. It should contain some information about what happens when the Raspberry Pi start.
@@ -219,11 +217,27 @@ In the previous step, the analysis of the logs should have highlighted that the 
 
 ## Task 4.2 Connect to Grafana
 
-From your web browser, go to [https://dwd.tudelft.nl/grafana](https://dwd.tudelft.nl/grafana]). To login, click on the grey button 'Sign in with OAuth'. This way you get to sign in with your DCD Lab account. When pressing 'Sign in' for the first time, you will get prompted for the consent to let Grafana access your data. No worries, we are running this service ourself, your data is not leaving for any 3rd party company.
+From your web browser, go to [https://dwd.tudelft.nl/grafana](https://dwd.tudelft.nl/grafana]). To login, click on the grey button 'Sign in with OAuth'.
+
+![Grafana OAuth](/assets/img/courses/id5415/module1/labxp/4_2_0.png)
+
+This way you get to sign in with your DCD Lab account.
+
+![Grafana-Bucket SignIn](/assets/img/courses/id5415/module1/labxp/4_2_1.png)
+
+When pressing 'Sign in' for the first time, you will get prompted for the consent to let Grafana access your data. No worries, we are running this service ourself, your data is not leaving for any 3rd party company.
+
+![Grafana-Bucket SignIn](/assets/img/courses/id5415/module1/labxp/4_2_2.png)
 
 ## Task 4.3 Visualise your Thing Properties on Grafana
 
-Once you established a first login with Grafana, go back to Bucket. At the top of your Thing you should see a button 'Visualise with Grafana'. Clicking on this button, Bucket will automatically create a Grafana dashboard with the property of your Thing. If successful, you will be redirected to this dashboard.
+Once you established a first login with Grafana, go back to Bucket. At the top of your Thing you should see a button 'Visualise with Grafana'.
+
+![Visualize with Grafana](/assets/img/courses/id5415/module1/labxp/4_2_3.png)
+
+Clicking on this button, Bucket will automatically create a Grafana dashboard with the property of your Thing. If successful, you will be redirected to this dashboard.
+
+![Grafana Dashboard](/assets/img/courses/id5415/module1/labxp/4_2_4.png)
 
 ## Task 4.4 Explore Data
 
