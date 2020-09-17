@@ -12,9 +12,4 @@ code_management: Git, GitHub
 computational_concepts: JSON, if-statement, for-statement
 ---
 
----
-
-- Do not remove this line (it will not be displayed)
-  {:toc}
-
----
+To be released.

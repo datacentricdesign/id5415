@@ -12,13 +12,4 @@ code_management:
 computational_concepts: 
 ---
 
-
-Assignment 4 focuses on 
-
-
----
-
-* Do not remove this line (it will not be displayed)
-{:toc}
-
----
+To be released.

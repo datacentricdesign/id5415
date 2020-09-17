@@ -9,9 +9,4 @@ tags:
 introduction: In this module, the self-study material focus on product analytics. Zooming out from one prototype to a fleet of products, we will explore what makes a 'data product' and how data can be used in different ways depending on the lens and scale. In this context, we will touch on designers' responsibilities regarding privacy.
 ---
 
----
-
-* Do not remove this line (it will not be displayed)
-{:toc}
-
----
+To be released.

@@ -12,10 +12,4 @@ code_management: GPIO library
 computational_concepts: I/O, files
 ---
 
-
----
-
-* Do not remove this line (it will not be displayed)
-{:toc}
-
----
+To be released.

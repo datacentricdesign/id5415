@@ -10,11 +10,4 @@ metrics:
 report:
 ---
 
-Some intro
-
----
-
-* Do not remove this line (it will not be displayed)
-{:toc}
-
----
+To be released.

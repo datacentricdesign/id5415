@@ -9,9 +9,4 @@ tags:
 introduction: In this module, the self-study material focus on web technology. We will explore web services, the core of the Internet. Diving in the technology, we will introduce the protocols HTTP and MQTT with there respective communication model. Finally, we will discuss the fundamental of web security.
 ---
 
----
-
-* Do not remove this line (it will not be displayed)
-{:toc}
-
----
+To be released.
