@@ -21,7 +21,7 @@ tags:
 ---
 
 * Do not remove this line (it will not be displayed)
-  {:toc}
+{:toc}
 
 ---
 
@@ -247,3 +247,26 @@ Clicking on this button, Bucket will automatically create a Grafana dashboard wi
 
 >**Report**
 On GitHub, in your lab experiment report, describe your prototype dashboard with text and screenshots. What can we see and what these metrics means?
+
+To conclude your lab experiment, open an `issue`. On GitHub, an `issue` is a discussion thread. In our case, we want to open a discussion space related to the first lab XP. This will be a sign to coaches that you consider being done with it so that they can go through it for feedback.
+
+On GitHub, open an issue by clicking on the tab `Issue`.
+
+![Issue](/assets/img/courses/id5415/module1/labxp/5_1_1.png)
+
+Like your lab XP report, you can use all Markdown tags to format your text with headings, links, lists and so on. In your issue, we expect the following elements:
+
+1. a title
+2. a link 
+3. a list of tasks. In markdown you can use `- [ ]` or `- [x]` for tick boxes
+4. a question section
+5. a feedback session
+6. Assign your issue to your coach, to make it more visible to them
+7. Create a label 'Lab Xp', categorising this issue
+
+Then, you can press the green button 'Submit new issue'.
+
+![Filling in an issue](/assets/img/courses/id5415/module1/labxp/5_1_2.png)
+
+
+
