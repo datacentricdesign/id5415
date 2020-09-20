@@ -1,7 +1,7 @@
 ---
 layout: course-page
 title: 'Shaping with code'
-permalink: /draft/module2/assignment
+permalink: /module2/assignment
 description: 'Prototyping Connected Product - Assignment 2'
 assignment-id: 2
 assignment-of: id5415-2
