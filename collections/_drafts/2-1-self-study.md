@@ -6,7 +6,7 @@ description: 'Prototyping Connected Product - Self-Study 2'
 self-study-id: 2
 self-study-of: id5415-2
 tags:
-introduction: In this module, the self-study material focus on the fundamentals of programming. While this course is not a programming course, we will explore the necessary basics to get started such as state and code management. We will motivate the choice of Python for this course, and introduce a few specifics to Python. Finally, we will introduce the concept of version control systems and code library, necessary step to use code from others and collaborate.
+introduction: In this module, the self-study material focus on the fundamentals of programming. While this course is not a programming course, we will explore the necessary basics to get started such as state and code management. We will motivate the choice of Python for this course, and introduce a few specifics to Python. Finally, we will introduce the concept of Version Control Systems and code library, necessary step to use code from others and collaborate.
 ---
 
 ---
@@ -16,30 +16,135 @@ introduction: In this module, the self-study material focus on the fundamentals 
 
 ---
 
-TODO Full self-study
 
 # Python
 
-In the first assignment we installed Python to run the library that interact with the light bulb.
+<span class="mdi mdi-text-box-outline"></span> Reading (30 minutes)
 
-## Why do we use Python?
-
-Because it was [invented by the Dutch Guido van Rossum](https://www.youtube.com/watch?v=J0Aq44Pze-w). No, well yes it is a Dutch design but not the main reason we use it in this course! Its relevance comes from a global community across disciplines (from mathematics to data science, artificial intelligence and automation) and its acknowledge ease to get started in contrast with other programming languages.
+In the first assignment, we installed Python to use the Python package `python-kasa` to interact with the light bulb of our prototyping kit. Let's go back a few steps.
 
 ## What is Python?
 
-## Why Python for this course
+>Python is an `interpreted`, `high-level` and `general-purpose` programming language ([Wikipedia](https://en.wikipedia.org/wiki/Python_%28programming_language%29)).
 
-This Why and What help us understand the relevance of Python in this course. To prototype a connected product,
+Python is a programming language. Similarly to a natural language such as English, it defines a set of rules on how to tell machines what we want them to do.
 
-- we need a programming language that we can use for a wide variety of tasks from controlling a light bulb to visualising sensor data and fetching the next weather forecast from a web service;
-- we need to get quickly up to speed and focus on the prototyping and testing, rather than the coding itself.
+* `Interpreted` means that a machine will read our Python code and understand is without the need to transform it. Other languages such as the `C` language require your code to be `compiled` so that the machine can understand it. You have encountered such a step if you programmed with Arduino.
+* `High-level` means that you do not have to care too much about the machine that runs your code. In this context, low-level is closer to the `0` and `1` understood by the machine, while `high-level` is closer to humans' natural language.
+* `General-purpose` means that Python is not designed for a particular application or domain. We can use it for any type of programming tasks.
 
-# Code Management
+## Why do we use Python?
+
+Because it was [invented by the Dutch Guido van Rossum](https://www.youtube.com/watch?v=J0Aq44Pze-w). No, well yes, it is a Dutch design but this is not the reason we use it in this course! Its relevance comes from a global community across disciplines (from mathematics to data science, artificial intelligence and automation) and its acknowledge ease to get started in contrast with other programming languages. These characteristics help us understand the relevance of Python in this course. To prototype a connected product, we need
+
+* a programming language that we can use for a wide variety of tasks from controlling a light bulb to visualising sensor data and fetching the next weather forecast from a web service;
+* to get quickly up to speed and focus on the prototyping and testing, rather than the coding itself;
+* basic programming skills that we can reuse in many projects, even those that are not relying on Python.
+
+
+## Store and Manipulate Information
+
+In programming, what we want to achieve is to `store` and `manipulate` information. We aim to provide you with a dry overview of the fundamental programming concepts so that we can quickly switch to hands-on practice with a shared understanding.
+
+In programming, a `variable` is a storage location paired with an associated symbolic name. Each of the variables holds a value that either static or that varies throughout the program.
+
+TODO diagram
+
+What information can we store? We can store any information. However, it needs to be of a certain `data types`. Two common examples are `numerical` (integers, floats, complex) and `textual` information. In programming, we refer to textual information as `strings`, a short for strings (or sequences) of characters. In contrast with other languages, you will notice that in Python you do not specify data types. Python infers automatically the type of information.
+
+So why do types matter if Python takes care of it? Depending on the type of information we deal with, we will not do the same thing. For instance, with `numerical` information we want to make mathematical operations. In contrast, with `textual` information we want to put them together to form sentences.
+
+Storing, comparing, showing on the screen, combining: these are all examples of information manipulation. In programming, we refer to `statement` for each line of code that manipulates information as it influences or relies on the state of a variable (i.e. stored information). Throughout the course, we will introduce statements with the Python syntax. You will recognise two types of statements.
+
+* simple statement fitting on a single line. For example: `a = b + c`
+* compound statement spreading over several lines. For example:
+
+```
+if light is off
+then turn on the light
+else turn off the light
+```
+
+Notice: the examples above are not written Python. They describe the steps of an algorithm with plain language. This is called `pseudocode`.
+
+Finally, what is not a statement in your code is a `comment`: information for the reader of your code which is ignored by the machine. It is critical for others to understand why you wrote your code in this way, but also for yourself when you come back to your code.
+
+## Code Management
+
+
+
+Function
+
+import
+
+Module => a python file
+Package => a directory with Python module
+
 
 # Version Control System
 
-- Git
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eWxxfttcMts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+- repository
+
+- commit
+
+- hash
+- checkout
+
+- branch
+- merge
+
+- remote
+- clone
+- push
+- pull
+
+
+control over your changes and the one you incorporate from others
+
+
+Why: purpose collaborate on the design and development of a connected product
+
+What:
+- people working in parallel on aspect of the product (UI, network, data, hardware)
+- multiple devices, if only machines of teammates, in our case Raspberry Pi
+- freely experimenting, without fear of loosing what is achieved already
+- testing and comparing different version
+- never loosing code and staying in control
+
+How: version control system
+
+
+Disclaimer: it has been scientifically proven that the mental model of git reflect the system and not the user perspective. Pardon the poor computer scientists. => yes we need designers
+
+
+Repository => copy on every devices
+=> like dropbox, not like google docs
+
+Commit: choose what is
+=> not like dropbox, saving does not mean creating a new version
+
+Branch
+
+
+Merge
+
+
+Motivation: get involve, be in the game instead of relying on others to get your ideas implemented
+
+
+What do we need?
+
+Prototype?
+
+Explore without being afraid to loose something that currently work
+
+Collaborate with several person on the same code base
+
+Try out our code on multiple devices
+
+
 
 ## How what about GitHub?
 
