@@ -21,7 +21,7 @@ computational_concepts: JSON, if-statement, for-statement
 
 In the previous module we set up a prototyping environment and we explored the behaviour of a default Python modules (kasa) running on our laptop and our Raspberry Pi. It is time to start coding and define ourself this behaviour.
 
-# Step 1: Github
+# Step 1: Walking through the Version Control Flow
 
 In this step, we will learn how to use a Version Control System (e.g. Git) to work remotely on your project with other teammates collaboratively. So far, you joined a team on GitHub and wrote documentation in Markdown to report your first lab experiment directly on the GitHub website. You might have encountered some collaboration issues? Indeed, GitHub brings the conversation around the code, but the co-development takes place on each developer's machine.
 
@@ -149,7 +149,7 @@ Kill the Terminal (little trashcan icon on right) and open a new Terminal to loa
 
 ![Virtualenv](/assets/img/courses/id5415/module2/virtualenv.png)
 
-# Step 2 Turn on the light!
+# Step 2 Turn on the light with Python
 
 Now each team member can explore Python in her/his own branch, committing new versions of her/his code without conflict.
 
@@ -180,7 +180,7 @@ What is happening? The first line (appearing in green) starts with a hash `#`. I
 
 >To call a function: my_function_name(value1, value2...)
 
-# Task 2.3 Variables and Types (Data Types)
+## Task 2.3 Variables and Types (Data Types)
 
 As we saw in the self-study material, a variable is a storage location paired with an associated symbolic name. Each of the variables holds a value that either static or varies overtime when the program runs.
 
@@ -313,11 +313,11 @@ In our example, you can recognise the key 'on_off', an `integer` with value `1`:
 
 **Commit and Push!** You've written a new piece of code, let's make sure that Git keeps a version of it. To do so, repeat [Task 1.3](#task-13-stage-and-commit-changes) and [Task 1.4](#task-14-stage-and-commit-changes). Your commit message could be 'controlling the light bulb'
 
-# Step 4  Shaping the Lamp's Behaviour
+# Step 4 Shaping the Lamp's Behaviour
 
 So far we explored variables and states to store information throughout our code, and we can use use the `kasa` library to control a connected light bulb. In this step, we want to shape the behaviour of the light to make it blinks for 5 seconds. We achieve this with conditions and repetitions: we call these elements `control flow statements`.
 
-# Step 4.1 Toggle switch
+## Task 4.1 Toggle switch
 
 As the name suggests, conditions are checkpoints in your code to make sure it won't execute the particular block of code until the condition is fulfilled.
 
@@ -396,7 +396,7 @@ To learn more about Python `for` statements, you can have a look at the [Python 
 
 >**Commit and Push!** You've written a new piece of code, let's make sure that Git keeps a version of it. To do so, repeat [Task 1.3](#task-13-stage-and-commit-changes) and [Task 1.4](#task-14-stage-and-commit-changes). Your commit message could be 'shaping the light bulb behaviour'
 
-# Step 5 Your turn
+## Task 4.3 Your turn
 
 Now that you have the basic elements to control the light bulb, we suggest each team member to develop one of the following functions.
 
