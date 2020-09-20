@@ -56,7 +56,7 @@ What information can we store? We can store any information. However, it needs t
 
 So why do types matter if Python takes care of it? Depending on the type of information we deal with, we will not do the same thing. For instance, with `numerical` information we want to make mathematical operations. In contrast, with `textual` information we want to put them together to form sentences.
 
-Storing, comparing, showing on the screen, combining: these are all examples of information manipulation. In programming, we refer to `statement` for each line of code that manipulates information as it influences or relies on the state of a variable (i.e. stored information). Throughout the course, we will introduce statements with the Python syntax. You will recognise two types of statements.
+Storing, comparing, showing on the screen, combining: these are all examples of information manipulation. In programming, we refer to `statement` for each line of code that manipulates information as it influences or relies on the state of a variable (i.e. stored information). Throughout the course, we will introduce statements with the Python syntax. You will recognise two types of statements:
 
 - simple statement fitting on a single line. For example: `a = b + c`
 - compound statement spreading over several lines. For example:
@@ -77,7 +77,7 @@ Finally, what is not a statement in your code is a `comment`: information for th
 <span class="mdi mdi-video"></span>
 Reading and watching (45 minutes)
 
-Prototyping connected products introduces a set of development challenges. The purpose of learning the basics of programming in this context is to help you collaborate on the design __and__ development of a wide range of connected products. In fact, the design and development of these products is becoming increasingly agile: a never-ending set of iteration mixing design, implementation and evaluation that requires a common understanding for effective team collaboration. For instance,
+Prototyping connected products introduces a set of development challenges. The purpose of learning the basics of programming in this context is to help you collaborate on the design __and__ development of a wide range of connected products. The design and development of these products is becoming increasingly agile: a never-ending set of iteration mixing design, implementation and evaluation that requires a common understanding for effective team collaboration. For instance,
 
 - people work in parallel on multiple aspects of the product (UI, network, data, hardware);
 - code runs on multiple devices, if only on machines of the team members. In our case it also involves a Raspberry Pi for each team member;
@@ -94,19 +94,25 @@ In the following video, Alice Bartlett gives us an 'as human as possible' introd
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eWxxfttcMts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 - `repository`: The directory that contains all the files of your project. A full copy lies on every team members' machine.
+
 - `commit`: a snapshot of your repository
 
 - `hash`: the id attached to each commit, enabling us to uniquely identify each version;
+
 - `checkout`: time travel to a specific commit. At any time, it enables you to bring back to life a version of your code;
 
 - `branch`: a movable label that points to a commit
+
 - `merge`: combining two branches 
 
 - `remote`: a computer with the repository on it
+
 - `clone`: get the repository from the remote for the first time
+
 - `push`: send commits to the remote
+
 - `pull`: get commits from the remote
 
-The following video is illustrating the purpose of GitHub, a web service offering a Git `remote` as well as a set of collaborative and social features.
+The following video illustrates the purpose of GitHub, a web service offering a Git `remote` as well as a set of collaborative and social features.
 
 <iframe width="560" height="400" src="https://www.youtube.com/embed/w3jLJU7DT5E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
