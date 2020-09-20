@@ -18,6 +18,18 @@ introduction: In this module, the self-study material focuses on sensors and the
 
 TODO Full self-study
 
+
+## Code Management
+
+Managing code refers to its organisation from inside a single file to handling many files and folders over time. This organisation is vital for any project as tits code grows organically.
+
+Inside a file, we structure code in `functions`, which typically group a set of `statements` together to perform an action. 
+
+Zooming out, each file of your project contains a set of functions. 
+Module => a python file
+Package => a directory with Python module
+
+
 # Sensors
 
 * [GPIO zero python library documentation](https://gpiozero.readthedocs.io/en/stable/index.html)

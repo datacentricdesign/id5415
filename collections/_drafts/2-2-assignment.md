@@ -15,65 +15,72 @@ computational_concepts: JSON, if-statement, for-statement
 ---
 
 - Do not remove this line (it will not be displayed)
-  {:toc}
+{:toc}
 
 ---
 
-In the previous module we setup a prototyping environment and we explored the behaviour of a default Python modules (kasa) running on the Raspberry Pi. It is time to start coding and define ourself this behaviour.
+In the previous module we set up a prototyping environment and we explored the behaviour of a default Python modules (kasa) running on our laptop and our Raspberry Pi. It is time to start coding and define ourself this behaviour.
 
 # Step 1: Github
 
-Till now you got acquainted on how to create files and directory in your machine / Pi using the Terminal. In this step, we will learn how to use a version control system (e.g. git) to work remotely on your project with other teammates collaboratively.
+In this step, we will learn how to use a Version Control System (e.g. Git) to work remotely on your project with other teammates collaboratively. So far, you joined a team on GitHub and wrote documentation in Markdown to report your first lab experiment directly on the GitHub website. You might have encountered some collaboration issues? Indeed, GitHub brings the conversation around the code, but the co-development takes place on each developer's machine.
 
 ## Task 1.1: Getting the Shared Repository on your Machine
 
-To get your shared repository on your machine, we use 'git clone' with the URL to your repository. You can find this URL on the GitHub page of your repository. Click on the green drop down button 'Code' and copy the URL.
+To get your shared repository on your machine, we use `git clone` followed by the [URL](https://en.wikipedia.org/wiki/URL) to your repository. You can find this URL on the GitHub page of your repository. Click on the green drop-down button 'Code' and copy the URL.
 
 ![Copy the git Repository Link](/assets/img/courses/id5415/module2/assignment/1_1_0.png)
 
-In VS Code you can click on the Source Control button (3rd icon in the left panel) and 'clone repository'.
+Open VS Code and click on the Source Control button (3rd icon in the left panel), then click on 'clone repository'.
 
 ![Clone Git Repository](/assets/img/courses/id5415/module2/assignment/1_1_1.png)
 
-In the text field that open at the top, paste the URL of your repository and press ENTER. A prompt will ask you to choose the location in your machine to save the Repository. For now, choose Desktop.
+In the text field that opens at the top, paste the URL of your repository and press `ENTER`. A prompt will ask you to choose the location in your machine to save the Repository. For now, choose Desktop.
 
 ![Text Field appear on top to paste repo link](/assets/img/courses/id5415/module2/assignment/1_1_2.png)
 
-You now have a copy of your team repository on your machine. In the left panel you will recognise the tree of files and directories, including the doc,src and README.md.
+You now have a copy of your team repository on your machine. In the left panel, you will recognise the tree of files and directories, including the docs directory and the README.md files.
 
 ![Cloned Repository on your machine](/assets/img/courses/id5415/module2/assignment/1_1_3.png)
+
+>`git clone [my repository]` Get a copy on the repository on my machine
 
 ## Task 1.2 Edit your files
 
 As we were editing the file `README.md` on GitHub in the previous module, we can do the same here on our machine.
 
-Each team member can, on its own machine, drag and drop a picture of her/himself in the directory `doc/images`. You note that this file is shown in a green font: it is a new file to track.
+Each team member can, on her/his machine, drag and drop a picture of her/himself in the directory `docs/images`. You note that this file is shown in a green font: it is a **new file to track**.
 
-Then, open the README.md and edit the Contributor section to show the profile picture. We use again the Markdown image command, adding a maximum width 200 pixels (we don't want the pic to appear unreasonably big).
+Then, open the README.md and edit the Contributors section to show your profile picture. We use again the Markdown image command, adding a maximum width of 200 pixels (we do not want the pic to appear unreasonably big).
 
-```bash
+```markdown
 ![John Doe](doc/images/john.jpg =200x)
 ```
 
-The README.md file appears now in a yellow font: it has been modified.
+The README.md file appears now in a yellow font: it has been **modified**.
 
 ![Editing ReadMe file from VSCode](/assets/img/courses/id5415/module2/assignment/1_2_0.png)
 
 ## Task 1.3 Stage and Commit Changes
 
-We can now prepare our files for a new version. We select the changes we want in this new version. This is called 'staging'. Click on the `+` icon next to each file in GitHub source control button on.
+We can now prepare our files for a **new version**. We select the changes we want in this new version. This is called 'staging'. Click on the `+` icon next to each file in GitHub source control button on.
 
 ![Staging file changes](/assets/img/courses/id5415/module2/assignment/1_3_0.png)
 
-After staging the changes, we will add a small description about the changes and create a new version of the git repository by pressing 'right tick mark'. This step is call `Committing`. We are committing our changes in a local repository (in your own machine only) and create a snapshot of the entire project directory (locally) with new changes. Later we can move back and revert the changes we want.
+After staging the changes, we will add a small description about the changes and create a new version of the git repository by pressing 'right tick mark'. We call this step `Committing`. We are committing our changes in a local repository (on your machine only) and create a snapshot of the entire project directory (locally) with new changes. Later we can move back and revert the changes we want.
 
 ![Commiting changes](/assets/img/courses/id5415/module2/assignment/1_3_1.png)
 
+>`git add [a file name]` Include a file in the next version of the code
+>`git commit -m "Description of my changes"` Create a new version of the code with all staged files
+
 ## Task 1.4 Synchronize (Pull/Push)
 
-Till now we have staged all our changes and created a snapshot of the entire directory in our local machine. However none of your teammates can actually see these changes yet. (why? can you think of?) Because, we did commit the changes locally but did not push (upload) all the changes on the remote repository on GitHub yet. The remote repository is the one you cloned from Github website (using git clone) in the first step.
+Till now we have staged all our changes and created a snapshot of the entire directory in our local machine. However, none of our teammates can see these changes yet. We created a new version of the repository on our machine, but we did not share this version on GitHub yet. The remote repository is the one we cloned from the GitHub website (using `git clone`) in the first step.
 
-At the same time we also need to pull(download) all the changes that other teammates have pushed into the remote repository.
+It also means we do not have the newest versions of the code which were created by our teammates.
+
+At the same time, we also need to pull (download) all the changes that other teammates have pushed into the remote repository.
 
 We can do this both steps together in VSCode by pressing the 'Synchronize' button left corner. (However before pressing this button, make sure you staged and commit all your changes).
 
@@ -81,23 +88,25 @@ We can do this both steps together in VSCode by pressing the 'Synchronize' butto
 
 Clicking on this button triggers three actions:
 
-- it 'fetches' the new version from GitHub
-- it 'merges' this version with the local version
-- it 'pushes' the new, merged version on GitHub
+>`git fetch` Get all new versions from GitHub (since the last fetch).
+>`git merge` Merge the latest version fetched from GitHub with the latest version on our machine.
+>`git push` Upload the new, merged version on GitHub.
 
-If everything went well, all your changes will be pushed to the remote repository and new changes from your teammates will be pulled from the remote repository at the same time.
+You get the newest version existing on GitHub and they are merged with your local version. The resulting version is uploaded to GitHub to be shared with your teammates.
 
-However, if the merge does not succeed automatically, it prompt you to let you choose, for each conflicting block of code, which one to keep (your's, your teammate's or both). This called 'conflict'. To resolve the conflict you can decide what final code you want to keep. Either you can accept all incoming changes(your teammates) or outgoing changes(yours) or merge from both sides or compare changes from each side and keep the one you want and commit and push again your merged changes.
+However, there are cases when merging cannot be done automatically. This happens when you modify the same part of the code as your teammate. Git does not know which version to use and rather than deleting one, it asks you what to do. 
 
-Read the scenario and see the image below to understand more clearly:
+Git prompts you to let you choose, for each conflicting block of code, which one to keep. This is called a `conflict`. To resolve the conflict, you can decide what final code you want to keep. Either you can accept all incoming changes (your teammates') or outgoing changes (yours), merge from both sides or compare changes from each side and keep the one you want.
 
-Assume you have changed ReadME file and committed locally. Meanwhile, one of your teammates changed the same file and committed and pushed over the Remote repository. However, you did not pull those changes yet from your teammates and you are trying to push your changes. At this point, VS Code will give you a prompt to resolve the conflict.
+Following this assignment, you and your teammates have edited the README.md file and committed the changes to a new version locally. The first teammates sharing her/his new version on GitHub will have no conflict. The next one will first receive the new version `git fetch` and try to merge `git merge`. At this point, VS Code will prompt you to resolve the conflict.
 
 [Resolve Conflicts](/assets/img/courses/id5415/module2/assignment/1_4_1.png)
 
 After you decide and accept either version, you again have to commit these changes and push to the local repository.
 
 [Commit and Push merged conflicts](/assets/img/courses/id5415/module2/assignment/1_4_2.png)
+
+>Note the fundamental difference between Git and a platform such as Google Docs. 
 
 ## Task 1.5 Create a Branch
 

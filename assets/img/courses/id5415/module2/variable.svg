@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 982 273" style="enable-background:new 0 0 982 273;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:10;}
+	.st2{font-family:'Roboto-Regular';}
+	.st3{font-size:18px;}
+	.st4{font-size:36px;}
+</style>
+<g>
+	<rect x="68.5" y="48.5" class="st0" width="348" height="166"/>
+	<path d="M414,51v161H71V51H414 M419,46H66v171h353V46L419,46z"/>
+</g>
+<g>
+	<line class="st0" x1="624" y1="132.5" x2="458" y2="132.5"/>
+	<g>
+		<line class="st1" x1="624" y1="132.5" x2="487.8" y2="132.5"/>
+		<g>
+			<polygon points="501.9,114 494,132.5 501.9,151 458,132.5 			"/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 96.085 116.0522)"><tspan x="0" y="0" class="st2 st3">This text represent information stored</tspan><tspan x="0" y="21.6" class="st2 st3">in the memory of the machine while</tspan><tspan x="0" y="43.2" class="st2 st3">executing a program.</tspan></text>
+<g>
+	<path class="st0" d="M698.7,174.7c-22.1,0-40-18-40-40s18-40,40-40h180.1c22.1,0,40,18,40,40s-18,40-40,40H698.7z"/>
+	<path d="M878.8,97.1c20.7,0,37.5,16.8,37.5,37.5c0,20.7-16.8,37.5-37.5,37.5H698.7c-20.7,0-37.5-16.8-37.5-37.5
+		c0-20.7,16.8-37.5,37.5-37.5H878.8 M878.8,92.1H698.7c-23.5,0-42.5,19-42.5,42.5v0c0,23.5,19,42.5,42.5,42.5h180.1
+		c23.5,0,42.5-19,42.5-42.5v0C921.3,111.2,902.3,92.1,878.8,92.1L878.8,92.1z"/>
+</g>
+<text transform="matrix(1 0 0 1 725.1584 146.2222)" class="st2 st4">my_info</text>
+</svg>
