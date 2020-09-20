@@ -94,23 +94,14 @@ In the following video, Alice Bartlett gives us an 'as human as possible' introd
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eWxxfttcMts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 * `repository`: The directory that contains all the files of your project. A full copy lies on every team members' machine.
-
 * `commit`: a snapshot of your repository
-
 * `hash`: the id attached to each commit, enabling us to uniquely identify each version;
-
 * `checkout`: time travel to a specific commit. At any time, it enables you to bring back to life a version of your code;
-
 * `branch`: a movable label that points to a commit
-
 * `merge`: combining two branches 
-
 * `remote`: a computer with the repository on it
-
 * `clone`: get the repository from the remote for the first time
-
 * `push`: send commits to the remote
-
 * `pull`: get commits from the remote
 
 The following video illustrates the purpose of GitHub, a web service offering a Git `remote` as well as a set of collaborative and social features.
