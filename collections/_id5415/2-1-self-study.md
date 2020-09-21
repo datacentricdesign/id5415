@@ -107,3 +107,9 @@ In the following video, Alice Bartlett gives us an 'as human as possible' introd
 The following video illustrates the purpose of GitHub, a web service offering a Git `remote` as well as a set of collaborative and social features.
 
 <iframe width="560" height="400" src="https://www.youtube.com/embed/w3jLJU7DT5E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+# Quiz
+
+Check your understanding with the following quiz! It is anonymous and you can try as many times as you want!
+
+<iframe width="640px" height= "600px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=TVJuCSlpMECM04q0LeCIe-EN8Fz6eUZIqbayPT_HeNhUNUpEUkw1ME9VSzkwTUVGUDZOUkhTSzNFSi4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
