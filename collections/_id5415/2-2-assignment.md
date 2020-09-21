@@ -278,6 +278,8 @@ from kasa import SmartBulb
 async def main():
     # Call the definition of a light bulb, Note: replace the IP address with the one you found using kasa discover command in terminal
     bulb = SmartBulb("192.168.1.110")
+    # Get newest update from the light bulb, 'await' till we get a response
+    await bulb.update()
     # 'await' tells the program to wait till getting a result from the light bulb
     result = await bulb.turn_on()
     # Once we receive it, we call print() to show the result in the Terminal
@@ -337,6 +339,9 @@ from kasa import SmartBulb
 async def main():
     # Call the definition of a light bulb, replace the IP address with the one found with kasa discover
     bulb = SmartBulb("192.168.1.110") # Make sure to replace your smart-bulb IP Address here
+
+    # Get newest update from the light bulb, 'await' till we get a response
+    await bulb.update()
 
     # 'await' tells the program to wait till getting a result from the light bulb
     result = await bulb.get_light_state()
