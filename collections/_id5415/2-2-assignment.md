@@ -84,7 +84,7 @@ At the same time, we also need to pull (download) all the changes that other tea
 
 We can do this both steps together in VSCode by pressing the 'Synchronize' button left corner. (However before pressing this button, make sure you staged and commit all your changes).
 
-[Synchronize with your remote](/assets/img/courses/id5415/module2/assignment/1_4_0.png)
+![Synchronize with your remote](/assets/img/courses/id5415/module2/assignment/1_4_0.png)
 
 Clicking on this button triggers three actions:
 
@@ -100,11 +100,11 @@ Git prompts you to let you choose, for each conflicting block of code, which one
 
 Following this assignment, you and your teammates have edited the README.md file and committed the changes to a new version locally. The first teammates sharing her/his new version on GitHub will have no conflict. The next one will first receive the new version `git fetch` and try to merge `git merge`. At this point, VS Code will prompt you to resolve the conflict.
 
-[Resolve Conflicts](/assets/img/courses/id5415/module2/assignment/1_4_1.png)
+![Resolve Conflicts](/assets/img/courses/id5415/module2/assignment/1_4_1.png)
 
 After you decide and accept either version, you again have to commit these changes and push to the local repository.
 
-[Commit and Push merged conflicts](/assets/img/courses/id5415/module2/assignment/1_4_2.png)
+![Commit and Push merged conflicts](/assets/img/courses/id5415/module2/assignment/1_4_2.png)
 
 >Note the fundamental difference between Git and a platform such as Google Docs. 
 
@@ -362,7 +362,7 @@ After running the scripts, you will see that your light bulb will either turn `O
 
 ![Example of if_else condition with smart-bulb](/assets/img/courses/id5415/module2/assignment/4_2_0.png)
 
-To learn more about Python condition, you can have a look at the [Python guide on Conditions] (https://www.learnpython.org/en/Conditions)
+To learn more about Python condition, you can have a look at the [Python guide on Conditions](https://www.learnpython.org/en/Conditions)
 
 ## Task 4.2 Loops
 
@@ -396,13 +396,13 @@ To learn more about Python `for` statements, you can have a look at the [Python 
 
 >**Commit and Push!** You've written a new piece of code, let's make sure that Git keeps a version of it. To do so, repeat [Task 1.3](#task-13-stage-and-commit-changes) and [Task 1.4](#task-14-stage-and-commit-changes). Your commit message could be 'shaping the light bulb behaviour'
 
-## Task 4.3 Your turn
+## Task 4.3 Go Ahead and Shape!
 
 Now that you have the basic elements to control the light bulb, we suggest each team member to develop one of the following functions.
 
-* pulse(): this function controls the brightness of the light bulb in loops to shape a pulsating (or breathing) pattern;
-* morse(): this function controls the on/off state of the light bulb in loops, at long and short intervals, to communicate a message in morse code;
-* frequency(): this function controls the on/off state of the light bulb at various blinking frequencies.
+* `pulse()`: this function controls the brightness of the light bulb in loops to shape a pulsating (or breathing) pattern;
+* `morse()`: this function controls the on/off state of the light bulb in loops, at long and short intervals, to communicate a message in morse code;
+* `frequency()`: this function controls the on/off state of the light bulb at various blinking frequencies.
 
 These are only three examples. Feel free to experiment in shaping the behaviour of your light bulb.
 
