@@ -5,6 +5,8 @@ permalink: /kit.html
 description: "Hardware component used during this course"
 ---
 
+![Prototyping Kit](/assets/img/courses/id5415/proto-kit.png)
+
 Raspberry Pi:
 * [Raspberry Pi 4 Model B 2Gb](https://www.kiwi-electronics.nl/raspberry-pi-4-model-b-2gb)
 * [Raspberry Pi 4 Case](https://www.kiwi-electronics.nl/official-raspberry-pi-4-case-black-grey)
