@@ -242,7 +242,7 @@ When the light bulb is found, at the top of the result you will note 'Host:' fol
 - You can scan for the WiFi networks, in case you do not know which one to connect the light bulb to.
 
 ```bash
-kasa --host <YOUR_HOST_IP> wifi
+kasa --host <YOUR_HOST_IP> wifi scan
 ```
 
 ![Scan discoverable WiFi](/assets/img/courses/id5415/module1/assignment/3_3_2.png)
