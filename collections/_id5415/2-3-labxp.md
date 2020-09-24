@@ -5,7 +5,7 @@ permalink: /module2/labxp
 description: "Prototyping Connected Products - Lab Experiment 2"
 labxp-of: id5415-2
 introduction: Through the second assignment, we shaped the behaviour of our connected lightbulb with Python. In this lab experiment, we will start collecting data from the light bulb. 
-technique: Live Data
+technique: Live-Data Prototype
 metrics:
 report:
 ---
