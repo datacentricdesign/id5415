@@ -11,25 +11,25 @@ design: Architecture
 code_management:
 computational_concepts: Data
 tags:
-- microprocessor
-- microcontroller
-- IDE
-- CLI
-- SSH
-- Bucket
-- setup
-- data
-- logs
-- architecture
-- Raspberry Pi
+  - microprocessor
+  - microcontroller
+  - IDE
+  - CLI
+  - SSH
+  - Bucket
+  - setup
+  - data
+  - logs
+  - architecture
+  - Raspberry Pi
 ---
 
 We have prepared 5 steps for this assignment (each again divided into specific tasks you have to perform).
 
 ---
 
-* Do not remove this line (it will not be displayed)
-{:toc}
+- Do not remove this line (it will not be displayed)
+  {:toc}
 
 ---
 
@@ -91,33 +91,43 @@ Create a folder on your computer (i.e Desktop) to store the files for this cours
 
 ## Task 2.3: Get familiar with the Command-line Interpreter (CLI)
 
-A CLI interprets the text you have entered into a command (e.g. create a directory, open an application, ...) - that's it! "What is the point?" you may wonder, as today we have many Graphical User Interfaces (GUI's) available that allow you to achieve many things as well, but without the cumbersome process of typing. Well, when prototyping you are developing technologies and playing with cutting edge ones, many of which simply do not have GUIs. Skill in a Command-Line Interpreter (CLI) is therefore not something you acquire just for one project but rather for your entire digital prototyping life!
+A CLI interprets the text you have entered into a command (e.g. create a directory, open an application, ...) - that's it! "What is the point?" you may wonder, as today we have many Graphical User Interfaces (GUI's) available that allow you to achieve many things as well, but without the cumbersome process of typing. Well, when prototyping you are developing technologies and playing with cutting edge ones, many of which simply do not have GUI. Skill in a Command-Line Interpreter (CLI) is therefore not something you acquire just for one project but rather for your entire digital prototyping life!
 
 In software engineering a number of varieties exists: 'Unix shell', 'Console', 'Terminal' or 'Command Prompt'. All of them refer to this black window full lines of text. Find it in VS Code: go to View > Terminal. It opens a tab in the bottom panel. In this course, we will use Unix shell as a command-line language, which comes in different flavours, the most common being `bash` and `zsh`. On the top right corner of the Terminal, a drop-down menu give you several options.
 
-On Windows, the installation of Git should have install bash, **you must select bash instead of Power Shell.**
+On Windows: The installation of Git should have install bash. However if it wont appear automatically in VS Code, **you must choose 'select the default shell' from the language interpreter dropdown window and then restart the VS Code**
 
 ![Introduction to VSCode Terminal](/assets/img/courses/id5415/module1/assignment/2_3_0.png)
 
 Each command line start with your username @ your machine name. Then, the current folder is shown
 
-To execute a command simply type it, and press the `ENTER` key. Let's MaKe a Directory (Folder) named `test` with the command `mkdir`:
+To execute a command simply type it, and press the `ENTER` key. Let's create a Directory (Folder) named `test` with the command `mkdir`:
 
 ```bash
 mkdir test
 ```
 
-The new folder should appear in your file tree in the left panel. `ls` is the command to list files and directories. Type ls followed by `ENTER`:
+The new folder should appear in your file tree in the left panel. `ls` (Mac/Linux) and `dir`(Windows) is the command to list files and directories inside the current folder. Type ls or dir followed by `ENTER`:
+
+**Mac/Linux:**
 
 ```bash
 ls
+```
+
+**Windows:**
+
+```bash
+dir
 ```
 
 Your test folder should appear as a result of this command as shown below.
 
 ![](/assets/img/courses/id5415/module1/assignment/2_3_1.png)
 
-Most commands come with a manual, available with the command `man`. Let's explore the option of the `ls` command.
+Most commands come with a manual, available with the command `man` (Mac/Linux) or `help` (Windows). Let's explore the option of the `ls` with `man` or `dir` with `help` command.
+
+**Mac/Linux:**
 
 ```bash
 man ls
@@ -125,13 +135,35 @@ man ls
 
 ![](/assets/img/courses/id5415/module1/assignment/2_3_2.png)
 
-You can see a long list of option, starting with a dash `-`. These options can be combined together. For instance you will note `-G` for colouring the result and `-l` for the long and detailed result. To quit the manual, press `q`. Now we can try:
+**Windows:**
+
+```bash
+help dir
+```
+
+![](/assets/img/courses/id5415/module1/assignment/2_3_2_2.png)
+
+You can see a long list of option, starting with a dash `-` in Mac/Linux or start with `/` in Windows.
+
+These options can be combined together. For instance in Mac/Linux you will note `-G` for colouring the result and `-l` for the long and detailed result. To quit the manual, press `q`.
+
+Now we can try:
+
+**Mac/Linux**
 
 ```bash
 ls -Gl
 ```
 
 ![](/assets/img/courses/id5415/module1/assignment/2_3_3.png)
+
+**Note** Similarly,In Windows within the available options we identified using `help dir`, we can list all the hidden files in the current directory using:
+
+```bash
+dir /A:H
+```
+
+![](/assets/img/courses/id5415/module1/assignment/2_3_3_2.png)
 
 In the terminal, everything relates to where you are in the file tree, i.e. in which folder you are in. With the command `cd` you can 'change directory' to navigate this tree. The 'path' is the chain of directories to reach your targeted file or directory.
 
@@ -141,7 +173,7 @@ cd test
 
 ![](/assets/img/courses/id5415/module1/assignment/2_3_4.png)
 
-You entered 'test' folder, you can notice the command line is now showing 'test' as the current folder. There are three important path markers: dot `.` for the current directory, dot dot `..` for the parent directory, and tilde `~` for the home directory.
+You entered 'test' folder, you can notice the command line is now showing 'test' as the current folder. There are three important path markers: dot `.` for the current directory, dot dot `..` for the parent directory, and tilde `~`(Mac/Linux) or `/`(Windows) for the home directory.
 
 Going back to the parent directory:
 
@@ -151,7 +183,9 @@ cd ..
 
 ![](/assets/img/courses/id5415/module1/assignment/2_3_5.png)
 
-Finally, the tilde `~` leads you to your home directory:
+Finally, the tilde `~` (Mac/Linux) or `./` (Window) will leads you to your home directory in Mac or most parent location in your Windows current drive:
+
+**Mac/Linux:**
 
 ```bash
 cd ~
@@ -159,9 +193,18 @@ cd ~
 
 ![](/assets/img/courses/id5415/module1/assignment/2_3_6.png)
 
-To avoid typing the same command again and again,you can press the Arrow-Up key to bring back you previous commands.
+**Windows:**
 
-Read this [Bash cheat sheet](https://www.educative.io/blog/bash-shell-command-cheat-sheet) for some additional basic commands.
+```bash
+cd /
+```
+
+![](/assets/img/courses/id5415/module1/assignment/2_3_6_2.png)
+
+**Tip** To avoid typing the same command again and again,you can press the Arrow-Up key to bring back you previous commands.
+
+Read this [Bash cheat sheet](https://www.educative.io/blog/bash-shell-command-cheat-sheet) for some additional basic commands for Mac/linux.
+and [Windows Command prompt cheat sheet](http://index-of.es/Varios-2/Windows%20Command%20Prompt%20Cheatsheet.pdf) for Windows
 
 ## Task 2.4: Installing a Python Programming Language
 
@@ -185,19 +228,53 @@ A virtual environment is a self-contained directory tree that contains a Python 
 
 To create a virtual environment, open the Terminal inside VS Code. Type below two commands to first install the `virtualenv` and then create a virtual environment called `venv`.
 
+**Mac/Linux:**
+
+```bash
+pip3 install virtualenv
+
+sudo python3 -m virtualenv venv
+```
+
+**Windows:**
+
 ```bash
 pip3 install virtualenv
 
 python3 -m virtualenv venv
 ```
 
-VS Code recognises the creation of this new environment and ask you if you want to switch(Bottom right corner of the screen), click 'Yes'.
+This command will create an `venv` directory, inside the `test` folder.
+
+![Virtualenv](/assets/img/courses/id5415/module1/assignment/2_5_1_2.png)
+
+Now to activate this newely created virtual environment, in the terminal type the following command (make sure the terminal is in same 'test' directory):
+
+**Mac/Linux:**
+
+```bash
+source ./venv/bin/activate
+```
+
+**Windows:**
+
+```bash
+.\venv\Scripts\activate
+```
+
+Notice the difference, the Terminal statement starts with `(venv)`.
+
+![Virtualenv](/assets/img/courses/id5415/module1/assignment/2_5_2.png)
+
+**Note** In some cases, VS Code might recognises the creation of this new environment and it will ask you through prompt (Bottom right corner of the screen) if you want to switch, click 'Yes'. This will restart the terminal and you will see in the terminal that the virtual environment has been activated.
 
 ![Prompt to switch to the virtual environment](/assets/img/courses/id5415/module1/assignment/2_5_1.png)
 
-Kill the Terminal (little trashcan icon) and open a new Terminal to load this new environment. Notice the difference, the Terminal statement starts with `(venv)` and the Python environment is selected in the bottom panel.
+To deactivate the virtual environment, you can simply type:
 
-![Virtualenv](/assets/img/courses/id5415/module1/assignment/2_5_2.png)
+```bash
+deactivate
+```
 
 **What did we achieved?**
 

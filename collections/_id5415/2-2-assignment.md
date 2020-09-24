@@ -15,7 +15,7 @@ computational_concepts: JSON, if-statement, for-statement
 ---
 
 - Do not remove this line (it will not be displayed)
-{:toc}
+  {:toc}
 
 ---
 
@@ -27,7 +27,7 @@ In this step, we will learn how to use a Version Control System (e.g. Git) to wo
 
 ## Task 1.1: Getting the Shared Repository on your Machine
 
-To get your `remote repository` on your machine, we use `git clone` followed by the [URL](https://en.wikipedia.org/wiki/URL) to your repository. You can find this URL on the GitHub page of your repository. Click on the green drop-down button 'Code' and copy the URL.
+To get your `remote repository` on your machine, we use `git clone` followed by the URL of your repository. You can find this URL on the GitHub page of your repository. Click on the green drop-down button 'Code' and copy the URL.
 
 ![Copy the git Repository Link](/assets/img/courses/id5415/module2/assignment/1_1_0.png)
 
@@ -43,7 +43,19 @@ You now have a copy of your team repository on your machine. In the left panel, 
 
 ![Cloned Repository on your machine](/assets/img/courses/id5415/module2/assignment/1_1_3.png)
 
->`git clone [my repository]` Get a copy on the repository on my machine
+> `git clone [my repository]` Get a copy on the repository on my machine
+
+**Note** If you do not able to find the 'clone repository' button in the source control, you can do the same thing using `git clone` command follwed by the URL in terminal window.
+
+To do that, first create a folder somewhere in your machine, open that folder with VS Code > File > Open Folder. Now open the terminal in VS code and type:
+
+```bash
+git clone URL_OF_THE_REPOSITORY
+```
+
+After successfully cloned, you will see the copy of git repository into your file explorer window.
+
+![Cloned Repository on your machine using terminal](/assets/img/courses/id5415/module2/assignment/1_1_4.png)
 
 ## Task 1.2 Edit your files
 
@@ -71,8 +83,16 @@ After staging the changes, we will add a small description about the changes and
 
 ![Commiting changes](/assets/img/courses/id5415/module2/assignment/1_3_1.png)
 
->`git add [a file name]` Include a file in the next version of the code
->`git commit -m "Description of my changes"` Create a new version of the code with all staged files
+> `git add [a file name]` Include a file in the next version of the code
+> `git commit -m "Description of my changes"` Create a new version of the code with all staged files
+
+**Note** If you get the warning of "unknown identity". In the terminal type the following:
+
+```bash
+git config --global user.name YOUR_NAME
+
+git config --global user.email YOUR_EMAIL_ADDRESS
+```
 
 ## Task 1.4 Synchronize with your remote (Pull/Push)
 
@@ -88,13 +108,13 @@ We can do this both steps together in VSCode by pressing the 'Synchronize' butto
 
 Clicking on this button triggers three actions:
 
->`git fetch` Get all new versions from GitHub (since the last fetch).
->`git merge` Merge the latest version fetched from GitHub with the latest version on our machine.
->`git push` Upload the new, merged version on GitHub.
+> `git fetch` Get all new versions from GitHub (since the last fetch).
+> `git merge` Merge the latest version fetched from GitHub with the latest version on our machine.
+> `git push` Upload the new, merged version on GitHub.
 
 You get the newest version existing on GitHub and it is merged with your local version. The resulting version is uploaded to GitHub to be shared with your teammates.
 
-However, there are cases when merging cannot be done automatically. This happens when you modify the same part of the code as your teammate. Git does not know which version to use and rather than deleting one, it asks you what to do. 
+However, there are cases when merging cannot be done automatically. This happens when you modify the same part of the code as your teammate. Git does not know which version to use and rather than deleting one, it asks you what to do.
 
 Git prompts you to let you choose, for each conflicting block of code, which one to keep. This is called a `conflict`. To resolve the conflict, you can decide what final code you want to keep. Either you can accept all incoming changes (your teammates') or outgoing changes (yours), merge from both sides or compare changes from each side and keep the one you want.
 
@@ -106,14 +126,14 @@ After you decide and accept either version, you again have to commit these chang
 
 ![Commit and Push merged conflicts](/assets/img/courses/id5415/module2/assignment/1_4_2.png)
 
->Note the fundamental difference between Git and a platform such as Google Docs. 
+> Note the fundamental difference between Git and a platform such as Google Docs.
 
 ## Task 1.5 Create a Branch
 
 As every team member start making larger contributions to the repository, we can quickly see how merging can get complicated(as the conflict scenario explained above). To minimize this challenge, we suggest a combination of 2 strategies:
 
-* Commit your code as often as possible. The smaller the versions, the greater chances of a successful automatic merge. (As mentioned in Task 1.4)
-* Create separate branches for your different application features.
+- Commit your code as often as possible. The smaller the versions, the greater chances of a successful automatic merge. (As mentioned in Task 1.4)
+- Create separate branches for your different application features.
 
 In Git, a branch is a copy of your another git repository brach with all the commits included(e.g. master). In this copied branch, we can start working without worrying about deleting/editing content from the main branch but commit our changes to the copy of the new branch. Later once the changes are finish we can merge this copied branch back to master.
 
@@ -137,17 +157,51 @@ A more complete tutorial on branches is available by [Atlassian](https://www.atl
 
 In the first assignment, we set up a virtual environment to isolate our Python project from other Python code of our machine. Let's do this again in the project directory. To do so, enter the following command in the terminal.
 
+**Mac/Linux:**
+
 ```bash
-python3 -m virtualenv venv
+pip3 install virtualenv
+
+sudo python3 -m virtualenv venv
 ```
 
-VS Code recognise the creation of this new environment and ask you if you want to switch, click 'Yes'.
+**Windows:**
+
+```bash
+pip3 install virtualenv
+
+python -m virtualenv venv
+```
+
+This command will create an `venv` directory, inside the `test` folder.
+![Virtual environment folder](../../assets/img/courses/id5415/module2/assignment/1_6_0.png)
+
+Now to activate this newely created virtual environment, in the terminal type the following command (make sure the terminal is in same 'test' directory):
+
+**Mac/Linux:**
+
+```bash
+source ./venv/bin/activate
+```
+
+**Windows:**
+
+```bash
+.\venv\Scripts\activate
+```
+
+Notice the difference, the Terminal statement starts with `(venv)`.
+![Virtualenv](/assets/img/courses/id5415/module2/virtualenv.png)
+
+**Note** In some cases, VS Code might recognises the creation of this new environment and it will ask you through prompt (Bottom right corner of the screen) if you want to switch, click 'Yes'. This will restart the terminal and you will see in the terminal that the virtual environment has been activated.
 
 ![Prompt to switch to virtual environment](../../assets/img/courses/id5415/module2/assignment/3_2_0.png)
 
-Kill the Terminal (little trashcan icon on right) and open a new Terminal to load this new environment. Notice the difference, the Terminal statement starts with `(venv)` and the Python environment is selected in the bottom panel.
+To deactivate the virtual environment, you can simply type:
 
-![Virtualenv](/assets/img/courses/id5415/module2/virtualenv.png)
+```bash
+deactivate
+```
 
 # Step 2 Turn on the light with Python
 
@@ -178,17 +232,18 @@ The sentence `Turn on the light!` appears in the Terminal.
 
 What is happening? The first line (appearing in green) starts with a hash `#`. It is a comment and is ignored by the Python interpreter. Do not hesitate to use comments extensively to remember the purpose of a piece of code. The second line is a `call` statement, calling the `function` named `print`. The role of `print()` is to display a message in the terminal. It takes 1 `argument`, the message to display).
 
->To call a function: my_function_name(value1, value2...)
+> To call a function: my_function_name(value1, value2...)
 
 ## Task 2.3 Variables and Types (Data Types)
 
 As we saw in the self-study material, a variable is a storage location paired with an associated symbolic name. Each of the variables holds a value that either static or varies overtime when the program runs.
 
 The value stored in this variable can have different types:
-* numerical information (integer, float or complex), such as `3` or `4.6`;
-* textual information are commonly called 'string' (a sequence of characters), such as `"Some very important notes"`. In Python, simple or double quotes `"` characterise a 'string';
-* binary information so-called 'boolean' with two possible values, either `True` or `False`;
-* a list that holds multiple information in one variable, such as `[True, 1, 2, "three", 3.5]`. In Python, square brackets `[]` characterise a list.
+
+- numerical information (integer, float or complex), such as `3` or `4.6`;
+- textual information are commonly called 'string' (a sequence of characters), such as `"Some very important notes"`. In Python, simple or double quotes `"` characterise a 'string';
+- binary information so-called 'boolean' with two possible values, either `True` or `False`;
+- a list that holds multiple information in one variable, such as `[True, 1, 2, "three", 3.5]`. In Python, square brackets `[]` characterise a list.
 
 Type in the following code in your file 'light.py' and run your code again (see [Task 2.2](#task-22-executing-a-python-script-from-the-terminal)).
 
@@ -203,7 +258,7 @@ print(turn_ON + "with brightness: ", brightness)
 
 In this example, we use the `assignment` statement to store information into a variable.
 
->Assignment statement: my_variable = "a value to store"
+> Assignment statement: my_variable = "a value to store"
 
 So far, we have a Python code that pretending that it knows the status of the light bulb.
 
@@ -215,7 +270,7 @@ Finally some action. Here we will add a structure to our Python script and impor
 
 The main element of a Python program is its `main()` function. As we saw with `print()`, a function takes care of a task, such as showing a message on the Terminal. Let's introduce the `main()` function, which is a function you define as the starting point of you Python program.
 
->To define a function: `def my_function():` followed by a series of indented statements.
+> To define a function: `def my_function():` followed by a series of indented statements.
 
 In the code below we added `def main():`. This is the syntax to **define** the behaviour of a **function**. Notice that what is 'inside' this function is indented, i.e. moved to the right by one tab. This is how Python recognise that these lines are part of the function.
 
@@ -248,15 +303,15 @@ import asyncio
 from kasa import SmartBulb
 ```
 
->This illustrates two ways of importing libraries into your program. The first statement `import ...` import **the entire** asyncio package. The second statement `from ... import ...` is **specifically selecting** the definition `SmartBulb` from the package called `kasa`.
+> This illustrates two ways of importing libraries into your program. The first statement `import ...` import **the entire** asyncio package. The second statement `from ... import ...` is **specifically selecting** the definition `SmartBulb` from the package called `kasa`.
 
 What is the purpose of these packages?
 
-* 'asyncio' is part of Python so-called 'standard library' which means that we do not need to install it. By default, statements of our Python scripts are interpreted one after the other, waiting the previous one to be completed. This is a **synchronous** sequence of statements. However, to control the light bulb we need to send a message over the network, and wait for it to answer back. With synchronous statements, you would block the Python program until receiving a response. Asyncio gives us the ability to execute statements in an **asynchronous** way, meaning that we can send our message to the light bulb, do something else, then come back where we left when we receive a response from the light bulb.
+- 'asyncio' is part of Python so-called 'standard library' which means that we do not need to install it. By default, statements of our Python scripts are interpreted one after the other, waiting the previous one to be completed. This is a **synchronous** sequence of statements. However, to control the light bulb we need to send a message over the network, and wait for it to answer back. With synchronous statements, you would block the Python program until receiving a response. Asyncio gives us the ability to execute statements in an **asynchronous** way, meaning that we can send our message to the light bulb, do something else, then come back where we left when we receive a response from the light bulb.
 
-* 'kasa' is the package that we used in the previous module to control the light bulb.
+- 'kasa' is the package that we used in the previous module to control the light bulb.
 
-Before executing our script, we need to install this external package 'python-kasa'. We do  so as we did in the first assignment with the `pip` command (`pip` is a package manager for Python).
+Before executing our script, we need to install this external package 'python-kasa'. We do so as we did in the first assignment with the `pip` command (`pip` is a package manager for Python).
 
 ```bash
 pip install python-kasa --pre
@@ -325,7 +380,7 @@ As the name suggests, conditions are checkpoints in your code to make sure it wo
 
 Let's explore the `if/else` statement with to realise a toggle.
 
->Toggle: to alternate between two different options
+> Toggle: to alternate between two different options
 
 Here we will first extract the current state of the light. Then, using the `if` statement we will check the state of the light. If it is `ON`, then we will turn it `OFF`. Otherwise, using the `else` statement we will turn the light `ON`. After updating the light state, we will print its current status as well.
 
@@ -399,18 +454,18 @@ What happened here? We have created a `for` loop which will keep executing the c
 
 To learn more about Python `for` statements, you can have a look at the [Python Guide on For Loops](https://www.learnpython.org/en/Loops).
 
->**Commit and Push!** You've written a new piece of code, let's make sure that Git keeps a version of it. To do so, repeat [Task 1.3](#task-13-stage-and-commit-changes) and [Task 1.4](#task-14-stage-and-commit-changes). Your commit message could be 'shaping the light bulb behaviour'
+> **Commit and Push!** You've written a new piece of code, let's make sure that Git keeps a version of it. To do so, repeat [Task 1.3](#task-13-stage-and-commit-changes) and [Task 1.4](#task-14-stage-and-commit-changes). Your commit message could be 'shaping the light bulb behaviour'
 
 ## Task 4.3 Go Ahead and Shape!
 
 Now that you have the basic elements to control the light bulb, we suggest each team member to develop one of the following functions.
 
-* `pulse()`: this function controls the brightness of the light bulb in loops to shape a pulsating (or breathing) pattern;
-* `morse()`: this function controls the on/off state of the light bulb in loops, at long and short intervals, to communicate a message in morse code;
-* `frequency()`: this function controls the on/off state of the light bulb at various blinking frequencies.
+- `pulse()`: this function controls the brightness of the light bulb in loops to shape a pulsating (or breathing) pattern;
+- `morse()`: this function controls the on/off state of the light bulb in loops, at long and short intervals, to communicate a message in morse code;
+- `frequency()`: this function controls the on/off state of the light bulb at various blinking frequencies.
 
 These are only three examples. Feel free to experiment in shaping the behaviour of your light bulb.
 
->**Commit and Push!** You've written a new piece of code, let's make sure that Git keeps a version of it. To do so, repeat [Task 1.3](#task-13-stage-and-commit-changes) and [Task 1.4](#task-14-stage-and-commit-changes). Your commit message could be 'shaping the light bulb behaviour'
+> **Commit and Push!** You've written a new piece of code, let's make sure that Git keeps a version of it. To do so, repeat [Task 1.3](#task-13-stage-and-commit-changes) and [Task 1.4](#task-14-stage-and-commit-changes). Your commit message could be 'shaping the light bulb behaviour'
 
->**Updating the CHANGELOG file** In this assignment you have made significant additions to your prototype. Edit the file `CHANGELOG.md` and add what you have achieved in this assignment.
+> **Updating the CHANGELOG file** In this assignment you have made significant additions to your prototype. Edit the file `CHANGELOG.md` and add what you have achieved in this assignment.
