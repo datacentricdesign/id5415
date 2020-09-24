@@ -246,7 +246,7 @@ Clicking on this button, Bucket will automatically create a Grafana dashboard wi
 ![Grafana Dashboard](/assets/img/courses/id5415/module1/labxp/4_2_4.png)
 
 >**Report**
-On GitHub, in your lab experiment report, describe your prototype dashboard with text and screenshots. What can we see and what these metrics means?
+On GitHub, in your lab experiment report, describe your prototype dashboard with text and screenshots. What can we see and what these metrics mean?
 
 To conclude your lab experiment, open an `issue`. On GitHub, an `issue` is a discussion thread. In our case, we want to open a discussion space related to the first lab XP. This will be a sign to coaches that you consider being done with it so that they can go through it for feedback.
 
