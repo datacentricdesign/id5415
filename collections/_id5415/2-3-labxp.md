@@ -140,7 +140,7 @@ def store_csv_data(values):
     timestamp = str(int(time()) * 1000)
     values_with_time = [ timestamp ] + values
     # Convert all values into strings and join them together with a comma ','
-    csv_line = ",".join(str(x) for x in values)
+    csv_line = ",".join(str(x) for x in values_with_time)
     # Open the file and append the new line at the end
     with open("data/light.csv", "a") as datafile:
         datafile.write(csv_line + "\n")
