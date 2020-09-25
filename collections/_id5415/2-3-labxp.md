@@ -138,7 +138,7 @@ def store_csv_data(values):
     """
     # Get timestamp in millisecondes
     timestamp = str(int(time()) * 1000)
-    values.insert(0, timestamp) 
+    values_with_time = [ timestamp ] + values
     # Convert all values into strings and join them together with a comma ','
     csv_line = ",".join(str(x) for x in values)
     # Open the file and append the new line at the end
