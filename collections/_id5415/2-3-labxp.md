@@ -24,7 +24,9 @@ Adam Amran put it nicely together in his [Medium article](https://uxplanet.org/p
 
 # Step 1 Collecting Real data
 
-In this first step, we will reach the level of 'real' data. Going back to our light bulb control, we will read the result from the light bulb and store it into a file
+In this first step, we will reach the level of 'real' data. Going back to our light bulb control, we will read the result from the light bulb and store it into a file.
+
+>Back to your repository in VS Code, do not forget to pull the latest version and start up your python virtual environment.
 
 ## Task 1.1 Comma-Separated Values
 
@@ -262,7 +264,7 @@ LIGHTBULB_IP_ADDRESS=[192.168.1.12]
 To load these variables into our Python code, we use the package `python-dotenv`. As usual, we install this package with pip:
 
 ```
-pip install python-env
+pip install python-dotenv
 ```
 
 Back to our Python code in `light.py`, we import the package at the top of the file:
