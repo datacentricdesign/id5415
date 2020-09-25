@@ -324,7 +324,7 @@ def init_thing_and_get_property():
     thing_bulb = Thing(thing_id=THING_ID, private_key_path=PRIVATE_KEY_PATH)
     thing_bulb.describe()
     # Find or create the Lightbulb Status
-    prop_status = thing_bulb.find_or_create_property("Lightbulb Status", "LIGHT_STATUS")
+    prop_status = thing_bulb.find_or_create_property("Lightbulb Status", "LIGHTBULB_STATUS")
     prop_status.describe()
     return prop_status
 ```
