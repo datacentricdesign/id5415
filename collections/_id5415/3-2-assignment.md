@@ -16,7 +16,6 @@ computational_concepts: I/O, Exception
 ---
 
 * Do not remove this line (it will not be displayed)
-
 {:toc}
 
 ---
