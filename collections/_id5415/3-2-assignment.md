@@ -367,7 +367,7 @@ Inside the constructor, we can now store the thing and 'find or create' three pr
       "DHT Humidity", "RELATIVE_HUMIDITY")
 ```
 
-## Task 3.3 Create Property objects
+## Task 4.2 Send property data
 
 At this stage, sending data to Bucket is only a step away: Our Thing is initialised, we have a property got each sensor. We now use these properties to send data each time we collect a new value.
 
@@ -393,7 +393,7 @@ Our script is ready for testing. Let's commit and push on GitHub, so that we can
 python src/main.py
 ```
 
-# Step 4 Events and Actions
+# Step 5 Events and Actions
 
 As a last step, we want to trigger actions based on the data we collect. For now, we define the most basic action: showing the data in the Terminal. This action looks like this:
 
@@ -405,7 +405,7 @@ def action(values):
 
 The parameter `values` gives us the last values of our three sensors as they have just been collected.
 
-## Task 4.1 Define a Handler
+## Task 5.1 Define a Handler
 
 We do not want to mix collection and actions. It is important to separate these two aspects, so that we can reuse our code. Thus, we paste the `actions()` in the `main.py` and we tell our collector to use it as a '__handler__'. A handler is a method that we define to 'handle' something. In our case, to handle the action based on the new data.
 
@@ -421,7 +421,7 @@ def actions(values):
   print(values)
 ```
 
-## Task 4.2 Set a Handler
+## Task 5.2 Set a Handler
 
 What is this `setHanler()` about? This is on us to define it. What we want is to store this function, so that we can call it whenever there is new data. Thus, we add the method `setHandler()` to our class `SensorDataCollector` .
 
@@ -436,7 +436,7 @@ Because all attributes of an object need to be define in the constructor, we add
 self.handler = None
 ```
 
-## Task 4.3 Call a Handler
+## Task 5.3 Call a Handler
 
 Finally, we want to trigger our `actions()` function each time we collect new data. The `collect()` function seem to be the right place for this, as it is call __'every time we collect new data'__.  Note that we check first if a handler has been set before trying to call it.
 
@@ -449,7 +449,7 @@ if self.handler != None:
   })
 ```
 
-## Task 4.4 An example
+## Task 5.4 An example
 
 Let's define a simple event and action pair: we want to detect when the room lights gets turned ON/OFF.
 
@@ -473,7 +473,7 @@ def is_light_on(values, threshold = 0.1):
 
 Note that you can call is_light_on like so: `is_light_on(values)` because the threshold by default is 0.1. If you want to specify it, you can do so as well: `is_light_on(values, new_threshold)`. 
 
-## Task 4.5 Your turn
+## Task 5.5 Your turn
 
 From this, can you create another action function
 
