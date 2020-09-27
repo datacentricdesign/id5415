@@ -35,6 +35,8 @@ However, there are some functionalities that we can only test on the Raspberry P
 
 ## Task 1.1 Create a Branch 
 
+> Back to your repository in VS Code, do not forget to pull the latest version and start up your python virtual environment.
+
 First, we create a Git branch. In VS Code, click on your Git branch in the bottom left corner. Then, select `Create new branch from` . It will prompt you for the name of your new branch (e.g. `explore-sensor-jacky` ) as well as the branch you want to start (e.g. `master` ).
 
 Alternatively, you can open the Terminal and type in the following `git checkout` command in which '-b' stand for 'new branch'.
@@ -49,11 +51,12 @@ Open a second Terminal, so that you can use the Terminal on your machine as well
 
 In the new Terminal, use `ssh` to connect to you Raspberry Pi.
 
-As we use Git for the first time, we can set the basic user information. For this, type in the two following commands, replacing with your name and email address.
+As we use Git for the first time, we can set the basic user information. For this, type in the three following commands, replacing with your name and email address. The third one allows you to store your credential so that you do not need to type then every time you pull or push.
 
 ``` bash
 git config --global user.name "Jon Doe"
 git config --global user.email "jon@example.com"
+git config --global credential.helper store
 ```
 
 Then, we want to get our code from GitHub. We use the command `git clone` with the URL of our repository. We find the URL of our repository on its first page, on GitHub, when we click on the green button 'Code'.
@@ -75,25 +78,25 @@ Before executing our code, we need to set up the element which we do not get fro
 
 For the virtual environment, you are now used to the following 2 commands to create and activate it.
 
-```bash
+``` bash
 virtualenv venv
 source ./venv/bin/activate
 ```
 
-Then, we need to specify the thing id and private key of our Raspberry Pi, like we did for the light bulb in the previous lab experiment. For this, we create a file `.env`, using the command line text editor nano (think of it like TextEdit on Mac or NotePad on Windows).
+Then, we need to specify the thing id and private key of our Raspberry Pi, like we did for the light bulb in the previous lab experiment. For this, we create a file `.env` , using the command line text editor nano (think of it like TextEdit on Mac or NotePad on Windows).
 
-```bash
+``` bash
 nano .env
 ```
 
 Enter the following two lines, replacing the thing id by the thing id our your Raspberry Pi (on both lines).
 
-```bash
+``` bash
 THING_ID=dcd:things:d21fb0f1-3af4-40cf-89b9-2f9ee67f7d0f
 PRIVATE_KEY_PATH=/etc/ssl/certs/dcd:things:d21fb0f1-3af4-40cf-89b9-2f9ee67f7d0f.private.pem
 ```
 
-To exit, press `CTRL`+`x`. It prompts you to save, type in `y` and `ENTER` to say 'yes'.
+To exit, press `CTRL` + `x` . It prompts you to save, type in `y` and `ENTER` to say 'yes'.
 
 We are now set up: we have a branch on which we can continuously push from our machine and pull from the Raspberry Pi to execute.
 
@@ -119,8 +122,6 @@ As part of the [prototyping kit](/kit), we have two sensors:
 
 Here we show you a way to wire these sensors to the Raspberry Pi. However, you can use any general GPIO pin for these connections.
 
-TODO more precisely, which GPIO
-
 For the LDR, you will need a 1uF capacitor and some wires (both provided in the kit). You can connect the circuit to the Raspberry Pi as follows (GPIO 18):
 
 ![LDR / Raspberry Pi wiring](/assets/img/courses/id5415/module3/assignment/1_1_1.png)
@@ -131,11 +132,7 @@ For the DHT11, you will need a 10kΩ resistor and some wires (both provided in t
 
 ## Task 2.2 Install Python packages for GPIO
 
-Once we have our wiring, we can switch back to the code! 
-
-> Back to your repository in VS Code, do not forget to pull the latest version and start up your python virtual environment.
-
-TODO put into a script, push/pull in Pi, execute on Pi
+Once we have our wiring, we can switch back to the code! There is a list of packages that we need to install to use the GPIO from Python. On the Raspberry Pi, type in the following commands
 
 ``` bash
 # GPIO library 
@@ -150,11 +147,13 @@ pip install adafruit-blinka
 # library for our dht sensor
 pip install adafruit-circuitpython-dht 
 
+pip install dcd-sdk
+
 # necessary system dependency
 sudo apt-get install libgpiod2
 ```
 
-**Note**: we install the last dependency with `apt-get` instead of `pip` . `apt-get` is the package manager (like `pip` ) of the Raspberry Pi operating system. We install a library for the Raspberry Pi which is required to use the GPIO with Python.
+**Note**: we install the last dependency with `apt-get` instead of `pip` . `apt-get` is the package manager (like `pip` ) of the Raspberry Pi operating system. We install a library for the Raspberry Pi which is required to use the GPIO with Python. The `sudo` command tells the Raspberry Pi to execute the script with administrator privilege. It will prompt you to enter the password of your Raspberry Pi.
 
 ## Task 2.3 Import Sensor Packages
 
@@ -165,165 +164,306 @@ We must first import the packages we installed:
 ``` python
 import board # for our board pins 
 # import DHT sensor library
-from Adafruit_DHT import DHT11
+from adafruit_dht import DHT11
 # import light sensor from GPIO 0  
 from gpiozero import LightSensor # class for ldr connection
 ```
 
-## Task 2.4 Setup your sensor objects in your python script
+## Task 2.4 Initialise a Sensor Object for each Sensor
 
-Each sensor will have a sensor object through which you can collect data/control the sensor specifications. 
-
-Let's create one for each of these: 
+Each sensor will have a sensor `object` (as defined in the self-study material) through which you can collect data and control the sensor specifications. Let's create one for each of these: 
 
 * **DHT11**
 
 ``` python
 # suing gpio pin 4 
-dht_sensor = DHT11(board.d4, use_pulseio=False)
+dht_sensor = DHT11(board.D4, use_pulseio=False)
 ```
 
 * **LDR**
 
 ``` python
 # defining our Light sensor object using GPIO 18
-LDR_pin = 18
-LDR_sensor = LightSensor(LDR_pin)
+LDR_PIN = 18
+ldr_sensor = LightSensor(LDR_pin)
 ```
 
-We are now ready to collect some data! We will be using these classes to retrieve  data and visualize it.  
+We are now ready to collect some data! We will be using these classes to retrieve data and visualize it.  
 
 ## Task 2.5 Read raw test sensor data in your script
 
-For a simple test of our sensors, we will read them (after we have set our sensor objects). and print them out in our console once. 
+As a test, let's read the values of our sensors (after we have set our sensor objects) and print them out in the Terminal. To do this, we use `print()` three times, together with each of the three following statements for the  measurements.
 
-To do this, use the python function "print()" 3 times, together with each of the three following statements for the  measurements: 
-
-* to get the light value (from 0 to 1) , you can use: `LDR_sensor.value`
-* to get the relative  humidity ( from 0 to 100%), you can use: `dht_sensor.humidity `
+* to get the light value (from 0 to 1) , you can use: `ldr_sensor.value`
+* to get the relative  humidity (from 0 to 100%), you can use: `dht_sensor.humidity`
 * to get the temperature in ˚C, you can use: `dht_sensor.temperature`
-# Step 3 Data Collection and Processing
+Our script is ready for testing. Let's commit and push on GitHub, so that we can pull on the Raspberry Pi and execute.
 
-At this step, we should now have working sensors (and some data)! Now we need to structure our data collection, do some basic processing, and send this data to Bucket. 
-
-## Task 3.1 Structure data collection into functions
-
-Now we can replace the print statements in task 1.4 with actual functions that we can call to retrieve our data.  
-
-So we need to create 3 new functions, say `update_temperature()` , `update_humidity()` , and `update_light()`
-We will also use another control flow structure, - the try-catch statement, so we can handle cases when the reading data fails (yes, it can happen!). We will use update temperature as an example: 
-
-``` python
-def update_temperature():
-	try:
-	    temperature = dht_sensor.temperature
-	    print(temperature)
-	except RuntimeError as error:
-	    # DHT Errors can happen fairly often
-	    print(error.args[0]) # specify the problem
-	    continue # continue program as normal
-
-	except Exception as error:
-    	# this means there is a problem with the actual sensor
-	    dht_sensor.exit() # close dht sensor, this statement is not needed if you're using the LDR
-	    raise error # this will crash the program 
+``` bash
+python src/sensing.py
 ```
 
-Now, we can create a main function  and call this `update_temperature()` function from it. 
+# Step 3 Structure data Collection into Functions
 
-We can do the same creation process for the two other sensors (you can keep the except blocks the same in the try statement, but be sure to update for the proper sensor read instruction!)
+At this stage, we should have working sensors: an output of all three values every time we execute our Python script. Now we need to structure our data collection, do some basic processing, and send this data to Bucket.
 
-## Task 3.2 Import the Data-Centric Design Python Kit
+## Task 3.1 Class Structure
 
-Following the example of the previous assignments, you can now add the SDK libraries (in the beginning of your script, for clarity) you will need : 
+Let's use this opportunity to define a `class` , as presented in the self-study material. This `class` will handle the data collection for our three sensors, send the data to Bucket and get us ready to trigger action.
+
+Copy and paste the following structure in a new file `src/sensor_data_collector` .
 
 ``` python
-import os 
+# import DHT sensor library
+from adafruit_dht import DHT11
+# import light sensor from GPIO 0
+from gpiozero import LightSensor  # class for ldr connection
+import threading # so we can collect data every x seconds
 
-from dcd.entities.thing import Thing # our thing object
-from time import sleep # so we can sleep for a set amount of time 
+class SensorDataCollector:
 
+  def __init__(self, dht_pin, ldr_pin, thing, collection_frequency=10):
+
+  def collect(self):
+      
+
+  def update_temperature(self):
+      
+
+  def update_humidity(self):
+      
+
+  def update_light(self):
+
+```
+
+In this structure, you can recognise our package imports at the top. We add the new package `threading` which will enable you to collect data at regular interval.
+
+Then we have the skeleton of our class:
+
+* the ___init___() method is the constructor of the class. It is called to build a new object of class 'SensorDataCollector'.
+* three update methods will respectivelly collect temperature, humidity and light data.
+* a `collect()` function will call the three update methods at regular interval.
+
+**Note** the `self` keywords is a parameter of each methods, which points to the instance of the class itself. We can use it to access any variable we store inside the class: the so-called `attributes` .
+
+## Task 3.2 Construct the Object
+
+The constructor of the class is initialising the object. Thus, we provide the pin of our two sensors, as well as the collection_frequence (how often we will read the sensors).
+
+``` python
+def __init__(self, dht_pin, ldr_pin,  collection_frequency=10):
+  # Store the collection frequency as attribute
+  self.collection_frequency = collection_frequency
+  # Store the access to the 2 sensors
+  self.dht_sensor = DHT11(dht_pin, use_pulseio=False)
+  self.ldr_sensor = LightSensor(ldr_pin)
+  # Store the last value of each sensor (currently 'None' as we do not know there values yet)
+  self.temperature = None
+  self.humidity = None
+  self.light = None
+```
+
+**Note** we use `self` , refering to the object itself, to initialise the attribute of this object.
+
+## Task 3.3 Collect the Light
+
+``` python
+def collect(self):
+  # Set a timer to automatically call this function again
+  threading.Timer(self.collection_frequency, self.collect).start()
+  # Call the three sensor methods
+  self.update_temperature()
+  self.update_humidity()
+  self.update_light()
+```
+
+## Task 3.4 Define the Light Method
+
+Each of the three methods which collect data from sensors will looks similar. In essence: collecting the value as we did in Step 2. However, Input/output function are prone to errors (e.g. a sensor not available, failing to respond). We will use the try-catch statement introduced in the self-study material to handle these cases when the reading data fails. Let's use `update_light()` as an example: 
+
+``` python
+def update_light(self):
+  try:
+    # A value between 0 (dark) and 1 (light)
+    self.light = self.ldr_sensor.value
+  except RuntimeError as error:
+    # LDR Errors
+    print(error.args[0]) # specify the problem
+  except Exception as error:
+    # this means there is a problem with the actual sensor
+    raise error
+```
+
+## Task 3.5 Write the Humidity and Light Functions
+
+Repeat the same process to create the methods `update_temperature()` and `update_humidity()` .
+
+## Task 3.6 Main
+
+The final step is a function main that create an object of the class SensorDataCollector to collect data. Let's create a file `src/main.py` as follows.
+
+``` python
+import board  # for our board pins
+from sensing import SensorDataCollector
+
+LDR_PIN = 18
+DHT_PIN = board.D4
+
+COLLECTION_FREQUENCY = 5  # in seconds
+
+def main():
+    collector = SensorDataCollector(DHT_PIN, LDR_PIN, COLLECTION_FREQUENCY)
+    collector.collect()
+
+main()
+```
+
+You will recognise the import of our class at the top, followed by the specification of our sensor pin and collection frequency.
+
+`main()` is building an object of our class `SensorDataCollector` and call the `collect()` method on this object (initiating the data collection). We do not forget to call `main()` at the bottom of our script.
+
+Our script is ready for testing. Let's commit and push on GitHub, so that we can pull on the Raspberry Pi and execute.
+
+``` bash
+python src/main.py
+```
+
+# Step 4 Send Sensor Data to Bucket
+
+In this step we want to ugrade our class to automatically send data to Bucket.
+
+## Task 4.1 Initialise the Thing and Properties
+
+We want to create a Thing object like we did in the previous lab experiment. In `src/main.py` , we can import the definition of a Thing and call its constructor `Thing()` in `main()` . Then, we pass this object to the constructor of `SensorDataCollector()`
+
+``` python
+from dcd.bucket.thing import Thing
+
+def main():
+  rpi_thing = Thing()
+  collector = SensorDataCollector(DHT_PIN, LDR_PIN, rpi_thing, COLLECTION_FREQUENCY)
+  collector.collect()
+```
+
+Then, we update the constructor of `SensorDataCollector` to take a new parameter (our thing)
+
+``` python
+def __init__(self, dht_pin, ldr_pin, thing, collection_frequency=10):
+```
+
+Inside the constructor, we can now store the thing and 'find or create' three property: one for each of our sensors.
+
+``` python
+  self.rpi_thing = thing
+  # Find or create a property to store light
+  self.light_property = self.rpi_thing.find_or_create_property(
+      "LDR sensor", "LIGHT")
+  # Find or create a property to store temperature
+  self.temp_property = self.rpi_thing.find_or_create_property(
+      "DHT Temperature", "TEMPERATURE")
+  # Find or create a property to store humidity
+  self.humidity_property = self.rpi_thing.find_or_create_property(
+      "DHT Humidity", "RELATIVE_HUMIDITY")
 ```
 
 ## Task 3.3 Create Property objects
 
-We  can  now create a new thing in Bucket, or use the one already used for the raspberry pi, instantiate it in our python script, and create 3 new properties in it, one for each sensor.  First, let's add our THING_ID variable , and create our thing object in python ( let's do this right between our sensor objects and our update functions, can you guess why we are doing it before our update functions?)
+At this stage, sending data to Bucket is only a step away: Our Thing is initialised, we have a property got each sensor. We now use these properties to send data each time we collect a new value.
+
+Here is an example for the in `update_light()` . You note the extra line? This is where we update the values of our light property. Note the double parenthesis and the trailing comma, both important to tell Python that we have only one value, but we still want it to be part of a list (of 1 element).
 
 ``` python
-# library imports and sensor object creation
-...
-THING_ID = 'MY_THING_ID'
-
-# Instantiate a thing with its credential
-my_thing = Thing(thing_id=THING_ID, private_key_path="/etc/ssl/certs/" + THING_ID + ".private.pem")
-
-...
-# update functions, main ...
-```
-
-Then, let's create 3 new properties (each of its own type) 
-
-``` python
-# Find or create a property to store light 
-my_property_ldr = my_thing.find_or_create_property("LDR sensor", "LIGHT")
-
-# Find or create a property to store temperature
-my_property_temp = my_thing.find_or_create_property("DHT Temperature", "TEMPERATURE")
-
-# Find or create a property to store humidity 
-my_property_humidity = my_thing.find_or_create_property("DHT Humidity", "RELATIVE_HUMIDITY")
-```
-
-## Task 3.4 Send updated sensor data to Bucket 
-
-We now need to send this data to Bucket. All this data is one dimensional, which means each time you have an update you only have to send 1 data point to Bucket.  for any one dimensional property, remember that you can update its value with this following instruction structure : `my_property.update_values((my_new_value),)	 `
-Now, where would be a good place to add this instruction?  The update functions we made previously, of course!  Instead of printing the new value to the console, we can just send it to Bucket (of course you can also do both). 
-
-For example in the LDR update function we can have:
-
-``` python
-def update_light():
+def update_light(self):
   try:
-    lux = LDR_sensor.value # between 0 (dark) and 1 (light)
-    lux = lux*100 # dummy calibration processing, we do not get actual lux values here
-    my_property_ldr.update_values((lux,))	
+      self.light = self.ldr_sensor.value  # between 0 (dark) and 1 (light)
+      print(self.light)
+      self.light_property.update_values((self.light,))
   except RuntimeError as error:
-	  print(error.args[0])
-	  continue
+      print(error.args[0])
   except Exception as error:
-	  raise error
-
+      raise error
 ```
 
-You can see that in this case, we've done a bit of dummy processing to our raw data. We took the basic value (0 to 1). and converted it into a new value, before sending it. This calibration into "fake lux"(light measurement unit) is not right however, as this should be done by calibrating it to your actual environment.  One simple example you could do, would be to convert celsius temperatures to Fahrenheit following its formula in update_temperature()! 
+Go ahead and add a similar line in `update_temperature()` and `update_humidity()` to send all 3 values to Bucket.
 
-You should now be able to see your data in Grafana!  We will do one last thing - make our script update our values every 2 seconds, forever! This is simple, we can create an infinite while loop inside our main function, call our update functions in series, and wait for 2 seconds with sleep: 
+Our script is ready for testing. Let's commit and push on GitHub, so that we can pull on the Raspberry Pi and execute.
 
-``` python
-while True:
-  update_temperature()
-  update_humidity()
-  update_light()
-  sleep(2)
+``` bash
+python src/main.py
 ```
 
 # Step 4 Events and Actions
 
-Oof, almost done now! Now we have a periodic stream of data - a time-series (3 in fact).  The light pre-processing we have done (e.g. fake lux) happens whenever we get a data point, but we want to be able to trigger actions given certain conditions. 
-
-Let's define a simple event and action pair: let's say we want to detect when the room lights where our pi is in get turned on/off.   
-
-* For our action, let's just print to the console "Light Switch has been flipped" 
-
-* For our event, we need to set a particular threshold for our LDR_sensor value (between 0 and 100)  and trigger this action.
-
-So what do we have to do?  Everytime we get a new time value, we need to see if its value has crossed the threshold.
-
-Lets make a "is_light_on()" function that we call after we get our new light value (to check our threshold, you should make a global variable ( maybe after the properties creation) to hold the previous light value:
+As a last step, we want to trigger actions based on the data we collect. For now, we define the most basic action: showing the data in the Terminal. This action looks like this:
 
 ``` python
-def is_light_on(new_value,threshold = 10): 
-  # our threshold by default is 10 but you may need to adjust this
+def action(values):
+    print('ready for action')
+    print(values)
+```
+
+The parameter `values` gives us the last values of our three sensors as they have just been collected.
+
+## Task 4.1 Define a Handler
+
+We do not want to mix collection and actions. It is important to separate these two aspects, so that we can reuse our code. Thus, we paste the `actions()` in the `main.py` and we tell our collector to use it as a '__handler__'. A handler is a method that we define to 'handle' something. In our case, to handle the action based on the new data.
+
+``` python
+def main():
+  rpi_thing = Thing()
+  collector = SensorDataCollector(DHT_PIN, LDR_PIN, rpi_thing, COLLECTION_FREQUENCY)
+  collector.collect()
+  collector.setHandler(actions)
+
+def actions(values):
+  print('ready for actions')
+  print(values)
+```
+
+## Task 4.2 Set a Handler
+
+What is this `setHanler()` about? This is on us to define it. What we want is to store this function, so that we can call it whenever there is new data. Thus, we add the method `setHandler()` to our class `SensorDataCollector` .
+
+``` python
+def setHandler(self, handler):
+  self.handler = handler
+```
+
+Because all attributes of an object need to be define in the constructor, we add the following at the bottom of the constructor: __there might be a handler, but for now there is none!__
+
+``` python
+self.handler = None
+```
+
+## Task 4.3 Call a Handler
+
+Finally, we want to trigger our `actions()` function each time we collect new data. The `collect()` function seem to be the right place for this, as it is call __'every time we collect new data'__.  Note that we check first if a handler has been set before trying to call it.
+
+``` python
+if self.handler != None:
+  self.handler({
+      'temperature': self.temperature,
+      'humidity': self.humidity,
+      'light': self.light
+  })
+```
+
+## Task 4.4 An example
+
+Let's define a simple event and action pair: we want to detect when the room lights gets turned ON/OFF.
+
+* For our action, let's just print to the console "Light Switch has been flipped" 
+* For our event, we need to set a particular threshold for our light value (between 0 and 1) and trigger this action.
+
+So what do we have to do? Every time we get a new time value, we need to see if its value has crossed the threshold.
+
+Lets make a `is_light_on()` function that we call in `actions()` . We get our new light value (to check our threshold, you should make a global variable (maybe after the sensor pin definition) to hold the previous light value:
+
+``` python
+def is_light_on(values, threshold = 0.1): 
+  new_value = values["light"] # get the light value
+  # our threshold by default is 0.1 but you may need to adjust this
   global prev_value # you need this to 
   if(new_value > threshold  and  prev_value < threshold): # we crossed threshold
     print("Light switch has been flipped on")
@@ -331,10 +471,16 @@ def is_light_on(new_value,threshold = 10):
   prev_value = new_value # updating our previous value at the end
 ```
 
-Note that you can call is_light_on like so: `is_light_on(lux)` because the threshold by default is 10. if you want to specify it, you can do so as well: `is_light_on(lux, new_threshold)` . 
+Note that you can call is_light_on like so: `is_light_on(values)` because the threshold by default is 0.1. If you want to specify it, you can do so as well: `is_light_on(values, new_threshold)`. 
 
-From this, can you create a function to trigger when it's off?  Can you then merge these two functions in one?  
+## Task 4.5 Your turn
 
-With this, you're free to explore more/different events (detect when a cupboard is open, change bulb brightness according to temperature, etc), and different trigger actions! 
+From this, can you create another action function
+
+* to trigger when it's off? 
+* to involve the temperature?
+* to involve the humidity?
+
+In the following lab experiment, we will connect these action to the lightbulb and test them.
 
 > Once you are done with your development and test cycle, do not forget to merge your branch into your master branch.
