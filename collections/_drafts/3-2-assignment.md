@@ -26,19 +26,78 @@ In this assignment, we will make our prototype more aware of its context, with t
 
 Throughout the course, we use the Raspberry Pi as a home hub. We execute our Python scripts on it. In contrast with our personal computer, we can leave it run the whole week so that we can experience the functionality that we developed.
 
-However, there are some functionalities that we can only test on the Raspberry Pi. Collecting data from sensors is one of them, as we need to connect the wires. In this step, we suggest a workflow to continuously code on your machine (where it is convenient) and test on the Raspberry Pi (where the sensors are).
+However, there are some functionalities that we can only test on the Raspberry Pi. Collecting data from sensors is one of them, as we need to connect the wires. In this step, we suggest a workflow to continuously code on your machine (where it is convenient) and test on the Raspberry Pi (where the sensors are). The cycle goes like this:
+
+* Edit the code in VS Code, on your machine
+* Commit and push the code on GitHub
+* Pull the code on the Raspberry Pi
+* Execute the code on the Raspberry Pi
 
 ## Task 1.1 Create a Branch 
 
-TODO
+First, we create a Git branch. In VS Code, click on your Git branch in the bottom left corner. Then, select `Create new branch from` . It will prompt you for the name of your new branch (e.g. `explore-sensor-jacky` ) as well as the branch you want to start (e.g. `master` ).
+
+Alternatively, you can open the Terminal and type in the following `git checkout` command in which '-b' stand for 'new branch'.
+
+``` bash
+git checkout -b explore-sensor-jacky master
+```
 
 ## Task 1.2 Get the code on Raspberry Pi
 
-TODO set name/email for git, clone repo on Pi
+Open a second Terminal, so that you can use the Terminal on your machine as well as on the Raspberry Pi.
 
-## Task 1.3 Execute 
+In the new Terminal, use `ssh` to connect to you Raspberry Pi.
 
-TODO virtualenv, .env with thingID, path to private key, execute light script
+As we use Git for the first time, we can set the basic user information. For this, type in the two following commands, replacing with your name and email address.
+
+``` bash
+git config --global user.name "Jon Doe"
+git config --global user.email "jon@example.com"
+```
+
+Then, we want to get our code from GitHub. We use the command `git clone` with the URL of our repository. We find the URL of our repository on its first page, on GitHub, when we click on the green button 'Code'.
+
+``` bash
+git clone https://github.com/id5415/id5415-project-demo-team.git
+```
+
+It should create a folder with the name of our repository. We can enter this repository with `cd` . By default, we are on the master branch. we can confirm this with the command `git status`
+As we want to use the code from our new branch, we switch with checkout. Replace the name of the branch by yours. Note this time there is no '-b'. We do not want to create a new branch, simply switch to an existing one.
+
+``` bash
+git checkout explore-sensor-jacky
+```
+
+## Task 1.3 Set up the Python env
+
+Before executing our code, we need to set up the element which we do not get from GitHub: the virtual environment and the environment variables.
+
+For the virtual environment, you are now used to the following 2 commands to create and activate it.
+
+```bash
+virtualenv venv
+source ./venv/bin/activate
+```
+
+Then, we need to specify the thing id and private key of our Raspberry Pi, like we did for the light bulb in the previous lab experiment. For this, we create a file `.env`, using the command line text editor nano (think of it like TextEdit on Mac or NotePad on Windows).
+
+```bash
+nano .env
+```
+
+Enter the following two lines, replacing the thing id by the thing id our your Raspberry Pi (on both lines).
+
+```bash
+THING_ID=dcd:things:d21fb0f1-3af4-40cf-89b9-2f9ee67f7d0f
+PRIVATE_KEY_PATH=/etc/ssl/certs/dcd:things:d21fb0f1-3af4-40cf-89b9-2f9ee67f7d0f.private.pem
+```
+
+To exit, press `CTRL`+`x`. It prompts you to save, type in `y` and `ENTER` to say 'yes'.
+
+We are now set up: we have a branch on which we can continuously push from our machine and pull from the Raspberry Pi to execute.
+
+Once we are happy with our code, the development and test cycle is completed. We will merge this branch into the master branch and delete it. We will walk through these steps at the end of this assignment.
 
 # Step 2 Set up the Sensors
 
@@ -95,11 +154,11 @@ pip install adafruit-circuitpython-dht
 sudo apt-get install libgpiod2
 ```
 
-**Note**: we install the last dependency with `apt-get` instead of `pip`. `apt-get` is the package manager (like `pip`) of the Raspberry Pi operating system. We install a library for the Raspberry Pi which is required to use the GPIO with Python.
+**Note**: we install the last dependency with `apt-get` instead of `pip` . `apt-get` is the package manager (like `pip` ) of the Raspberry Pi operating system. We install a library for the Raspberry Pi which is required to use the GPIO with Python.
 
 ## Task 2.3 Import Sensor Packages
 
-Back on our machine, we create a new Python file `src/sensing.py`. In this script, we write Python code to explore the sensor data collection without disturbing `light.py`.
+Back on our machine, we create a new Python file `src/sensing.py` . In this script, we write Python code to explore the sensor data collection without disturbing `light.py` .
 
 We must first import the packages we installed:
 
@@ -143,7 +202,6 @@ To do this, use the python function "print()" 3 times, together with each of the
 * to get the light value (from 0 to 1) , you can use: `LDR_sensor.value`
 * to get the relative  humidity ( from 0 to 100%), you can use: `dht_sensor.humidity `
 * to get the temperature in ˚C, you can use: `dht_sensor.temperature`
-
 # Step 3 Data Collection and Processing
 
 At this step, we should now have working sensors (and some data)! Now we need to structure our data collection, do some basic processing, and send this data to Bucket. 
@@ -278,3 +336,5 @@ Note that you can call is_light_on like so: `is_light_on(lux)` because the thres
 From this, can you create a function to trigger when it's off?  Can you then merge these two functions in one?  
 
 With this, you're free to explore more/different events (detect when a cupboard is open, change bulb brightness according to temperature, etc), and different trigger actions! 
+
+> Once you are done with your development and test cycle, do not forget to merge your branch into your master branch.
