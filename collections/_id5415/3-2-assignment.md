@@ -203,7 +203,7 @@ Our script is ready for testing. Let's commit and push on GitHub, so that we can
 python src/sensing.py
 ```
 
-# Step 3 Structure data Collection into Functions
+# Step 3 Structure data Collection into a Class
 
 At this stage, we should have working sensors: an output of all three values every time we execute our Python script. Now we need to structure our data collection, do some basic processing, and send this data to Bucket.
 
