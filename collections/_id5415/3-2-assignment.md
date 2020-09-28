@@ -185,7 +185,7 @@ dht_sensor = DHT11(board.D4)
 ``` python
 # defining our Light sensor object using GPIO 18
 LDR_PIN = 18
-ldr_sensor = LightSensor(LDR_pin)
+ldr_sensor = LightSensor(LDR_PIN)
 ```
 
 We are now ready to collect some data! We will be using these classes to retrieve data and visualize it.  
