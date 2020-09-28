@@ -37,7 +37,7 @@ However, there are some functionalities that we can only test on the Raspberry P
 
 > Back to your repository in VS Code, do not forget to pull the latest version and start up your python virtual environment.
 
-First, we create a Git branch. In VS Code, click on your Git branch in the bottom left corner. Then, select `Create new branch from` . It will prompt you for the name of your new branch (e.g. `explore-sensor-jacky` ) as well as the branch you want to start (e.g. `master` ).
+First, we create a Git branch. In VS Code, click on your Git branch in the bottom left corner. Then, select `Create a new branch from` . It will prompt you for the name of your new branch (e.g. `explore-sensor-jacky` ) as well as the branch you want to start (e.g. `master` ).
 
 Alternatively, you can open the Terminal and type in the following `git checkout` command in which '-b' stand for 'new branch'.
 
@@ -242,10 +242,10 @@ In this structure, you can recognise our package imports at the top. We add the 
 Then we have the skeleton of our class:
 
 * the ___init___() method is the constructor of the class. It is called to build a new object of class 'SensorDataCollector'.
-* three update methods will respectivelly collect temperature, humidity and light data.
+* three update methods will respectively collect temperature, humidity and light data.
 * a `collect()` function will call the three update methods at regular interval.
 
-**Note** the `self` keywords is a parameter of each methods, which points to the instance of the class itself. We can use it to access any variable we store inside the class: the so-called `attributes` .
+**Note** the `self` keywords is a parameter of each method, which points to the instance of the class itself. We can use it to access any variable we store inside the class: the so-called `attributes` .
 
 ## Task 3.2 Construct the Object
 
@@ -264,7 +264,7 @@ def __init__(self, dht_pin, ldr_pin,  collection_frequency=10):
   self.light = None
 ```
 
-**Note** we use `self` , refering to the object itself, to initialise the attribute of this object.
+**Note** we use `self` , referring to the object itself, to initialise the attribute of this object.
 
 ## Task 3.3 Collect the Light
 
@@ -331,7 +331,7 @@ python src/main.py
 
 # Step 4 Send Sensor Data to Bucket
 
-In this step we want to ugrade our class to automatically send data to Bucket.
+In this step, we want to upgrade our class to automatically send data to Bucket.
 
 ## Task 4.1 Initialise the Thing and Properties
 
@@ -395,7 +395,7 @@ python src/main.py
 
 # Step 5 Events and Actions
 
-As a last step, we want to trigger actions based on the data we collect. For now, we define the most basic action: showing the data in the Terminal. This action looks like this:
+As the last step, we want to trigger actions based on the data we collect. For now, we define the most basic action: showing the data in the Terminal. This action looks like this:
 
 ``` python
 def action(values):
@@ -407,7 +407,7 @@ The parameter `values` gives us the last values of our three sensors as they hav
 
 ## Task 5.1 Define a Handler
 
-We do not want to mix collection and actions. It is important to separate these two aspects, so that we can reuse our code. Thus, we paste the `actions()` in the `main.py` and we tell our collector to use it as a '__handler__'. A handler is a method that we define to 'handle' something. In our case, to handle the action based on the new data.
+We do not want to mix collection and actions. It is important to separate these two aspects so that we can reuse our code. Thus, we paste the `actions()` in the `main.py` and we tell our collector to use it as a '__handler__'. A handler is a method that we define to 'handle' something. In our case, to handle the action based on the new data.
 
 ``` python
 def main():
@@ -423,7 +423,7 @@ def actions(values):
 
 ## Task 5.2 Set a Handler
 
-What is this `setHanler()` about? This is on us to define it. What we want is to store this function, so that we can call it whenever there is new data. Thus, we add the method `setHandler()` to our class `SensorDataCollector` .
+What is this `setHandler()` about? This is on us to define it. What we want is to store this function, so that we can call it whenever there is new data. Thus, we add the method `setHandler()` to our class `SensorDataCollector` .
 
 ``` python
 def setHandler(self, handler):
@@ -481,6 +481,6 @@ From this, can you create another action function
 * to involve the temperature?
 * to involve the humidity?
 
-In the following lab experiment, we will connect these action to the lightbulb and test them.
+In the following lab experiment, we will connect these actions to the lightbulb and test them.
 
 > Once you are done with your development and test cycle, do not forget to merge your branch into your master branch.
