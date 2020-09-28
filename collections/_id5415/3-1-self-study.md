@@ -98,5 +98,5 @@ However, some errors can not be avoided when writing the code. Writing data into
 In the context of prototyping connected products, it is an important concept because our programme deals with hardware input and output as well as network interactions. To ensure that our programme continues running regardless of these errors, we need to 'handle these exceptions'. Regardless the programming language, exception handling includes 3 steps:
 
 * We 'try' to execute a piece: typically our sensor reading or network interaction. With this 'try', we tell the programme that we are aware things could go wrong.
-* We the behaviour of our programme if the code do not get executed as planned. For example, we could decide to ignore the issue and continue or we could try again.
+* We the behaviour of our programme if the code does not get executed as planned. For example, we could decide to ignore the issue and continue or we could try again.
 * We do some housekeeping action at the end, whether it worked or not, such as closing a file or a connection.
