@@ -177,7 +177,7 @@ Each sensor will have a sensor `object` (as defined in the self-study material) 
 
 ``` python
 # suing gpio pin 4 
-dht_sensor = DHT11(board.D4, use_pulseio=False)
+dht_sensor = DHT11(board.D4)
 ```
 
 * **LDR**
@@ -256,7 +256,7 @@ def __init__(self, dht_pin, ldr_pin,  collection_frequency=10):
   # Store the collection frequency as attribute
   self.collection_frequency = collection_frequency
   # Store the access to the 2 sensors
-  self.dht_sensor = DHT11(dht_pin, use_pulseio=False)
+  self.dht_sensor = DHT11(dht_pin)
   self.ldr_sensor = LightSensor(ldr_pin)
   # Store the last value of each sensor (currently 'None' as we do not know there values yet)
   self.temperature = None
