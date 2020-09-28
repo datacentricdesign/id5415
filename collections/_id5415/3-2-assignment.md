@@ -449,7 +449,7 @@ if self.handler != None:
   })
 ```
 
-## Task 5.4 An example
+## Task 5.4 An example of Action
 
 Let's define a simple event and action pair: we want to detect when the room lights gets turned ON/OFF.
 
