@@ -483,4 +483,6 @@ From this, can you create another action function
 
 In the following lab experiment, we will connect these actions to the lightbulb and test them.
 
-> Once you are done with your development and test cycle, do not forget to merge your branch into your master branch.
+> **Merge and Push** Once you are done with your development and test cycle, do not forget to merge your branch into your master branch.
+
+> **Updating the CHANGELOG file** In this assignment you have made significant additions to your prototype. Edit the file `CHANGELOG.md` and add what you have achieved in this assignment.
