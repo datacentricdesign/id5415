@@ -124,11 +124,11 @@ Here we show you a way to wire these sensors to the Raspberry Pi. However, you c
 
 For the LDR, you will need a 1uF capacitor and some wires (both provided in the kit). You can connect the circuit to the Raspberry Pi as follows (GPIO 18):
 
-![LDR / Raspberry Pi wiring](/assets/img/courses/id5415/module3/assignment/1_1_1.png)
+![LDR / Raspberry Pi wiring](/assets/img/courses/id5415/module3/assignment/1_1_1.jpg)
 
 For the DHT11, you will need a 10kΩ resistor and some wires (both provided in the kit). You can connect the circuit to the Raspberry Pi as follows (GPIO 4):
 
-![DHT11 / Raspberry Pi wiring](/assets/img/courses/id5415/module3/assignment/1_1_2.png)
+![DHT11 / Raspberry Pi wiring](/assets/img/courses/id5415/module3/assignment/1_1_2.jpg)
 
 ## Task 2.2 Install Python packages for GPIO
 
