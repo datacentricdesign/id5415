@@ -19,6 +19,8 @@ report:
 
 From assignment 2 and 3, we have code to sense data from sensors and control the light bulb.
 
+Here is a suggested distribution of tasks among teammates.
+
 ![Task Distribution](/assets/img/courses/id5415/module3/labxp3/labxp3-tasks.svg)
 
 # Step 1 Make Housekeeping on the Code
@@ -54,9 +56,7 @@ class Lightbulb:
 
 Once you have the constructor and the blink method, you can add the other methods that you have developed such as `pulse()` , `morse()` , `frequency()` .
 
-> **Report**
-
-On GitHub, in your lab experiment report, report your process of transforming your initial code into a class. What are the pros and cons of this Object-oriented approach?
+> **Report** On GitHub, in your lab experiment report, report your process of transforming your initial code into a class. What are the pros and cons of this Object-oriented approach?
 
 ## Task 1.2 Clean the Sensor Data 
 
