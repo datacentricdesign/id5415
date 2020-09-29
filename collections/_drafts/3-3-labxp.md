@@ -19,7 +19,7 @@ report:
 
 From assignment 2 and 3, we have code to sense data from sensors and control the light bulb.
 
-[Task Distribution](/assets/img/courses/id5415/module3/labxp3/labxp3-tasks.svg)
+![Task Distribution](/assets/img/courses/id5415/module3/labxp3/labxp3-tasks.svg)
 
 # Step 1 Make Housekeeping on the Code
 
