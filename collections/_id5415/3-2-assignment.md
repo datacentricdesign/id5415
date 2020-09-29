@@ -211,7 +211,7 @@ At this stage, we should have working sensors: an output of all three values eve
 
 Let's use this opportunity to define a `class` , as presented in the self-study material. This `class` will handle the data collection for our three sensors, send the data to Bucket and get us ready to trigger action.
 
-Copy and paste the following structure in a new file `src/sensor_data_collector` .
+Copy and paste the following structure in a new file `src/sensor_data_collector.py` .
 
 ``` python
 # import DHT sensor library
@@ -305,7 +305,7 @@ The final step is a function main that create an object of the class SensorDataC
 
 ``` python
 import board  # for our board pins
-from sensing import SensorDataCollector
+from sensor_data_collector import SensorDataCollector
 
 LDR_PIN = 18
 DHT_PIN = board.D4
