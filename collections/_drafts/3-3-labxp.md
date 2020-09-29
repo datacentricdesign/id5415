@@ -13,14 +13,13 @@ report:
 ---
 
 * Do not remove this line (it will not be displayed)
-
 {:toc}
 
 ---
 
 From assignment 2 and 3, we have code to sense data from sensors and control the light bulb.
 
-[Task Distribution](/assets/courses/id5415/module3/labxp3/labxp3-tasks.svg)
+[Task Distribution](/assets/img/courses/id5415/module3/labxp3/labxp3-tasks.svg)
 
 # Step 1 Make Housekeeping on the Code
 
@@ -72,9 +71,7 @@ Then, we need some standard units. The temperature comes in Celsius degree out o
 
 TODO offer the mathematic formula for lux conversion
 
-> **Report**
-
-On GitHub, in your lab experiment report, report your process of implementing the data cleaning why you did it this way.
+> **Report** On GitHub, in your lab experiment report, report your process of implementing the data cleaning why you did it this way.
 
 ## Task 1.3 Make a Service
 
@@ -82,9 +79,7 @@ So far, we have to start login on the Raspberry Pi and start the Python script t
 
 TODO describe how to run the script as a service (we had a tutorial on this from last year), restart if failing
 
-> **Report**
-
-On GitHub, in your lab experiment report, report your process of implementing this service. What is the purpose? How does it work?
+> **Report** On GitHub, in your lab experiment report, report your process of implementing this service. What is the purpose? How does it work?
 
 # Step 2 Connect the Sensors to the Lightbulb
 
