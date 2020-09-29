@@ -1,20 +1,19 @@
 ---
 layout: course-page
-title: "Live-Data Prototype"
+title: 'Live-Data Prototype'
 permalink: /draft/module2/labxp
-description: "Prototyping Connected Products - Lab Experiment 2"
+description: 'Prototyping Connected Products - Lab Experiment 2'
 labxp-of: id5415-2
-introduction: Through the second assignment, we shaped the behaviour of our connected lightbulb with Python. In this lab experiment, we will start collecting data from the light bulb. 
+introduction: Through the second assignment, we shaped the behaviour of our connected lightbulb with Python. In this lab experiment, we will start collecting data from the light bulb.
 technique: Live Data
 metrics:
 report:
 ---
 
-
 ---
 
-* Do not remove this line (it will not be displayed)
-{:toc}
+- Do not remove this line (it will not be displayed)
+  {:toc}
 
 ---
 
@@ -41,7 +40,7 @@ In the previous module, we looked at the result of the lightbulb command, in the
 
 Python is making this JSON representation for us while using `print()` on a `dict`.
 
->A `dict`? A dictionary is another data type like numbers and strings, to store key/values information. Python description can be found [here](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
+> A `dict`? A dictionary is another data type like numbers and strings, to store key/values information. Python description can be found [here](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
 
 To access the value of `on_off` in the `result` from the lightbulb, we can do `get()` on a `dict`:
 
@@ -89,7 +88,7 @@ def bulb_result_to_list(bulb_result):
         dft_state = bulb_result.get("dft_on_state")
         mode = dft_state.get("mode")
         hue = dft_state.get("hue")
-    # We return a list with all values 
+    # We return a list with all values
     return [on_off, mode, hue]
 ```
 
@@ -136,7 +135,7 @@ def store_csv_data(values):
     """
     # Get timestamp in millisecondes
     timestamp = str(int(time()) * 1000)
-    values.insert(0, timestamp) 
+    values.insert(0, timestamp)
     # Convert all values into strings and join them together with a comma ','
     csv_line = ",".join(str(x) for x in values)
     # Open the file and append the new line at the end
@@ -146,7 +145,7 @@ def store_csv_data(values):
 
 In this function, we use `time()` to get the current time. We first convert it into an integer, giving us a UNIX timestamp. To use this method, we import it like `sleep()` from the time package, at the top of the file.
 
->UNIX Timestamp: the number of seconds since Jan 1st, 1970. It is a commonly used time format which is not dependent on timezone nor daylight saving times.
+> UNIX Timestamp: the number of seconds since Jan 1st, 1970. It is a commonly used time format which is not dependent on timezone nor daylight saving times.
 
 ```python
 from time import sleep, time
@@ -174,14 +173,13 @@ async def blink(bulb_address, num_iterations = 10, blink_duration = 1):
 
 Note what we achieved: in three steps we used Python to format and save any information our code can reach.
 
-* Use or adapt these function to collect data in the three functions implemented in the assignment: `pulse()`, `morse()`, `frequency()`;
-* Write a piece of code to start your data file with the label of each field;
-* Collect samples of CSV data and see what you can do with spreadsheet software such as MS Excel or equivalent.
-* Discuss the benefit, but also the limitation of what you collect and how you collect it.
+- Use or adapt these function to collect data in the three functions implemented in the assignment: `pulse()`, `morse()`, `frequency()`;
+- Write a piece of code to start your data file with the label of each field;
+- Collect samples of CSV data and see what you can do with spreadsheet software such as MS Excel or equivalent.
+- Discuss the benefit, but also the limitation of what you collect and how you collect it.
 
->**Report**
-On GitHub, in your lab experiment report, report your instrumentation, collection and discussion following the lab xp template.
-
+> **Report**
+> On GitHub, in your lab experiment report, report your instrumentation, collection and discussion following the lab xp template.
 
 # Step 2 Sending data to the Cloud
 
@@ -212,18 +210,16 @@ openssl genrsa -out private.pem 4096
 Then, we generate a public key from our private key with the following command. Again we use the RSA cryptosystem. This time we provide our private key as an input (-in). We want a public key in the `PEM` format (-outform). Thus, the output (-out) is the public key, saved in the file 'public.pem' which should appear (after executing the command) in your project directory on the left panel.
 
 ```
-openssl rsa -in private.pem -outform PEM -pubout -out public.pem 
+openssl rsa -in private.pem -outform PEM -pubout -out public.pem
 ```
 
 ![Generate Public and Private keys](/assets/img/courses/id5415/module2/labxp/2_1_1.png)
 
-
 ## Task 2.2 Create a Thing for our Lightbulb on Bucket
 
-Now that we have a set of keys, we can create a Thing for our Lightbulb on [Bucket](https://dwd.tudelft.nl/bucket). 
+Now that we have a set of keys, we can create a Thing for our Lightbulb on [Bucket](https://dwd.tudelft.nl/bucket).
 
 On Bucket dashboard, fill in the name and description of your lightbulb. Then, select the type 'GENERIC'. A form appears on the right side: this is the place for sharing the public key of your `Thing`. Thus, in VS Code open the file 'public.pem' that we created in the previous task, select all (CMD+A or CTRL+A) and copy (CMD+C or CTRL+C). Back on Bucket, paste (CMD+V or CTRL+V) your key in the form. Finally, click on the blue button 'Create' to create your new 'Thing'.
-
 
 ## Task 2.3 Uploading data to Bucket
 
@@ -299,9 +295,9 @@ To install the SDK, we use the pip command again.
 pip install dcd-sdk
 ```
 
-This SDK will start generating logs in the folder logs and requires the University DigiCertCA.crt: a file and a directory to add at the bottom of the  `.gitignore` so that we do not upload them on Git.
+This SDK will start generating logs in the folder logs and requires the University DigiCertCA.crt: a file and a directory to add at the bottom of the `.gitignore` so that we do not upload them on Git.
 
-Let's go back to our `light.py` and import a Thing from the package  `dcd-sdk` (at the top of the file).
+Let's go back to our `light.py` and import a Thing from the package `dcd-sdk` (at the top of the file).
 
 ```python
 from dcd.bucket.thing import Thing
@@ -322,7 +318,7 @@ def init_thing_and_get_property():
     thing_bulb = Thing(thing_id=THING_ID, private_key_path=PRIVATE_KEY_PATH)
     thing_bulb.describe()
     # Find or create the Lightbulb Status
-    prop_status = thing_bulb.find_or_create_property("Lightbulb Status", "LIGHT_STATUS")
+    prop_status = thing_bulb.find_or_create_property("Lightbulb Status", "LIGHTBULB_STATUS")
     prop_status.describe()
     return prop_status
 ```
@@ -351,11 +347,10 @@ async def blink(bulb_address, num_iterations=10, blink_duration=1):
         sleep(blink_duration)
 ```
 
-
 Note:
 
-* The Python script is not stoping by itself anymore. The connection to Bucket is continuously waiting for interactions. Thus, we need to exit manually with `CTRL-C`.
-* The DCD SDK set the logs for debugging, which generates many more messages in the Terminal. You can reduce the log by setting the environment variable (in the .env file).
+- The Python script is not stoping by itself anymore. The connection to Bucket is continuously waiting for interactions. Thus, we need to exit manually with `CTRL-C`.
+- The DCD SDK set the logs for debugging, which generates many more messages in the Terminal. You can reduce the log by setting the environment variable (in the .env file).
 
 ```bash
 LOG_LEVEL=INFO
@@ -365,11 +360,11 @@ LOG_LEVEL=INFO
 
 You can now visualise your data live with Grafana while testing your different Python function and explore the resulting data. Try out the different visualisation panels. The default one is a table because the lightbulb status mixes numbers and text data points, but there are many more types of panels.
 
->**Report**
-On GitHub, in your lab experiment report, document what you achieved or tried to achieve through screenshots and descriptions. Do not hesitate to share what you would have like to be able to do.
+> **Report**
+> On GitHub, in your lab experiment report, document what you achieved or tried to achieve through screenshots and descriptions. Do not hesitate to share what you would have like to be able to do.
 
->**Report**
-Although your prototype did not gain functionalities, the live data capabilities are certainly worth reporting in the CHANGELOG.md.
+> **Report**
+> Although your prototype did not gain functionalities, the live data capabilities are certainly worth reporting in the CHANGELOG.md.
 
 To conclude your lab experiment, open an `issue`. On GitHub, an `issue` is a discussion thread. In our case, we want to open a discussion space related to the first lab XP. This will be a sign to coaches that you consider being done with it so that they can go through it for feedback.
 
@@ -380,7 +375,7 @@ On GitHub, open an issue by clicking on the tab `Issue`.
 Like your lab XP report, you can use all Markdown tags to format your text with headings, links, lists and so on. In your issue, we expect the following elements:
 
 1. a title
-2. a link 
+2. a link
 3. a list of tasks. In markdown you can use `- [ ]` or `- [x]` for tick boxes
 4. a question section
 5. a feedback session
