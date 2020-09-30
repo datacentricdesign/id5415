@@ -91,7 +91,7 @@ So we need a function  (f(x) = ax+b, a line!) that takes values(x) from 0 to 1, 
 of our type will have a value of 120kΩ for very dark environments, and 336Ω for extreme light.  So our function can look something like this: 
 <img src="https://render.githubusercontent.com/render/math?math=y = (336 - 120000) * x %2B 120000">
 
-So given these formulas, you can implement an estimation of the lux value! 
+So given these formulas, you can implement an estimation calculation of the lux value ([pow](https://www.w3schools.com/python/ref_func_pow.asp) will be useful!) 
 > **Extra side bonus**  Your phone flashlight has a specific lux value, typically around 50 lux. this corresponds to a LDR resistance of ~6.9kΩ, if you use the first lux formula.  If you want to, you could calibrate your curve more to your particular LDR, by adjusting the a parameter in your second formula! For a flashlight of 50 lux, you will get a value x, and a = (6900 - 120000)/x
 
 
