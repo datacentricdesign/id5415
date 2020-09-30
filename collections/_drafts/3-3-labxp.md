@@ -295,7 +295,7 @@ In the class `SensorDataCollector`, develop a method(function) that
 
 In this final step, you control the lightbulb based on events triggered by the data collection.
 
-- in SensorDataCollector, like the handler for the raw values, add a handler setEventHander() to listen to events
+- in SensorDataCollector, like the handler for the raw values, add a handler setEventHandler() to listen to events
 - call the three event methods
 - in main.py, define event_action(), the function that is triggered when there is a new event
 
