@@ -25,7 +25,7 @@ We will use the light sensor to control the light.
 
 We will also make an automate pi service that will run our python script automatically once the pi is started.
 
-Here is a suggested distribution of tasks among teammates.
+Here is a suggested distribution of tasks among teammates. ( branches mean that these parts can be implemented in parallel)
 
 ![Task Distribution](/assets/img/courses/id5415/module3/labxp3/labxp3-tasks.svg)
 
@@ -90,7 +90,7 @@ For a typical LDR, its resistance value will vary according to the lux around it
 ![Image of resistance vs illumination](/assets/img/courses/id5415/module3/labxp3/light_graph.gif)
 
 Here we have put a rough formula that relates the resistance of an LDR similar to the one we use, to a lux value:
-$ Lux = (1.25 _ 10^7) _ R_LDR^ -1.4059 $
+<img src="https://render.githubusercontent.com/render/math?math=LUX = (1.25 * 10^7) * R^{-1.4059}">
 
 But hey, the values you get from the LightSensor class are from 0(dark) to 1(light)! In actuality this value is related linearly with the [resistance of the LDR](https://learn.adafruit.com/photocells/arduino-code#bonus-reading-photocells-without-analog-pins-275213-14)
 
@@ -106,7 +106,7 @@ So given these formulas, you can implement an estimation of lux!
 
 ## Task 1.3 Make a Service
 
-So far, we have to start login on the Raspberry Pi and start the Python script to collect data and control the lightbulb. To automate this process we need to define a `service` which will automatically start our Python script once the Raspberry Pi is has started.
+So far, we have to login to the Raspberry Pi and start the Python script to collect data and control the lightbulb. To automate this process we need to define a `service` which will automatically start our Python script once the Raspberry Pi is has started.
 
 To do that, first you need to ssh to the pi.
 
@@ -253,7 +253,7 @@ scp private.pem [username]@[hostname].local:~/PATH_TO_YOUR_PROJECT_FOLDER/
 
 **Windows**
 
-To use the `scp` command in windows you first need to download & install the SCP client software. ![SCP Client for Windows](https://the.earth.li/~sgtatham/putty/latest/w64/pscp.exe)
+To use the `scp` command in windows you first need to download & install the SCP client software. [SCP Client for Windows x64](https://the.earth.li/~sgtatham/putty/latest/w64/pscp.exe)
 
 once you have installed the scp client, you can got to your project directory where `private.pem` is stored using `cd` command and type:
 
@@ -317,44 +317,40 @@ def emit_event(self, event_type, value, property):
    property.up
 ```
 
-## Task 3.1 Built-in light Threshold Event
+## Task 3.1 Built-in Light Threshold Event
 
 Besides the functions we've defined, you can adjust the threshold (and add trigger functions) directly in the [LightSensor class](https://gpiozero.readthedocs.io/en/stable/api_input.html#lightsensor-ldr):
 
 1. In your physical setup, adjust the threshold value (passed when creating the class), so that it detects internally when you pass your hand over the LDR.
 
-2. Create two new functions "hand_detected" and "no_hand_detected" , and set your LightSensor object "when_dark" and "when_light" properties to the proper function, eg: `LDR_sensor.when_dark = MyFunctionName" `
+2. Create two new functions "hand_detected" and "no_hand_detected" , and set your LightSensor object "when_dark" and "when_light" properties to the proper function,right after creating it. eg: `LDR_sensor.when_dark = MyFunctionName" `
 3. In these new functions, print a corresponding statement to your console, e.g. "Hand detected"
 
 4. Besides the print statement, turn on the kasa lightbulb when you have detected the hand
 
 ## Task 3.2 Enter/Leave Condition Event
 
-TODO give hints where necessary
+In the class `SensorDataCollector`, develop a method (function) that
 
-In the class `SensorDataCollector`, develop a method that
-
-- receive the sensor data
-- define thresholds that characterise some conditions (cold, cosy, e.g. )
-- check the new data against the threshold(e.g if temp<20: print(cosy) bulb_brightness= high)
-- emit an event if the condition changed
+- receives the sensor data
+- define thresholds ( ranges for the value of your data, e.g. - 20˚ to 25˚ is cozy - that characterise some conditions (cold, cosy, e.g. _tip - use if-elif structure!_)
+- checks the new data against the threshold(e.g if temp<20: print(cosy) bulb_brightness= high)
+- emit an event if the conditions have changed
 
 ## Task 3.3 Trend Event
 
-TODO give hints where necessary
+In the class `SensorDataCollector`, develop a method(function) that
 
-In the class `SensorDataCollector`, develop a method that
-
-- receive the sensor data
-- keep a record of the data points over the past minute
-- evaluate the trend (decreasing, increasing or constant)
-- emit an event if the trend changed
+- receives the sensor data (refer to assignment 3)
+- keeps a record of the data points over the past minute ( note your sensor collector class takes new events every X seconds - how many datapoints would make up a minute?)
+- evaluate a trend (values in record are on average decreasing, increasing or constant...)
+- emit an event if the trend changed ( eg, on average temperature values are increasing, emit a "it's getting hot")
 
 # Step 4 Control based on events
 
 In this final step, you control the lightbulb based on events triggered by the data collection.
 
-- in SensorDataCollector, like the handler for the raw values, add a handler setEventHander() to listen to events
+- in SensorDataCollector, like the handler for the raw values, add a handler setEventHandler() to listen to events
 - call the three event methods
 - in main.py, define event_action(), the function that is triggered when there is a new event
 
