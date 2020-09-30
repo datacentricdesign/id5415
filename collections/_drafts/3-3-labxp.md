@@ -82,7 +82,7 @@ For a typical LDR, its resistance value will vary according to the lux around it
 ![Image of resistance vs illumination](/assets/img/courses/id5415/module3/labxp3/light_graph.gif)
 
 Here we have put a rough formula that relates the resistance of an LDR similar to the one we use, to a lux value:
-<img src="https://render.githubusercontent.com/render/math?math=LUX = (1.25 * 10^7) * R_{LDR}^{-1.4059}">
+<img src="https://render.githubusercontent.com/render/math?math=LUX = (1.25 * 10^7) * R^{-1.4059}">
 
 But hey, the values you get from the LightSensor class are from 0(dark) to 1(light)?! 
 In actuality, this value is related linearly with the [resistance of the LDR](https://learn.adafruit.com/photocells/arduino-code#bonus-reading-photocells-without-analog-pins-275213-14)
