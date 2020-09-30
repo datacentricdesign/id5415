@@ -17,23 +17,23 @@ report:
 
 ---
 
-From assignment 2 and 3, we have code to sense data from sensors and control the light bulb.
+From assignment 2 and 3, we have now handled code that gets data from sensors, and also controls the light bulb.
 
 Here is a suggested distribution of tasks among teammates.
 
 ![Task Distribution](/assets/img/courses/id5415/module3/labxp3/labxp3-tasks.svg)
 
-In these 4 steps, we will implement the functionality of controlling the lightbulb using the input from light sensor.
+In these 4 steps, we will implement the functionality of controlling the lightbulb using inputs from the light sensor.
 
-# Step 1 Make Housekeeping on the Code
+# Step 1 Housekeep your Code!
 
-In programming world, the good programmer is not he one who can code, but the one who knows how to improvise the code and make it re-usable.
+In programming, the good programmer is not the one who can just code, but the one who can best improvise and reuse previous code.
 
 ## Task 1.1 Refactor the Code Controlling the Light
 
 Transform the code of in `light.py` to make a class Lightbulb. This class would build `Lightbulb` object with an IP address, a thing id and a path to the private key.
 
-This would look as follows:
+A "shell" of this would look as follows:
 
 ```python
 class Lightbulb:
@@ -73,23 +73,27 @@ Here is what you should consider:
 - do not update the value if it is out of realistic range; e.g if the value is `None`
 - do not update the value if it is the same as the previous value;
 
-TODO offer the mathematic formula for lux conversion
 
-Then, we need some standard units. The temperature from sensor is already comes in Celsius degree out of the box, and also the humidity is a ratio.
+Then, we need some standard units. The temperature from sensor already comes in Celsius degrees out of the box, and the humidity is a ratio between 0 and 100%.
 
-However, unit for measuring the light is lux. You can read it about lux over here ![Lux Description](https://learn.adafruit.com/photocells/measuring-light).
+However, the standard unit for measuring the light is lux. You can read it about lux over here ![Lux Description](https://learn.adafruit.com/photocells/measuring-light).
 
+For a typical LDR, its resistance value will vary according to the lux around it:
 ![Image of resistance vs illumination](/assets/img/courses/id5415/module3/labxp3/light_graph.gif)
 
-Formula to calculate flux from photo resistance:
+Here we have put a rough formula that relates the resistance of an LDR similar to the one we use, to a lux value:
+$ Lux = (1.25 _ 10^7) _ R_LDR^ -1.4059 $
 
-$ y = -119664 * x + 120000 $
 
-$ Lux = (1.25 _ 10^7) _ y^ -1.4059 $
+But hey, the values you get from the LightSensor class are from 0(dark) to 1(light)! In actuality this value is related linearly with the [resistance of the LDR](https://learn.adafruit.com/photocells/arduino-code#bonus-reading-photocells-without-analog-pins-275213-14)
 
-$ R = 336 $
+So we need a function  (f(x) = ax+b, a line!) that takes values(x) from 0 to 1, and gives out LDR resistances(f(x)) that make sense! Roughly, we can say for an LDR 
+of our type will have a value of 120kΩ for very dark environments, and 336Ω for extreme light.  So our function can look something like this: 
+$ y = (336 - 120000) * x + 120000 $
 
-$ R  = 120 000 $
+So given these formulas, you can implement an estimation of lux! 
+> **Extra side bonus**  Your phone flashlight has a specific lux value, typically around 50 lux. this corresponds to a LDR resistance of ~6.9kΩ, if you use the first lux formula.  If you want to, you could calibrate your curve more to your particular LDR, by adjusting the a parameter in your second formula! For a flashlight of 50 lux, you will get a value x, and a = (6900 - 120000)/x
+
 
 > **Report** On GitHub, in your lab experiment report, report your process of implementing the data cleaning why you did it this way.
 
@@ -103,15 +107,15 @@ To do that, first you need to ssh to the pi.
 ssh username@hostname
 ```
 
-Then start by creating a service script from your Pi's terminal using following three commands:
+Then start by creating a service file from your Pi's terminal using following three commands:
 
-Create a service file in system directory:
+Create a service file "MY_EXAMPLE" in system directory:
 
 ```bash
 sudo touch /etc/systemd/system/MY_EXAMPLE.service
 ```
 
-Give this newly created service file to a permission to read & write by current logged in user in pi (you)
+Give this newly created service file permission to read & write by current logged in user in pi (you)
 
 ```bash
 sudo chmod 644 /etc/systemd/system/MY_EXAMPLE.service
@@ -152,7 +156,7 @@ Now you can attempt to start the service with the command:
 sudo systemctl start MY_EXAMPLE.service
 ```
 
-Use status to make sure the service started with no hiccups/errors: If there is an error, you will see in red color saying scripts running failed. In that case you need to debug the issue with given error description.
+Use status to make sure the service started with no hiccups/errors: If there is an error, you will see in red "script_name running failed". In that case you need to debug the issue with the given error description.
 
 ```bash
 sudo systemctl status MY_EXAMPLE.service
