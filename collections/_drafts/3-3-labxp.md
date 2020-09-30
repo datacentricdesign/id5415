@@ -4,7 +4,7 @@ title: 'Sensor Data Collection'
 permalink: /draft/module3/labxp
 description: 'Prototyping Connected Products - Lab Experiment 3'
 labxp-of: id5415-3
-introduction: In this Lab Experiment,
+introduction: From assignment 2 and 3, we have now developed the code that gets data from sensors, and also controls the light bulb. In this lab experiment, we will use code refactoring, data cleaning and services to make our program easier to maintain. We will see how to control the lightbulb from the raw sensor data as well as higher-level events.
 technique:
 metrics:
 report:
@@ -12,44 +12,29 @@ report:
 
 ---
 
-- Do not remove this line (it will not be displayed)
-  {:toc}
+* Do not remove this line (it will not be displayed)
+{:toc}
 
 ---
 
-From assignment 2 and 3, we have now developed the code that gets data from sensors, and also controls the light bulb.
-
-In todays lab experiment, we will tr to improvise and simplify those code. E.g create separate class for each functionality use this classes in `main.py`
-
-We will use the light sensor to control the light.
-
-We will also make an automate pi service that will run our python script automatically once the pi is started.
-
-Here is a suggested distribution of tasks among teammates. ( branches mean that these parts can be implemented in parallel)
+Here is a suggested distribution of tasks among teammates. Branches mean that these tasks can be done in parallel. In these 4 steps, we will implement the functionality of controlling the lightbulb using inputs from the light sensor.
 
 ![Task Distribution](/assets/img/courses/id5415/module3/labxp3/labxp3-tasks.svg)
 
-In these 4 steps, we will implement the functionality of controlling the lightbulb using inputs from the light sensor.
+# Step 1 Housekeep your Code
 
-# Step 1 Housekeep your Code!
-
-In programming, the good programmer is not the one who can just code, but the one who can improvise the code to reuse without not much modification on the core functionality.
+When prototyping, our code is growing organically. It is typical, as each iteration leads us to adjust our plan organically. However, it is important to regularly zoom out and take a moment to tidy up our code so that it stays maintainable. This process also help to make (part of) our code reusable, avoiding to rewrite similar pieces of code.
 
 ## Task 1.1 Refactor the Code Controlling the Light
 
-Transform the code in `light.py` to make a class Lightbulb. This class would build `Lightbulb` object with an IP address, a thing id and a path to the private key.
+This first task is about [code refactoring](https://en.wikipedia.org/wiki/Code_refactoring): the process of restructuring code. We want to transform the code in `light.py` to make a class Lightbulb. This class would build `Lightbulb` objects with an IP address, a thing id and a path to the private key. The [skeleton](https://en.wikipedia.org/wiki/Skeleton_(computer_programming)) of this class looks as follows. Copy and paste this skeleton in your file and add the corresponding line of code for each comment.
 
-A "shell" of this would look as follows:
-
-```python
+``` python
 class Lightbulb:
    def __init__(self, ip_address, thing_id, private_key_path):
       # Create an attribute bulb of type SmartBulb
-
       # Establish the the connection with the lightbulb with update()
-
       # Create an attribute thing_bulb of type Thing, with the thing_id and private_key_path
-
       # Create an attribute prop_status, result of find_or_create_property()
 
    def blink(self, num_iterations=10, blink_duration=1):
@@ -62,14 +47,15 @@ class Lightbulb:
          # Transform the result into a list
          # Use self.prop_status to send the new value to Bucket
          # sleep
-def bulb_result_to_list(bulb_result)....
+   
+def bulb_result_to_list(bulb_result):
 
-def store_csv_data(values)....
+def store_csv_data(values):
 ```
 
-**Note** that the functions `bulb_result_to_list()` and `store_csv_data()` do not have to be part of the class `Lightbulb`, so you can keep it as it is in the file .
+**Note** that the functions `bulb_result_to_list()` and `store_csv_data()` do not have to be part of the class `Lightbulb` , so you can keep it as it is in the file.
 
-Once you have the constructor and the blink method, you can add the other methods that you have developed such as `pulse()` , `morse()` , `frequency()` .
+Once you have the constructor and the blink method, you can add the other methods that you have developed such as `pulse()` , `morse()` , `frequency()`.
 
 > **Report** On GitHub, in your lab experiment report, report your process of transforming your initial code into a class. What are the pros and cons of this Object-oriented approach?
 
@@ -79,14 +65,15 @@ We left the data untouched at the end of the previous assignment. Let's make sur
 
 Here is what you should consider:
 
-- do not update the value if it is out of realistic range; e.g if the value is `None`
-- do not update the value if it is the same as the previous value;
+* do not update the value if it is out of realistic range; e.g if the value is `None`
+* do not update the value if it is the same as the previous value; 
 
 Then, we need some standard units. The temperature from sensor already comes in Celsius degrees out of the box, and the humidity is a ratio between 0 and 100%.
 
 However, the standard unit for measuring the light is lux. You can read more about lux over here [Lux Description](https://learn.adafruit.com/photocells/measuring-light).
 
 For a typical LDR, its resistance value will vary according to the lux around it:
+
 ![Image of resistance vs illumination](/assets/img/courses/id5415/module3/labxp3/light_graph.gif)
 
 Here we have put a rough formula that relates the resistance of an LDR similar to the one we use, to a lux value:
@@ -110,7 +97,7 @@ So far, we have to login to the Raspberry Pi and start the Python script to coll
 
 To do that, first you need to ssh to the pi.
 
-```bash
+``` bash
 ssh username@hostname
 ```
 
@@ -118,25 +105,25 @@ Then start by creating a service file from your Pi's terminal using following th
 
 Create a service file "MY_EXAMPLE" in system directory:
 
-```bash
+``` bash
 sudo touch /etc/systemd/system/MY_EXAMPLE.service
 ```
 
 Give this newly created service file permission to read & write by current logged in user in pi (you)
 
-```bash
+``` bash
 sudo chmod 644 /etc/systemd/system/MY_EXAMPLE.service
 ```
 
 Now open this file in `nano` command line editor:
 
-```bash
+``` bash
 sudo nano /etc/systemd/system/MY_EXAMPLE.service
 ```
 
-Paste the following details in the file and save it. Replace the `ABSOLUTE_PATH/YOUR_SCRIPT` with the location of you light script. And then save it by pressing `CTRL+X`, followed by `y` in prompt to save the file.
+Paste the following details in the file and save it. Replace the `ABSOLUTE_PATH/YOUR_SCRIPT` with the location of you light script. And then save it by pressing `CTRL+X` , followed by `y` in prompt to save the file.
 
-```shell
+``` shell
 [Unit]
 Description=My description
 After=multi-user.target
@@ -159,19 +146,19 @@ WantedBy=multi-user.target
 
 Now you can attempt to start the service with the command:
 
-```bash
+``` bash
 sudo systemctl start MY_EXAMPLE.service
 ```
 
 Use status to make sure the service started with no hiccups/errors: If there is an error, you will see in red "script_name running failed". In that case you need to debug the issue with the given error description.
 
-```bash
+``` bash
 sudo systemctl status MY_EXAMPLE.service
 ```
 
 Afterwards stop it, make sure it was stopped properly, and then configure the service to start automatically at boot:
 
-```bash
+``` bash
 # Stop service
 sudo systemctl stop MY_EXAMPLE.service
 
@@ -181,7 +168,7 @@ sudo systemctl enable MY_EXAMPLE.service
 
 now restart the pi:
 
-```bash
+``` bash
 sudo reboot now
 ```
 
@@ -199,7 +186,7 @@ Bring it together in the `main.py` :
 
 We need the environment variable of the lightbulb and the Lightbulb class itself
 
-```python
+``` python
 import asyncio
 from light import Lightbulb
 from dotenv import load_dotenv
@@ -213,19 +200,19 @@ LIGHTBULB_PRIVATE_KEY_PATH = os.getenv("LIGHTBULB_PRIVATE_KEY_PATH", None)
 
 Declare the lightbulb as global variable
 
-```python
+``` python
 lightbulb = None
 ```
 
 Instantiate the lightbulb object in the `main()` function.
 
-```python
+``` python
 lightbulb = Lightbulb(LIGHTBULB_IP_ADDRESS, LIGHTBULB_IP_ADDRESS, LIGHTBULB_PRIVATE_KEY_PATH)
 ```
 
 Finally, call `main()` in an asynchronous fashion and add the keyword `async` in front of the function.
 
-```python
+``` python
 asyncio.run(main())
 ```
 
@@ -239,7 +226,7 @@ To test our ne code that we have implemented on pi, we need to first pull it fro
 
 To do that, ssh to the pi and go to your github project location using `cd` command. and then simply type"
 
-```bash
+``` bash
 git pull #The command will fetch all the new changes into the pi directory.
 ```
 
@@ -247,7 +234,7 @@ Now because our lightbulb thing on the bucket is secured with private key, You c
 
 **Mac:**
 
-```bash
+``` bash
 scp private.pem [username]@[hostname].local:~/PATH_TO_YOUR_PROJECT_FOLDER/
 ```
 
@@ -257,7 +244,7 @@ To use the `scp` command in windows you first need to download & install the SCP
 
 once you have installed the scp client, you can got to your project directory where `private.pem` is stored using `cd` command and type:
 
-```bash
+``` bash
 scp private.pem [username]@[hostname].local:~/PATH_TO_YOUR_PROJECT_FOLDER/ #It will copy the file to your project directory on Pi
 ```
 
@@ -265,19 +252,19 @@ As we are not uploading the env file on git hub, We need to create and edit the 
 
 First in pi project folder, create .env file using:
 
-```bash
+``` bash
 touch .env
 ```
 
 then open the file using `nano` editor
 
-```bash
+``` bash
 nano .env
 ```
 
-and copy the following three lines, and replace the thing id by your lightbulb thing id, path of the `private.pem`, and your bulbs' IP Address :
+and copy the following three lines, and replace the thing id by your lightbulb thing id, path of the `private.pem` , and your bulbs' IP Address :
 
-```bash
+``` bash
 THING_ID= YOUR_BULB_THING_ID
 PRIVATE_KEY_PATH= PATH_TO_PRIVATE_KEY
 LIGHTBULB_IP_ADDRESS= BULB_IP_ADDRESS
@@ -286,7 +273,7 @@ LOG_LEVEL=INFO
 
 Press CTRL+X to sava and type `y` on prompt to save the file.
 
-Now to check if everything works fine: just run the `main.py`scripts and it should connect to the bulb and start sending data to bucket.
+Now to check if everything works fine: just run the `main.py` scripts and it should connect to the bulb and start sending data to bucket.
 
 You can also make this process as service, so every time the pi starts, it will run the `main.py` scripts automatically.
 
@@ -298,16 +285,16 @@ To do that follow [Task 1.3](#task-13-make-a-service)
 
 In addition to generating data, our `SensorDataCollector` class could automatically generate events, ready to use.
 
-These events can also be sent to Bucket through a property of type `TEXT`, for example the constructor of this `SensorDataCollector` class could include:
+These events can also be sent to Bucket through a property of type `TEXT` , for example the constructor of this `SensorDataCollector` class could include:
 
-```python
+``` python
 self.event_x_property = self.rpi_thing.find_or_create_property(
             "Event x", "TEXT")
 ```
 
 To emit an event from `SensorDataCollector` you can create a function similar:
 
-```python
+``` python
 def emit_event(self, event_type, value, property):
    if self.event_handler != None:
       self.event_handler({
@@ -323,44 +310,44 @@ Besides the functions we've defined, you can adjust the threshold (and add trigg
 
 1. In your physical setup, adjust the threshold value (passed when creating the class), so that it detects internally when you pass your hand over the LDR.
 
-2. Create two new functions "hand_detected" and "no_hand_detected" , and set your LightSensor object "when_dark" and "when_light" properties to the proper function,right after creating it. eg: `LDR_sensor.when_dark = MyFunctionName" `
+2. Create two new functions "hand_detected" and "no_hand_detected" , and set your LightSensor object "when_dark" and "when_light" properties to the proper function, right after creating it. eg: `LDR_sensor.when_dark = MyFunctionName" `
 3. In these new functions, print a corresponding statement to your console, e.g. "Hand detected"
 
 4. Besides the print statement, turn on the kasa lightbulb when you have detected the hand
 
 ## Task 3.2 Enter/Leave Condition Event
 
-In the class `SensorDataCollector`, develop a method (function) that
+In the class `SensorDataCollector` , develop a method (function) that
 
-- receives the sensor data
-- define thresholds ( ranges for the value of your data, e.g. - 20˚ to 25˚ is cozy - that characterise some conditions (cold, cosy, e.g. _tip - use if-elif structure!_)
-- checks the new data against the threshold(e.g if temp<20: print(cosy) bulb_brightness= high)
-- emit an event if the conditions have changed
+* receives the sensor data
+* define thresholds ( ranges for the value of your data, e.g. - 20˚ to 25˚ is cozy - that characterise some conditions (cold, cosy, e.g. _tip - use if-elif structure!_)
+* checks the new data against the threshold(e.g if temp<20: print(cosy) bulb_brightness= high)
+* emit an event if the conditions have changed
 
 ## Task 3.3 Trend Event
 
-In the class `SensorDataCollector`, develop a method(function) that
+In the class `SensorDataCollector` , develop a method(function) that
 
-- receives the sensor data (refer to assignment 3)
-- keeps a record of the data points over the past minute ( note your sensor collector class takes new events every X seconds - how many datapoints would make up a minute?)
-- evaluate a trend (values in record are on average decreasing, increasing or constant...)
-- emit an event if the trend changed ( eg, on average temperature values are increasing, emit a "it's getting hot")
+* receives the sensor data (refer to assignment 3)
+* keeps a record of the data points over the past minute ( note your sensor collector class takes new events every X seconds - how many datapoints would make up a minute?)
+* evaluate a trend (values in record are on average decreasing, increasing or constant...)
+* emit an event if the trend changed ( eg, on average temperature values are increasing, emit a "it's getting hot")
 
 # Step 4 Control based on events
 
 In this final step, you control the lightbulb based on events triggered by the data collection.
 
-- in SensorDataCollector, like the handler for the raw values, add a handler setEventHandler() to listen to events
-- call the three event methods
-- in main.py, define event_action(), the function that is triggered when there is a new event
+* in SensorDataCollector, like the handler for the raw values, add a handler setEventHandler() to listen to events
+* call the three event methods
+* in main.py, define event_action(), the function that is triggered when there is a new event
 
-```python
+``` python
 async def main():
    # ...
    collector.set_event_handler(event_action)
 ```
 
-```python
+``` python
 def event_action(event):
     print('ready for action')
     if event["type"] == "x":
