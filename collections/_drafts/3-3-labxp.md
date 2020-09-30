@@ -125,6 +125,8 @@ Finally, trigger the lightbulb method in the `action()` function.
 
 ## Task 2.2 Test on the Raspberry Pi
 
+TODO describe each step
+
 Pull the code on the Raspberry Pi
 
 We need to copy the private key of the lightbulb on the Raspberry Pi.
@@ -135,9 +137,30 @@ Execute outside the service
 
 Execute with the service
 
+> **Report** On GitHub, in your lab experiment report, use an architecture diagram to map the component of your system.
+
 # Step 3 Trigger Events
 
-In addition to generating data, our SensorDataCollector could automatically generate events, ready to use. These events can also be sent to Bucket through a property of type `TEXT`.
+In addition to generating data, our SensorDataCollector could automatically generate events, ready to use.
+
+These events can also be sent to Bucket through a property of type `TEXT`, for example the constructor could include:
+
+```python
+self.event_x_property = self.rpi_thing.find_or_create_property(
+            "Event x", "TEXT")
+```
+
+To emit an event
+
+```python
+def emit_event(self, event_type, value, property):
+   if self.event_handler != None:
+      self.event_handler({
+            'type': event_type,
+            'value': value
+      })
+   property.up
+```
 
 ## Task 3.1 Built-in light Threshold Event
 
@@ -150,12 +173,51 @@ Besides the functions we've defined, you can adjust the threshold (and add trigg
 
 4. Besides the print statement,   turn on the kasa lightbulb when you have detected the hand
 
-## Task 3.2 Enter/Leave Range Event
+## Task 3.2 Enter/Leave Condition Event
 
+TODO give hints where necessary
+
+In the class `SensorDataCollector`, develop a method that
+
+* receive the sensor data
+* define thresholds that characterise some conditions (cold, cosy, e.g. )
+* check the new data against the threshold
+* emit an event if the condition changed
 
 ## Task 3.3 Trend Event
 
-e.g. temperature decreasing over the past x minutes 
+TODO give hints where necessary
 
+In the class `SensorDataCollector`, develop a method that
+
+* receive the sensor data
+* keep a record of the data points over the past minute 
+* evaluate the trend (decreasing, increasing or constant)
+* emit an event if the trend changed
 
 # Step 4 Control based on events
+
+In this final step, you control the lightbulb based on events triggered by the data collection.
+
+* in SensorDataCollector, like the handler for the raw values, add a handler setEventHander() to listen to events
+* call the three event methods
+* in main.py, define event_action(), the function that is triggered when there is a new event
+
+```python
+async def main():
+   # ...
+   collector.set_event_handler(event_action)
+```
+
+```python
+def event_action(event):
+    print('ready for action')
+    if event["type"] == "x":
+        # control the light
+    elif event["type"] == "y":
+        # control the light
+    elif event["type"] == "z":
+        # control the light
+```
+
+> **Report** On GitHub, in your lab experiment report, use a flow chart to map the flow from sensor data collection to lightbulb control.
