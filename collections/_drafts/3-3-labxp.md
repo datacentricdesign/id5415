@@ -19,7 +19,7 @@ report:
 
 From assignment 2 and 3, we have now handled code that both gets data from sensors, and also controls the light bulb.
 
-Here is a suggested distribution of tasks among teammates.
+Here is a suggested distribution of tasks among teammates. ( branches mean that these parts can be implemented in parallel)
 
 ![Task Distribution](/assets/img/courses/id5415/module3/labxp3/labxp3-tasks.svg)
 
