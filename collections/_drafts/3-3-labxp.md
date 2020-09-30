@@ -17,7 +17,7 @@ report:
 
 ---
 
-From assignment 2 and 3, we have now handled code that gets data from sensors, and also controls the light bulb.
+From assignment 2 and 3, we have now handled code that both gets data from sensors, and also controls the light bulb.
 
 Here is a suggested distribution of tasks among teammates.
 
@@ -27,7 +27,7 @@ In these 4 steps, we will implement the functionality of controlling the lightbu
 
 # Step 1 Housekeep your Code!
 
-In programming, the good programmer is not the one who can just code, but the one who can best improvise and reuse previous code.
+In programming, the good programmer is not just the one who can code, but also the one who can best improvise and reuse previous code.
 
 ## Task 1.1 Refactor the Code Controlling the Light
 
@@ -82,16 +82,16 @@ For a typical LDR, its resistance value will vary according to the lux around it
 ![Image of resistance vs illumination](/assets/img/courses/id5415/module3/labxp3/light_graph.gif)
 
 Here we have put a rough formula that relates the resistance of an LDR similar to the one we use, to a lux value:
-$ Lux = (1.25 _ 10^7) _ R_LDR^ -1.4059 $
+<img src="https://render.githubusercontent.com/render/math?math=LUX = (1.25 * 10^7) * R_{LDR}^{-1.4059}">
 
-
-But hey, the values you get from the LightSensor class are from 0(dark) to 1(light)! In actuality this value is related linearly with the [resistance of the LDR](https://learn.adafruit.com/photocells/arduino-code#bonus-reading-photocells-without-analog-pins-275213-14)
+But hey, the values you get from the LightSensor class are from 0(dark) to 1(light)?! 
+In actuality, this value is related linearly with the [resistance of the LDR](https://learn.adafruit.com/photocells/arduino-code#bonus-reading-photocells-without-analog-pins-275213-14)
 
 So we need a function  (f(x) = ax+b, a line!) that takes values(x) from 0 to 1, and gives out LDR resistances(f(x)) that make sense! Roughly, we can say for an LDR 
 of our type will have a value of 120kΩ for very dark environments, and 336Ω for extreme light.  So our function can look something like this: 
-$ y = (336 - 120000) * x + 120000 $
+<img src="https://render.githubusercontent.com/render/math?math=y = (336 - 120000) * x %2B 120000">
 
-So given these formulas, you can implement an estimation of lux! 
+So given these formulas, you can implement an estimation of the lux value! 
 > **Extra side bonus**  Your phone flashlight has a specific lux value, typically around 50 lux. this corresponds to a LDR resistance of ~6.9kΩ, if you use the first lux formula.  If you want to, you could calibrate your curve more to your particular LDR, by adjusting the a parameter in your second formula! For a flashlight of 50 lux, you will get a value x, and a = (6900 - 120000)/x
 
 
@@ -99,7 +99,7 @@ So given these formulas, you can implement an estimation of lux!
 
 ## Task 2.2 Make a Service
 
-So far, we have to start login on the Raspberry Pi and start the Python script to collect data and control the lightbulb. To automate this process we need to define a `service` which will automatically start our Python script once the Raspberry Pi is has started.
+So far, we have to login to the Raspberry Pi and start the Python script to collect data and control the lightbulb. To automate this process we need to define a `service` which will automatically start our Python script once the Raspberry Pi is has started.
 
 To do that, first you need to ssh to the pi.
 
@@ -275,26 +275,21 @@ Besides the functions we've defined, you can adjust the threshold (and add trigg
 4. Besides the print statement, turn on the kasa lightbulb when you have detected the hand
 
 ## Task 3.2 Enter/Leave Condition Event
-
-TODO give hints where necessary
-
 In the class `SensorDataCollector`, develop a method that
 
-- receive the sensor data
+- receives the sensor data
 - define thresholds that characterise some conditions (cold, cosy, e.g. )
-- check the new data against the threshold(e.g if temp<20: print(cosy) bulb_brightness= high)
-- emit an event if the condition changed
+- checks the new data against the threshold(e.g if temp<20: print(cosy) bulb_brightness= high)
+- emit an event if the conditions have changed
 
 ## Task 3.3 Trend Event
 
-TODO give hints where necessary
-
 In the class `SensorDataCollector`, develop a method that
 
-- receive the sensor data
-- keep a record of the data points over the past minute
-- evaluate the trend (decreasing, increasing or constant)
-- emit an event if the trend changed
+- receives the sensor data (refer to assignment 3)
+- keeps a record of the data points over the past minute ( note your sensor collector class takes new events every X seconds - how many datapoints would make up a minute?)
+- evaluate some trends (values in record are on average decreasing, increasing or constant...)
+- emit an event if the trend changed ( eg, on average temperature values are increasing, emit a  "it's getting hot")
 
 # Step 4 Control based on events
 
