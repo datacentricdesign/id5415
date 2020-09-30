@@ -61,67 +61,70 @@ Once you have the constructor and the blink method, you can add the other method
 
 ## Task 1.2 Clean the Sensor Data
 
-We left the data untouched at the end of the previous assignment. Let's make sure that the data is coherent in each of the three methods `update_temperature()` , `update_humidity()` and `update_light()` .
+The second housekeeping task is about the data. We left the data untouched at the end of the previous assignment, directly coming out of the sensors. Let's make sure that the data is coherent in each of the three methods `update_temperature()`, `update_humidity()` and `update_light()`.
 
 Here is what you should consider:
 
-* do not update the value if it is out of realistic range; e.g if the value is `None`
+* do not update the value if it is out of realistic range. For example, you could check if the value is `None` or Negative;
 * do not update the value if it is the same as the previous value; 
 
-Then, we need some standard units. The temperature from sensor already comes in Celsius degrees out of the box, and the humidity is a ratio between 0 and 100%.
+Then, we need some standard units. The value of temperature from the DHT sensor already comes in Celsius degrees out-of-the-box. The relative humidity is a ratio, between 0 and 100%, which does not require any intervention. However, the standard unit for measuring the light is lux. You can read more about lux on [this Adafruit tutorial about light measurement](https://learn.adafruit.com/photocells/measuring-light).
 
-However, the standard unit for measuring the light is lux. You can read more about lux over here [Lux Description](https://learn.adafruit.com/photocells/measuring-light).
+For a typical LDR, the resistance value will vary according to the lux around it:
 
-For a typical LDR, its resistance value will vary according to the lux around it:
+![Image of resistance vs illumination](https://cdn-learn.adafruit.com/assets/assets/000/000/452/original/light_graph.gif?1447975659)
 
-![Image of resistance vs illumination](/assets/img/courses/id5415/module3/labxp3/light_graph.gif)
+(Source: [Adafruit - Measuring light](https://learn.adafruit.com/photocells/measuring-light))
 
-Here we have put a rough formula that relates the resistance of an LDR similar to the one we use, to a lux value:
+Here we have a rough formula that relates the resistance of an LDR similar to the one we use, to a lux value:
 <img src="https://render.githubusercontent.com/render/math?math=LUX = (1.25 * 10^7) * R^{-1.4059}">
 
-But hey, the values you get from the LightSensor class are from 0(dark) to 1(light)! In actuality this value is related linearly with the [resistance of the LDR](https://learn.adafruit.com/photocells/arduino-code#bonus-reading-photocells-without-analog-pins-275213-14)
+However, the values we get from the `LightSensor` class range from 0 (dark) to 1 (light). This value has a linear relationship with the [resistance of the LDR](https://learn.adafruit.com/photocells/arduino-code#bonus-reading-photocells-without-analog-pins-275213-14)
 
-So we need a function (f(x) = ax+b, a line!) that takes values(x) from 0 to 1, and gives out LDR resistances(f(x)) that make sense! Roughly, we can say for an LDR
-of our type will have a value of 120kΩ for very dark environments, and 336Ω for extreme light. So our function can look something like this:
-$ y = (336 - 120000) * x + 120000 $
+To map our values, we need a function `f(x) = ax+b` that takes a value `x` from `0` to `1` and gives out the LDR resistance `f(x)`. Roughly, we can say for an LDR
+of our type will have a value of `120kΩ` for very dark environments, and `336Ω` for extreme light. Our function can look something like this:
 
-So given these formulas, you can implement an estimation of lux!
+```
+y = (336 - 120000) * x + 120000
+```
 
-> **Extra side bonus** Your phone flashlight has a specific lux value, typically around 50 lux. this corresponds to a LDR resistance of ~6.9kΩ, if you use the first lux formula. If you want to, you could calibrate your curve more to your particular LDR, by adjusting the a parameter in your second formula! For a flashlight of 50 lux, you will get a value x, and a = (6900 - 120000)/x
+Implement an estimation of lux using this formula and send this value on Bucket instead of the raw sensor value.
+
+> **Extra side bonus** Your phone flashlight has a specific lux value, typically around 50 lux. This corresponds to an LDR resistance of `~6.9kΩ`, if you use the first lux formula. If you want to, you could calibrate this curve more specifically to your LDR by adjusting the parameter in the second formula. For a flashlight of 50 lux, you will get a value `x`, and `a = (6900 - 120000)/x`
 
 > **Report** On GitHub, in your lab experiment report, report your process of implementing the data cleaning why you did it this way.
 
 ## Task 1.3 Make a Service
 
-So far, we have to login to the Raspberry Pi and start the Python script to collect data and control the lightbulb. To automate this process we need to define a `service` which will automatically start our Python script once the Raspberry Pi is has started.
+The last housekeeping task ensures our code is automatically executed when the Raspberry Pi starts. Until now, we have to log on to the Raspberry Pi and start the Python script to collect data and control the lightbulb. To automate this process, we need to define a `service` which will automatically start our Python script when the Raspberry Pi is starting.
 
-To do that, first you need to ssh to the pi.
-
-``` bash
-ssh username@hostname
-```
-
-Then start by creating a service file from your Pi's terminal using following three commands:
-
-Create a service file "MY_EXAMPLE" in system directory:
+Let's open a Terminal and log on the Raspberry Pi.
 
 ``` bash
-sudo touch /etc/systemd/system/MY_EXAMPLE.service
+ssh [username]@[hostname].local
 ```
 
-Give this newly created service file permission to read & write by current logged in user in pi (you)
+Then, we create a service file from your Pi's terminal using following three commands:
+
+To create a service, we need a service file. This file should be located in the specific directory `/etc/systemd/system`. We use the following command to create a service file `light.service`. In this command, `sudo` is the administration mode as we are manipulating system files and directory. `touch` is the command to create an empty file.
 
 ``` bash
-sudo chmod 644 /etc/systemd/system/MY_EXAMPLE.service
+sudo touch /etc/systemd/system/light.service
 ```
 
-Now open this file in `nano` command line editor:
+Then, give to the current user on the Raspberry Pi (yourself), the permission to read and write in this newly created service file. `chmod`  is the command to set permission on a file ([Examples](https://www.lifewire.com/uses-of-command-chmod-2201064)).
 
 ``` bash
-sudo nano /etc/systemd/system/MY_EXAMPLE.service
+sudo chmod 644 /etc/systemd/system/light.service
 ```
 
-Paste the following details in the file and save it. Replace the `ABSOLUTE_PATH/YOUR_SCRIPT` with the location of you light script. And then save it by pressing `CTRL+X` , followed by `y` in prompt to save the file.
+Now open this file in `nano`, the command-line editor:
+
+``` bash
+sudo nano /etc/systemd/system/light.service
+```
+
+Paste the following details in the file. Replace the `ABSOLUTE_PATH/YOUR_SCRIPT` with the location of you `main.py`. Then, save it by pressing `CTRL+x` , followed by `y` (answering 'yes') when prompted to save the file.
 
 ``` shell
 [Unit]
@@ -142,49 +145,47 @@ Group=root
 WantedBy=multi-user.target
 ```
 
-**NOTE** You must always give the absolute path of your `YOUR_PYTHON_SCRIPT.py` script. You can get that by running the "pwd" in your command line in the file's location, and then appending the "/FILE_NAME" to the response.
-
-Now you can attempt to start the service with the command:
+**NOTE** We must always give the absolute path of your `YOUR_PYTHON_SCRIPT.py` script. We can get that by running the command `pwd` in your command-line in the file's location, and then appending the "/FILE_NAME" to the response. Now you can attempt to start the service with the command:
 
 ``` bash
-sudo systemctl start MY_EXAMPLE.service
+sudo systemctl start light.service
 ```
 
-Use status to make sure the service started with no hiccups/errors: If there is an error, you will see in red "script_name running failed". In that case you need to debug the issue with the given error description.
+Use the `status` parameters to make sure the service started with no hiccups/errors: If there is an error, you will see in red "script_name running failed". In that case, you need to debug the issue with the given error description.
 
 ``` bash
-sudo systemctl status MY_EXAMPLE.service
+sudo systemctl status light.service
 ```
 
-Afterwards stop it, make sure it was stopped properly, and then configure the service to start automatically at boot:
+You can stop the script with the parameter `stop`. Make sure it was stopped properly, and then configure the service to start automatically when the Raspberry Pi is starting with the parameter `enable`.
 
 ``` bash
 # Stop service
-sudo systemctl stop MY_EXAMPLE.service
+sudo systemctl stop light.service
 
 # configure automatic start at boot
 sudo systemctl enable MY_EXAMPLE.service
 ```
 
-now restart the pi:
+Finally, test your setup by restarting your Raspberry Pi using the following command:
 
 ``` bash
 sudo reboot now
 ```
 
-If have configured the scripts properly, you will see that once the pi has restarted, it will automatically run your scripts.
+If you configured the script properly, your Python script should start as soon as the Raspberry Pi started.
 
 > **Report** On GitHub, in your lab experiment report, report your process of implementing this service. What is the purpose? How does it work?
 
 # Step 2 Connect the Sensors to the Lightbulb
 
+It is now time to bring the code of all teammates together.
+
 ## Task 2.1 Pull it together
 
-Merge the code.
+First, let's commit, merge and push the latest changes of everyone.
 
-Bring it together in the `main.py` :
-
-We need the environment variable of the lightbulb and the Lightbulb class itself
+Then, we can connect sensing and lightbulb actions in the `main.py`. We need the environment variable of the lightbulb and the Lightbulb class itself
 
 ``` python
 import asyncio
@@ -198,13 +199,13 @@ LIGHTBULB_THING_ID = os.getenv("LUGHTBULB_THING_ID", None)
 LIGHTBULB_PRIVATE_KEY_PATH = os.getenv("LIGHTBULB_PRIVATE_KEY_PATH", None)
 ```
 
-Declare the lightbulb as global variable
+We declare the lightbulb as `global` variable.
 
 ``` python
 lightbulb = None
 ```
 
-Instantiate the lightbulb object in the `main()` function.
+We instantiate the lightbulb object in the `main()` function.
 
 ``` python
 lightbulb = Lightbulb(LIGHTBULB_IP_ADDRESS, LIGHTBULB_IP_ADDRESS, LIGHTBULB_PRIVATE_KEY_PATH)
@@ -218,62 +219,50 @@ asyncio.run(main())
 
 Finally, trigger the lightbulb method in the `action()` function.
 
-you might consider to commit your code here and push it into the git branch!
+As usual, we commit and push our code.
 
 ## Task 2.2 Test on the Raspberry Pi
 
-To test our ne code that we have implemented on pi, we need to first pull it from our remote git repository (from github server) into the pi.
-
-To do that, ssh to the pi and go to your github project location using `cd` command. and then simply type"
+To test our code on the Raspberry Pi, we need to first pull it from GitHub. To do that, we use `ssh` to connect to the Raspberry Pi and navigate to our project directory using the `cd` command. Then, we use the following command to pull the code.
 
 ``` bash
-git pull #The command will fetch all the new changes into the pi directory.
+git pull # The command will fetch all the new changes into the Raspeberry Pi directory.
 ```
 
-Now because our lightbulb thing on the bucket is secured with private key, You cannot access it without providing this private key. So We need to copy the private key of the lightbulb from your laptop project folder to the Raspberry Pi. You can do that simply by running copy command from your project directory, where `private.pem` is stored:
+Because our lightbulb Thing on Bucket is secured with a private key, we need to copy the private key of the lightbulb from our laptop to the Raspberry Pi. We can do that with the `scp` command we used in the first lab experiment. This command is copying files remotely, from our project directory where `private.pem` is stored to the Raspberry Pi directory:
 
-**Mac:**
-
-``` bash
-scp private.pem [username]@[hostname].local:~/PATH_TO_YOUR_PROJECT_FOLDER/
-```
-
-**Windows**
-
-To use the `scp` command in windows you first need to download & install the SCP client software. [SCP Client for Windows x64](https://the.earth.li/~sgtatham/putty/latest/w64/pscp.exe)
-
-once you have installed the scp client, you can got to your project directory where `private.pem` is stored using `cd` command and type:
+>**Windows** To use the `scp` command in Windows you first need to download & install the SCP client software [SCP Client for Windows x64](https://the.earth.li/~sgtatham/putty/latest/w64/pscp.exe).
 
 ``` bash
 scp private.pem [username]@[hostname].local:~/PATH_TO_YOUR_PROJECT_FOLDER/ #It will copy the file to your project directory on Pi
 ```
 
-As we are not uploading the env file on git hub, We need to create and edit the .env with `nano` command line editor. and type in the above 3 variables
+As we are not uploading the `.env` file on GitHub, we need to create and edit this file with command-line editor `nano`.
 
-First in pi project folder, create .env file using:
+First, in the Raspberry Pi project directory, create `.env` file using the `touch` command:
 
 ``` bash
 touch .env
 ```
 
-then open the file using `nano` editor
+Then, open the file using `nano`:
 
 ``` bash
 nano .env
 ```
 
-and copy the following three lines, and replace the thing id by your lightbulb thing id, path of the `private.pem` , and your bulbs' IP Address :
+Finally, copy the following three lines and add the values for the Thing id of your lightbulb, the path of the `private.pem` , and your bulbs' IP Address:
 
 ``` bash
-THING_ID= YOUR_BULB_THING_ID
-PRIVATE_KEY_PATH= PATH_TO_PRIVATE_KEY
-LIGHTBULB_IP_ADDRESS= BULB_IP_ADDRESS
+LIGHTBULB_THING_ID=
+LIGHTBULB_PRIVATE_KEY_PATH=
+LIGHTBULB_IP_ADDRESS=
 LOG_LEVEL=INFO
 ```
 
-Press CTRL+X to sava and type `y` on prompt to save the file.
+Press `CTRL+x` to exit and type `y` when asked to save the file.
 
-Now to check if everything works fine: just run the `main.py` scripts and it should connect to the bulb and start sending data to bucket.
+Now to check if everything works fine: just execute the `main.py` scripts and it should connect to the bulb and start sending data to bucket.
 
 You can also make this process as service, so every time the pi starts, it will run the `main.py` scripts automatically.
 
