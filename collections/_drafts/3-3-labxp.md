@@ -269,22 +269,22 @@ Besides the functions we've defined, you can adjust the threshold (and add trigg
 
 1. In your physical setup, adjust the threshold value (passed when creating the class), so that it detects internally when you pass your hand over the LDR.
 
-2. Create two new functions "hand_detected" and "no_hand_detected" , and set your LightSensor object "when_dark" and "when_light" properties to the proper function, eg: `LDR_sensor.when_dark = MyFunctionName" `
+2. Create two new functions "hand_detected" and "no_hand_detected" , and set your LightSensor object "when_dark" and "when_light" properties to the proper function,right after creating it.  eg: `LDR_sensor.when_dark = MyFunctionName" `
 3. In these new functions, print a corresponding statement to your console, e.g. "Hand detected"
 
 4. Besides the print statement, turn on the kasa lightbulb when you have detected the hand
 
 ## Task 3.2 Enter/Leave Condition Event
-In the class `SensorDataCollector`, develop a method that
+In the class `SensorDataCollector`, develop a method (function) that
 
 - receives the sensor data
-- define thresholds that characterise some conditions (cold, cosy, e.g. )
+- define thresholds ( ranges for the value of your data, e.g. - 20˚ to 25˚ is cozy - that characterise some conditions (cold, cosy, e.g.  *tip - use if-elif structure!*)
 - checks the new data against the threshold(e.g if temp<20: print(cosy) bulb_brightness= high)
 - emit an event if the conditions have changed
 
 ## Task 3.3 Trend Event
 
-In the class `SensorDataCollector`, develop a method that
+In the class `SensorDataCollector`, develop a method(function) that
 
 - receives the sensor data (refer to assignment 3)
 - keeps a record of the data points over the past minute ( note your sensor collector class takes new events every X seconds - how many datapoints would make up a minute?)
