@@ -263,7 +263,7 @@ def emit_event(self, event_type, value, property):
    property.up
 ```
 
-## Task 3.1 Built-in light Threshold Event
+## Task 3.1 Built-in Light Threshold Event
 
 Besides the functions we've defined, you can adjust the threshold (and add trigger functions) directly in the [LightSensor class](https://gpiozero.readthedocs.io/en/stable/api_input.html#lightsensor-ldr):
 
