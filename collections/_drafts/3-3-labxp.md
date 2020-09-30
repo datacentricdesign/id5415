@@ -288,7 +288,7 @@ In the class `SensorDataCollector`, develop a method(function) that
 
 - receives the sensor data (refer to assignment 3)
 - keeps a record of the data points over the past minute ( note your sensor collector class takes new events every X seconds - how many datapoints would make up a minute?)
-- evaluate some trends (values in record are on average decreasing, increasing or constant...)
+- evaluate a trend (values in record are on average decreasing, increasing or constant...)
 - emit an event if the trend changed ( eg, on average temperature values are increasing, emit a  "it's getting hot")
 
 # Step 4 Control based on events
