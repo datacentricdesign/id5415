@@ -1,6 +1,6 @@
 ---
 layout: course-page
-title: 'Sensor Data Collection'
+title: 'Maintain, Connect and Structure Code'
 permalink: /draft/module3/labxp
 description: 'Prototyping Connected Products - Lab Experiment 3'
 labxp-of: id5415-3
@@ -90,7 +90,7 @@ y = (336 - 120000) * x + 120000
 
 Implement an estimation of lux using this formula and send this value on Bucket instead of the raw sensor value.
 
-> **Extra side bonus** Your phone flashlight has a specific lux value, typically around 50 lux. This corresponds to an LDR resistance of `~6.9kΩ`, if you use the first lux formula. If you want to, you could calibrate this curve more specifically to your LDR by adjusting the parameter in the second formula. For a flashlight of 50 lux, you will get a value `x`, and `a = (6900 - 120000)/x`
+> **Extra side bonus** Your phone flashlight has a specific lux value, typically around 50 lux. This corresponds to an LDR resistance of `~6.9kΩ` if you use the first lux formula. If you want to, you could calibrate this curve more specifically to your LDR by adjusting the parameter in the second formula. For a flashlight of 50 lux, you will get a value `x`, and `a = (6900 - 120000)/x`
 
 > **Report** On GitHub, in your lab experiment report, report your process of implementing the data cleaning why you did it this way.
 
@@ -104,7 +104,7 @@ Let's open a Terminal and log on the Raspberry Pi.
 ssh [username]@[hostname].local
 ```
 
-Then, we create a service file from your Pi's terminal using following three commands:
+Then, we create a service file from your Pi's terminal using the following three commands:
 
 To create a service, we need a service file. This file should be located in the specific directory `/etc/systemd/system`. We use the following command to create a service file `light.service`. In this command, `sudo` is the administration mode as we are manipulating system files and directory. `touch` is the command to create an empty file.
 
@@ -262,7 +262,7 @@ LOG_LEVEL=INFO
 
 Press `CTRL+x` to exit and type `y` when asked to save the file.
 
-Now to check if everything works fine: just execute the `main.py` scripts and it should connect to the bulb and start sending data to bucket.
+We can now execute the `main.py` scripts. It should connect to the bulb and start sending data to Bucket. The control of the lightbulb from the sensor depends on the our function `action()`
 
 You can also make this process as service, so every time the pi starts, it will run the `main.py` scripts automatically.
 
@@ -272,62 +272,100 @@ To do that follow [Task 1.3](#task-13-make-a-service)
 
 # Step 3 Trigger Events
 
-In addition to generating data, our `SensorDataCollector` class could automatically generate events, ready to use.
+In addition to collecting data, our `SensorDataCollector` class could automatically generate events such as 'The light is dark', 'The humidity is too high' of 'The temperature is cosy'. Emitting events will simplify the way we trigger actions. Instead of observing each data point to decide whether to turn the light ON, we could directly react to the event 'Light is dark'.
 
-These events can also be sent to Bucket through a property of type `TEXT` , for example the constructor of this `SensorDataCollector` class could include:
+Let's define an event as a Dictionary of 2 values: a type and a value. Using the temperature as an example, we could emit events like these
 
-``` python
-self.event_x_property = self.rpi_thing.find_or_create_property(
-            "Event x", "TEXT")
+```python
+{ 'type': 'temperature_condition', 'value': 'Cold' }
+{ 'type': 'temperature_condition', 'value': 'Cosy' }
+{ 'type': 'temperature_condition', 'value': 'Warm' }
 ```
 
-To emit an event from `SensorDataCollector` you can create a function similar:
+To receive these events, we follow the same approach as when we receive raw data: we set a handler. To do this, we add an attribute (the variable of a class)
+
+```python
+def __init__(self):
+   # ...
+   self.event_handler = None
+```
+
+To set this handler, we define a method (the function of a class) which takes a function as a single parameter set be used as a handler.
+
+```python
+def set_event_handler(self, handler):
+   self.event_handler = handler
+```
+
+Finally, to emit an event, we define the following method:
 
 ``` python
 def emit_event(self, event_type, value, property):
+   """
+   Prepare and send an event if a handler is set.
+
+   Args:
+      event_type (str): A string defining the type of the event (e.g. 'temperature_condition')
+      value (str): A string describing the condition (e.g. 'Cosy')
+   """
+
+   # Is there a handler to call
    if self.event_handler != None:
-      self.event_handler({
-            'type': event_type,
-            'value': value
-      })
-   property.up
+      # Then prepare the event
+      event = { 'type': event_type, 'value': value }
+      # Call the handler with the event as parameter
+      self.event_handler(event)
 ```
 
-## Task 3.1 Built-in Light Threshold Event
+At this stage, we need three elements for each type of event we want to generate. Let's take the example of the temperature condition. In the constructor, we first need to initialise an attribute (the variable of a class) to keep track of the current  condition. The initial value is None as we do not know yet the condition.
 
-Besides the functions we've defined, you can adjust the threshold (and add trigger functions) directly in the [LightSensor class](https://gpiozero.readthedocs.io/en/stable/api_input.html#lightsensor-ldr):
+```python
+def __init__(self):
+   # ...
+   self.temperature_condition = None
+```
 
-1. In your physical setup, adjust the threshold value (passed when creating the class), so that it detects internally when you pass your hand over the LDR.
+Then, we need to define a method that will evaluate the temperature condition.
 
-2. Create two new functions "hand_detected" and "no_hand_detected" , and set your LightSensor object "when_dark" and "when_light" properties to the proper function, right after creating it. eg: `LDR_sensor.when_dark = MyFunctionName" `
-3. In these new functions, print a corresponding statement to your console, e.g. "Hand detected"
+``` python
+def evaluate_temperature(self, event_type, value, property):
+   # Is the temperature lower than 19?
+      # Is this condition different than before?
+         # Emit an event
+         # Set this condition as the current condition
+```
 
-4. Besides the print statement, turn on the kasa lightbulb when you have detected the hand
+Finally, we need to call this method each time we collect new data. The `collect()` method looks appropriate for that.
 
-## Task 3.2 Enter/Leave Condition Event
+```python
+def collect(self):
+   # ...
+   self.evaluate_temperature()
+```
 
-In the class `SensorDataCollector` , develop a method (function) that
+## Task 3.1 Generate humidity_condition events
 
-* receives the sensor data
-* define thresholds ( ranges for the value of your data, e.g. - 20˚ to 25˚ is cozy - that characterise some conditions (cold, cosy, e.g. _tip - use if-elif structure!_)
-* checks the new data against the threshold(e.g if temp<20: print(cosy) bulb_brightness= high)
-* emit an event if the conditions have changed
+Add the necessary code to generate humidity_condition events.
 
-## Task 3.3 Trend Event
+## Task 3.2 Generate ligh_condition events
 
-In the class `SensorDataCollector` , develop a method(function) that
+Add the necessary code to generate light_condition events.
 
-* receives the sensor data (refer to assignment 3)
-* keeps a record of the data points over the past minute ( note your sensor collector class takes new events every X seconds - how many datapoints would make up a minute?)
-* evaluate a trend (values in record are on average decreasing, increasing or constant...)
-* emit an event if the trend changed ( eg, on average temperature values are increasing, emit a "it's getting hot")
+## Task 3.3 Generate x_condition events
+
+Add the necessary code to generate a condition of your choice, that relies on the values of several sensors.
+
+
+> **Report** On GitHub, in your lab experiment report, reflect on this event mechanism and the type of event your connected product can emit.
+
+> **Bonus**: you also send this data to Bucket using the property type `TEXT`. For this, you can use the `find_or_create()` method of Thing and `update_value()` of a property, as we did for the raw values.
 
 # Step 4 Control based on events
 
 In this final step, you control the lightbulb based on events triggered by the data collection.
 
-* in SensorDataCollector, like the handler for the raw values, add a handler setEventHandler() to listen to events
-* call the three event methods
+* in SensorDataCollector, like the handler for the raw values, add a handler `setEventHandler()` to listen to events
+* call the methods generating events
 * in main.py, define event_action(), the function that is triggered when there is a new event
 
 ``` python

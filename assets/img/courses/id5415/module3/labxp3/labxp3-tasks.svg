@@ -20,7 +20,7 @@
 <text transform="matrix(1 0 0 1 363.2725 64.0908)" class="st2 st3">Refactor Code</text>
 <text transform="matrix(1 0 0 1 32.2219 209.3571)" class="st2 st3">Lab XP 3</text>
 <text transform="matrix(1 0 0 1 361.3352 208.3571)"><tspan x="0" y="0" class="st2 st3">Clean Sensor</tspan><tspan x="0" y="43.2" class="st2 st3">Data</tspan></text>
-<text transform="matrix(1 0 0 1 1219.2197 65.4173)" class="st2 st3">Light Event</text>
+<text transform="matrix(1 0 0 1 1219.2197 65.4173)" class="st2 st3">Temperature Event</text>
 <g>
 	<g>
 		<line class="st1" x1="219" y1="348.5" x2="321.1" y2="348.5"/>
@@ -88,8 +88,8 @@
 		</g>
 	</g>
 </g>
-<text transform="matrix(1 0 0 1 1216.739 209.8421)" class="st2 st3">Range Event</text>
-<text transform="matrix(1 0 0 1 1220.9634 359.1088)" class="st2 st3">Trend Event</text>
+<text transform="matrix(1 0 0 1 1216.739 209.8421)" class="st2 st3">Humidity Event</text>
+<text transform="matrix(1 0 0 1 1220.9634 359.1088)" class="st2 st3">Light Event</text>
 <text transform="matrix(1 0 0 1 406.7503 447.8045)" class="st2 st3">Step 1</text>
 <text transform="matrix(1 0 0 1 855.7489 447.8046)" class="st2 st3">Step 2</text>
 <text transform="matrix(1 0 0 1 1251.749 447.8047)" class="st2 st3">Step 3</text>
