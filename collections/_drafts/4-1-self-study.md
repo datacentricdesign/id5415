@@ -18,14 +18,32 @@ introduction: In this module, the self-study material focus on the main network 
 
 TODO Full self-study
 
-# Network Technologies
+
+# Overview of network layers (OSI)
+
+getting conscious of the complexity, with a all stack of mechanism needed
+
+# Physical Network Technologies
+
+Overview
+
+Focus Selection Criteria: how to select a network technology
+
+table with the main technologies
+
+# TCP/IP
+
+packet, IP, MAC, hostname...
+
+# MQTT
+
+Overview
+
+publish/subscribe model
 
 
-# Selection Criteria
+# Discovery mechanism
 
+challenge to solve
 
-# Quiz
-
-Check your understanding with the following quiz! It is anonymous and you can try as many times as you want!
-
-<iframe width="640px" height= "600px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=TVJuCSlpMECM04q0LeCIe-EN8Fz6eUZIqbayPT_HeNhUOEg1TFFMRDMyVkVBSEExTDRCRlFNN1JKWi4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+principles
