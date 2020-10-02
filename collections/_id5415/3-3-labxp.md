@@ -12,8 +12,8 @@ report:
 
 ---
 
-* Do not remove this line (it will not be displayed)
-{:toc}
+- Do not remove this line (it will not be displayed)
+  {:toc}
 
 ---
 
@@ -27,9 +27,9 @@ When prototyping, our code is growing organically. It is typical, as each iterat
 
 ## Task 1.1 Refactor the Code Controlling the Light
 
-This first task is about [code refactoring](https://en.wikipedia.org/wiki/Code_refactoring): the process of restructuring code. We want to transform the code in `light.py` to make a class Lightbulb. This class would build `Lightbulb` objects with an IP address, a thing id and a path to the private key. The [skeleton](https://en.wikipedia.org/wiki/Skeleton_(computer_programming)) of this class looks as follows. Copy and paste this skeleton in your file and add the corresponding line of code for each comment.
+This first task is about [code refactoring](https://en.wikipedia.org/wiki/Code_refactoring): the process of restructuring code. We want to transform the code in `light.py` to make a class Lightbulb. This class would build `Lightbulb` objects with an IP address, a thing id and a path to the private key. The [skeleton](<https://en.wikipedia.org/wiki/Skeleton_(computer_programming)>) of this class looks as follows. Copy and paste this skeleton in your file and add the corresponding line of code for each comment.
 
-``` python
+```python
 class Lightbulb:
    def __init__(self, ip_address, thing_id, private_key_path):
       # Create an attribute bulb of type SmartBulb
@@ -47,7 +47,7 @@ class Lightbulb:
          # Transform the result into a list
          # Use self.prop_status to send the new value to Bucket
          # sleep
-   
+
 def bulb_result_to_list(bulb_result):
 
 def store_csv_data(values):
@@ -65,8 +65,8 @@ The second housekeeping task is about the data. We left the data untouched at th
 
 Here is what you should consider:
 
-* do not update the value if it is out of realistic range. For example, you could check if the value is `None` or Negative;
-* do not update the value if it is the same as the previous value; 
+- do not update the value if it is out of realistic range. For example, you could check if the value is `None` or Negative;
+- do not update the value if it is the same as the previous value;
 
 Then, we need some standard units. The value of temperature from the DHT sensor already comes in Celsius degrees out-of-the-box. The relative humidity is a ratio, between 0 and 100%, which does not require any intervention. However, the standard unit for measuring the light is lux. You can read more about lux on [this Adafruit tutorial about light measurement](https://learn.adafruit.com/photocells/measuring-light).
 
@@ -100,7 +100,7 @@ The last housekeeping task ensures our code is automatically executed when the R
 
 Let's open a Terminal and log on the Raspberry Pi.
 
-``` bash
+```bash
 ssh [username]@[hostname].local
 ```
 
@@ -108,32 +108,32 @@ Then, we create a service file from your Pi's terminal using the following three
 
 To create a service, we need a service file. This file should be located in the specific directory `/etc/systemd/system`. We use the following command to create a service file `light.service`. In this command, `sudo` is the administration mode as we are manipulating system files and directory. `touch` is the command to create an empty file.
 
-``` bash
+```bash
 sudo touch /etc/systemd/system/light.service
 ```
 
-Then, give to the current user on the Raspberry Pi (yourself), the permission to read and write in this newly created service file. `chmod`  is the command to set permission on a file ([Examples](https://www.lifewire.com/uses-of-command-chmod-2201064)).
+Then, give to the current user on the Raspberry Pi (yourself), the permission to read and write in this newly created service file. `chmod` is the command to set permission on a file ([Examples](https://www.lifewire.com/uses-of-command-chmod-2201064)).
 
-``` bash
+```bash
 sudo chmod 644 /etc/systemd/system/light.service
 ```
 
 Now open this file in `nano`, the command-line editor:
 
-``` bash
+```bash
 sudo nano /etc/systemd/system/light.service
 ```
 
 Paste the following details in the file. Replace the `ABSOLUTE_PATH/YOUR_SCRIPT` with the location of you `main.py`. Then, save it by pressing `CTRL+x` , followed by `y` (answering 'yes') when prompted to save the file.
 
-``` shell
+```shell
 [Unit]
 Description=My description
 After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python3 ABSOLUTE_PATH/YOUR_PYTHON_SCRIPT.py
+ExecStart=YOUR_PROJECT_FOLDER/venv/bin/python ABSOLUTE_PATH/YOUR_PYTHON_SCRIPT.py
 
 StandardOutput=syslog
 StandardError=syslog
@@ -147,19 +147,19 @@ WantedBy=multi-user.target
 
 **NOTE** We must always give the absolute path of your `YOUR_PYTHON_SCRIPT.py` script. We can get that by running the command `pwd` in your command-line in the file's location, and then appending the "/FILE_NAME" to the response. Now you can attempt to start the service with the command:
 
-``` bash
+```bash
 sudo systemctl start light.service
 ```
 
 Use the `status` parameters to make sure the service started with no hiccups/errors: If there is an error, you will see in red "script_name running failed". In that case, you need to debug the issue with the given error description.
 
-``` bash
+```bash
 sudo systemctl status light.service
 ```
 
 You can stop the script with the parameter `stop`. Make sure it was stopped properly, and then configure the service to start automatically when the Raspberry Pi is starting with the parameter `enable`.
 
-``` bash
+```bash
 # Stop service
 sudo systemctl stop light.service
 
@@ -169,7 +169,7 @@ sudo systemctl enable MY_EXAMPLE.service
 
 Finally, test your setup by restarting your Raspberry Pi using the following command:
 
-``` bash
+```bash
 sudo reboot now
 ```
 
@@ -187,7 +187,7 @@ First, let's commit, merge and push the latest changes of everyone.
 
 Then, we can connect sensing and lightbulb actions in the `main.py`. We need the environment variable of the lightbulb and the Lightbulb class itself
 
-``` python
+```python
 import asyncio
 from light import Lightbulb
 from dotenv import load_dotenv
@@ -201,19 +201,19 @@ LIGHTBULB_PRIVATE_KEY_PATH = os.getenv("LIGHTBULB_PRIVATE_KEY_PATH", None)
 
 We declare the lightbulb as `global` variable.
 
-``` python
+```python
 lightbulb = None
 ```
 
 We instantiate the lightbulb object in the `main()` function.
 
-``` python
+```python
 lightbulb = Lightbulb(LIGHTBULB_IP_ADDRESS, LIGHTBULB_IP_ADDRESS, LIGHTBULB_PRIVATE_KEY_PATH)
 ```
 
 Finally, call `main()` in an asynchronous fashion and add the keyword `async` in front of the function.
 
-``` python
+```python
 asyncio.run(main())
 ```
 
@@ -225,15 +225,15 @@ As usual, we commit and push our code.
 
 To test our code on the Raspberry Pi, we need to first pull it from GitHub. To do that, we use `ssh` to connect to the Raspberry Pi and navigate to our project directory using the `cd` command. Then, we use the following command to pull the code.
 
-``` bash
+```bash
 git pull # The command will fetch all the new changes into the Raspeberry Pi directory.
 ```
 
 Because our lightbulb Thing on Bucket is secured with a private key, we need to copy the private key of the lightbulb from our laptop to the Raspberry Pi. We can do that with the `scp` command we used in the first lab experiment. This command is copying files remotely, from our project directory where `private.pem` is stored to the Raspberry Pi directory:
 
->**Windows** To use the `scp` command in Windows you first need to download & install the SCP client software [SCP Client for Windows x64](https://the.earth.li/~sgtatham/putty/latest/w64/pscp.exe).
+> **Windows** To use the `scp` command in Windows you first need to download & install the SCP client software [SCP Client for Windows x64](https://the.earth.li/~sgtatham/putty/latest/w64/pscp.exe).
 
-``` bash
+```bash
 scp private.pem [username]@[hostname].local:~/PATH_TO_YOUR_PROJECT_FOLDER/ #It will copy the file to your project directory on Pi
 ```
 
@@ -241,19 +241,19 @@ As we are not uploading the `.env` file on GitHub, we need to create and edit th
 
 First, in the Raspberry Pi project directory, create `.env` file using the `touch` command:
 
-``` bash
+```bash
 touch .env
 ```
 
 Then, open the file using `nano`:
 
-``` bash
+```bash
 nano .env
 ```
 
 Finally, copy the following three lines and add the values for the Thing id of your lightbulb, the path of the `private.pem` , and your bulbs' IP Address:
 
-``` bash
+```bash
 LIGHTBULB_THING_ID=
 LIGHTBULB_PRIVATE_KEY_PATH=
 LIGHTBULB_IP_ADDRESS=
@@ -299,7 +299,7 @@ def set_event_handler(self, handler):
 
 Finally, to emit an event, we define the following method:
 
-``` python
+```python
 def emit_event(self, event_type, value, property):
    """
    Prepare and send an event if a handler is set.
@@ -317,7 +317,7 @@ def emit_event(self, event_type, value, property):
       self.event_handler(event)
 ```
 
-At this stage, we need three elements for each type of event we want to generate. Let's take the example of the temperature condition. In the constructor, we first need to initialise an attribute (the variable of a class) to keep track of the current  condition. The initial value is None as we do not know yet the condition.
+At this stage, we need three elements for each type of event we want to generate. Let's take the example of the temperature condition. In the constructor, we first need to initialise an attribute (the variable of a class) to keep track of the current condition. The initial value is None as we do not know yet the condition.
 
 ```python
 def __init__(self):
@@ -327,7 +327,7 @@ def __init__(self):
 
 Then, we need to define a method that will evaluate the temperature condition.
 
-``` python
+```python
 def evaluate_temperature(self, event_type, value, property):
    # Is the temperature lower than 19?
       # Is this condition different than before?
@@ -355,7 +355,6 @@ Add the necessary code to generate light_condition events.
 
 Add the necessary code to generate a condition of your choice, that relies on the values of several sensors.
 
-
 > **Report** On GitHub, in your lab experiment report, reflect on this event mechanism and the type of event your connected product can emit.
 
 > **Bonus**: you also send this data to Bucket using the property type `TEXT`. For this, you can use the `find_or_create()` method of Thing and `update_value()` of a property, as we did for the raw values.
@@ -364,17 +363,17 @@ Add the necessary code to generate a condition of your choice, that relies on th
 
 In this final step, you control the lightbulb based on events triggered by the data collection.
 
-* in SensorDataCollector, like the handler for the raw values, add a handler `setEventHandler()` to listen to events
-* call the methods generating events
-* in main.py, define event_action(), the function that is triggered when there is a new event
+- in SensorDataCollector, like the handler for the raw values, add a handler `setEventHandler()` to listen to events
+- call the methods generating events
+- in main.py, define event_action(), the function that is triggered when there is a new event
 
-``` python
+```python
 async def main():
    # ...
    collector.set_event_handler(event_action)
 ```
 
-``` python
+```python
 def event_action(event):
     print('ready for action')
     if event["type"] == "x":
