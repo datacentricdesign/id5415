@@ -70,7 +70,11 @@ If all devices are connected to all devices, it is a fully connected network.
 
 # Gateway and Hub
 
-As we introduce different protocols, there is a need to connect networks of different protocols. This is the role of a `gateway` to translate information from a protocol to another. For example, you might use multiple sensors on your body to collect information about how you exercise, through the ANT or Bluetooth protocols. Your phone will play the role of a gateway to transmit this information through the Internet. Your home devices such as fridge, washing machine or light bulbs might communicate via Z-Wave or ZigBee. These devices require a gateway to connect to the Internet, e.g. to translate from these protocol to the Internet Protocol. A home `hub` play the role of a gateway among other tasks such as storing and processing data locally and controlling devices: the role of your Raspberry Pi in the course setting.
+As we introduce different protocols, there is a need to connect networks of different protocols. This is the role of a `gateway` to translate information from a protocol to another.
+
+For example, you might use multiple sensors on your body to collect information about how you exercise, through the ANT or Bluetooth protocols. Your phone will play the role of a gateway to transmit this information through the Internet. 
+
+Your home devices such as fridge, washing machine or light bulbs might communicate via Z-Wave or ZigBee. These devices require a gateway to connect to the Internet, e.g. to translate from these protocol to the Internet Protocol. A home `hub` play the role of a gateway among other tasks such as storing and processing data locally and controlling devices: the role of your Raspberry Pi in the course setting.
 
 The following article presents three common types of devices architectures for connected products [Connected Product Architecture](https://medium.com/stanfy-engineering-practices/3-types-of-software-architecture-for-connected-devices-a-smart-light-bulb-case-54dc7727136f).
 
