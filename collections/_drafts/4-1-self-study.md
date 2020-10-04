@@ -16,9 +16,17 @@ introduction: In this module, the self-study material focus on the main network 
 
 ---
 
+# Network Terminology
+
 `Network technologies` are all the elements that enable a machine to transmit information to another machine. In our lightbulb context, each student as a home network which we call a `local network`. All these networks are connected to `the Internet`, which is a network of (many) networks.
 
-A `router` routes communication from one device to another. For instance, it receives a 'turn ON' message from the Raspberry Pi to be sent to the lightbulb, within the local network. It also routes information to the Internet, such as data to be saved on Bucket. 
+A `router` routes communication from one device to another. For instance, it receives a 'turn ON' message from the Raspberry Pi to be sent to the lightbulb, within the local network. It also routes information to the Internet, such as data to be saved on Bucket.
+
+Each device on the network has a `MAC` address (for Media Access Control). This is a unique identifier of the device attributed by its manufacturer. A device with multiple network interface (e.g. WiFi and Bluetooth) will have a MAC address for each network interface.
+
+The `IP address` (for Internet Protocol) is the identifier of a device on a network at a given time. In contrast with the MAC address, this address is attributed by the network and can change over time.
+
+The hostname is the name of a device on a network. This name can only be used to reach the device on a small local network. On the Internet, because IP addresses are difficult to memorise, domain names are given to machines so that we can reach out for example google.com without memorising one of Google's IP addresses.
 
 Bucket is a `server`, a computer like a personal computer connected to the Internet and providing a service such as storing data, serving the content of a website, processing information and so on. `Clients` are the consumers of these services. The complexity of each of those services (e.g. storing data) often requires a set of servers to work together, without clients being aware of this 'network of servers'. We refer to this `abstraction` as cloud infrastructure.
 
@@ -66,22 +74,6 @@ As we introduce different protocols, there is a need to connect networks of diff
 
 The following article presents three common types of devices architectures for connected products [Connected Product Architecture](https://medium.com/stanfy-engineering-practices/3-types-of-software-architecture-for-connected-devices-a-smart-light-bulb-case-54dc7727136f).
 
-
-# The Internet Protocol
-
-
-TCP
-UDP
-
-MAC address
-
-In network terminology, a `packet` is the unit of data transmitted between two devices. If the information to transmit is too large, it is splited into multiple packets.
-
-IP address
-
-* Hostname
-
-Ping
 
 # The Message Queuing Telemetry Transport
 
