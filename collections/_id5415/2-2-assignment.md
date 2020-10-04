@@ -15,7 +15,7 @@ computational_concepts: JSON, if-statement, for-statement
 ---
 
 - Do not remove this line (it will not be displayed)
-  {:toc}
+{:toc}
 
 ---
 
