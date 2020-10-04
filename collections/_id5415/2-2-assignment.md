@@ -45,7 +45,7 @@ You now have a copy of your team repository on your machine. In the left panel, 
 
 > `git clone [my repository]` Get a copy on the repository on my machine
 
-**Note** If you do not able to find the 'clone repository' button in the source control, you can do the same thing using `git clone` command follwed by the URL in terminal window.
+**Note** If you do not able to find the 'clone repository' button in the source control, you can do the same thing using `git clone` command followed by the URL in the Terminal window.
 
 To do that, first create a folder somewhere in your machine, open that folder with VS Code > File > Open Folder. Now open the terminal in VS code and type:
 
