@@ -5,7 +5,7 @@ permalink: /draft/module4/assignment
 description: "Prototyping Connected Product - Assignment 4"
 assignment-id: 4
 assignment-of: id5415-4
-introduction: In this assignment, 
+introduction: In this assignment, you will design and evaluate network architecture for your GoodNight Lamp prototype. Then, you will explore how to discover devices on the network to automatically find your lightbulb IP address.
 prog_environment:
 design: 
 code_management: 
