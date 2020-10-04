@@ -1,7 +1,7 @@
 ---
 layout: course-page
 title: "Discovering devices on the network"
-permalink: /draft/module4/assignment
+permalink: /module4/assignment
 description: "Prototyping Connected Product - Assignment 4"
 assignment-id: 4
 assignment-of: id5415-4
