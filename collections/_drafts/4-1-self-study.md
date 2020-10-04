@@ -44,9 +44,7 @@ Beyond the choice between wired and wireless, there are physical network protoco
 As designers, you are at the centre of these network technology choices. With your holistic view on the context and the problem to be addressed, you the key factors that should influence the decision.
 
 * What is already in place, readily available? If not the perfect match, what would it cost to set up a different infrastructure? In this context, cost should be understood broadly as the effort by stakeholders to switch to this 'new' infrastructure. It ranges from user acceptability (e.g. switching from WiFi to a new protocol) to environment restrictions (e.g. hospital regulation on wireless technologies).
-
 * What are the resource constraints? Is the product portable or connected to the power network? Can or should the information be processed on the device or sent to the cloud, with potential implication on the amount of traffic? How reactive should the device be, allowing or not the regular disconnection from the network?
-
 * Does it need to be unidirectional or bidirectional communication? Some protocols are optimised for a specific application and have some uncommon limitation. For example, the LoRa protocol is designed for a long-range and a small amount of data. However, it has implications on the ability to get a response from the receiver.
 
 # Network Topology
@@ -77,7 +75,7 @@ UDP
 
 MAC address
 
-In network terminology, a `packet` is the unit of data transmitted between two devices. If the information to transmit is too large, it is splitted into multiple packets.
+In network terminology, a `packet` is the unit of data transmitted between two devices. If the information to transmit is too large, it is splited into multiple packets.
 
 IP address
 
@@ -89,16 +87,14 @@ Ping
 
 In this course, we will explore the two major protocol to exchange messages on top of the Internet Protocol: HTTP and MQTT. We will dedicate the next module to HTTP, the fundamental protocol of the web technology.
 
-Overview
+Message Queuing Telemetry Transport (MQTT) is a protocol designed to send messages between devices. All messages go through an `MQTT server` which receives the messages to be published and transmit them to all subscribers. `MQTT clients` are all devices connecting to the MQTT server to publish or subscribe:
 
-publish/subscribe mechanism
-
+* `Publish` means sending a message a topic. For example, when the lightbulb `light1` is turned ON, its new status could be shared with the message 'on' on the topic '/light1/status'.
+* `Subscribe` means registering the interest in receiving a message from a specific topic. In our example, the two other Raspberry Pi could subscribe to '/light1/status', thus both receiving the message 'on'.
 
 ![MQTT](/assets/img/courses/id5415/module4/mqtt.svg)
 
-# Discovery mechanism
+MQTT has two main advantages:
 
-challenge to solve
-
-principles
-
+* the publishers (sending messages) and subscribers (receiving messages) are decoupled. It means that they do not need to know each other and never interact directly.
+* the effort required to connect and exchange messages is small without compromising on security. This means that a limited amount of information is required in addition to the data to be sent. This is ideal for IoT application with often resource-constraint devices.
