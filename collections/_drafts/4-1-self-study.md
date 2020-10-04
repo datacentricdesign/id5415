@@ -56,13 +56,11 @@ The network topology is how devices of a network connect or relate to one anothe
 However, there are other network topologies. For connected products, you might encounter `bus` and `mesh` topologies.
 
 * `bus`: all devices connect to a common wire, the bus. A device sends a message on the bus and all other devices receive it. However, only the targeted device read the message. Examples are the bus CAN in cars or the C-Bus in building automation.
-* `mesh`: devices are connected to several devices of the network (so-called nodes). They can receive and transmit messages from and to these devices. Only the targeted device read the message. Otherwise, the message is sent to the next devices. In IoT applications, it is often used to connect low-power devices with through wide area such as agriculture fields. For instance, sensors can send a message to its neighbour sensors, which will transmit the information further untill reaching destination. 
+* `mesh`: devices are connected to several devices of the network (so-called nodes). They can receive and transmit messages from and to these devices. Only the targeted device read the message. Otherwise, the message is sent to the next devices. In IoT applications, it is often used to connect low-power devices with through wide area such as agriculture fields. For instance, sensors can send a message to its neighbour sensors, which will transmit the information further until reaching the destination. 
 
 If all devices are connected to all devices, it is a fully connected network.
 
-![Concept draw - Common Network Technologies](https://www.conceptdraw.com/How-To-Guide/picture/Common-network-topologies.png)
-
-(Source: [Concept draw - Common Network Technologies](https://www.conceptdraw.com/How-To-Guide/picture/Common-network-topologies.png))
+![Network Technologies](/assets/img/courses/id5415/module4/topologies.svg)
 
 # Gateway and Hub
 
