@@ -1,4 +1,27 @@
 <footer>
-    <p>Made with <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>, theme adapted from <a href="http://willianjusten.com.br">Willian Justen</a>, powered by <a href="https://pages.github.com/">GitHub Pages</a></p>
+    <p>Made with <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>, theme adapted from <a
+            href="http://willianjusten.com.br">Willian Justen</a>, powered by <a href="https://pages.github.com/">GitHub
+            Pages</a></p>
 </footer>
 <script src="{{ "/assets/js/main.js" | prepend: site.baseurl }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script>
+    document.querySelectorAll(".post-content h1, .post-content h2").forEach((element) => {
+        element.innerHTML = element.textContent + '<span class="mdi mdi-content-copy" data-clipboard-text="' + window.location.href.split('#')[0] + "#" + element.id + '" onclick="copyAnchor(\'' + element.id + '\')" style="cursor:pointer;margin-left:5px;font-size:medium">';
+    });
+
+    var clipboard = new ClipboardJS('.mdi-content-copy');
+
+    clipboard.on('success', function (e) {
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+
+        e.clearSelection();
+    });
+
+    // clipboard.on('error', function (e) {
+    //     console.error('Action:', e.action);
+    //     console.error('Trigger:', e.trigger);
+    // });
+</script>
