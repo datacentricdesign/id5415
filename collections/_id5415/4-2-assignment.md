@@ -70,7 +70,7 @@ def show_network_device(target_ip):
     print("Available devices in the network:")
     print("IP" + " "*18+"MAC")
     for device in devices:
-        print("{:16}    {}".format(client['ip'], client['mac'])))
+        print("{:16}    {}".format(device['ip'], device['mac'])))
 ```
 
 Let's call this function at the bottom of the file:
