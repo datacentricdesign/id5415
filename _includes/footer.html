@@ -5,9 +5,11 @@
 </footer>
 <script src="{{ "/assets/js/main.js" | prepend: site.baseurl }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+
+{% if module.module-id == null %}
 <script>
     document.querySelectorAll(".post-content h1, .post-content h2").forEach((element) => {
-        element.innerHTML = element.textContent + '<span class="mdi mdi-content-copy" data-clipboard-text="' + window.location.href.split('#')[0] + "#" + element.id + '" onclick="copyAnchor(\'' + element.id + '\')" style="cursor:pointer;margin-left:5px;font-size:medium">';
+        element.innerHTML = element.innerHTML + '<span class="mdi mdi-content-copy" data-clipboard-text="' + window.location.href.split('#')[0] + "#" + element.id + '" onclick="copyAnchor(\'' + element.id + '\')" style="cursor:pointer;margin-left:5px;font-size:medium">';
     });
 
     var clipboard = new ClipboardJS('.mdi-content-copy');
@@ -25,3 +27,4 @@
     //     console.error('Trigger:', e.trigger);
     // });
 </script>
+{% endif %}
