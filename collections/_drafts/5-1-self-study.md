@@ -18,6 +18,8 @@ introduction: In this module, the self-study material focus on web technology. W
 
 TODO Full self-study
 
+URL, web server/service, HTTP, API
+
 # Web services
 
 
