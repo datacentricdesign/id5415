@@ -178,6 +178,12 @@ layout: compress
             {{page.coach | markdownify}}
         </p>
 
+        {% if page.gist != null %}
+        <h2>
+            Snippet of code for this module
+        </h2>
+        <script src="https://gist.github.com{{page.gist}}"></script>
+        {% endif%}
     </article>
 
     {% include course-nav.html %}
