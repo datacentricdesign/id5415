@@ -1,6 +1,6 @@
 ---
 layout: course-page
-title: "Sensors and time-series data"
+title: "Sensors and time-series"
 permalink: /module3/self-study
 description: "Prototyping Connected Product - Self-Study 3"
 self-study-id: 3
