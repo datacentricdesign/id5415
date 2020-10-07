@@ -12,6 +12,9 @@
         <p itemprop="description" class="subtitle">{{ page.description }}</p>
         {% elsif page.module-id != null %}
         <p itemprop="description" class="subtitle"><a href="/courses/{{ page.module-of  }}" title="Back to course home">{{ page.description }}</a></p>
+        {% elsif page.self-study-of != null %}
+        <p itemprop="description" class="subtitle"><a href="../" title="Back to course home">{{ page.description }}</a></p>
+        <span class="mdi mdi-text-box-outline" style="color:#637a91;font-size: 200px;position:absolute;margin: -50px -100px;z-index: -10;"></span>
         {% elsif page.labxp-of != null %}
         <p itemprop="description" class="subtitle"><a href="../" title="Back to course home">{{ page.description }}</a></p>
         <span class="mdi mdi-microscope" style="color:#637a91;font-size: 200px;position:absolute;margin: -50px -100px;z-index: -10;"></span>
