@@ -18,6 +18,8 @@ introduction: In this module, the self-study material focus on the main network 
 
 # Network Terminology
 
+<span class="mdi mdi-text-box-outline"></span> Reading (45 minutes)
+
 `Network technologies` are all the elements that enable a machine to transmit information to another machine. In our lightbulb context, each student as a home network which we call a `local network`. All these networks are connected to `the Internet`, which is a network of (many) networks.
 
 A `router` routes communication from one device to another. For instance, it receives a 'turn ON' message from the Raspberry Pi to be sent to the lightbulb, within the local network. It also routes information to the Internet, such as data to be saved on Bucket.
@@ -38,7 +40,7 @@ There are many aspects to agree about: what is the information? how is it physic
 
 As designers of connected products, let's focus on what we can influence.
 
-# Physical network technologies
+## Physical network technologies
 
 The physical layer is the most tangible part of the network: how is the information transmitted physically?
 
@@ -55,7 +57,7 @@ As designers, you are at the centre of these network technology choices. With yo
 * What are the resource constraints? Is the product portable or connected to the power network? Can or should the information be processed on the device or sent to the cloud, with potential implication on the amount of traffic? How reactive should the device be, allowing or not the regular disconnection from the network?
 * Does it need to be unidirectional or bidirectional communication? Some protocols are optimised for a specific application and have some uncommon limitation. For example, the LoRa protocol is designed for a long-range and a small amount of data. However, it has implications on the ability to get a response from the receiver.
 
-# Network Topology
+## Network Topology
 
 The network topology is how devices of a network connect or relate to one another. In this course, we emphasise the star topology as introduced in the first diagram in which devices communicate through a router (the centre of the start). All devices of the local network interact with a router which routes the traffic to its destination: another device on the local network or the next router on the Internet. It is a typical topology for a home, Internet-enabled environment.
 
@@ -68,7 +70,7 @@ If all devices are connected to all devices, it is a fully connected network.
 
 ![Network Technologies](/assets/img/courses/id5415/module4/topologies.svg)
 
-# Gateway and Hub
+## Gateway and Hub
 
 As we introduce different protocols, there is a need to connect networks of different protocols. This is the role of a `gateway` to translate information from a protocol to another.
 
@@ -80,6 +82,8 @@ The following article presents three common types of devices architectures for c
 
 
 # The Message Queuing Telemetry Transport
+
+<span class="mdi mdi-text-box-outline"></span> Reading (15 minutes)
 
 In this course, we will explore the two major protocol to exchange messages on top of the Internet Protocol: HTTP and MQTT. We will dedicate the next module to HTTP, the fundamental protocol of the web technology.
 
@@ -94,3 +98,31 @@ MQTT has two main advantages:
 
 * the publishers (sending messages) and subscribers (receiving messages) are decoupled. It means that they do not need to know each other and never interact directly.
 * the effort required to connect and exchange messages is small without compromising on security. This means that a limited amount of information is required in addition to the data to be sent. This is ideal for IoT application with often resource-constraint devices.
+
+
+# Events: callbacks and handlers
+
+A key challenge of prototyping connected products is the code development on several devices. In this distributed context, we want to ask other devices to do tasks for us and let us know when it is done. This principle is also true inside our programme. Let's introduce two examples:
+
+* We ask a weather service to send us the forecast for the following day.
+* We have a webpage with a button. As soon as the a user click on this button we want to turn ON the light.
+
+In both cases, we need to wait, for the weather data or for user interaction. Meanwhile, we could sleep, nothing would happen, and regularly we would check if there is any change. Both tasks could be addressed with a loop, continuously asking:
+* __'did you get the result?', 'did you get the result?', 'did you get the result?'...__
+* __'did the user click?', 'did the user click?', 'did the user click?'...__
+
+We call this 'pulling' information. We go and get it ourself. A more efficient approach is to wait and ask to be __notified__ want the results of the service has been received or when the user clicked on the button. This is what we call `callback` in the first example or `handler` in the second example.
+
+`Callbacks` and `handlers` are functions which are called as a result of an event. In our case, we have the event __'the weather forecast arrived'__ and __'the user clicked'__.
+
+* We request a service (weather forecast) and we provide a `callback`, e.g. a way to tell us when the job is done. This callback function is called __once__ by the service when the event __'the weather forecast arrived'__ occurs. The result from the service is typically provided as a parameter of this callback (the weather forecast).
+* We subscribe to an event (user clicked) and we provide a `handler`, e.g. a way to tell us when a user click on the button. This handler function is called __each time__ the event occurs. Information about the event is typically provided as a parameter of this handler (which button?, what conditions?).
+
+What are the key advantages of this mechanism?
+
+* it is more efficient. We do not continuously 'ask' for information;
+* it is more reactive. We do not wait until the next time we 'ask', we receive the information as soon as the event occurs;
+* it separates concerns. We avoid mixing code triggering the event with the code acting on the event. This makes our code more reusable.
+* it makes the code more dynamic. Without changing the code, one to many actions can be triggered out of an event.
+
+Is there a link with Python async/await keywords? Both are dealing with the challenge of letting an action being performed and coming back to it once it has been completed. In the course, each time we call a function that controls the lightbulb, the program is reaching out to the lightbulb over the network. A `callback` is called when the response from the lightbulb arrived. `async` tells Python that the function we call involves this mechanism. `await` tells Python that we want to wait until the results come back. It enables Python to manage the callback for us, returning the result of the request as the result of a 'normal' function instead of calling a dedicated callback function.
