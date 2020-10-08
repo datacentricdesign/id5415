@@ -4,86 +4,115 @@ title: 'Performance'
 permalink: /draft/module4/labxp
 description: 'Prototyping Connected Products - Lab Experiment 4'
 labxp-of: id5415-4
-introduction: In this Lab Experiment, we will reuse our lightbulb discovery function to detect smartphone on the network. It will provide an indicator 'at home' and 'away from home'. We will also explore the capabilities  wireless network infrastructure as a sensor to detect the presence of someone at home.we will test the capabilities of a network.
+introduction: In this Lab Experiment, we will use the NetworkScanner introduced in the live session to detect smartphone on the network. It will provide an indicator 'at home' and 'away from home' that we will use to control the light.
 technique:
 metrics:
 report:
 ---
 
-In this LabXp, we will add some sensory capabilities and implement contextual behaviour to control the light bulb based on our presence next to it (e.g knowing through our phone). Also we will touch upon the concept of MQTT and control someone else lightbulb through MQTT server.
-
 ---
 
 - Do not remove this line (it will not be displayed)
-  {:toc}
+{:toc}
 
 ---
 
-In our last assignment we have implemented the script `discover.py` to get the IP Address of our lightbulb and and connect to it automatically using Lightbulb class.
+In our last assignment, we have implemented the script `discover.py` to scan the network and find the IP Address of our lightbulb. This enables us to automatically create a Lightbulb object and control the lightbulb without specifying a fix IP address.
 
-Now for this Lab Experiment, we have improvised the code of `discover.py` script so you can get all the devices connected to the network and it's ip.
+During the live session, we explored how to refactor this initial code into a NetworkScanner class which keep scanning the network for devices. You can copy and paste the snippet available on the page of [Module 4](https://id5415.datacentricdesign.org/module4/) in a file `discover.py`.
 
-Go to the link below and replace the code into your own `discover.py` script.
+This NetworkScanner can send us events when new devices are found on the network and when devices are no longer connected.
 
-[Gist file for the discover script](https://gist.github.com/jackybourgeois/73766b1d3a5847ce03d135447ba77ba8)
+# Step 1 Retrieve your phone MAC address
 
-# Step 1: Retrive your phone mac address
+## Task 1.1 Create a NetworkScanner
 
-## Task1.1: improvise main.py
-
-In your main.py, replace the calling of lightbulb function line:
+In `main.py`, locate the following lines:
 
 ```python
 lightbulb_ip_address = find_lightbulb("192.168.1.1/24")
 lightbulb = Lightbulb(lightbulb_ip_address, LIGHTBULB_THING_IP, LIGHTBULB_PRIVATE_KEY_PATH)
 ```
 
-with this:
+Replace then with:
 
 ```python
+	# create an object NetworkScanner
     scanner = NetworkScanner("192.168.1.1/24")
+	# set the handler function for the events on_connect and on_disconnect
     scanner.on_connect = on_device_connect_to_network
     scanner.on_disconnect = on_device_disconnect_from_network
+	# start scanning
     scanner.start_scanning()
 ```
 
-Now in main.py, create and implement two more functions that will trigger on connect to the network
+What is `192.168.1.1/24`? This is the range of IP addresses we want to scan. If the IP address of your lightbulb was different from 192.168.1, then replace the three first digits by the one from your lightbulb. `/24` is called 'Net Mask' in the network jargon. It means that we will look for IP addresses that have the same three first digits, and any value as fourth digit (from 1 to 255).
+
+For instance, our scanner will be able to find a device `192.168.1.5` or `192.168.1.134` or `192.168.1.231`. However, it will not look for `192.168.200.5` because 200 does not match the third digit.
+
+## Task 1.2 Define handlers
+
+In this new code, we note that we set two handler functions: one for the on_connect events and one for on_disconnect events. We need to define these two functions. Let's do this in `main.py` as follows:
 
 ```python
 def on_device_connect_to_network(device):
-  print(device.mac)# print device name and it's Mac address connect to the network
+	print("Connected device:")
+	# print device information
+	device.show()
 
 def on_device_connect_to_network(device):
-  pass
+	print("Disconnected device:")
+	# print device information
+	device.show()
 ```
 
-**Note** Make sure that your phone is connected to the same network as your light-bulb and current machine.
+**Note** Make sure that your phone is connected to the same network as your lightbulb and current machine.
 
-Now, if you run the main.py, it will print the MAC address of all the connected device to your connected network, including your phone and lightbulb.
+We can now execute `main.py`.
 
-## Task1.2
+**Note** On Mac and Raspberry Pi, you need to execute your code with as administrator for Scapy to work properly. For this, add `sudo` in front of your command: `sudo python scr/main.py`
 
-Follow[Step3]() from assignment4 to get vendors name, and then add it in `mac_vendor` dictionary defined in `discover.py` script.
+It will print the MAC address of all the connected device to your connected network, including your phone and lightbulb.
 
-# Step 2: Implement the contextual behaviour
+TODO gif showing expected terminal output
 
-Now that we have retrieved and stored our device details into `mac_vendor` dictionary, we can use this as a sensor contextualize different behaviour of light-bulb.
+## Task 1.2 Identifying devices per vendor
 
-To do that you can improvise the the following tow methods that have implemented in `main.py`, and implement these two methods to infer the presence of the user
+Our code shows the IP and MAC addresses of the devices as they connect on the network. However, most addresses should appear with the name 'Unknown': nothing tells our code what is the relationship between MAC address and vendor. 
+
+Follow [Step 3](https://id5415.datacentricdesign.org/module4/assignment#step-3-associate-mac-addresses-to-vendors) from Assignment 4 to obtain the vendor's name, and then add it in `mac_vendor` dictionary defined in `discover.py` script. Each team member can add the vendor of the devices they want to recognise.
+
+Here is an example of an updated list:
+
+TODO screenshot list of vendors
+
+Executing your code again, it should show the name of your devices. For example:
+
+TODO git showing terminal output
+
+
+# Step 2 Implement the contextual behaviour
+
+Our code is now retrieving the details of the devices connected on the network, including the lightbulb and your phone. It is also associating MAC addresses to vendors for the one we specified in the `mac_vendor` dictionary. We can use the on_connect and on_disconnect events in two ways:
+* to connect to the lightbulb when it is found
+* to control the lightbulb when our phone connects to or disconnects from the network. This could represent an event 'At Home' and 'Away from home'.
+
+To do that, you can improve the two handlers in `main.py`. In the `on_connect()` you need to create a lightbulb. You can use the code of the [Lightbulb class](https://id5415.datacentricdesign.org/module2/) we provide in Module 2. Then, add the condition and the call of `turn_on()` call to control the light. In the `on_disconnect()`, add the condition and the call of `turn_off()`.
 
 ```python
 def on_device_connect_to_network(device):
-    print(device.name, device.mac)
+    device.show()
 
-    #condition to check the device name,
+    # condition to check the device name,
     if device.name == 'TP-Link':
         print('lightbulb back on the network')
-        # create a lightbulb class object and print bulb status
+        # create a lightbulb object and print bulb status
 
-    #condition to check the device name
-    if device.name == 'iPhone':
+    # condition to check the device name
+    if device.name == 'Phone':
         print('At home')
-        # turn on the bulb
+		# If a lightbulb is connected
+        	# turn ON the lightbulb
 
 def on_device_disconnect_from_network(device):
     if device.name == 'TP-Link':
@@ -91,19 +120,27 @@ def on_device_disconnect_from_network(device):
 
     if device.name == 'Phone':
         print('Away from home')
-        #Turn off the bulb
+		# If a lightbulb is connected
+        	# turn OFF the lightbulb
 ```
 
-# Step 3: Flow-chart:
+This is an example of control based on the network event. You can now involve the sensor events and your lightbulb `pulse()` or `morse()` as part of the flow.
 
-Now that we have improvise the code a lot better, let's visualize the code.
+# Step 3 Map the flow of your code
 
-Create a flow chart of your code and introspect how did it improvise including the network scanning functionality.
+While the code of `main.py` is not too long, the flow is complicated. Let's visualise the code.
 
-Upload this flow-chart in your repository.
+Have a look at the NetworkScanner class, the LightBulb class and your `main.py`. Create a flow chart of your code to map the process. For instance:
+* what are the steps?
+* are there elements executed in parallel? 
+* are there conditions?
+
+> **Report** On GitHub, in your lab experiment report, report your process of integrating the NetworkScanner in your code. Explain with your own word how the NetworkScanner works. Describe the the flow from detection to action on the lightbulb. Add your flow chart.
+
+Upload this flow chart in your repository.
 
 > **Merge and Push** Once you are done with your development and test cycle, do not forget to merge your branch into your master branch.
 
 You can now try your code on the Raspberry Pi.
 
-> **Updating the CHANGELOG file** In this assignment you have made significant additions to your prototype. Edit the file `CHANGELOG.md` and add what you have achieved in this assignment.
+> **Updating the CHANGELOG file** In this lab experiment you have made significant additions to your prototype. Edit the file `CHANGELOG.md` and add what you have achieved in this assignment.
