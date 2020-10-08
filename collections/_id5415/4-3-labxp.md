@@ -13,7 +13,7 @@ report:
 ---
 
 - Do not remove this line (it will not be displayed)
-{:toc}
+  {:toc}
 
 ---
 
@@ -52,7 +52,7 @@ For instance, our scanner will be able to find a device `192.168.1.5` or `192.16
 
 ## Task 1.2 Define handlers
 
-In this new code, we note that we set two handler functions: one for the on_connect events and one for on_disconnect events. We need to define these two functions. Let's do this in `main.py` as follows:
+In this new code, we note that we set two handler functions: one for the `on_connect` events and one for `on_disconnect events. We need to define these two functions. Let's do this in `main.py` as follows:
 
 ```python
 def on_device_connect_to_network(device):
@@ -60,7 +60,7 @@ def on_device_connect_to_network(device):
 	# print device information
 	device.show()
 
-def on_device_connect_to_network(device):
+def on_device_disconnect_from_network(device):
 	print("Disconnected device:")
 	# print device information
 	device.show()
@@ -72,30 +72,30 @@ We can now execute `main.py`.
 
 **Note** On Mac and Raspberry Pi, you need to execute your code with as administrator for Scapy to work properly. For this, add `sudo` in front of your command: `sudo python scr/main.py`
 
-It will print the MAC address of all the connected device to your connected network, including your phone and lightbulb.
+It will print the MAC address of all the connected device to your connected network, including your lightbulb as TP-Link.
 
-TODO gif showing expected terminal output
+![Terminal output of the script](../../assets/img/courses/id5415/module4/assignment/1.2.0.png)
 
 ## Task 1.2 Identifying devices per vendor
 
-Our code shows the IP and MAC addresses of the devices as they connect on the network. However, most addresses should appear with the name 'Unknown': nothing tells our code what is the relationship between MAC address and vendor. 
+Our code shows the IP and MAC addresses of the devices as they connect on the network. However, most addresses should appear with the name 'Unknown': nothing tells our code what is the relationship between MAC address and vendor.
 
 Follow [Step 3](https://id5415.datacentricdesign.org/module4/assignment#step-3-associate-mac-addresses-to-vendors) from Assignment 4 to obtain the vendor's name, and then add it in `mac_vendor` dictionary defined in `discover.py` script. Each team member can add the vendor of the devices they want to recognise.
 
 Here is an example of an updated list:
 
-TODO screenshot list of vendors
+![List of vendors](../../assets/img/courses/id5415/module4/assignment/1.2.1.png)
 
 Executing your code again, it should show the name of your devices. For example:
 
-TODO git showing terminal output
-
+![List name of devices with network details](../../assets/img/courses/id5415/module4/assignment/1.2.2.png)
 
 # Step 2 Implement the contextual behaviour
 
-Our code is now retrieving the details of the devices connected on the network, including the lightbulb and your phone. It is also associating MAC addresses to vendors for the one we specified in the `mac_vendor` dictionary. We can use the on_connect and on_disconnect events in two ways:
-* to connect to the lightbulb when it is found
-* to control the lightbulb when our phone connects to or disconnects from the network. This could represent an event 'At Home' and 'Away from home'.
+Our code is now retrieving the details of the devices connected on the network, including the lightbulb and your phone. It is also associating MAC addresses to vendors for the one we specified in the `mac_vendor` dictionary. We can use the `on_connect` and `on_disconnect` events in two ways:
+
+- to connect to the lightbulb when it is found
+- to control the lightbulb when our phone connects to or disconnects from the network. This could represent an event 'At Home' and 'Away from home'.
 
 To do that, you can improve the two handlers in `main.py`. In the `on_connect()` you need to create a lightbulb. You can use the code of the [Lightbulb class](https://id5415.datacentricdesign.org/module2/) we provide in Module 2. Then, add the condition and the call of `turn_on()` call to control the light. In the `on_disconnect()`, add the condition and the call of `turn_off()`.
 
@@ -131,9 +131,10 @@ This is an example of control based on the network event. You can now involve th
 While the code of `main.py` is not too long, the flow is complicated. Let's visualise the code.
 
 Have a look at the NetworkScanner class, the LightBulb class and your `main.py`. Create a flow chart of your code to map the process. For instance:
-* what are the steps?
-* are there elements executed in parallel? 
-* are there conditions?
+
+- what are the steps?
+- are there elements executed in parallel?
+- are there conditions?
 
 > **Report** On GitHub, in your lab experiment report, report your process of integrating the NetworkScanner in your code. Explain with your own word how the NetworkScanner works. Describe the flow from detection to action on the lightbulb. Add your flow chart.
 
