@@ -1,22 +1,21 @@
 ---
 layout: course-page
-title: "Discovering devices on the network"
+title: 'Discovering devices on the network'
 permalink: /module4/assignment
-description: "Prototyping Connected Product - Assignment 4"
+description: 'Prototyping Connected Product - Assignment 4'
 assignment-id: 4
 assignment-of: id5415-4
 introduction: In this assignment, you will design and evaluate network architecture for your GoodNight Lamp prototype. Then, you will explore how to discover devices on the network to automatically find your lightbulb IP address.
 prog_environment:
-design: 
-code_management: 
-computational_concepts: 
+design:
+code_management:
+computational_concepts:
 ---
 
-
 ---
 
-* Do not remove this line (it will not be displayed)
-{:toc}
+- Do not remove this line (it will not be displayed)
+  {:toc}
 
 ---
 
@@ -55,11 +54,11 @@ def scan_network_devices(target_ip):
     return devices
 ```
 
-* Here we import ARP, Ether and srp from `scapy`.
-* ARP (for Address Resolution Protocol) is the protocol which takes care of converting IP Addresses into MAC Addresses. 
-* We prepare to send our ARP packet to all devices connected (broadcast MAC Address with all `ff:ff...`).
-* The function `srp()` stands for 'send and receive packets'. Through this action, we will send a message to all devices on the network (ethernet broadcast) to ask them who has what IP address (ARP message). The timeout parameter is the number of seconds we wait for responses. You can increase/decrease this time if you do not catch all your devices.
-* The rest of the code is a for-loop, going through each device response to build a dictionary ip/mac.
+- Here we import ARP, Ether and srp from `scapy`.
+- ARP (for Address Resolution Protocol) is the protocol which takes care of converting IP Addresses into MAC Addresses.
+- We prepare to send our ARP packet to all devices connected (broadcast MAC Address with all `ff:ff...`).
+- The function `srp()` stands for 'send and receive packets'. Through this action, we will send a message to all devices on the network (ethernet broadcast) to ask them who has what IP address (ARP message). The timeout parameter is the number of seconds we wait for responses. You can increase/decrease this time if you do not catch all your devices.
+- The rest of the code is a for-loop, going through each device response to build a dictionary ip/mac.
 
 We could use the following function to call our scanner and show the results.
 
@@ -114,7 +113,7 @@ def check_vendor(mac: str):
     # For each known mac vendor
     for known_mac in mac_vendor:
         # check if it matches with the currnt mac address
-        if mac.startswith(known_mac):
+        if mac.startswith(known_mac.lower()):
             # return the name of the vendor
             return mac_vendor[known_mac]
     # No match was found with the known vendors
@@ -153,7 +152,7 @@ In `src/main.py`, in the `main()` function, let's replace
 lightbulb = Lightbulb(LIGHTBULB_IP_ADDRESS, LIGHTBULB_IP_ADDRESS, LIGHTBULB_PRIVATE_KEY_PATH)
 ```
 
-by 
+by
 
 ```python
 lightbulb_ip_address = find_lightbulb("192.168.1.1/24")
