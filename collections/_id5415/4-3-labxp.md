@@ -13,7 +13,7 @@ report:
 ---
 
 - Do not remove this line (it will not be displayed)
-  {:toc}
+{:toc}
 
 ---
 
@@ -56,14 +56,14 @@ In this new code, we note that we set two handler functions: one for the `on_con
 
 ```python
 def on_device_connect_to_network(device):
-	print("Connected device:")
-	# print device information
-	device.show()
+ print("Connected device:")
+ # print device information
+ device.show()
 
 def on_device_disconnect_from_network(device):
-	print("Disconnected device:")
-	# print device information
-	device.show()
+ print("Disconnected device:")
+ # print device information
+ device.show()
 ```
 
 We can now execute `main.py`.
@@ -117,8 +117,8 @@ def on_device_connect_to_network(device):
     # condition to check the device name
     if device.name == 'Phone':
         print('At home')
-		# If a lightbulb is connected
-        	# turn ON the lightbulb
+  # If a lightbulb is connected
+         # turn ON the lightbulb
 
 def on_device_disconnect_from_network(device):
     if device.name == 'TP-Link':
@@ -126,8 +126,8 @@ def on_device_disconnect_from_network(device):
 
     if device.name == 'Phone':
         print('Away from home')
-		# If a lightbulb is connected
-        	# turn OFF the lightbulb
+  # If a lightbulb is connected
+         # turn OFF the lightbulb
 ```
 
 This is an example of control based on the network event. You can now involve the sensor events and your lightbulb `pulse()` or `morse()` as part of the flow.
