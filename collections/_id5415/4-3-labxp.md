@@ -37,13 +37,13 @@ lightbulb = Lightbulb(lightbulb_ip_address, LIGHTBULB_THING_IP, LIGHTBULB_PRIVAT
 Replace then with:
 
 ```python
-	# create an object NetworkScanner
-    scanner = NetworkScanner("192.168.1.1/24")
-	# set the handler function for the events on_connect and on_disconnect
-    scanner.on_connect = on_device_connect_to_network
-    scanner.on_disconnect = on_device_disconnect_from_network
-	# start scanning
-    scanner.start_scanning()
+# create an object NetworkScanner
+scanner = NetworkScanner("192.168.1.1/24")
+# set the handler function for the events on_connect and on_disconnect
+scanner.on_connect = on_device_connect_to_network
+scanner.on_disconnect = on_device_disconnect_from_network
+# start scanning
+scanner.start_scanning()
 ```
 
 What is `192.168.1.1/24`? This is the range of IP addresses we want to scan. If the IP address of your lightbulb was different from 192.168.1, then replace the three first digits by the one from your lightbulb. `/24` is called 'Net Mask' in the network jargon. It means that we will look for IP addresses that have the same three first digits, and any value as fourth digit (from 1 to 255).
@@ -52,7 +52,7 @@ For instance, our scanner will be able to find a device `192.168.1.5` or `192.16
 
 ## Task 1.2 Define handlers
 
-In this new code, we note that we set two handler functions: one for the `on_connect` events and one for `on_disconnect events. We need to define these two functions. Let's do this in `main.py` as follows:
+In this new code, we note that we set two handler functions: one for the `on_connect` events and one for `on_disconnect` events. We need to define these two functions. Let's do this in `main.py` as follows:
 
 ```python
 def on_device_connect_to_network(device):
@@ -66,11 +66,17 @@ def on_device_disconnect_from_network(device):
 	device.show()
 ```
 
-**Note** Make sure that your phone is connected to the same network as your lightbulb and current machine.
-
 We can now execute `main.py`.
 
-**Note** On Mac and Raspberry Pi, you need to execute your code with as administrator for Scapy to work properly. For this, add `sudo` in front of your command: `sudo python scr/main.py`
+However, on Mac and Raspberry Pi, you need to execute your code with as administrator for Scapy to work properly.
+
+For this, add `sudo` in front of your command:
+
+```bash
+sudo python scr/main.py
+```
+
+**Note:** Make sure that your phone is connected to the same network as your lightbulb and current machine.
 
 It will print the MAC address of all the connected device to your connected network, including your lightbulb as TP-Link.
 
@@ -92,7 +98,7 @@ Executing your code again, it should show the name of your devices. For example:
 
 # Step 2 Implement the contextual behaviour
 
-Our code is now retrieving the details of the devices connected on the network, including the lightbulb and your phone. It is also associating MAC addresses to vendors for the one we specified in the `mac_vendor` dictionary. We can use the `on_connect` and `on_disconnect` events in two ways:
+Our code is now retrieving the details of the devices connected on the network, including the lightbulb, Pi and your phone. It is also associating MAC addresses to vendors for the one we specified in the `mac_vendor` dictionary. Now we can use the `on_connect` and `on_disconnect` events in two ways:
 
 - to connect to the lightbulb when it is found
 - to control the lightbulb when our phone connects to or disconnects from the network. This could represent an event 'At Home' and 'Away from home'.
