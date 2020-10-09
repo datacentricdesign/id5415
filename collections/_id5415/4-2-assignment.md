@@ -123,7 +123,7 @@ def check_vendor(mac: str):
 In the function `show_network_device()`, we can replace the last line by the following, to show a third element: the result of our check_vendor for the given MAC address.
 
 ```python
-        print("{:16}    {} {}".format(client['ip'], client['mac'], check_vendor(client['mac'])))
+        print("{:16}    {} {}".format(device['ip'], device['mac'], check_vendor(device['mac'])))
 ```
 
 Let's execute the script again, to see the vendor of each device.
