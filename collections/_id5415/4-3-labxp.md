@@ -13,13 +13,13 @@ report:
 ---
 
 - Do not remove this line (it will not be displayed)
-{:toc}
+  {:toc}
 
 ---
 
 In our last assignment, we have implemented the script `discover.py` to scan the network and find the IP Address of our lightbulb. This enables us to automatically create a Lightbulb object and control the lightbulb without specifying a fix IP address.
 
-During the live session, we explored how to refactor this initial code into a `NetworkScanner` class which keep scanning the network for devices. You can copy and paste the snippet available on the page of [Module 4](https://id5415.datacentricdesign.org/module4/) in a file `discover.py`.
+During the live session, we explored how to refactor this initial code into a `NetworkScanner` class which keep scanning the network for devices. You can copy and paste the snippet available [here](https://gist.github.com/jackybourgeois/73766b1d3a5847ce03d135447ba77ba8) in a file `discover.py`.
 
 This `NetworkScanner` can send us events when new devices are found on the network and when devices are no longer connected.
 
