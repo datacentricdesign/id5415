@@ -1,6 +1,6 @@
 ---
 layout: course-page
-title: 'HTTP web services'
+title: 'Web services'
 permalink: /module5/assignment
 description: 'Prototyping Connected Product - Assignment 5'
 assignment-id: 5
