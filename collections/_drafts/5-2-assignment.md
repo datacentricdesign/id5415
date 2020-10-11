@@ -298,3 +298,8 @@ def blink():
 ```
 
 In the web browser, we can now try: [http://localhost:5000/blink?iterations=6&duration=7](http://localhost:5000/blink?iterations=6&duration=7)
+
+
+> **Commit and Push!** You've written a new piece of code, let's make sure that Git keeps a version of it.
+
+> **Updating the CHANGELOG file** In this assignment you have made significant additions to your prototype. Edit the file `CHANGELOG.md` and add what you have achieved in this assignment.
