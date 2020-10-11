@@ -5,14 +5,12 @@ permalink: /draft/module5/assignment
 description: 'Prototyping Connected Product - Assignment 5'
 assignment-id: 5
 assignment-of: id5415-5
-introduction: In this assignment, you will enriched your lighting system with external web services and open it up for external access.
+introduction: In this assignment, you will enrich your connected lightbulb with an external web services of current weather and open it up for external access from your smartphone.
 prog_environment:
 design:
 code_management:
 computational_concepts:
 ---
-
-## Assignment 5 focuses on implementing a functionlity to interact with the lightbulb from a webpage using a local server. We will first create a a local web-server in our machine. Through this web-server we will create a simple web page with button that interact with the bulb.
 
 ---
 
