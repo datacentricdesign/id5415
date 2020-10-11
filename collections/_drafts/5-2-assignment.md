@@ -29,10 +29,12 @@ computational_concepts:
 !['Open Weather API'](/assets/img/courses/id5415/module5/assignment/1_1.png)
 
 capabilities
-current weather
+
+API key
+
+current weather in the web browser
 
 ## Task 1.2 Get Current Weather
-
 
 >It's time to open VS Code and load the virtual environment in the Terminal.
 
@@ -119,163 +121,178 @@ print(cloudiness)
 
 You can use this approach to extract values out of the weather result and control the lightbulb. For example, these values could be used for controlling the brightness or the number/duration of the blink function.
 
-# Step 2 Web Server
+# Step 2 Blink from a smartphone
 
-In the first step, we consumed a web service by sending an HTTP request to the Open Weather server and parsing the result. In this step we will offer our own web service by running a web server.
+In the first step, we 'consumed' a web service by sending an HTTP request to the Open Weather server and extracting values from the response. In this step, we will offer our web service by running a web server. Like we get the weather, we will be able to control our lightbulb from the web browser of any device on the local network. This will allow us to look 'behind the curtain', and see how a Python program can expose its functions as a web service.
 
-# Step 1: Configuring Webserver
+## Task 2.1 Install Flask package 
 
-## Task 1.1 Installing Flask Web-server
-
-To create the web-server, we will use a python web-server model called [Flask](https://palletsprojects.com/p/flask/).
-
-Like other Python library, you can install this web-server module using pip. In your VS Code terminal activate the virtual environment and type in:
+In Python, Flask is a popular package to create a web server in a few lines. Documentation of this project is available [here](https://palletsprojects.com/p/flask/). Like other Python packages, we need to install Flask using pip. In your VS Code Terminal, activate the virtual environment and type in:
 
 ```bash
 python -m pip install Flask
 ```
 
-## Task 1.2 Configuring the REST API
+## Task 2.2 Hello, World!
 
-TODO A little bit information about what is REST API
+Now that we have installed Flask, let's implement a REST API that responds 'Hello, World!'.
 
-Now that we have webserver module installed, let's implement a simple REST API.
-
-First create a new folder `web` inside `src` folder of your project. Then, create a file `server.py` and insert the following line of python code:
+First, we create a new directory `web` inside `src` directory of our project. Then, we create a file `server.py` and insert the following Python code:
 
 ```python
+# import the class Flask from the flask package
 from flask import Flask
+# create a Flask object: a web application
 app = Flask(__name__)
 
+# Flask use annotations (starting with the at '@') to connect a URL to a function.
+# Here we tells Python to execute hello_world() each time the URL / is called.
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
 
+# This if condition is equivalent to the main() function.
+# We tells Python to start our web application.
 if __name__ == '__main__':
     app.run()
 ```
 
-This code import the flask library and create an `app`, a typical name to refer to the web application you start building.
+This code imports the flask package and creates a web application `app`, an instance of the class Flask. `app` is a typical name to refer to the web application. Note, there is no difference between 'web service' and 'web application' in this context.
 
 The line starting with `@` is an annotation, used to complement the code. In this context, we specify a web path, the root '/', to trigger the function `hello_world()` right bellow.
 
-Finally, the script define the `main`, where the programme start. In this case `run` our `app`, meaning we start the web server.
+Finally, the script defines the `main`, where the programme starts. In this case `run` our `app`, meaning we start the webserver.
 
-In the terminal, execute the Python file to start the web server:
+In the Terminal, we can now execute the Python file to start the webserver:
 
 ```bash
-python3 web/server.py
+python src/web/server.py
 ```
 
-You will see that server has been started.
+The result should look as follows, indicating that the webserver started and 'listen' on the port '5000'. It means that it is ready to serve request on the port.
 
 ![Flask Server Start](/assets/img/courses/id5415/module5/assignment/flask_start.png)
 
-Open a web browser and type in: http://localhost:5000/
+Let's verify this. We can open a web browser and type in: [http://localhost:5000/](http://localhost:5000/). Note in this URL:
+* the hostname is `localhost` (or local IP address `127.0.0.1`), only accessible from the machine our machine (on which we run the webserver)
+* the port is `5000`, as indicated in the Terminal
+* the path is `/`, this is the path associated with our hello_world function
 
-You should see appear a 'Hello world' on the web page. This is the result of the hello_world function. In VS Code, in the `hello_world` function, you can change the message. Then, in the terminal, stop the server (Ctrl+C) and execute your script again (Arrow up + Enter). Back in the web browser, refreshing the page should display your new message.
+In the web browser, we should see appear a 'Hello world' on the web page. This is the result of the hello_world function. In VS Code, in the `hello_world()` function, we can change the message. As we changed the code, we need to stop and restart our Python programme. In the Terminal, stop the server (Ctrl+C) and execute your script again (Arrow up + Enter). Back in the web browser, refreshing the page should display your new message.
 
-## Task 1.3 Create Simple webpage
+## Task 2.3 Access from the local network
 
-So far we have written a piec of code that is running on the server side and directly printing a `Hello World` message. NowLet's try to create a simple webpage with button that print the `hello world` message
-
-first inside the `web` folder, create another two folders called `static` and `templates`. Inside templates, create an html file called `index.html`.
-
-Copy the following line of HTML code inside the file:
-
-TODO clicking button should print light bulb details
-
-```html
-<html>
-  <head>
-    <title>My lightbulb app</title>
-
-    <script
-      src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"
-      integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I="
-      crossorigin="anonymous"
-    ></script>
-    <script type="text/javascript" charset="utf-8">
-      var socket = io();
-      socket.on('connect', function () {
-        // socket.emit('json', {data: 'I\'m connected!'});
-      });
-
-      socket.on('json', function (msg, cb) {
-        if (msg.data !== undefined) {
-          gauge1.update(msg.data);
-        }
-      });
-
-      function sendMessage(message) {
-        socket.emit('json', { data: NewValue() });
-      }
-    </script>
-  </head>
-  <body>
-    <h1>My lighbulb App</h1>
-    <button onclick="sendMessage('Hello World!')">Click!</button>
-  </body>
-</html>
-```
-
-Now go to `server.py` and add replace:
-
-```python
-@app.route('/')
-def hello_world():
-    return 'Hello, World!'
-```
-
-with the following function:
-
-```python
-@app.route('/')
-def home():
-    return render_template('index.html')
-```
-
-Restart the server by running `server.py` again and refresh the page on your browser. You will see a that the webpage we have created with title and button has been rendered in our brwoser.
-
-## Task 1.4 External Access of the server
-
-For now, this web page is only accessible from your computer. In your `server.py`, at the bottom, you can provide a parameter `host='0.0.0.0` to the run function to remove this constraint:
+For now, this web service is accessible only from our machine, using the hostname 'localhost'. This is useful for development, but defeat the purpose of a 'web service' accessible from the network. In our `server.py`, at the bottom, we can provide a parameter `host='0.0.0.0` to `run()`. This means that our webserver will accept incoming requests from any IP address on the network.
 
 ```python
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
 ```
 
-This means that your server will accept incoming request from any source e.g mobile, tablet connected to the same network. However you need to know the ip address of your current machine that is hosting this server.
+However, we need to know the IP address of the machine that is hosting this server. We can look up our IP address with the following commands, depending on the operating system:
 
-You can look up your ip address with the command
-
-**Mac/Linux**
+**Mac**
 
 ```bash
-ipconfig getifaddr en0`
+ipconfig getifaddr en0
 ```
 
 **Windows**
 
-Type below command in command prompt and look for `IPv4 Address. . . . . . . . . . . : 192.*.*.*`
+Type in the following command and look for `IPv4 Address. . . . . . . . . . . : 192.*.*.*`
 
 ```bash
 ipconfig
 ```
 
-Once you have the local ip address of your machine, use a phone or other computer connected and type this local ip address of your machine. You will see a webpage with title and button has been rendered.
+**Raspberry Pi**
+
+Type in the following command and look for `inet 192.*.*.*`
+
+```bash
+ifconfig wlan0
+```
+
+Once we have the local IP address of our machine, we can use a phone or other computer connected to the same network, open a web browser and type in `http://IP_ADDRESS:5000/`. We should see the message returned by our `hello_world()` function.
 
 **Note:** On some platform you might also need to disable/create a rule for your Firewall.
 
 For information, [Fullstack](https://www.fullstackpython.com/flask.html) provides some useful information to go further.
 
-# Step 2: Code a REST API
 
-TODO Share sensor data, control light bulb
+## Task 2.4 Control the lightbulb
 
-So far we have created REST Api as the default action that will print the hello world message. However, a RESTFul API can include more than that. Here is an informative link: [REST API](https://www.restapitutorial.com).
+We are now ready to connect our lightbulb code to our webserver so that we can trigger the lightbulb function (e.g. `blink()`) directly from the web. Let's first import the lightbulb code and the asyncio package.
 
-TODO Code for therest api in our light-bulb context
+```python
+from light import Lightbulb
+import asyncio
+```
 
-TODO function to retrieve the lightbulb details when click on html button
+After the import statements, we need to get our lightbulb IP address, thing id and private key path from the .env file. 
+
+```python
+# Loading environment variables from the .env file
+from dotenv import load_dotenv
+import os
+load_dotenv()
+
+LIGHTBULB_IP_ADDRESS = os.getenv("LIGHTBULB_IP_ADDRESS", None)
+THING_ID = os.getenv("THING_ID", None)
+PRIVATE_KEY_PATH = os.getenv("PRIVATE_KEY_PATH", None)
+light = Lightbulb(LIGHTBULB_IP_ADDRESS, THING_ID, PRIVATE_KEY_PATH)
+```
+
+In `main()`, we need to connect to the lightbulb, before exposing the web service.
+
+```python
+if __name__ == "__main__":
+    asyncio.run(light.connect())
+    app.run(host='0.0.0.0')
+```
+
+Finally, the whole purpose of this work is to expose the method `blink()` from the lightbulb. Below our 'hello world' endpoint, we create a new endpoint `/blink` which call the `light.blink()`, then respond to the client.
+
+```python
+@app.route('/blink')
+def blink():
+    asyncio.run(light.blink())
+    return {"message": "Done blinking."}
+```
+
+**Note**: instead of directly returning a string, we return a dictionary with a key `message`.  This way, we can structure our response like the Open Weather web service, making it easier to read for machine consuming our service.
+
+## Task 2.5 Set Parameters
+
+To set the optional parameters of our blink function, namely the number of iteration and the duration of each blink, we can use the request object provided with Flask. Let's import it as we import Flask.
+
+```python
+from flask import Flask, request
+```
+
+Then, we can transform our `/blink` endpoint as follows.
+
+```python
+@app.route('/blink')
+def blink():
+    # get the dictionary of parameters
+    args = request.args
+    # we can print them, out of curiosity, for debugging purpose
+    print(args)
+    # set default parameters, in case there are not provided
+    num_iterations = 10
+    blink_duration = 1
+    # check if 'iterations' was provided, if it is we need to convert the string value into a number (int)
+    if "iterations" in args:
+        num_iterations = int(args["iterations"])
+        print(num_iterations)
+    # check if 'duration' was provided, if it is we need to convert the string value into a number (int)
+    if "duration" in args:
+        blink_duration = int(args["duration"])
+        print(blink_duration)
+    # call blink() with the provided parameters
+    asyncio.run(light.blink(num_iterations, blink_duration))
+    return {"message": "Done blinking."}
+```
+
+In the web browser, we can now try: [http://localhost:5000/blink?iterations=6&duration=7](http://localhost:5000/blink?iterations=6&duration=7)
