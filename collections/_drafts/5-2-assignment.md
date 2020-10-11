@@ -14,30 +14,132 @@ computational_concepts:
 
 ## Assignment 5 focuses on implementing a functionlity to interact with the lightbulb from a webpage using a local server. We will first create a a local web-server in our machine. Through this web-server we will create a simple web page with button that interact with the bulb.
 
+---
+
 - Do not remove this line (it will not be displayed)
-  {:toc}
+{:toc}
 
 ---
 
-TODO full assignment
+
+# Step 1 Weather Web Service
+
+## Task 1.1 Open Weather API
+
+!['Open Weather API'](/assets/img/courses/id5415/module5/assignment/1_1.png)
+
+capabilities
+current weather
+
+## Task 1.2 Get Current Weather
+
+
+>It's time to open VS Code and load the virtual environment in the Terminal.
+
+Let's create a new file `weather.py` with the following code.
+
+```python
+# Python package to excute an HTTP request
+import requests
+
+# Loading environment variables from the .env file
+from dotenv import load_dotenv
+import os
+load_dotenv()
+
+OPEN_WEATHER_API_KEY = os.getenv("OPEN_WEATHER_API_KEY", None)
+
+# the url of the weather API we want to request
+url = "https://api.openweathermap.org/data/2.5/weather"
+# 
+querystring = {"appid": OPEN_WEATHER_API_KEY,"q":"Delft,nl"}
+response = requests.request("GET", url, params=querystring)
+print(response.text)
+```
+
+In this code, we import the `requests` package which we use to execute an HTTP request. We will need first to install the package `request`.
+
+```bash
+pip install requests
+```
+
+Then, we load the API key from the .env file. For this to work, we need to add our Open Weather API key in the `.env` file.
+
+```bash
+OPEN_WEATHER_API_KEY=[REPLACE WITH YOUR KEY]
+```
+
+We set the variable `url` with the URL of the weather service, as specified in the [API documentation](https://openweathermap.org/current)
+
+!['API Documentation Current Weather'](/assets/img/courses/id5415/module5/assignment/1_2_1.png)
+
+We can see in the documentation that a few parameters are required: `appid` (our api key) and `q` (location we are interested in). We use the variable `querystring` to put this information in a dictionary. Finally, send the request with the URL and the querystring as 'params'. Not the 'verb' of the HTTP request `GET`, as we want to 'get' data from the web service.
+
+We can now execute the code to get the current weather.
+
+```python
+python src/weather.py
+```
+
+The result should look like this:
+
+![Raw result of weather data](/assets/img/courses/id5415/module5/assignment/1_2_2.png)
+
+## Task 1.3 Format JSON
+
+The weather web service sends us data as JSON format. We can make the result more readable with the JSON package (to import at the to of the file). We use `json.loads()` to read the response as a JSON structure, then `json.dumps()` to print this structure. Note the `indent` parameter which makes the whole structure more readable by indenting each sub key/value set.
+
+```python
+import json
+
+# ...
+
+json_result = json.loads(response.text)
+print(json.dumps(json_result, indent=4))
+```
+
+## Task 1.4 Request parameters
+
+We can now read through the keys and values of the result. The temperature `temp`, `temp_max` and `temp_min`, we note that the unit is not degrees. The weather report is in English. Looking back at the [API documentation](https://openweathermap.org/current), there are parameters `units` and `lang` to tune this information. You can add these option to your `querystring` dictionary and observe the change in the request result.
+
+!['API Documentation Parameters'](/assets/img/courses/id5415/module5/assignment/1_4.png)
+
+## Task 1.5 Extract values
+
+Similarly to the lightbulb result in Module 2, we need to extract values from this structure to use them as a control of the lightbulb.
+
+Extracting the cloudiness would look like this, first reading the value of the key 'clouds', then inside this value, looking for the key 'all'.
+
+```python
+cloudiness = json_result["clouds"]["all"]
+print(cloudiness)
+```
+
+## Task 1.6 Control the lightbulb
+
+You can use this approach to extract values out of the weather result and control the lightbulb. For example, these values could be used for controlling the brightness or the number/duration of the blink function.
+
+# Step 2 Web Server
+
+In the first step, we consumed a web service by sending an HTTP request to the Open Weather server and parsing the result. In this step we will offer our own web service by running a web server.
 
 # Step 1: Configuring Webserver
 
 ## Task 1.1 Installing Flask Web-server
 
-To create the web-server, we will use a python web-server moudel callled [Flask](https://palletsprojects.com/p/flask/).
+To create the web-server, we will use a python web-server model called [Flask](https://palletsprojects.com/p/flask/).
 
-Like other Python library, you can install this web-server modle using pip. In your VS Code terminal activate the virtual environment and type in:
+Like other Python library, you can install this web-server module using pip. In your VS Code terminal activate the virtual environment and type in:
 
 ```bash
 python -m pip install Flask
 ```
 
-## Task 1.2 Configuring the Rest API
+## Task 1.2 Configuring the REST API
 
 TODO A little bit information about what is REST API
 
-Now that we have webserver moudule installed, let's implement a simple REST API.
+Now that we have webserver module installed, let's implement a simple REST API.
 
 First create a new folder `web` inside `src` folder of your project. Then, create a file `server.py` and insert the following line of python code:
 
@@ -67,7 +169,7 @@ python3 web/server.py
 
 You will see that server has been started.
 
-![Flask Server Start](../../assets/img/courses/id5415/module5/assignment/flask_start.png)
+![Flask Server Start](/assets/img/courses/id5415/module5/assignment/flask_start.png)
 
 Open a web browser and type in: http://localhost:5000/
 
