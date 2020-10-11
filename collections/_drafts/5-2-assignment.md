@@ -24,15 +24,19 @@ computational_concepts:
 
 # Step 1 Weather Web Service
 
+In this first step, we will get a feeling of what a web service is by consuming the Open Server web service.
+
 ## Task 1.1 Open Weather API
+
+Open the Open Weather home page in your web browser: [https://openweathermap.org/](https://openweathermap.org/)
+
+Then, sign up in the top right corner.
 
 !['Open Weather API'](/assets/img/courses/id5415/module5/assignment/1_1.png)
 
-capabilities
+Once you confirmed your email, you can find your API key here: [https://home.openweathermap.org/api_keys](https://home.openweathermap.org/api_keys).
 
-API key
-
-current weather in the web browser
+In this step, we will focus on the 'current weather' API of the Open Wether web service.
 
 ## Task 1.2 Get Current Weather
 
@@ -169,7 +173,7 @@ In the Terminal, we can now execute the Python file to start the webserver:
 python src/web/server.py
 ```
 
-The result should look as follows, indicating that the webserver started and 'listen' on the port '5000'. It means that it is ready to serve request on the port.
+The result should look as follows, indicating that the webserver started and 'listen' on the port '5000'. It means that it is ready to serve the request on the port.
 
 ![Flask Server Start](/assets/img/courses/id5415/module5/assignment/flask_start.png)
 
