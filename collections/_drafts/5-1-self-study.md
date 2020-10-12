@@ -1,6 +1,6 @@
 ---
 layout: course-page
-title: "Web protocols"
+title: "APIs and the Web"
 permalink: /draft/module5/self-study
 description: "Prototyping Connected Product - Self-Study 5"
 self-study-id: 5
