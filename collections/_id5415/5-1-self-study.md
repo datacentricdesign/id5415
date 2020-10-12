@@ -20,21 +20,21 @@ introduction: In this module, the self-study material focus on web technology. W
 
 <span class="mdi mdi-text-box-outline"></span> Reading (10 minutes)
 
-For a connected device, the way it will __connect__ and interact with other devices is fundamental. Its specification falls into the responsibility of the designer, as it exposes functionalities of the connected product.
+For a connected device, the way it __connects__ and interacts with other devices is fundamental. Its specification falls into the responsibility of the designer, as it exposes functionalities of the connected product.
 
-This exposure is called `API` (for Application Programming Interface). An API defines how other devices can interact with our device through code. It is a machine-to-machine interaction. These interfaces exist throughout the code we write. It is an abstraction, as we use only what is exposed. An example of APIs we already used in this course are functions. Other parts of the code use our Python function such as `blink()` or `save_in_file()`. They expose functionalities of our software controlled by code, e.g. __Programming Interface__. At the same time, they hide all details of how they achieve the functionalities: to use a function we do not need to know how it is implemented.
+This exposure is called `API` (for Application Programming Interface). An API defines how other devices can interact with our device through code. It is a machine-to-machine interaction. These interfaces exist throughout the code we write. It is an abstraction: as users of an API, we only use what is exposed. An example of APIs we already used in this course are functions. Other parts of the code use our Python function such as `blink()` or `save_in_file()`. They expose functionalities of our software controlled by code, e.g. __Programming Interface__. At the same time, they hide all details of how they achieve the functionalities: to use a function we do not need to know how it is implemented.
 
-Across devices, APIs expose services of our connected product over the network. In this context, APIs also bridge the gap between software implemented in different languages. For example, our Python code can interact with Bucket implemented in JavaScript. It can also interact with the connected lightbulb without knowing which programming language it uses.
+Across devices, APIs expose services of our connected product over the network. In this context, APIs also bridge the gap between software implemented in different languages. For example, our Python code can interact with Bucket, which is implemented in `JavaScript` language. It can also interact with the connected lightbulb without knowing which programming language it uses.
 
-APIs define what functionalities of your connected product are exposed and how. Their specification falls into the responsibility of the designer.
+APIs define what functionalities of our connected product are exposed and how. Their specification falls into the responsibility of the designer.
 
 # Web services
 
 <span class="mdi mdi-text-box-outline"></span> Reading (10 minutes)
 
-`The Internet` is the global network of machines as we described it in the previous Module. This Internet Protocol (IP) and its underlying infrastructure allows for all applications we know to interact globally, from web browsing to email, video streaming or instant messaging. In contrast, the World Wide Web or `web` is one way of exchanging information over the Internet. It is the way our web browser is retrieving web pages.
+`The Internet` is the global network of machines as we described it in the previous Module. This Internet Protocol (IP) and its underlying infrastructure allows all applications we know to interact globally, from web browsing to email, video streaming or instant messaging. In contrast, the World Wide Web or `web` is one way of exchanging information over the Internet. It is the way our web browser is retrieving web pages.
 
-The web relies on the Hypertext Transfer Protocol (`HTTP`). What makes a text `hyper`? Any text meant to be displayed on an electronic device with links to other content: forming a web of information. A fundamental element of HTTP is the system of `URL` (for Uniform Resource Locator), the protocol that defines how these links to further hypertexts should be. At the top of your web browser, you can see the URL of the current page of this course:
+The web relies on the Hypertext Transfer Protocol (`HTTP`). What makes a text `hyper`? Any text meant to be displayed on an electronic device with links to other content: forming a web of information. A fundamental element of HTTP is the system of `URL` (for Uniform Resource Locator), the protocol that defines how they link to further hypertexts. As an example, at the top of your web browser, you can see the URL of the current page of this course:
 
 `https://id5415.datacentricdesign.org:443/module5/self-study`
 
@@ -45,7 +45,7 @@ The web relies on the Hypertext Transfer Protocol (`HTTP`). What makes a text `h
 
 How does it relate to connected products? The web turned out to be a powerful way to link resources over the Internet. A `web service` is leveraging this approach, like our web browser load web pages, to expose a set of APIs offered over the `web`. Web pages and web services rely on the same protocols and technologies. The only difference is that the page is meant to be consumed by humans and the services are meant to be consumed by machines.
 
-**Note**: In this course, we focus on APIs exposed through web services, thus across the web. However, there are APIs defined on each device that talks to other devices. You mind want to look at GATT services are if you are interested in the interaction between Bluetooth devices.
+**Note**: In this course, we focus on APIs exposed through web services, thus across the web. However, there are APIs defined on each device that talks to other devices. You might want to look at GATT services are if you are interested in the interaction between Bluetooth devices.
 
 # HTTP Request
 
