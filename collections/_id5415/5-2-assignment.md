@@ -144,7 +144,7 @@ python -m pip install Flask
 
 Now that we have installed Flask, let's implement a REST API that responds 'Hello, World!'.
 
-To do that, first we create a file `server.py` inside our `src` directory and insert the following Python code:
+To do that, we create a file `server.py` inside our `src` directory and insert the following Python code:
 
 ```python
 # import the class Flask from the flask package
@@ -175,7 +175,7 @@ Finally, the script defines the `main`, where the programme starts. In this case
 In the Terminal, we can now execute the Python file to start the webserver:
 
 ```bash
-python src/web/server.py
+python src/server.py
 ```
 
 The result should look as follows, indicating that the webserver started and 'listen' on the port '5000'. It means that it is ready to serve the request on the port.

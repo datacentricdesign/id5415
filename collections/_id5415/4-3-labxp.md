@@ -73,7 +73,7 @@ However, on Mac and Raspberry Pi, you need to execute your code with as administ
 For this, add `sudo` in front of your command:
 
 ```bash
-sudo python scr/main.py
+sudo python src/main.py
 ```
 
 **Note:** Make sure that your phone is connected to the same network as your lightbulb and current machine.
