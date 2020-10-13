@@ -8,9 +8,9 @@ layout: null
             <loc>{{ page.url | prepend: site.baseurl | prepend: site.url }}</loc>
         </url>
     {% endfor %}
-    {% for post in site.posts %}
+    {% for page in site.id5415 %}
         <url>
-            <loc>{{ post.url | prepend: site.baseurl | prepend: site.url }}</loc>
+            <loc>{{ page.url | prepend: site.baseurl | prepend: site.url }}</loc>
         </url>
   {% endfor %}
 </urlset>
