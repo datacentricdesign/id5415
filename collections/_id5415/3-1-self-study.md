@@ -95,8 +95,14 @@ When we write code, we want to avoid allow possible errors. You already noticed 
 
 However, some errors can not be avoided when writing the code. Writing data into a file which is not existing, reading data from an unresponsive sensor, losing the network connection. These are all examples in which the code can be correct but the program still crashes because things did not go as planned. We call `Exceptions` these errors taking place during the execution of a programme.
 
-In the context of prototyping connected products, it is an important concept because our programme deals with hardware input and output as well as network interactions. To ensure that our programme continues running regardless of these errors, we need to 'handle these exceptions'. Regardless the programming language, exception handling includes 3 steps:
+In the context of prototyping connected products, it is an important concept because our programme deals with hardware input and output as well as network interactions. To ensure that our programme continues running regardless of these errors, we need to 'handle these exceptions'. Regardless, the programming language, exception handling includes 3 steps:
 
 * We 'try' to execute a piece: typically our sensor reading or network interaction. With this 'try', we tell the programme that we are aware things could go wrong.
 * We the behaviour of our programme if the code does not get executed as planned. For example, we could decide to ignore the issue and continue or we could try again.
 * We do some housekeeping action at the end, whether it worked or not, such as closing a file or a connection.
+
+# Quiz
+
+Check your understanding with the following quiz! It is anonymous and you can try as many times as you want!
+
+<iframe width="640px" height= "600px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=TVJuCSlpMECM04q0LeCIe-EN8Fz6eUZIqbayPT_HeNhUMTIzN1M2QzNNUVhFOElYMThFSkFYOUtTTy4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
