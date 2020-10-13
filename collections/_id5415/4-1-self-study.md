@@ -126,3 +126,9 @@ What are the key advantages of this mechanism?
 * it makes the code more dynamic. Without changing the code, one to many actions can be triggered out of an event.
 
 Is there a link with Python async/await keywords? Both are dealing with the challenge of letting an action being performed and coming back to it once it has been completed. In the course, each time we call a function that controls the lightbulb, the program is reaching out to the lightbulb over the network. A `callback` is called when the response from the lightbulb arrived. `async` tells Python that the function we call involves this mechanism. `await` tells Python that we want to wait until the results come back. It enables Python to manage the callback for us, returning the result of the request as the result of a 'normal' function instead of calling a dedicated callback function.
+
+# Quiz
+
+Check your understanding with the following quiz! It is anonymous and you can try as many times as you want!
+
+<iframe width="640px" height= "600px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=TVJuCSlpMECM04q0LeCIe-EN8Fz6eUZIqbayPT_HeNhUOEg1TFFMRDMyVkVBSEExTDRCRlFNN1JKWi4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
