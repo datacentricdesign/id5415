@@ -64,6 +64,13 @@ In the settings of your thing, check if you can see all three properties listed 
 
 Back to VS Code and Python, let's load the virtual environment.
 
+As we updated our SDK, you will also need to uninstall and reinstall it.
+
+```bash
+pip uninstall dcd-sdk
+pip install dcd-sdk
+```
+
 For this lab experiment, we can create a file `shared_property_handler.py` with the following code:
 
 ```python
