@@ -56,7 +56,7 @@ On Bucket, in the top-right corner, click on the user icon > Profile Settings.
 
 ![User Profile Setting](../../assets/img/courses/id5415/module5/labxp/2.1.0.png)
 
-You will be prompted to sign in for the management page of your DCD account. As we have already a bucket account, page will give you the link to go to the account management paget.
+You will be prompted to sign in for the management page of your DCD account. As we have already a bucket account, page will give you the link to go to the account management page.
 
 ![Link to account mamangement page](../../assets/img/courses/id5415/module5/labxp/2.1.1.png)
 
@@ -95,7 +95,7 @@ In the settings of your thing, check if you can see all three properties listed 
 
 Back to VS Code and Python, let's load the virtual environment.
 
-As we updated our SDK, you will also need to uninstall and reinstall it.
+As we updated our SDK, you will also need to uninstall and reinstall it in your machine and Pi venv folder both.
 
 ```bash
 pip uninstall dcd-sdk
