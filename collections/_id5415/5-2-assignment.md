@@ -15,7 +15,7 @@ computational_concepts:
 ---
 
 - Do not remove this line (it will not be displayed)
-{:toc}
+  {:toc}
 
 ---
 
@@ -101,7 +101,7 @@ json_result = json.loads(response.text)
 print(json.dumps(json_result, indent=4))
 ```
 
-You will see that this time the result will be an disctionary of `key:value` in an Json-array fromat.
+You will see that this time the result will be an dictionary of `key:value` in an Json-array fromat.
 
 **Tip** Read more about [JSON Array] (https://www.javatpoint.com/json-array)
 
@@ -168,7 +168,7 @@ This code imports the flask package and creates a web application `app`, an inst
 
 **Note:** there is no difference between 'web service' and 'web application' in this context.
 
-The line starting with `@` is an annotation, used to complement the code. In this context, we specify a web path, the root '/', to trigger the function `hello_world()` right bellow.
+The line starting with `@` is an annotation, used to complement the code. In this context, we specify a web path, the root '/', to trigger the function `hello_world()` right below.
 
 Finally, the script defines the `main`, where the programme starts. In this case `run` our `app`, meaning we start the webserver.
 

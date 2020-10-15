@@ -1,8 +1,8 @@
 ---
 layout: course-page
-title: "User Interaction"
+title: 'User Interaction'
 permalink: /draft/module5/labxp
-description: "Prototyping Connected Products - Lab Experiment 5"
+description: 'Prototyping Connected Products - Lab Experiment 5'
 labxp-of: id5415-5
 introduction: In this Lab Experiment,
 technique:
@@ -10,18 +10,32 @@ metrics:
 report:
 ---
 
-Some intro
+In this Lab experiment, Step1 would be designing & explaining a proper webservice and specify which HTTP protocol would be appropriate for each of the API call. In step 2, we will see how to connect to someone else THING in your group and retrive the information uisng MQTT server.
 
 ---
 
-* Do not remove this line (it will not be displayed)
-{:toc}
+- Do not remove this line (it will not be displayed)
+  {:toc}
 
 ---
 
 TODO full Lab XP
 
+# Step 1 Design a Web-Service
 
+In [Assignment 5](https://id5415.datacentricdesign.org/module5/assignment), we have created a web-service with local webserver and implemented an API call to the `blink()` method of the lightbulb class. Using this we have learnt to control our lightbulb (calling particular method from lgihtbulb class) from any devices that connected to the same network.
+
+Now that we have web server working, the next task for you in this LabXP is:
+
+- Explain the system architechture of the current lightbulb system, with all the classes together.
+- Specify different API calls for web-server to use each of the fucntionality provided by these classes. e.g. API call to blink method in lightbulb class.
+- Explain why this API is necessary to implement
+- Read abou the different HTTP protocol and expalin how will you use this in your API calls. E.g to get the current value of sensor we should use `GET` request method.
+- Think about the services that can have privacy issue, explain which are are those and how would you prevent/exclude that from your API calls.
+
+In your API calls, you can add as many functionality as you want besides the current functions you have implemented.
+
+**NOTE**You do not have to implement the API calls neither code it, but only need to explain which API would be useful and how it will connect to over all system together.
 
 # Step 2 Connect Homes via MQTT
 
@@ -86,7 +100,7 @@ def main():
     # Show a message if we did no find any shared properties
     if len(shared_properties) == 0:
         print("No shared property found.")
-        
+
     for prop in shared_properties:
         # Show each property found
         prop.describe()
@@ -98,7 +112,6 @@ if __name__ == "__main__":
 In this code, we create our Thing object and use its methods find_shared_properties().
 
 Execute this code to check if the property sharing worked as intended. You should see a list of three properties.
-
 
 ## Task 2.4 Subscribe to updates
 
@@ -133,7 +146,7 @@ From here, there are three tasks to be done:
 1. Filter out our own properties and properties that are not of type LIGTHBULB_STATUS. We do not want to listen to our own updates, even though our property is shared in this group.
 2. Build the MQTT topic as described in the first Task, composed of /things/[thing id]/properties/[property id]
 3. Set a handler, with the same principle as our sensor or network handler, we want to define what to do when we receive an update from the team members' lightbulb.
-4. Subscribe to the MQTT topic  so that we start receiving updates.
+4. Subscribe to the MQTT topic so that we start receiving updates.
 
 These translate in the following lines of code to add to our for-loop (to be done for each shared property)
 
