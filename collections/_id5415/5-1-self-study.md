@@ -6,6 +6,10 @@ description: "Prototyping Connected Product - Self-Study 5"
 self-study-id: 5
 self-study-of: id5415-5
 tags:
+- API
+- Web Services
+- HTTP
+- REST
 introduction: In this module, the self-study material focus on web technology. We will explore web services and how they leverage the world wide web. Diving in the technology, we will introduce HTTP and the REST APIs.
 ---
 
