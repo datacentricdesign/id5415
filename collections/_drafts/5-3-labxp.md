@@ -147,24 +147,24 @@ However, for both security and privacy reasons, we can only publish and subscrib
 
 On Bucket, in the top-right corner, click on the user icon > Profile Settings.
 
-![User Profile Setting](../../assets/img/courses/id5415/module5/labxp/2.1.0.png)
+![User Profile Setting](/assets/img/courses/id5415/module5/labxp/2.1.0.png)
 
 You will be prompted to sign in for the management page of your DCD account. As we have already a bucket account, page will give you the link to go to the account management page.
 
-![Link to account mamangement page](../../assets/img/courses/id5415/module5/labxp/2.1.1.png)
+![Link to account mamangement page](/assets/img/courses/id5415/module5/labxp/2.1.1.png)
 
 In the left panel, select 'Groups'. On the page, you should see a list of groups that you are in, namely 'public' and 'user', giving you access to all things that are shared publicly or to regular users (as opposed to 'administrator').
 
-![Group mamangement page](../../assets/img/courses/id5415/module5/labxp/2.1.2.png)
+![Group mamangement page](/assets/img/courses/id5415/module5/labxp/2.1.2.png)
 
 Below this list, in the group management field, enter the name of a new group (avoid spaces or special characters). Then, click the green button 'Create a new group'.
-![Create a new group](../../assets/img/courses/id5415/module5/labxp/2.1.3.png)
+![Create a new group](/assets/img/courses/id5415/module5/labxp/2.1.3.png)
 
 The group should appear in the list of groups you are in, as well as a setting card with the option to add members to this group. The creator of the group is automatically added to this group and the only one who can see the setting card for this group.
-![Create a new group](../../assets/img/courses/id5415/module5/labxp/2.1.4.png)
+![Create a new group](/assets/img/courses/id5415/module5/labxp/2.1.4.png)
 On this setting card, select 'Thing' in the dropdown menu, and paste the thing ID of your lightbulb. Click on the blue button 'Add to group'. Repeat this process with the Thing ID of your teammates' lightbulb.
 
-![List of shared things](../../assets/img/courses/id5415/module5/labxp/2.1.5.png)
+![List of shared things](/assets/img/courses/id5415/module5/labxp/2.1.5.png)
 
 At this stage, we still do not share any properties. We have a group of Things, making it easier to share properties with all members of that group.
 
@@ -174,15 +174,15 @@ Now, each team member can go back to Bucket and the Lightbulb Thing they associa
 
 In the sharing settings of this property, enter the name of your group, select 'group' in the dropdown menu and click 'Grant'. This should add the group to the list of granted subjects with 'read' access.
 
-![Add group name in sharing settings](../../assets/img/courses/id5415/module5/labxp/2.2.0.png)
+![Add group name in sharing settings](/assets/img/courses/id5415/module5/labxp/2.2.0.png)
 
 All things in the group should be able to access the data of this property now.
 
-![list of groups this property is shared with](../../assets/img/courses/id5415/module5/labxp/2.2.1.png)
+![list of groups this property is shared with](/assets/img/courses/id5415/module5/labxp/2.2.1.png)
 
 In the settings of your thing, check if you can see all three properties listed in the card 'Property Accesses'.
 
-![List of property allowed to access by thing](../../assets/img/courses/id5415/module5/labxp/2.2.2.png)
+![List of property allowed to access by thing](/assets/img/courses/id5415/module5/labxp/2.2.2.png)
 
 ## Task 2.3 Search for shared properties
 
