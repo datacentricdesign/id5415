@@ -1,41 +1,134 @@
 ---
 layout: course-page
 title: 'User Interaction'
-permalink: /draft/module5/labxp
+permalink: /module5/labxp
 description: 'Prototyping Connected Products - Lab Experiment 5'
 labxp-of: id5415-5
-introduction: In this Lab Experiment,
+introduction: In this Lab Experiment, Step 1 will walk you through the specification of a REST API for your connected product. In step 2, we will see how to listen to the data updates of someone else's THING in your team via MQTT, realising the concept of the Good Night Lamp.
 technique:
 metrics:
 report:
 ---
 
-In this Lab experiment, Step1 would be designing & explaining a proper webservice and specify which HTTP protocol would be appropriate for each of the API call. In step 2, we will see how to connect to someone else THING in your group and retrive the information uisng MQTT server.
-
 ---
 
 - Do not remove this line (it will not be displayed)
-  {:toc}
+{:toc}
 
 ---
 
-TODO full Lab XP
+# Step 1 Design a REST API
 
-# Step 1 Design a Web-Service
+In [Assignment 5](/module5/assignment), we have created a web service with a webserver running on the Raspberry Pi. We implemented an endpoint `/blink` to expose the `blink()` method of the Lightbulb class. This demonstrates how to control our lightbulb via the HTTP from the network.
 
-In [Assignment 5](https://id5415.datacentricdesign.org/module5/assignment), we have created a web-service with local webserver and implemented an API call to the `blink()` method of the lightbulb class. Using this we have learnt to control our lightbulb (calling particular method from lgihtbulb class) from any devices that connected to the same network.
+This process has two main purposes:
 
-Now that we have web server working, the next task for you in this LabXP is:
+* it exposes the functionalities of your connected product to the network. You can then envision web or mobile apps and other devices of your concept to interact with each other.
+* it opens opportunities for developers to implement interaction with your connected product. In the home context, smart speakers and thermostats are typical devices that offer APIs to get information from them or send information to them.
 
-- Explain the system architechture of the current lightbulb system, with all the classes together.
-- Specify different API calls for web-server to use each of the fucntionality provided by these classes. e.g. API call to blink method in lightbulb class.
-- Explain why this API is necessary to implement
-- Read abou the different HTTP protocol and expalin how will you use this in your API calls. E.g to get the current value of sensor we should use `GET` request method.
-- Think about the services that can have privacy issue, explain which are are those and how would you prevent/exclude that from your API calls.
+In this first step, we will specify the why, what, who and how of our connected product. We will use the [OpenAPI specification](https://www.openapis.org/). As an example of REST API specification, you can look at the [Swagger Editor demo](https://editor.swagger.io/) which gives an example of a Petstore API.
 
-In your API calls, you can add as many functionality as you want besides the current functions you have implemented.
+You will notice in the Swagger Editor the buttons in the top menu 'Generate Server' and 'Generate Client'. Indeed, based on a precise specification, it is possible to automatically generate the code of a server (running on the Raspberry Pi) and examples of clients code connecting to this server. It shows that as a designer you can play a major role in the exposure of your connected product through the specification.
 
-**NOTE**You do not have to implement the API calls neither code it, but only need to explain which API would be useful and how it will connect to over all system together.
+Let's create a file `api_specification.yaml` in your documentation directory and start with the overall description. A YAML file is a structured file which uses `key:values` (like JSON) and indentation as structure. The `paths` section will specify each endpoint and the `components > schemas` section will specify the data structures.
+
+```yaml
+openapi: 3.0.1
+info:
+  title: The title of your web service
+  description: >-
+    Here it should describes your web service and its purpose.
+  version: 0.0.1
+
+paths:
+# ...
+components:
+    schemas:
+# ...
+```
+
+From there, we suggest to work on one path per team member:
+
+* `/lights`: exposing functionalities of the lightbulbs
+* `/sensors`: exposing functionalities of the sensors
+* `/netdevices`: exposing functionalities of the network scanner
+
+Throughout the document, like in Python, make use of the hash `#` character to add comments.
+
+**NOTE** You do not have to implement the endpoint you specify throughout this exercise. The focus is on carefully specifying and explaining design choices.
+
+>This step is self-contained in the file `api_specification.yaml`. You do not need to report this step in the lab XP report.
+
+## Task 1.2 What to expose
+
+This is the main step of your API design, what do you want to expose. List each relevant endpoint and HTTP methods (get, post, put, delete). We usually use plurals for collections. The `operationId` is the name of the function it should call in your Python code. Explain the purpose of each endpoint, the choice of path and parameters as well as the choice of method.
+
+```yaml
+/lights:
+    post:
+        summary: What is the purpose of this endpoint?
+        operationId: createLightbulb
+```
+
+The following example could be used as a starting point to get data from your Rasberry Pi. The optional parameters are specify after the path with a question mark. The following example would look like `?from=1602828167`.
+
+```yaml
+/sensors/{sensorId}/data:
+    get:
+        summary: What is the purpose of this endpoint?
+        operationId: actions
+        parameters:
+        - name: sensorId
+            in: path
+            description: ID of sensor to look at
+            required: true
+            schema:
+                type: integer
+                format: int64
+        - name: from
+            in: path
+            description: UNIX timestamp of the start time
+            required: false
+            schema:
+                type: integer
+                format: int64
+```
+
+## Task 1.2 What to exchange?
+
+What will be exchanged between the client and the server? To understand each other, the server and the client need to know what they should send and what they should expect to receive. It is often all or part of the classes you define in your code. For example, for the `/netdevices` you might want to exchange a structure that includes the properties of the class `NetworkDevice`. Add your data structures (or schemas) in `components > schemas`
+
+```yaml
+NetworkDevice:
+      type: object
+      properties:
+        name:
+          type: string
+          example: TP-Link
+# ...
+```
+
+## Task 1.3 What to respond?
+
+For each method (get, post...) of your path, what should your endpoint respond? Here is an example for the sensors. It is ordered by HTTP status code. Specify the ones that are relevant to your case. You can find the complete list [here](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes). Notice the reference to the schema defined in Task 1.2.
+
+```yaml
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Sensor'
+        404:
+          description: Sensor not found
+          content: {}
+```
+
+
+>As mentioned, you do not have to implement these API. However, if you are curious about how the code could look like, you can paste your specification in the Swagger Editor and generate the server code for 'python-flask'.
 
 # Step 2 Connect Homes via MQTT
 
