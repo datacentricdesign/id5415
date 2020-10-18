@@ -1,6 +1,6 @@
 ---
 layout: course-page
-title: "Products, Analytics and Responsibility"
+title: "Analytics and Responsibility"
 permalink: /draft/module6/self-study
 description: "Prototyping Connected Product - Self-Study 6"
 self-study-id: 6
