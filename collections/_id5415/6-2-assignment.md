@@ -63,7 +63,7 @@ You will recognise here the [Goals-Signals-Metrics process](https://library.gv.c
 
 Once you defined your metrics, draw a dashboard on paper or with your favourite drawing software. Think about where each metric should be placed, which visualisation element to use (e.g. table, pie chart, bar chart) and how you expect the data to look like.
 
->In your lab experiment report, describe the design process of your dashboard, including a description of your goals, signals and metrics, there place on the dashboard and the expected shape of the data.
+>In your lab experiment report, describe the design process of your dashboard, including a description of your goals, signals and metrics, their place on the dashboard and the expected shape of the data.
 
 # Step 3 Make a Data Inventory
 
