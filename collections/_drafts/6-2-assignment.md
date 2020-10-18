@@ -19,41 +19,6 @@ computational_concepts:
 
 ---
 
-
-Having now reached this stage of our prototypes, we can now abstract away and analyse our products. 
-What kind of patterns can we find from analysing all of our collected data? what is the best way to represent trends? 
-What can we do with this information?
-These are the sorts of question we should now be asking. 
-
-# Step 1 - Take stock of available data 
-
-First we must think and get an accurate account of all the aggregated data we possess. Create a table/list of all sensor inputs, data sources (such as emitted events & other properties), currently deployed controllable actuators in the prototypes, as well as the time period this data collection occured for each source.  
-
-# Step 2 - What could you get from this data?
-Now, with a rough indication of what is available to you, you can, vis-a-vis the good night lamp concept,
-and indeed other connected products, we can start to think what kinds of trends we can retrieve and analyse. 
-Make a list of possible trends/analytics (at least 3 more than the examples) that we can analyse using components of our table (step 1)
-Possible examples :  
-* What is sensor with most variance in its data? ( what do sensors that exhibit extremely low variance of range of values indicate?)
-* What are the main periods of activity of our prototypes over a day, a week, and the entire period?
-* what are the most dominant events triggered by the system? Is it constant over time?
-* are the temperatures/light values consistent with day/night cycles - why/why not
-* when are the peaks of activity of your various sensors? are they related to eachother?
-* Are there any consistent  time patterns in device detections using the network (during the day, during the week)?
-
-# Step 3 - Pre-Analysis
-Given our work and experience with the prototype so far, and this list of possible information we could extract, go over each of the examples
-(and your own), and briefly explain, before looking at the data, what you might predict is the answer to these questions, and how feasible
-you estimate geting an answer to these questions with your current data is. 
-
-# Step 4 - Relating possible trends and insights with prototype
-At this point we have some enquiry points (step 2), some preliminary analysis of these, with perceived weaknesses, and the current status of the prototype given the initial vision concept. Before we try to answer these questions, we must first relate to their **relevancy** towards the development or analysis of this product. Going back to the initial concept of the course (in introduction) and its goals,  for each of these questions, relate them to this and the relevant components of the system. 
-Example: 
-A key point of the good night lamp is subtle non direct interaction between houses. knowing the peaks of activity between prototypes and how they relate to eachtother allows us to know if these products are in sync ( are we interacting mostly at the same time, or are most events missed by the other party?)  when several devices are active at the same time,  can we devise new interactions? 
-On the other side, is the product working properly? Is the rate/distribution of events reasonable? 
-
-
-
 # Step 1 Share data with the class
 
 By default, Bucket makes properties' data only available to the owner of Things and the Things themselves. In Module 5, you created a group to enable your teammates' Things to subscribe (i.e. to access) your lightbulb's status via MQTT.
@@ -72,11 +37,11 @@ The result should look as follows, your property now listing a granted access to
 
 ![Granted](/assets/img/courses/id5415/module6/assignment/1_1_2.png)
 
-You can repeat this step for all the properties we want to share, such as the three sensors (light, temperature and humidity), the Processor Usage of the Raspberry Pi and the network status.
+You can repeat this step for all the properties we want to share, such as the three sensors (light, temperature and humidity), the Processor Usage of the Raspberry Pi and the network status. You might also have text properties if you collected events.
 
 **Let's keep the IP address private as it can reveal more sensitive information.**
 
-In the left panel of Bucket, navigate to 'Shared properties'. In this page, you should see an expanding list of shared properties belonging to your peer students and course teachers. We will look at these chart in Step 3, leaving all students who want the time to share their properties.
+In the left panel of Bucket, navigate to 'Shared properties'. In this page, you should see an expanding list of shared properties belonging to your peer students and course teachers. We will look at these chart in Step 4, leaving all students who want the time to share their properties.
 
 ![Shared properties](/assets/img/courses/id5415/module6/assignment/1_1_3.png)
 
@@ -96,11 +61,43 @@ a draw of expected data
 
 a description of potential insight to extract
 
-# Step 3 Make an 
+# Step 3 Make a Data Inventory
 
+We have now an ideal product/prototype analytics dashboard. We can dive into what we have collected, individually and as a classroom, to check what we have already and what we are missing. Let's be modest. We are in the first iterations of our prototype, with limited testing. 
 
+# Task 1 Look at individual properties
 
+We can use the Bucket dashboard as well as Grafana to make an inventory of the collected data from our Things: the Raspberry Pi and the Lightbulb. The Bucket dashboard provides us with an overview of data we collected so far while Grafana shows the time-series of each property.
 
+>In your lab experiment report, create a table of all sensor inputs, data sources (such as emitted events & other properties), currently deployed controllable actuators in the prototypes, as well as the when this data collection took place for each source. 
 
-	Ask students to share their property in the Bucket group id5415-q1-20, I would add all students in this group
-	Inventory: looking at the graph mentioned above (count of data points per type in properties shared across the cohort), along the line you described: what is available... What could we get out of this data, what is missing.
+Now, with a rough indication of what is available to you, you can, vis-a-vis the good night lamp concept,
+and indeed other connected products, we can start to think what kinds of trends we can retrieve and analyse.
+
+Make a list of possible trends/analytics (at least 3 more than the examples) that we can analyse using components of our table (step 1)
+Possible examples:
+
+* What is the sensor with the most variance? (what do sensors that exhibit extremely low variance of range of values indicate?)
+* What are the main periods of activity of our prototypes over a day, a week, and the entire period?
+* what are the most dominant events triggered by the system? Is it constant over time?
+* Are the temperatures/light values consistent with day/night cycles? - why?
+* When are the peaks of activity of your various sensors? Are they related to each other?
+* Are there any consistent time patterns in device detections using the network (during the day, during the week)?
+* What are other questions that you think of while looking at your data across the course period?
+
+We can also connect this exploration to our experience throughout the course. Indeed, we were the one operating the prototype. Thus we can seek for the 'why' that emerges along the 'what/when/where' of these questions. We will contrast this ability in the next Task with data from others.
+
+>In your lab experiment report, document your answers and screenshots. Reflect on the gap to fill to enable the dashboard you designed in Step 2. What could be done to the prototypes to fill this gap.
+
+# Task 2 Look at properties across the classroom
+
+To look at the fleet of prototypes across the classroom, we can go back to the Bucket page 'Shared Properties' (visited in Step 1). You should now see the list of properties shared by students for this edition of the course.
+
+* How many properties do you have access to, per type?
+* How many data point do you have access to in total? per type?
+* What insights can we extract from the Pie chart?
+* What insights can we extract from the bar chart?
+
+What hypotheses can you draw from the data? A probable example could be 'Students test their prototypes on Mondays and Fridays'. Maybe you can hypothesise more unexpected behaviours? In contrast with the previous task, we now 'hypothesise'. The data give us an account of what happened but we were not operating the prototypes of others. It is important to always highlight our confidence in the conclusion we draw and what motivate these conclusions.
+
+>In your lab experiment report, document your answers with text and screenshots. Reflect on the gap to fill to enable the dashboard you designed in Step 2. What could be done to the prototypes to fill this gap.
