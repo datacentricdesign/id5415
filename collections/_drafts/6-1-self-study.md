@@ -18,12 +18,7 @@ introduction: In this module, the self-study material focus on product analytics
 
 
 
-Data provides designers with a unique opportunity to take responsibility over the impact of their solutions.
-
-Impact, taking responsibility, measuring
-
-exploration, inspiration
-
+Data provides designers with a unique opportunity to take responsibility over the impact of their solutions. Beyond exploration and inspiration from designing with data, data can also be used to monitor and validate design goals to inform the next iteration of the product.
 
 # Data products
 
@@ -39,11 +34,15 @@ This data requirement can come from three angles.
 
 # Data and Connected Products
 
+<span class="mdi mdi-text-box-outline"></span> Reading (30 minutes)
+
 As mentioned in the introduction of the course, the Internet of Things behind connected products is all about data. It is fuelling all three cases of data products described above. Read the following article from Havard Review Business explaining [How Smart, Connected Products Are Transforming Companies](https://hbr.org/2015/10/how-smart-connected-products-are-transforming-companies).
 
 As further reading, we suggest having a look into the Delft Design Guide page 191: Usage analytics.
 
 # Metrics and Dashboards
+
+<span class="mdi mdi-text-box-outline"></span> Reading (30 minutes)
 
 The transformation of data into actionable knowledge requires the definition of metrics: a formalisation of your design goals into measurable quantities to monitor. This is a common terminology along with Key Performance Indicators (KPI) in the Lean Startup context. For example, metrics reflecting business growth and the number of customers. 
 
