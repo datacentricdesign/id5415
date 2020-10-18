@@ -37,45 +37,23 @@ This data requirement can come from three angles.
 * **A business model relying on the data.** The '[you're Not the Customer; You're the Product](https://quoteinvestigator.com/2017/07/16/product/)' from the 1970s was referring to the television advertisements being the core business proposition, sold to companies to target their audience. [Google](https://ads.google.com/home/) brought this to a new level, using data to disseminate personalised advertisement to each individual. A product such as [Mobike](https://mobike.com/global/) tracking location or the [June Oven](https://juneoven.com/) taking pictures of every meal cooked in the oven illustrate the next step of this process in the physical world.
 * **A decision process supported or automated by data.** Here the data serve the continuous and iterative design process. Navin Iyengar illustrates this approach as a Product Designer at Netflix in his talk [Design Like a Scientist](https://www.youtube.com/watch?v=XRd6Ddn4ZSY).
 
-## Data and connected products
+# Data and Connected Products
 
-As mentioned in the introduction of the course, the Internet of Things enabling the connected products is all about data, driving the 
+As mentioned in the introduction of the course, the Internet of Things behind connected products is all about data. It is fuelling all three cases of data products described above. Read the following article from Havard Review Business explaining [How Smart, Connected Products Are Transforming Companies](https://hbr.org/2015/10/how-smart-connected-products-are-transforming-companies).
 
-Havard Review Business [How Smart, Connected Products Are Transforming Companies](https://hbr.org/2015/10/how-smart-connected-products-are-transforming-companies)
+As further reading, we suggest having a look into the Delft Design Guide page 191: Usage analytics.
 
+# Metrics and Dashboards
 
-difference between building a software 'agile design process' and a data product, with an 'experimental design process'
+The transformation of data into actionable knowledge requires the definition of metrics: a formalisation of your design goals into measurable quantities to monitor. This is a common terminology along with Key Performance Indicators (KPI) in the Lean Startup context. For example, metrics reflecting business growth and the number of customers. 
 
-that's where it starts connecting with prototyping
+However, when apply to design the metrics need to shift towards design goals. In the user experience context, Jenny Chang gives concrete examples in her article [How to Set Metrics for Design](https://amplitude.com/blog/how-to-set-metrics-for-design). Goals, signals and metrics are further explained in the [HEART framework](https://library.gv.com/how-to-choose-the-right-ux-metrics-for-your-product-5f46359ab5be) by Kerry Rodden.
 
-user experience in the context of data products, non-deterministic but probabilistic
+Whether you are designing software or connected products with data, you switch from a deterministic to a probabilistic model: you do not know how the data is going to look like. Your prototyping skills will help you to get more realistic insights on this data. However, it will take iterations and requires measuring your progress against your design goals.
 
-When you design, you do not know how the data is going to look like
+All discussions around data products and metrics come down to the design of `analytics dashboard`. In this course, we already touched on dashboard tools such as Grafana that enable the organisation of data visualisation to monitor key metrics.
 
-
-## Measure
-
-
-## Metrics
-
-Lean start up, business metric such as 
-
-UX, the HEART framework from google
-Metric-driven design
-
-
-Page 191 Delft Design Guide, Usage analytics
-
-
-connected product and prototype
-
-## Story telling
-
-As a designer
-
-http://ywanvanloon.com/wp-content/uploads/2014/05/2010-Narrative-InfoVis.pdf
-
-Dashboard: make sure you communicate clearly to the rest of your team, which insights you are counting on top learn from the current version of the product/prototype for the next iteration.
+Here there is only one key message: engineers will make sure technology performance metrics are covered as much as managers for business performance metrics. As a designer of connected products, make sure you communicate clearly to the rest of your team, which metrics you want to see out of the product to learn from the current version of the product/prototype for the next iteration.
 
 # IoT Manifesto
 
@@ -91,6 +69,7 @@ Check your understanding with the following quiz! It is anonymous and you can tr
 
 <iframe width="640px" height= "600px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=TVJuCSlpMECM04q0LeCIe-EN8Fz6eUZIqbayPT_HeNhUNjlXUU82TjJUV0pVMlNSUUVCWENIRVkwSC4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
 
+## Further Reading
 
-[Intelligent Assets: Unlocking the circular economy potential](https://www.ellenmacarthurfoundation.org/publications/intelligent-assets)
-[Miele: Connected appliances shouldn't be about gimmicks, but making life easier](https://www.pocket-lint.com/smart-home/news/127242-miele-connected-appliances-shouldn-t-be-about-gimmicks-but-making-life-easier)
+* [Intelligent Assets: Unlocking the circular economy potential](https://www.ellenmacarthurfoundation.org/publications/intelligent-assets)
+* [Miele: Connected appliances shouldn't be about gimmicks, but making life easier](https://www.pocket-lint.com/smart-home/news/127242-miele-connected-appliances-shouldn-t-be-about-gimmicks-but-making-life-easier)
