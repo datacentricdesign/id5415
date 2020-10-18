@@ -22,7 +22,7 @@ Data provides designers with a unique opportunity to take responsibility over th
 
 # Data products
 
-<span class="mdi mdi-text-box-outline"></span> Reading (30 minutes)
+<span class="mdi mdi-text-box-outline"></span> Reading and <span class="mdi mdi-video"></span> Watching (30 minutes)
 
 There are many different definitions of what a data product is. So we will start by setting a definition for this course. `Data products` are products that would not be possible without the use of data in their creation, in the process of building them.
 
@@ -56,7 +56,7 @@ Here there is only one key message: engineers will make sure technology performa
 
 # IoT Manifesto
 
-<span class="mdi mdi-video"></span> Video (15 minutes)
+<span class="mdi mdi-video"></span> Watching (15 minutes)
 
 Throughout the course, we highlighted the power of designers with connected product and data. In this final section, we walk through [The IoT Design Manifesto](https://www.iotmanifesto.com/)to unpack its guidelines for responsible design in a connected world.
 
