@@ -65,7 +65,7 @@ a description of potential insight to extract
 
 We have now an ideal product/prototype analytics dashboard. We can dive into what we have collected, individually and as a classroom, to check what we have already and what we are missing. Let's be modest. We are in the first iterations of our prototype, with limited testing. 
 
-# Task 1 Look at individual properties
+## Task 1 Look at individual properties
 
 We can use the Bucket dashboard as well as Grafana to make an inventory of the collected data from our Things: the Raspberry Pi and the Lightbulb. The Bucket dashboard provides us with an overview of data we collected so far while Grafana shows the time-series of each property.
 
@@ -89,7 +89,7 @@ We can also connect this exploration to our experience throughout the course. In
 
 >In your lab experiment report, document your answers and screenshots. Reflect on the gap to fill to enable the dashboard you designed in Step 2. What could be done to the prototypes to fill this gap.
 
-# Task 2 Look at properties across the classroom
+## Task 2 Look at properties across the classroom
 
 To look at the fleet of prototypes across the classroom, we can go back to the Bucket page 'Shared Properties' (visited in Step 1). You should now see the list of properties shared by students for this edition of the course.
 
