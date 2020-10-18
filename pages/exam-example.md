@@ -70,7 +70,7 @@ VII. Choose two physical network technologies relevant in the context of a conne
 VIII. Define and illustrate with an example of a handler in the context of a smart speaker (2 points).
 
 ```md
-You 1-sentence definition of a Handler: (.5)
+Your 1-sentence definition of a Handler: (.5)
 Example: (1.5)
 ```
 
@@ -78,9 +78,9 @@ IX. Give an example of the use of MQTT and HTTP in the context of Smart heating.
 
 ```md
 * MQTT example: ... (1)
-  * Better than HTTP because... (1)
+  * It is better than HTTP because... (1)
 * HTTP example: ... (1)
-  * Better than MQTT because... (1)
+  * It is better than MQTT because... (1)
 ```
 
 X. Specify and describe the role of two HTTP endpoints to expose services of a door lock following the REST API guidelines, using two different HTTP methods (4 points).
