@@ -1,16 +1,14 @@
 ---
 layout: course-page
-title: "Data Analytics"
+title: "Analytics Notebook"
 permalink: /draft/module6/labxp
 description: "Prototyping Connected Products - Lab Experiment 6"
 labxp-of: id5415-6
-introduction: In this Lab Experiment,
+introduction: In this last Lab Experiment, we will use a Jupyter Notebook to guide us through common data charts and data analytics using data from Raspberry Pis and lightbulbs of the whole classroom.
 technique:
 metrics:
 report:
 ---
-
-Some intro
 
 ---
 
@@ -19,4 +17,4 @@ Some intro
 
 ---
 
-TODO full Lab XP
+#

@@ -16,8 +16,6 @@ introduction: In this module, the self-study material focus on product analytics
 
 ---
 
-TODO Full self-study
-
 # Data Products
 
 
