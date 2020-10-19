@@ -5,6 +5,9 @@ permalink: /documentation/index.html
 description: "Structure of the master branch at the end of the course."
 ---
 
+Here is a snapshot of what the minimal documentation should include by the end of the course.
+
+`S1` refers to Step 1 while `T1.1` refers to Task 1.1 as part of assignments and lab experiments
 
 ```
 ./id5415-repository                     
