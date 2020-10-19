@@ -107,7 +107,7 @@ MQTT has two main advantages:
 A key challenge of prototyping connected products is the code development on several devices. In this distributed context, we want to ask other devices to do tasks for us and let us know when it is done. This principle is also true inside our programme. Let's introduce two examples:
 
 * We ask a weather service to send us the forecast for the following day.
-* We have a webpage with a button. As soon as the a user click on this button we want to turn ON the light.
+* We have a webpage with a button. As soon as a user clicks on this button we want to turn ON the light.
 
 In both cases, we need to wait, for the weather data or for user interaction. Meanwhile, we could sleep, nothing would happen, and regularly we would check if there is any change. Both tasks could be addressed with a loop, continuously asking:
 * __'did you get the result?', 'did you get the result?', 'did you get the result?'...__
