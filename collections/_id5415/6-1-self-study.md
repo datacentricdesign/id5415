@@ -17,7 +17,6 @@ introduction: In this module, the self-study material focus on product analytics
 ---
 
 
-
 Data provides designers with a unique opportunity to take responsibility over the impact of their solutions. Beyond exploration and inspiration from designing with data, data can also be used to monitor and validate design goals to inform the next iteration of the product.
 
 # Data products
@@ -46,11 +45,11 @@ As further reading, we suggest having a look into the Delft Design Guide page 19
 
 The transformation of data into actionable knowledge requires the definition of metrics: a formalisation of your design goals into measurable quantities to monitor. This is a common terminology along with Key Performance Indicators (KPI) in the Lean Startup context. For example, metrics reflecting business growth and the number of customers. 
 
-However, when apply to design the metrics need to shift towards design goals. In the user experience context, Jenny Chang gives concrete examples in her article [How to Set Metrics for Design](https://amplitude.com/blog/how-to-set-metrics-for-design). Goals, signals and metrics are further explained in the [HEART framework](https://library.gv.com/how-to-choose-the-right-ux-metrics-for-your-product-5f46359ab5be) by Kerry Rodden.
+However, when applied to design the metrics need to shift towards design goals. In the user experience context, Jenny Chang gives concrete examples in her article [How to Set Metrics for Design](https://amplitude.com/blog/how-to-set-metrics-for-design). Goals, signals and metrics are further explained in the [HEART framework](https://library.gv.com/how-to-choose-the-right-ux-metrics-for-your-product-5f46359ab5be) by Kerry Rodden.
 
 Whether you are designing software or connected products with data, you switch from a deterministic to a probabilistic model: you do not know how the data is going to look like. Your prototyping skills will help you to get more realistic insights on this data. However, it will take iterations and requires measuring your progress against your design goals.
 
-All discussions around data products and metrics come down to the design of `analytics dashboard`. In this course, we already touched on dashboard tools such as Grafana that enable the organisation of data visualisation to monitor key metrics. The tools do not make the dashboard. Design time is required to find the right story for your audience: you, your team and beyond. Edward Segel and Jeffrey Heer provides concrete input on [how to tell stories with data](http://ywanvanloon.com/wp-content/uploads/2014/05/2010-Narrative-InfoVis.pdf). Among other resources, Sandra Durcevic captures some fundamental about dashboard design on the [Datapine Blog](https://www.datapine.com/blog/how-to-choose-the-right-data-visualization-types/).
+All discussions around data products and metrics come down to the design of `analytics dashboard`. In this course, we already touched on dashboard tools such as Grafana that enable the organisation of data visualisation to monitor key metrics. The tools do not make the dashboard. Design time is required to find the right story for your audience: you, your team and beyond. Edward Segel and Jeffrey Heer provide concrete input on [how to tell stories with data](http://ywanvanloon.com/wp-content/uploads/2014/05/2010-Narrative-InfoVis.pdf). Among other resources, Sandra Durcevic captures some fundamental about dashboard design on the [Datapine Blog](https://www.datapine.com/blog/how-to-choose-the-right-data-visualization-types/).
 
 
 Here there is only one key message: engineers will make sure technology performance metrics are covered as much as managers for business performance metrics. As a designer of connected products, make sure you communicate clearly to the rest of your team, which metrics you want to see out of the product to learn from the current version of the product/prototype for the next iteration.
