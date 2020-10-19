@@ -49,7 +49,9 @@ Beyond the choice between wired and wireless, there are physical network protoco
 * Range: how far information can be sent (without a device receiving and transmitting again)? Postscapes gives [an overview of network protocol per range](https://www.postscapes.com/wp-content/uploads/2018/03/connectivity-diagram.jpg).
 * Data rate: how much information can be sent per seconds?
 * Power usage: how much power is required to send and receive information?
-* Cost: how much data does it cost to set up the network infrastructure (if necessary) and to use it?
+* Cost: how much does it cost to set up the network infrastructure (if necessary) and to use it?
+
+In this context, cost should be understood broadly as the effort by stakeholders to switch to this 'new' infrastructure. It ranges from user acceptability (e.g. switching from WiFi to a new protocol) to environment restrictions (e.g. hospital regulation on wireless technologies).
 
 As designers, you are at the centre of these network technology choices. With your holistic view on the context and the problem to be addressed, you the key factors that should influence the decision.
 
