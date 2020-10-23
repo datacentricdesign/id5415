@@ -20,6 +20,8 @@ report:
 
 >When opening VS Code, we first load the Python environment.
 
+# Step 0 Set up Jupyter Notebook
+
 Let's update package of the data-centric design lab.
 
 ```bash
