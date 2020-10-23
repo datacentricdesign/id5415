@@ -1,6 +1,6 @@
 # Site settings
 title: Prototyping Connected Products
-description: The full course material for the Master Elective id5415 from TU Delft / IDE.
+description: The full, open-source course material for the Master Elective id5415 from TU Delft / IDE.
 baseurl: ""
 url: "https://id5415.datacentricdesign.org"
 
