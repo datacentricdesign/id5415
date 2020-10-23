@@ -73,7 +73,7 @@ We have now an ideal product/prototype analytics dashboard. We can dive into wha
 
 We can use the Bucket dashboard as well as Grafana to make an inventory of the collected data from our Things: the Raspberry Pi and the Lightbulb. The Bucket dashboard provides us with an overview of data we collected so far while Grafana shows the time-series of each property.
 
->In your lab experiment report, create a table of all sensor inputs, data sources (such as emitted events & other properties), currently deployed controllable actuators in the prototypes, as well as the when this data collection took place for each source. 
+>In your lab experiment report, create a table of all sensor inputs, data sources (such as emitted events & other properties), currently deployed controllable actuators in the prototypes, as well as when this data collection took place for each source. 
 
 Now, with a rough indication of what is available to you, you can, vis-a-vis the good night lamp concept,
 and indeed other connected products, we can start to think what kinds of trends we can retrieve and analyse.
