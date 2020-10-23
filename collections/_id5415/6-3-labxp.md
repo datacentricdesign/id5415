@@ -35,7 +35,7 @@ To use Jupyter Notebook on our machine, we install it with pip.
 pip install jupyter
 ```
 
-Download the following notebook and save it a the root of your project directory: [labxp6.ipynb](/assets/labxp6.ipynb)
+Download the following notebook and save it a the root of your project directory: [labxp6.ipynb](/assets/labxp-6.ipynb)
 
 In the Terminal of VS code, start Jupyter with the following command. Running this command should redirect you to your favourite web browser and open the Jupyter web interface. Otherwise, a link shows up in the Terminal, you can copy and paste it in your web browser.
 
@@ -43,7 +43,7 @@ In the Terminal of VS code, start Jupyter with the following command. Running th
 python -m jupyter notebook
 ```
 
-By default, Jupyter lists the files in the current directory which should be your project directory. Click on the file labxp6.ipynb to start the notebook.
+By default, Jupyter lists the files in the current directory which should be your project directory. Click on the file labxp-6.ipynb to start the notebook.
 
 If this is your first experience with a Jupyter Notebook, you can find a [quick tour here](https://www.youtube.com/watch?v=jZ952vChhuI).
 
