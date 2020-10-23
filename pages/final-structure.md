@@ -30,5 +30,5 @@ Here is a snapshot of what the minimal documentation should include by the end o
 │       ├── lab-xp-5.md                 # S2 MQTT Architecture diagram
 │       └── lab-xp-6.md                 # S2 Design process dashboard, T3.1 Data inventory, T3.2 Data inventory 
 │
-└── src                                 # Dorectory containing your commented code
+└── src                                 # Directory containing your commented code
 ```
