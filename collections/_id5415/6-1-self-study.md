@@ -62,6 +62,12 @@ Throughout the course, we highlighted the power of designers with connected prod
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rg3poNvpAHg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+# Quiz
+
+Check your understanding with the following quiz! It is anonymous and you can try as many times as you want!
+
+<iframe width="640px" height= "600px" src= "https://forms.microsoft.com/Pages/ResponsePage.aspx?id=TVJuCSlpMECM04q0LeCIe-EN8Fz6eUZIqbayPT_HeNhUNjlXUU82TjJUV0pVMlNSUUVCWENIRVkwSC4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+
 ## Further Reading
 
 * [Intelligent Assets: Unlocking the circular economy potential](https://www.ellenmacarthurfoundation.org/publications/intelligent-assets)
