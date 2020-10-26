@@ -75,3 +75,10 @@ An HTTP request can also contain a `message-body`, information that we would wan
 <span class="mdi mdi-text-box-outline"></span> Reading (45 minutes)
 
 Let's now close the loop. We know what is an API, and we have an overview of how a web service can use the same principle as web pages to enable communication between machines. A REST API brings a set of principles on top of HTTP requests to specify the APIs of your web service. Have a look at [https://www.restapitutorial.com](https://www.restapitutorial.com) to explore these principles.
+
+
+# Quiz
+
+Check your understanding with the following quiz! It is anonymous and you can try as many times as you want!
+
+<iframe width="640px" height= "600px" src= "https://forms.microsoft.com/Pages/ResponsePage.aspx?id=TVJuCSlpMECM04q0LeCIe-EN8Fz6eUZIqbayPT_HeNhUN1hCQllTTkNQRDFVM1czWUtFRlZISk9QNC4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
