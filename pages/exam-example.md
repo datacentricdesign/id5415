@@ -5,6 +5,7 @@ permalink: /exam/index.html
 description: "Series of 12 statements which can be asked during the individual exam."
 ---
 
+>Questions I and II refer to Module 1
 
 I. Name, define and illustrate with an example each of the three essential prototyping types when designing connected products in the context of a smart speaker? (6 points)
 
@@ -32,9 +33,13 @@ II. Name, define and illustrate with an example each of the five IoT layers in t
   * example (1)
 ```
 
+>Questions III and IV refer to Module 2
+
 III. Define and comment the skeleton of a Python class (1 point) with two attributes (1 point), a constructor (1 point) and two methods (1 point) to model a connected camera (4 points).
 
 IV. Explain in your words the role of a Git commit (2 points).
+
+>Questions V and VI refer to Module 3
 
 V. We want to capture inhabitant presence in the context of a connected lock. Pick two sensors and compare them based on the selection criteria (6 points)
 
@@ -57,6 +62,8 @@ VI. Name, define and illustrate with an example each of the three time-lenses to
   * example (1.5)
 ```
 
+>Questions VII and VIII refers to Module 4
+
 VII. Choose two physical network technologies relevant in the context of a connected fridge and compare them based on the three of the network selection criteria (6 points).
 
 ```md
@@ -73,6 +80,8 @@ VIII. Define and illustrate with an example of a handler in the context of a sma
 Your 1-sentence definition of a Handler: (.5)
 Example: (1.5)
 ```
+
+>Questions IX and X refer to Module 5
 
 IX. Give an example of the use of MQTT and HTTP in the context of Smart heating. In each example, explain why the chosen protocol would be better than its counterpart (4 points).
 
@@ -91,6 +100,8 @@ X. Specify and describe the role of two HTTP endpoints to expose services of a d
 * Endpoint 2: ... (1)
   * Description: ... (1)
 ```
+
+>Questions XI and XII refer to Module 6
 
 XI. Give a key element of a smart oven that makes it a data product (2 points)
 
