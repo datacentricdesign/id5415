@@ -30,7 +30,7 @@
     "gulp-plumber": "1.2.1",
     "gulp-stylus": "2.7.0",
     "gulp-uglify": "3.0.2",
-    "lodash": "4.17.20",
+    "lodash": "4.17.21",
     "minimatch": "3.0.4",
     "minimist": "1.2.5"
   },
